@@ -1,13 +1,14 @@
-package org.woehlke.simulation.evolution.gui;
+package org.woehlke.simulation.evolution.view;
 
-import org.woehlke.simulation.evolution.dom.ISimGenWorld;
-import org.woehlke.simulation.evolution.dom.SimGenWorld;
-import org.woehlke.simulation.evolution.activities.ISimGenController;
-import org.woehlke.simulation.evolution.activities.SimGenController;
-import org.woehlke.simulation.evolution.beans.SimGenPoint;
+import org.woehlke.simulation.evolution.model.SimGenWorld;
+import org.woehlke.simulation.evolution.control.SimGenController;
+import org.woehlke.simulation.evolution.model.SimGenPoint;
 
+import javax.accessibility.Accessible;
 import java.applet.Applet;
 import java.awt.*;
+import java.awt.image.ImageObserver;
+import java.io.Serializable;
 
 /**
  * (C) 2006 - 2008 Thomas Woehlke
@@ -16,11 +17,12 @@ import java.awt.*;
  * Date: 04.02.2006
  * Time: 18:33:14
  */
-public class SimGenApplet extends Applet implements ISimGenApplet {
+public class SimGenApplet extends Applet implements ImageObserver, MenuContainer, Serializable, Accessible {
+
     private Label title = new Label("SimGen");
-    private ISimGenController controllerThread;
-    private ISimGenWorldCanvas canvas;
-    private ISimGenWorld world;
+    private SimGenController controllerThread;
+    private SimGenWorldCanvas canvas;
+    private SimGenWorld world;
     private int scale = 2;
     private int width = 320 * scale;
     private int height = 234 * scale;
@@ -35,7 +37,7 @@ public class SimGenApplet extends Applet implements ISimGenApplet {
         world = new SimGenWorld(width, height);
         canvas = new SimGenWorldCanvas(width, height);
         canvas.setWorld(world);
-        this.add((Canvas) canvas, BorderLayout.CENTER);
+        this.add(canvas, BorderLayout.CENTER);
         controllerThread.setCanvas(canvas);
         controllerThread.setWorld(world);
         controllerThread.start();
@@ -51,15 +53,15 @@ public class SimGenApplet extends Applet implements ISimGenApplet {
         return canvas.getDimensions();
     }
 
-    public ISimGenWorldCanvas getCanvas() {
+    public SimGenWorldCanvas getCanvas() {
         return canvas;
     }
 
-    public ISimGenController getControllerThread() {
+    public SimGenController getControllerThread() {
         return controllerThread;
     }
 
-    public void setControllerThread(ISimGenController controllerThread) {
+    public void setControllerThread(SimGenController controllerThread) {
         this.controllerThread = controllerThread;
     }
 }

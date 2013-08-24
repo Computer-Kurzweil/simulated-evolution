@@ -1,6 +1,4 @@
-package org.woehlke.simulation.evolution.dom;
-
-import org.woehlke.simulation.evolution.beans.SimGenPoint;
+package org.woehlke.simulation.evolution.model;
 
 import java.util.Random;
 
@@ -11,14 +9,14 @@ import java.util.Random;
  * Date: 04.02.2006
  * Time: 19:06:43
  */
-public class SimGenCell implements ISimGenCell {
+public class SimGenCell {
     private SimGenPoint pos;
     private SimGenPoint max;
     private Random random;
-    private ISimGenCore core;
-    private ESimGenDna orientation;
+    private SimGenCore core;
+    private SimGenDna orientation;
 
-    private ISimGenLifeCycle lifeCycle;
+    private SimGenLifeCycle lifeCycle;
 
     public SimGenCell(SimGenPoint max, SimGenPoint pos, Random random) {
         this.max = new SimGenPoint(max);
@@ -35,21 +33,21 @@ public class SimGenCell implements ISimGenCell {
         this.lifeCycle = new SimGenLifeCycle();
     }
 
-    private ESimGenDna getRandomOrientation() {
-        int dnaLength = ESimGenDna.values().length;
+    private SimGenDna getRandomOrientation() {
+        int dnaLength = SimGenDna.values().length;
         int dnaBase = random.nextInt(dnaLength);
         if (dnaBase < 0) {
             dnaBase *= -1;
         }
-        return ESimGenDna.values()[dnaBase];
+        return SimGenDna.values()[dnaBase];
     }
 
     private void getNextOrientation() {
-        ESimGenDna randomOrientation = core.getRandomOrientation();
+        SimGenDna randomOrientation = core.getRandomOrientation();
         int iOrientation = orientation.ordinal();
         int iRandomOrientation = randomOrientation.ordinal();
-        int newOrientation = (iOrientation + iRandomOrientation) % ESimGenDna.values().length;
-        orientation = ESimGenDna.values()[newOrientation];
+        int newOrientation = (iOrientation + iRandomOrientation) % SimGenDna.values().length;
+        orientation = SimGenDna.values()[newOrientation];
     }
 
     public void move() {
@@ -88,14 +86,14 @@ public class SimGenCell implements ISimGenCell {
         //}
     }
 
-    public ISimGenCell cellDivisionFactory() {
-        ISimGenCore rna = core.mitosisFactory();
+    public SimGenCell cellDivisionFactory() {
+        SimGenCore rna = core.mitosisFactory();
         lifeCycle.haveSex();
-        ISimGenCell child = new SimGenCell(lifeCycle.getFat(), rna, pos, max, random);
+        SimGenCell child = new SimGenCell(lifeCycle.getFat(), rna, pos, max, random);
         return child;
     }
 
-    private SimGenCell(int fat, ISimGenCore rna, SimGenPoint pos, SimGenPoint max, Random random) {
+    private SimGenCell(int fat, SimGenCore rna, SimGenPoint pos, SimGenPoint max, Random random) {
         lifeCycle = new SimGenLifeCycle(fat);
         this.max = new SimGenPoint(max);
         this.pos = new SimGenPoint(pos);

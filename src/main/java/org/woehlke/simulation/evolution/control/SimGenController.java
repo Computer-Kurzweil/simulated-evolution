@@ -1,8 +1,8 @@
-package org.woehlke.simulation.evolution.activities;
+package org.woehlke.simulation.evolution.control;
 
-import org.woehlke.simulation.evolution.dom.ISimGenWorld;
-import org.woehlke.simulation.evolution.gui.ISimGenWorldCanvas;
-import org.woehlke.simulation.evolution.beans.SimGenPoint;
+import org.woehlke.simulation.evolution.model.SimGenPoint;
+import org.woehlke.simulation.evolution.model.SimGenWorld;
+import org.woehlke.simulation.evolution.view.SimGenWorldCanvas;
 
 /**
  * (C) 2006 - 2008 Thomas Woehlke
@@ -12,10 +12,10 @@ import org.woehlke.simulation.evolution.beans.SimGenPoint;
  * Time: 00:36:20
  */
 public class SimGenController extends Thread
-        implements ISimGenController {
-    private ISimGenWorld world;
+        implements Runnable {
+    private SimGenWorld world;
     private Boolean goOn;
-    private ISimGenWorldCanvas canvas;
+    private SimGenWorldCanvas canvas;
     private SimGenPoint max;
 
     public SimGenController() {
@@ -47,11 +47,11 @@ public class SimGenController extends Thread
         }
     }
 
-    public ISimGenWorldCanvas getCanvas() {
+    public SimGenWorldCanvas getCanvas() {
         return canvas;
     }
 
-    public void setCanvas(ISimGenWorldCanvas canvas) {
+    public void setCanvas(SimGenWorldCanvas canvas) {
         this.canvas = canvas;
     }
 
@@ -71,11 +71,11 @@ public class SimGenController extends Thread
         this.goOn = goOn;
     }
 
-    public ISimGenWorld getWorld() {
+    public SimGenWorld getWorld() {
         return world;
     }
 
-    public void setWorld(ISimGenWorld world) {
+    public void setWorld(SimGenWorld world) {
         this.world = world;
     }
 }

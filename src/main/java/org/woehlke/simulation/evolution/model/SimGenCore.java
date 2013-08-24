@@ -1,4 +1,4 @@
-package org.woehlke.simulation.evolution.dom;
+package org.woehlke.simulation.evolution.model;
 
 import java.util.Random;
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ import java.util.Iterator;
  * Date: 04.02.2006
  * Time: 19:55:23
  */
-public class SimGenCore implements ISimGenCore {
+public class SimGenCore {
     private ArrayList<Integer> dna;
     private int maxValue = 16;
     private int maxInitialValue = 8;
@@ -44,31 +44,31 @@ public class SimGenCore implements ISimGenCore {
     }
 
     private void birth() {
-        for (int i = 0; i < ESimGenDna.values().length; i++) {
+        for (int i = 0; i < SimGenDna.values().length; i++) {
             int gen = random.nextInt() % maxInitialValue;
             //System.out.println("Gen:"+gen);
             dna.add(gen);
         }
     }
 
-    public ISimGenCore mitosisFactory() {
+    public SimGenCore mitosisFactory() {
         ArrayList<Integer> rna = new ArrayList<Integer>();
         Iterator<Integer> it = dna.iterator();
         while (it.hasNext()) {
             rna.add(it.next());
         }
         SimGenCore child = new SimGenCore(random, rna);
-        int baseIndex = random.nextInt() % ESimGenDna.values().length;
+        int baseIndex = random.nextInt() % SimGenDna.values().length;
         if (baseIndex < 0) {
             baseIndex *= -1;
         }
-        ESimGenDna base[] = ESimGenDna.values();
+        SimGenDna base[] = SimGenDna.values();
         this.decrease(base[baseIndex]);
         child.increase(base[baseIndex]);
         return child;
     }
 
-    private void increase(ESimGenDna base) {
+    private void increase(SimGenDna base) {
         int value = dna.get(base.ordinal());
         if (value == maxValue) {
             for (int i = 0; i < dna.size(); i++) {
@@ -82,7 +82,7 @@ public class SimGenCore implements ISimGenCore {
         dna.set(base.ordinal(), val);
     }
 
-    private void decrease(ESimGenDna base) {
+    private void decrease(SimGenDna base) {
         int value = dna.get(base.ordinal());
         if (value == -maxValue) {
             for (int i = 0; i < dna.size(); i++) {
@@ -94,9 +94,9 @@ public class SimGenCore implements ISimGenCore {
         dna.set(base.ordinal(), 0);
     }
 
-    public ESimGenDna getRandomOrientation() {
-        ESimGenDna orientation = ESimGenDna.FORWARD;
-        int dnaLength = ESimGenDna.values().length;
+    public SimGenDna getRandomOrientation() {
+        SimGenDna orientation = SimGenDna.FORWARD;
+        int dnaLength = SimGenDna.values().length;
         double sumDna = 0.0;
         for (int i = 0; i < dnaLength; i++) {
             double val = dna.get(i).longValue() ^ 2;
@@ -134,7 +134,7 @@ public class SimGenCore implements ISimGenCore {
                     newInt = i;
                 }
             }
-            orientation = ESimGenDna.values()[newInt];
+            orientation = SimGenDna.values()[newInt];
         }
         //System.out.println(orientation+" "+sumDna);
         return orientation;

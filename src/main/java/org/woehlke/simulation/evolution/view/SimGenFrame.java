@@ -1,7 +1,11 @@
-package org.woehlke.simulation.evolution.gui;
+package org.woehlke.simulation.evolution.view;
 
+import javax.accessibility.Accessible;
 import java.awt.*;
 import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import java.awt.image.ImageObserver;
+import java.io.Serializable;
 
 /**
  * (C) 2006 - 2008 Thomas Woehlke
@@ -10,9 +14,13 @@ import java.awt.event.WindowEvent;
  * Date: 04.02.2006
  * Time: 18:47:46
  */
-public class SimGenFrame extends Frame
-        implements ISimGenFrame {
-    SimGenApplet exe;
+public class SimGenFrame extends Frame implements ImageObserver,
+        MenuContainer,
+        Serializable,
+        Accessible,
+        WindowListener {
+
+    private SimGenApplet exe;
 
     public SimGenFrame() {
         super("SimGen");

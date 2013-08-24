@@ -1,4 +1,4 @@
-package org.woehlke.simulation.evolution.beans;
+package org.woehlke.simulation.evolution.model;
 
 import java.io.Serializable;
 
@@ -10,6 +10,7 @@ import java.io.Serializable;
  * Time: 23:47:05
  */
 public class SimGenPoint implements Serializable {
+
     private int x = 0;
     private int y = 0;
 

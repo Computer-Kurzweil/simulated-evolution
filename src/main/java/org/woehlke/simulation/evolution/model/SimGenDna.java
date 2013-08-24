@@ -1,4 +1,4 @@
-package org.woehlke.simulation.evolution.dom;
+package org.woehlke.simulation.evolution.model;
 
 /**
  * (C) 2006 - 2008 Thomas Woehlke
@@ -7,7 +7,7 @@ package org.woehlke.simulation.evolution.dom;
  * Date: 04.02.2006
  * Time: 19:50:51
  */
-public enum ESimGenDna {
+public enum SimGenDna {
     FORWARD,
     RIGHT,
     RIGHT_RIGHT,

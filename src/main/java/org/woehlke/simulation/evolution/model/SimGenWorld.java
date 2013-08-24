@@ -1,6 +1,4 @@
-package org.woehlke.simulation.evolution.dom;
-
-import org.woehlke.simulation.evolution.beans.SimGenPoint;
+package org.woehlke.simulation.evolution.model;
 
 import java.util.*;
 
@@ -12,8 +10,8 @@ import java.util.*;
  * Date: 04.02.2006
  * Time: 19:06:20
  */
-public class SimGenWorld implements ISimGenWorld {
-    private ArrayList<ISimGenCell> cells;
+public class SimGenWorld {
+    private ArrayList<SimGenCell> cells;
     private int initialPopulation = 20;
     private long seed;
     private Random random;
@@ -22,7 +20,7 @@ public class SimGenWorld implements ISimGenWorld {
     private int foodPerDay = 1;
     private int worldMapFood[][];
     private ArrayList<SimGenPoint> positions;
-    SimGenPoint max;
+    private SimGenPoint max;
 
     public SimGenWorld() {
         worldMapFood = new int[X][Y];
@@ -40,7 +38,7 @@ public class SimGenWorld implements ISimGenWorld {
 
     private void createPopulation() {
         positions = new ArrayList<SimGenPoint>();
-        cells = new ArrayList<ISimGenCell>();
+        cells = new ArrayList<SimGenCell>();
         seed = new Date().getTime();
         random = new Random(seed);
         for (int i = 0; i < initialPopulation; i++) {
@@ -53,7 +51,7 @@ public class SimGenWorld implements ISimGenWorld {
                 y *= -1;
             }
             SimGenPoint pos = new SimGenPoint(x, y);
-            ISimGenCell cell = new SimGenCell(max, pos, random);
+            SimGenCell cell = new SimGenCell(max, pos, random);
             cells.add(cell);
         }
     }
@@ -77,10 +75,10 @@ public class SimGenWorld implements ISimGenWorld {
     public void letLivePopulation() {
         letFoodGrow();
         SimGenPoint pos;
-        ArrayList<ISimGenCell> children = new ArrayList<ISimGenCell>();
-        Iterator<ISimGenCell> i = cells.iterator();
+        ArrayList<SimGenCell> children = new ArrayList<SimGenCell>();
+        Iterator<SimGenCell> i = cells.iterator();
         while (i.hasNext()) {
-            ISimGenCell cell = i.next();
+            SimGenCell cell = i.next();
             cell.move();
             pos = cell.getPos();
             int x = pos.getX();
@@ -90,7 +88,7 @@ public class SimGenWorld implements ISimGenWorld {
                 worldMapFood[x][y]--;
             }
             if (cell.isPregnant()) {
-                ISimGenCell child = cell.cellDivisionFactory();
+                SimGenCell child = cell.cellDivisionFactory();
                 children.add(child);
             }
         }
@@ -98,7 +96,7 @@ public class SimGenWorld implements ISimGenWorld {
         positions = new ArrayList<SimGenPoint>();
         i = cells.iterator();
         while (i.hasNext()) {
-            ISimGenCell cell = i.next();
+            SimGenCell cell = i.next();
             SimGenPoint p = cell.getPos();
             positions.add(p);
         }

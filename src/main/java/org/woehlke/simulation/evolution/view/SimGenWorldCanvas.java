@@ -1,7 +1,7 @@
-package org.woehlke.simulation.evolution.gui;
+package org.woehlke.simulation.evolution.view;
 
-import org.woehlke.simulation.evolution.dom.ISimGenWorld;
-import org.woehlke.simulation.evolution.beans.SimGenPoint;
+import org.woehlke.simulation.evolution.model.SimGenPoint;
+import org.woehlke.simulation.evolution.model.SimGenWorld;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -14,13 +14,13 @@ import java.util.Iterator;
  * Date: 05.02.2006
  * Time: 00:51:51
  */
-public class SimGenWorldCanvas extends Canvas implements ISimGenWorldCanvas {
-    private ISimGenWorld world;
+public class SimGenWorldCanvas extends Canvas {
+    private SimGenWorld world;
     private SimGenPoint dimensions;
 
-    Color water = Color.BLACK;
-    Color food = Color.GREEN;
-    Color bazillus = Color.RED;
+    private Color water = Color.BLACK;
+    private Color food = Color.GREEN;
+    private Color bazillus = Color.RED;
 
     public SimGenWorldCanvas(int x, int y) {
         this.dimensions = new SimGenPoint(x, y);
@@ -66,11 +66,11 @@ public class SimGenWorldCanvas extends Canvas implements ISimGenWorldCanvas {
         this.dimensions = dimensions;
     }
 
-    public void setWorld(ISimGenWorld world) {
+    public void setWorld(SimGenWorld world) {
         this.world = world;
     }
 
-    public ISimGenWorld getWorld() {
+    public SimGenWorld getWorld() {
         return world;
     }
 }

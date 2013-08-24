@@ -1,4 +1,4 @@
-package org.woehlke.simulation.evolution.dom;
+package org.woehlke.simulation.evolution.model;
 
 /**
  * (C) 2006 - 2008 Thomas Woehlke
@@ -7,7 +7,7 @@ package org.woehlke.simulation.evolution.dom;
  * Date: 04.02.2006
  * Time: 23:12:31
  */
-public class SimGenLifeCycle implements ISimGenLifeCycle {
+public class SimGenLifeCycle {
     private int fat;
     private int age;
     private int hunger;
