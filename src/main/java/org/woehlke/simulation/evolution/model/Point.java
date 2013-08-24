@@ -58,4 +58,20 @@ public class Point implements Serializable {
         this.x %= p.getX();
         this.y %= p.getY();
     }
+
+    public Point[] getNeighbourhood(Point max){
+        Point neighbourhood[] = new Point[9];
+        int maxX = max.getX();
+        int maxY = max.getY();
+        neighbourhood[0]= new Point((this.x+maxX-1) % maxX,(this.y+maxY-1) % maxY);
+        neighbourhood[1]= new Point((this.x+maxX-1) % maxX,this.y);
+        neighbourhood[2]= new Point((this.x+maxX-1) % maxX,(this.y+maxY+1) % maxY);
+        neighbourhood[3]= new Point(this.x,(this.y+maxY-1) % maxY);
+        neighbourhood[4]= new Point(this.x,this.y);
+        neighbourhood[5]= new Point(this.x,(this.y+maxY+1) % maxY);
+        neighbourhood[6]= new Point((this.x+maxX+1) % maxX,(this.y+maxY-1) % maxY);
+        neighbourhood[7]= new Point((this.x+maxX+1) % maxX,this.y);
+        neighbourhood[8]= new Point((this.x+maxX+1) % maxX,(this.y+maxY+1) % maxY);
+        return neighbourhood;
+    }
 }

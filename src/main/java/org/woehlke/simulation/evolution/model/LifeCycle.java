@@ -8,20 +8,21 @@ package org.woehlke.simulation.evolution.model;
  * Time: 23:12:31
  */
 public class LifeCycle {
+
     private int fat;
     private int age;
     private int hunger;
-    private int maxFat = 1500;
-    private int maxHunger = 200;
-    private int fullAge = 800;
-    private int fatMinimumForPregnancy = 1000;
-    private int fatAtBirthDefault = 50;
-    private int fatPerFood = 5;
+    private final int MAX_FAT = 2000;
+    private final int MAX_HUNGER = 1000;
+    private final int FULL_AGE = 200;
+    private final int FAT_MINIMUM_FOR_PREGNANCY = 800;
+    private final int FAT_AT_BIRTH = 500;
+    private final int FAT_PER_FOOD = 25;
 
     public LifeCycle() {
         hunger = 0;
         age = 0;
-        fat = fatAtBirthDefault;
+        fat = FAT_AT_BIRTH;
     }
 
     public LifeCycle(int fatAtBirth) {
@@ -46,49 +47,8 @@ public class LifeCycle {
         age = 0;
     }
 
-    public int getFatPerFood() {
-        return fatPerFood;
-    }
-
-    public void setFatPerFood(int fatPerFood) {
-        this.fatPerFood = fatPerFood;
-    }
-
-    public int getFatMinimumForPregnancy() {
-        return fatMinimumForPregnancy;
-    }
-
-    public void setFatMinimumForPregnancy(int fatMinimumForPregnancy) {
-        this.fatMinimumForPregnancy = fatMinimumForPregnancy;
-    }
-
-    public int getFullAge() {
-        return fullAge;
-    }
-
-    public void setFullAge(int fullAge) {
-        this.fullAge = fullAge;
-    }
-
-    public int getMaxHunger() {
-        return maxHunger;
-    }
-
-    public void setMaxHunger(int maxHunger) {
-        this.maxHunger = maxHunger;
-    }
-
-    public int getMaxFat() {
-        return maxFat;
-    }
-
-    public void setMaxFat(int maxFat) {
-        this.maxFat = maxFat;
-    }
-
-
     public boolean isFatEnoughForSex() {
-        return fat >= fatMinimumForPregnancy;
+        return fat >= FAT_MINIMUM_FOR_PREGNANCY;
     }
 
     public boolean isPregnant() {
@@ -96,32 +56,22 @@ public class LifeCycle {
     }
 
     public boolean isOldEnoughForSex() {
-        return age >= fullAge;
+        return age >= FULL_AGE;
     }
 
     public boolean isDead() {
-        return hunger >= maxHunger;
+        return hunger >= MAX_HUNGER;
     }
 
-    public void eat() {
-        if (fat + fatPerFood <= maxFat) {
-            fat += fatPerFood;
+    public void eat(int food) {
+        if (fat + food* FAT_PER_FOOD <= MAX_FAT) {
+            fat += food* FAT_PER_FOOD;
+        }  else {
+            fat = MAX_FAT;
         }
-    }
-
-    public boolean isNotDyingForHunger() {
-        return fat > 0;
     }
 
     public int getFat() {
         return fat;
-    }
-
-    public int getFatAtBirthDefault() {
-        return fatAtBirthDefault;
-    }
-
-    public void setFatAtBirthDefault(int fatAtBirthDefault) {
-        this.fatAtBirthDefault = fatAtBirthDefault;
     }
 }

@@ -1,6 +1,5 @@
 package org.woehlke.simulation.evolution.control;
 
-import org.woehlke.simulation.evolution.model.Point;
 import org.woehlke.simulation.evolution.model.World;
 import org.woehlke.simulation.evolution.view.WorldCanvas;
 
@@ -16,7 +15,6 @@ public class Controller extends Thread
     private World world;
     private Boolean goOn;
     private WorldCanvas canvas;
-    private Point max;
 
     public Controller() {
         goOn = Boolean.TRUE;
@@ -30,7 +28,7 @@ public class Controller extends Thread
             }
             world.letLivePopulation();
             canvas.repaint();
-            try { sleep(100); }
+            try { sleep(150); }
             catch (InterruptedException e) { e.printStackTrace(); }
         }
         while (doIt);
@@ -42,32 +40,8 @@ public class Controller extends Thread
         }
     }
 
-    public WorldCanvas getCanvas() {
-        return canvas;
-    }
-
     public void setCanvas(WorldCanvas canvas) {
         this.canvas = canvas;
-    }
-
-    public Point getMax() {
-        return max;
-    }
-
-    public void setMax(Point max) {
-        this.max = max;
-    }
-
-    public Boolean getGoOn() {
-        return goOn;
-    }
-
-    public void setGoOn(Boolean goOn) {
-        this.goOn = goOn;
-    }
-
-    public World getWorld() {
-        return world;
     }
 
     public void setWorld(World world) {

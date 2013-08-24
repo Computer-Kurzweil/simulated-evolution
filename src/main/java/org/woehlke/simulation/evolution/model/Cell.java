@@ -50,32 +50,33 @@ public class Cell {
     }
 
     public void move() {
-        lifeCycle.move();
-        getNextOrientation();
-        Point move = new Point(0, 0);
-        switch (orientation) {
-            case FORWARD:
-                move = new Point(0, 2);
-                break;
-            case RIGHT:
-                move = new Point(2, 1);
-                break;
-            case RIGHT_RIGHT:
-                move = new Point(2, -1);
-                break;
-            case BACKWARDS:
-                move = new Point(0, -2);
-                break;
-            case LEFT_LEFT:
-                move = new Point(-2, -1);
-                break;
-            case LEFT:
-                move = new Point(-2, 1);
-                break;
+            if(lifeCycle.move()){
+            getNextOrientation();
+            Point move = new Point(0, 0);
+            switch (orientation) {
+                case FORWARD:
+                    move = new Point(0, 2);
+                    break;
+                case RIGHT:
+                    move = new Point(2, 1);
+                    break;
+                case RIGHT_RIGHT:
+                    move = new Point(2, -1);
+                    break;
+                case BACKWARDS:
+                    move = new Point(0, -2);
+                    break;
+                case LEFT_LEFT:
+                    move = new Point(-2, -1);
+                    break;
+                case LEFT:
+                    move = new Point(-2, 1);
+                    break;
+            }
+            position.add(move);
+            position.add(max);
+            position.normalize(max);
         }
-        position.add(move);
-        position.add(max);
-        position.normalize(max);
     }
 
     public Cell cellDivisionFactory() {
@@ -102,20 +103,12 @@ public class Cell {
         return lifeCycle.isPregnant();
     }
 
-    public void eat() {
-        lifeCycle.eat();
+    public void eat(int food) {
+        lifeCycle.eat(food);
     }
 
-    public void died() {
-        lifeCycle.isDead();
-    }
-
-    public Point getMax() {
-        return max;
-    }
-
-    public void setMax(Point max) {
-        this.max = max;
+    public boolean died() {
+        return lifeCycle.isDead();
     }
 
 }

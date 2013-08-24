@@ -23,14 +23,11 @@ public class SimulatedEvolutionApplet extends Applet implements ImageObserver, M
     private Controller controllerThread;
     private WorldCanvas canvas;
     private World world;
-    private int scale = 2;
-    private int width = 320 * scale;
-    private int height = 234 * scale;
 
     public void init() {
-        scale = 2;
-        width = 320 * scale;
-        height = 234 * scale;
+        int scale = 2;
+        int width = 320 * scale;
+        int height = 234 * scale;
         this.setLayout(new BorderLayout());
         this.add(title, BorderLayout.NORTH);
         controllerThread = new Controller();
@@ -49,19 +46,7 @@ public class SimulatedEvolutionApplet extends Applet implements ImageObserver, M
     public void stop() {
     }
 
-    public Point getCanvasDimenensions() {
+    public Point getCanvasDimensions() {
         return canvas.getDimensions();
-    }
-
-    public WorldCanvas getCanvas() {
-        return canvas;
-    }
-
-    public Controller getControllerThread() {
-        return controllerThread;
-    }
-
-    public void setControllerThread(Controller controllerThread) {
-        this.controllerThread = controllerThread;
     }
 }

@@ -15,22 +15,18 @@ import java.util.List;
  * Time: 00:51:51
  */
 public class WorldCanvas extends Canvas {
+
     private World world;
     private Point dimensions;
 
-    private Color water = Color.BLACK;
-    private Color food = Color.GREEN;
-    private Color bazillus = Color.RED;
+    private final Color WATER = Color.BLACK;
+    private final Color FOOD = Color.GREEN;
+    private final Color BAZILLUS = Color.RED;
 
     public WorldCanvas(int x, int y) {
-        this.dimensions = new org.woehlke.simulation.evolution.model.Point(x, y);
-        this.setBackground(water);
+        this.dimensions = new Point(x, y);
+        this.setBackground(WATER);
         this.setSize(x, y);
-    }
-
-    public WorldCanvas(Point dimensions) {
-        this.dimensions = dimensions;
-        this.setBackground(water);
     }
 
     public void paint(Graphics g) {
@@ -40,12 +36,12 @@ public class WorldCanvas extends Canvas {
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 if (world.hasFood(x, y)) {
-                    g.setColor(food);
+                    g.setColor(FOOD);
                     g.drawLine(x, y, x, y);
                 }
             }
         }
-        g.setColor(bazillus);
+        g.setColor(BAZILLUS);
         List<Point> population = world.getPositionsOfAllCells();
         for (Point p:population) {
             g.fillRect(p.getX() - 1, p.getY() - 1, 3, 3);
@@ -60,15 +56,7 @@ public class WorldCanvas extends Canvas {
         return dimensions;
     }
 
-    public void setDimensions(Point dimensions) {
-        this.dimensions = dimensions;
-    }
-
     public void setWorld(World world) {
         this.world = world;
-    }
-
-    public World getWorld() {
-        return world;
     }
 }
