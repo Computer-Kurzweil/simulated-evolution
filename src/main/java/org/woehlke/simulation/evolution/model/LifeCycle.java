@@ -1,13 +1,13 @@
 package org.woehlke.simulation.evolution.model;
 
 /**
- * (C) 2006 - 2008 Thomas Woehlke
- * http://www.thomas-woehlke.de
+ * (C) 2006 - 2008 Thomas Woehlke.
+ * http://thomas-woehlke.de/p/simulated-evolution/
  * @author Thomas Woehlke
  * Date: 04.02.2006
  * Time: 23:12:31
  */
-public class SimGenLifeCycle {
+public class LifeCycle {
     private int fat;
     private int age;
     private int hunger;
@@ -18,13 +18,13 @@ public class SimGenLifeCycle {
     private int fatAtBirthDefault = 50;
     private int fatPerFood = 5;
 
-    public SimGenLifeCycle() {
+    public LifeCycle() {
         hunger = 0;
         age = 0;
         fat = fatAtBirthDefault;
     }
 
-    public SimGenLifeCycle(int fatAtBirth) {
+    public LifeCycle(int fatAtBirth) {
         hunger = 0;
         age = 0;
         fat = fatAtBirth;

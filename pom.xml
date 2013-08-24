@@ -36,8 +36,8 @@
         <developerConnection>scm:git:https://github.com/phasenraum2010/simulated-evolution.git</developerConnection>
     </scm>
     <issueManagement>
-        <url>https://github.com/phasenraum2010/simulated-evolution/issues</url>
-        <system>GitHub Issues</system>
+        <url>https://github.com/phasenraum2010/simulated-evolution/issues/</url>
+        <system>GitHub</system>
     </issueManagement>
     <distributionManagement>
         <site>
@@ -336,6 +336,17 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-changes-plugin</artifactId>
                 <version>2.9</version>
+                <configuration>
+                    <githubAPIScheme>https</githubAPIScheme>
+                    <githubAPIPort>443</githubAPIPort>
+                </configuration>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>github-report</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
             </plugin>
 
             <plugin>

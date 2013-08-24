@@ -1,17 +1,21 @@
 package org.woehlke.simulation.evolution.model;
 
-import java.util.*;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Random;
 
 /**
- * (C) 2006 - 2008 Thomas Woehlke
- * http://www.thomas-woehlke.de
+ * (C) 2006 - 2008 Thomas Woehlke.
+ * http://thomas-woehlke.de/p/simulated-evolution/
  * @author Thomas Woehlke
  * User: thomas
  * Date: 04.02.2006
  * Time: 19:06:20
  */
-public class SimGenWorld {
-    private ArrayList<SimGenCell> cells;
+public class World {
+    private List<Cell> cells;
     private int initialPopulation = 20;
     private long seed;
     private Random random;
@@ -19,26 +23,26 @@ public class SimGenWorld {
     private int Y = 234;
     private int foodPerDay = 1;
     private int worldMapFood[][];
-    private ArrayList<SimGenPoint> positions;
-    private SimGenPoint max;
+    private List<Point> positions;
+    private Point max;
 
-    public SimGenWorld() {
+    public World() {
         worldMapFood = new int[X][Y];
-        max = new SimGenPoint(X, Y);
+        max = new Point(X, Y);
         createPopulation();
     }
 
-    public SimGenWorld(int x, int y) {
+    public World(int x, int y) {
         X = x;
         Y = y;
         worldMapFood = new int[X][Y];
-        max = new SimGenPoint(X, Y);
+        max = new Point(X, Y);
         createPopulation();
     }
 
     private void createPopulation() {
-        positions = new ArrayList<SimGenPoint>();
-        cells = new ArrayList<SimGenCell>();
+        positions = new ArrayList<Point>();
+        cells = new ArrayList<Cell>();
         seed = new Date().getTime();
         random = new Random(seed);
         for (int i = 0; i < initialPopulation; i++) {
@@ -50,8 +54,8 @@ public class SimGenWorld {
             if (y < 0) {
                 y *= -1;
             }
-            SimGenPoint pos = new SimGenPoint(x, y);
-            SimGenCell cell = new SimGenCell(max, pos, random);
+            Point pos = new Point(x, y);
+            Cell cell = new Cell(max, pos, random);
             cells.add(cell);
         }
     }
@@ -74,13 +78,11 @@ public class SimGenWorld {
 
     public void letLivePopulation() {
         letFoodGrow();
-        SimGenPoint pos;
-        ArrayList<SimGenCell> children = new ArrayList<SimGenCell>();
-        Iterator<SimGenCell> i = cells.iterator();
-        while (i.hasNext()) {
-            SimGenCell cell = i.next();
+        Point pos;
+        List<Cell> children = new ArrayList<Cell>();
+        for (Cell cell:cells) {
             cell.move();
-            pos = cell.getPos();
+            pos = cell.getPosition();
             int x = pos.getX();
             int y = pos.getY();
             if (hasFood(x, y)) {
@@ -88,21 +90,19 @@ public class SimGenWorld {
                 worldMapFood[x][y]--;
             }
             if (cell.isPregnant()) {
-                SimGenCell child = cell.cellDivisionFactory();
+                Cell child = cell.cellDivisionFactory();
                 children.add(child);
             }
         }
         cells.addAll(children);
-        positions = new ArrayList<SimGenPoint>();
-        i = cells.iterator();
-        while (i.hasNext()) {
-            SimGenCell cell = i.next();
-            SimGenPoint p = cell.getPos();
+        positions = new ArrayList<Point>();
+        for (Cell cell:cells) {
+            Point p = cell.getPosition();
             positions.add(p);
         }
     }
 
-    public ArrayList<SimGenPoint> getPositionsOfAllCells() {
+    public List<Point> getPositionsOfAllCells() {
         return positions;
     }
 

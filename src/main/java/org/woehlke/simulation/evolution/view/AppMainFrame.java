@@ -8,23 +8,23 @@ import java.awt.image.ImageObserver;
 import java.io.Serializable;
 
 /**
- * (C) 2006 - 2008 Thomas Woehlke
- * http://www.thomas-woehlke.de
+ * (C) 2006 - 2008 Thomas Woehlke.
+ * http://thomas-woehlke.de/p/simulated-evolution/
  * @author Thomas Woehlke
  * Date: 04.02.2006
  * Time: 18:47:46
  */
-public class SimGenFrame extends Frame implements ImageObserver,
+public class AppMainFrame extends Frame implements ImageObserver,
         MenuContainer,
         Serializable,
         Accessible,
         WindowListener {
 
-    private SimGenApplet exe;
+    private SimulatedEvolutionApplet exe;
 
-    public SimGenFrame() {
+    public AppMainFrame() {
         super("SimGen");
-        exe = new SimGenApplet();
+        exe = new SimulatedEvolutionApplet();
         exe.init();
         add("Center", exe);
         setBounds(100, 100, exe.getCanvasDimenensions().getX() + 30, exe.getCanvasDimenensions().getY() + 30);

@@ -1,74 +1,66 @@
 package org.woehlke.simulation.evolution.model;
 
+import java.util.List;
 import java.util.Random;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 /**
- * (C) 2006 - 2008 Thomas Woehlke
- * http://www.thomas-woehlke.de
+ * (C) 2006 - 2008 Thomas Woehlke.
+ * http://thomas-woehlke.de/p/simulated-evolution/
  * @author Thomas Woehlke
  * Date: 04.02.2006
  * Time: 19:55:23
  */
-public class SimGenCore {
-    private ArrayList<Integer> dna;
+public class CellCore {
+    private List<Integer> dna;
     private int maxValue = 16;
     private int maxInitialValue = 8;
     private Random random;
 
-    public SimGenCore(Random random) {
+    public CellCore(Random random) {
         dna = new ArrayList<Integer>();
-        //this.random=new Random();
-        //this.random.setSeed(random.nextLong());
         this.random = random;
         birth();
     }
 
-    public SimGenCore(Random random, int maxValue, int maxInitialValue) {
+    public CellCore(Random random, int maxValue, int maxInitialValue) {
         dna = new ArrayList<Integer>();
-        //this.random=new Random();
-        //this.random.setSeed(random.nextLong());
         this.random = random;
         this.maxValue = maxValue;
         this.maxInitialValue = maxInitialValue;
         birth();
     }
 
-    private SimGenCore(Random random, ArrayList<Integer> rna) {
-        //this.random=new Random();
-        //this.random.setSeed(random.nextLong());
+    private CellCore(Random random, List<Integer> rna) {
         this.random = random;
         dna = new ArrayList<Integer>();
         dna.addAll(rna);
     }
 
     private void birth() {
-        for (int i = 0; i < SimGenDna.values().length; i++) {
+        for (int i = 0; i < Dna.values().length; i++) {
             int gen = random.nextInt() % maxInitialValue;
-            //System.out.println("Gen:"+gen);
             dna.add(gen);
         }
     }
 
-    public SimGenCore mitosisFactory() {
-        ArrayList<Integer> rna = new ArrayList<Integer>();
-        Iterator<Integer> it = dna.iterator();
-        while (it.hasNext()) {
-            rna.add(it.next());
+    public CellCore mitosisFactory() {
+        List<Integer> rna = new ArrayList<Integer>();
+        for (Integer dnaBase:dna) {
+            rna.add(dnaBase);
         }
-        SimGenCore child = new SimGenCore(random, rna);
-        int baseIndex = random.nextInt() % SimGenDna.values().length;
+        CellCore child = new CellCore(random, rna);
+        int baseIndex = random.nextInt() % Dna.values().length;
         if (baseIndex < 0) {
             baseIndex *= -1;
         }
-        SimGenDna base[] = SimGenDna.values();
+        Dna base[] = Dna.values();
         this.decrease(base[baseIndex]);
         child.increase(base[baseIndex]);
         return child;
     }
 
-    private void increase(SimGenDna base) {
+    private void increase(Dna base) {
         int value = dna.get(base.ordinal());
         if (value == maxValue) {
             for (int i = 0; i < dna.size(); i++) {
@@ -82,7 +74,7 @@ public class SimGenCore {
         dna.set(base.ordinal(), val);
     }
 
-    private void decrease(SimGenDna base) {
+    private void decrease(Dna base) {
         int value = dna.get(base.ordinal());
         if (value == -maxValue) {
             for (int i = 0; i < dna.size(); i++) {
@@ -94,9 +86,9 @@ public class SimGenCore {
         dna.set(base.ordinal(), 0);
     }
 
-    public SimGenDna getRandomOrientation() {
-        SimGenDna orientation = SimGenDna.FORWARD;
-        int dnaLength = SimGenDna.values().length;
+    public Dna getRandomOrientation() {
+        Dna orientation = Dna.FORWARD;
+        int dnaLength = Dna.values().length;
         double sumDna = 0.0;
         for (int i = 0; i < dnaLength; i++) {
             double val = dna.get(i).longValue() ^ 2;
@@ -134,7 +126,7 @@ public class SimGenCore {
                     newInt = i;
                 }
             }
-            orientation = SimGenDna.values()[newInt];
+            orientation = Dna.values()[newInt];
         }
         //System.out.println(orientation+" "+sumDna);
         return orientation;

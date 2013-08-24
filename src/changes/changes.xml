@@ -1,0 +1,18 @@
+<document xmlns="http://maven.apache.org/changes/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/changes/1.0.0 http://maven.apache.org/xsd/changes-1.0.0.xsd">
+    <properties>
+        <title>Changes Simulated Evolution</title>
+        <author email="thomas@woehlke.org">Thomas Wöhlke</author>
+    </properties>
+    <!--
+        http://maven.apache.org/plugins/maven-changes-plugin/changes.html
+    -->
+    <body>
+        <release version="1.0" date="2013-08-24" description="First release">
+            <action issue="5" type="update">
+               Project setup at github. Maven setup Site and changes. Code Cleanup.
+            </action>
+        </release>
+    </body>
+</document>

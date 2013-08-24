@@ -1,34 +1,34 @@
 package org.woehlke.simulation.evolution.view;
 
-import org.woehlke.simulation.evolution.model.SimGenPoint;
-import org.woehlke.simulation.evolution.model.SimGenWorld;
+import org.woehlke.simulation.evolution.model.*;
+import org.woehlke.simulation.evolution.model.Point;
 
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.List;
+
 
 /**
- * (C) 2006 - 2008 Thomas Woehlke
- * http://www.thomas-woehlke.de
+ * (C) 2006 - 2008 Thomas Woehlke.
+ * http://thomas-woehlke.de/p/simulated-evolution/
  * @author Thomas Woehlke
  * Date: 05.02.2006
  * Time: 00:51:51
  */
-public class SimGenWorldCanvas extends Canvas {
-    private SimGenWorld world;
-    private SimGenPoint dimensions;
+public class WorldCanvas extends Canvas {
+    private World world;
+    private Point dimensions;
 
     private Color water = Color.BLACK;
     private Color food = Color.GREEN;
     private Color bazillus = Color.RED;
 
-    public SimGenWorldCanvas(int x, int y) {
-        this.dimensions = new SimGenPoint(x, y);
+    public WorldCanvas(int x, int y) {
+        this.dimensions = new org.woehlke.simulation.evolution.model.Point(x, y);
         this.setBackground(water);
         this.setSize(x, y);
     }
 
-    public SimGenWorldCanvas(SimGenPoint dimensions) {
+    public WorldCanvas(Point dimensions) {
         this.dimensions = dimensions;
         this.setBackground(water);
     }
@@ -46,10 +46,8 @@ public class SimGenWorldCanvas extends Canvas {
             }
         }
         g.setColor(bazillus);
-        ArrayList<SimGenPoint> population = world.getPositionsOfAllCells();
-        Iterator<SimGenPoint> it = population.iterator();
-        while (it.hasNext()) {
-            SimGenPoint p = it.next();
+        List<Point> population = world.getPositionsOfAllCells();
+        for (Point p:population) {
             g.fillRect(p.getX() - 1, p.getY() - 1, 3, 3);
         }
     }
@@ -58,19 +56,19 @@ public class SimGenWorldCanvas extends Canvas {
         paint(g);
     }
 
-    public SimGenPoint getDimensions() {
+    public Point getDimensions() {
         return dimensions;
     }
 
-    public void setDimensions(SimGenPoint dimensions) {
+    public void setDimensions(Point dimensions) {
         this.dimensions = dimensions;
     }
 
-    public void setWorld(SimGenWorld world) {
+    public void setWorld(World world) {
         this.world = world;
     }
 
-    public SimGenWorld getWorld() {
+    public World getWorld() {
         return world;
     }
 }

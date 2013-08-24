@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 /**
- * Unit test for simple SimGenDesktop.
+ * Unit test for simple AppMainDesktop.
  */
 public class AppTest {
 
