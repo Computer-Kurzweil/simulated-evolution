@@ -19,7 +19,7 @@ import java.io.Serializable;
  */
 public class SimulatedEvolutionApplet extends Applet implements ImageObserver, MenuContainer, Serializable, Accessible {
 
-    private Label title = new Label("SimGen");
+    private Label title = new Label("Simulated Evolution");
     private ControllerThread controllerThread;
     private WorldCanvas canvas;
     private World world;

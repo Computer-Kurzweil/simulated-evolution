@@ -21,7 +21,6 @@ public class WorldCanvas extends Canvas {
 
     private final Color WATER = Color.BLACK;
     private final Color FOOD = Color.GREEN;
-    private final Color BAZILLUS = Color.RED;
 
     public WorldCanvas(Point worldDimensions) {
         this.worldDimensions = worldDimensions;
@@ -41,10 +40,10 @@ public class WorldCanvas extends Canvas {
                 }
             }
         }
-        g.setColor(BAZILLUS);
-        List<Point> population = world.getPositionsOfAllCells();
-        for (Point p:population) {
-            Point[] square = p.getNeighbourhood(worldDimensions);
+        List<Cell> population = world.getAllCells();
+        for (Cell p:population) {
+            Point[] square = p.getPosition().getNeighbourhood(worldDimensions);
+            g.setColor(p.getLifeCycleStatus().getColor());
             for(Point pixel:square){
                 g.drawLine(pixel.getX(), pixel.getY(), pixel.getX(), pixel.getY());
             }

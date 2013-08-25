@@ -13,7 +13,13 @@ If a cell doesn't eat enough, it will first stand still and after a while it die
 
 * Screen
 
-[img/screen.png] Figure Screen
+** Early Screen
+
+[img/screen1.png] Figure Screen
+
+** Later Screen
+
+[img/screen2.png] Figure Screen
 
 * UML Class Model
 

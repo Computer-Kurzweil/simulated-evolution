@@ -15,6 +15,7 @@ public class WorldMapFood {
     private int worldMapFood[][];
     private Random random;
     private final int FOOD_PER_DAY = 10;
+    private final boolean EABLE_GARDEN_OF_EDEN = true;
     private Point dimensions;
 
     public WorldMapFood(Point dimensions,Random random){
@@ -36,6 +37,23 @@ public class WorldMapFood {
                 y *= -1;
             }
             worldMapFood[x][y]++;
+        }
+        if(EABLE_GARDEN_OF_EDEN){
+            f = 0;
+            int startx = this.dimensions.getX() / 5;
+            int starty = this.dimensions.getY() / 5;
+            while (f < FOOD_PER_DAY*4) {
+                f++;
+                int x = random.nextInt(startx);
+                int y = random.nextInt(starty);
+                if (x < 0) {
+                    x *= -1;
+                }
+                if (y < 0) {
+                    y *= -1;
+                }
+                worldMapFood[x+startx*2][y+starty*2]++;
+            }
         }
     }
 

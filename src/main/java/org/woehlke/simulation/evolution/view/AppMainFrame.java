@@ -23,7 +23,7 @@ public class AppMainFrame extends Frame implements ImageObserver,
     private SimulatedEvolutionApplet exe;
 
     public AppMainFrame() {
-        super("SimGen");
+        super("Simulated Evolution");
         exe = new SimulatedEvolutionApplet();
         exe.init();
         add("Center", exe);

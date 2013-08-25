@@ -73,13 +73,8 @@ public class World {
 
     }
 
-    public List<Point> getPositionsOfAllCells(){
-        List<Point> positions = new ArrayList<Point>();
-        for (Cell cell:cells) {
-            Point p = cell.getPosition();
-            positions.add(p);
-        }
-        return positions;
+    public List<Cell> getAllCells(){
+        return cells;
     }
 
     public boolean hasFood(int x, int y) {

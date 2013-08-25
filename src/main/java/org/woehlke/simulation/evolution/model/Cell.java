@@ -111,4 +111,8 @@ public class Cell {
         return lifeCycle.isDead();
     }
 
+    public LifeCycleStatus getLifeCycleStatus(){
+        return lifeCycle.getLifeCycleStatus();
+    }
+
 }
