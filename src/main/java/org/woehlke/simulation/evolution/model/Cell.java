@@ -12,10 +12,10 @@ import java.util.Random;
 public class Cell {
 
     private Point position;
+    private Dna orientation;
     private Point max;
     private Random random;
     private CellCore core;
-    private Dna orientation;
 
     private LifeCycle lifeCycle;
 
@@ -30,6 +30,15 @@ public class Cell {
         this.position.killNagative();
         this.orientation = getRandomOrientation();
         this.lifeCycle = new LifeCycle();
+    }
+
+    private Cell(int fat, CellCore rna, Point position, Point max, Random random) {
+        lifeCycle = new LifeCycle(fat);
+        this.max = new Point(max);
+        this.position = new Point(position);
+        this.random = random;
+        this.core = rna;
+        orientation = getRandomOrientation();
     }
 
     private Dna getRandomOrientation() {
@@ -84,15 +93,6 @@ public class Cell {
         lifeCycle.haveSex();
         Cell child = new Cell(lifeCycle.getFat(), rna, position, max, random);
         return child;
-    }
-
-    private Cell(int fat, CellCore rna, Point position, Point max, Random random) {
-        lifeCycle = new LifeCycle(fat);
-        this.max = new Point(max);
-        this.position = new Point(position);
-        this.random = random;
-        this.core = rna;
-        orientation = getRandomOrientation();
     }
 
     public Point getPosition() {

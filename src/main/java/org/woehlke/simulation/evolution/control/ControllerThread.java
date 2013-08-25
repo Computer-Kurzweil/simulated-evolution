@@ -10,7 +10,7 @@ import org.woehlke.simulation.evolution.view.WorldCanvas;
  * Date: 05.02.2006
  * Time: 00:36:20
  */
-public class Controller extends Thread
+public class ControllerThread extends Thread
         implements Runnable {
     private World world;
     private WorldCanvas canvas;
@@ -18,7 +18,7 @@ public class Controller extends Thread
     private int THREAD_SLEEP_TIME = 100;
     private Boolean goOn;
 
-    public Controller() {
+    public ControllerThread() {
         goOn = Boolean.TRUE;
     }
 

@@ -1,6 +1,6 @@
 package org.woehlke.simulation.evolution.view;
 
-import org.woehlke.simulation.evolution.control.Controller;
+import org.woehlke.simulation.evolution.control.ControllerThread;
 import org.woehlke.simulation.evolution.model.World;
 import org.woehlke.simulation.evolution.model.Point;
 
@@ -20,7 +20,7 @@ import java.io.Serializable;
 public class SimulatedEvolutionApplet extends Applet implements ImageObserver, MenuContainer, Serializable, Accessible {
 
     private Label title = new Label("SimGen");
-    private Controller controllerThread;
+    private ControllerThread controllerThread;
     private WorldCanvas canvas;
     private World world;
 
@@ -30,9 +30,10 @@ public class SimulatedEvolutionApplet extends Applet implements ImageObserver, M
         int height = 234 * scale;
         this.setLayout(new BorderLayout());
         this.add(title, BorderLayout.NORTH);
-        controllerThread = new Controller();
-        world = new World(width, height);
-        canvas = new WorldCanvas(width, height);
+        controllerThread = new ControllerThread();
+        Point worldDimensions = new Point(width,height);
+        world = new World(worldDimensions);
+        canvas = new WorldCanvas(worldDimensions);
         canvas.setWorld(world);
         this.add(canvas, BorderLayout.CENTER);
         controllerThread.setCanvas(canvas);
@@ -47,6 +48,6 @@ public class SimulatedEvolutionApplet extends Applet implements ImageObserver, M
     }
 
     public Point getCanvasDimensions() {
-        return canvas.getDimensions();
+        return canvas.getWorldDimensions();
     }
 }

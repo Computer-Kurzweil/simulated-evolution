@@ -13,35 +13,23 @@ import java.util.ArrayList;
  */
 public class CellCore {
     private List<Integer> dna;
-    private int maxValue = 16;
-    private int maxInitialValue = 8;
+    private int MAX_VALUE = 16;
+    private int MAX_INITIAL_VALUE = 8;
     private Random random;
 
     public CellCore(Random random) {
         dna = new ArrayList<Integer>();
         this.random = random;
-        birth();
-    }
-
-    public CellCore(Random random, int maxValue, int maxInitialValue) {
-        dna = new ArrayList<Integer>();
-        this.random = random;
-        this.maxValue = maxValue;
-        this.maxInitialValue = maxInitialValue;
-        birth();
+        for (int i = 0; i < Dna.values().length; i++) {
+            int gen = random.nextInt() % MAX_INITIAL_VALUE;
+            dna.add(gen);
+        }
     }
 
     private CellCore(Random random, List<Integer> rna) {
         this.random = random;
         dna = new ArrayList<Integer>();
         dna.addAll(rna);
-    }
-
-    private void birth() {
-        for (int i = 0; i < Dna.values().length; i++) {
-            int gen = random.nextInt() % maxInitialValue;
-            dna.add(gen);
-        }
     }
 
     public CellCore mitosisFactory() {
@@ -62,7 +50,7 @@ public class CellCore {
 
     private void increase(Dna base) {
         int value = dna.get(base.ordinal());
-        if (value == maxValue) {
+        if (value == MAX_VALUE) {
             for (int i = 0; i < dna.size(); i++) {
                 Integer val = dna.get(i);
                 val--;
@@ -76,7 +64,7 @@ public class CellCore {
 
     private void decrease(Dna base) {
         int value = dna.get(base.ordinal());
-        if (value == -maxValue) {
+        if (value == -MAX_VALUE) {
             for (int i = 0; i < dna.size(); i++) {
                 Integer val = dna.get(i);
                 val++;
@@ -106,45 +94,24 @@ public class CellCore {
             }
             sum += val / sumDna;
             rna[i] = sum;
-            //System.out.print("rna:"+rna[i]);
         }
-        //System.out.println();
         if (sumDna != 0) {
-            double val = new Double(random.nextInt(maxValue) ^ 2);
+            double val = new Double(random.nextInt(MAX_VALUE) ^ 2);
             if (val < 0) {
                 val *= -1;
             }
-            double sumRandom = val / new Double(maxValue ^ 2);
-            //System.out.println("sumRandom "+sumRandom);
+            double sumRandom = val / new Double(MAX_VALUE ^ 2);
             if (sumRandom < 0) {
                 sumRandom *= -1;
             }
             int newInt = 0;
             for (int i = 0; i < dnaLength; i++) {
                 if (sumRandom > rna[i]) {
-                    //System.out.print(i+":");
                     newInt = i;
                 }
             }
             orientation = Dna.values()[newInt];
         }
-        //System.out.println(orientation+" "+sumDna);
         return orientation;
-    }
-
-    public int getMaxInitialValue() {
-        return maxInitialValue;
-    }
-
-    public void setMaxInitialValue(int maxInitialValue) {
-        this.maxInitialValue = maxInitialValue;
-    }
-
-    public int getMaxValue() {
-        return maxValue;
-    }
-
-    public void setMaxValue(int maxValue) {
-        this.maxValue = maxValue;
     }
 }

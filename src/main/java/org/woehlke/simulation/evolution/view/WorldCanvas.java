@@ -17,21 +17,21 @@ import java.util.List;
 public class WorldCanvas extends Canvas {
 
     private World world;
-    private Point dimensions;
+    private Point worldDimensions;
 
     private final Color WATER = Color.BLACK;
     private final Color FOOD = Color.GREEN;
     private final Color BAZILLUS = Color.RED;
 
-    public WorldCanvas(int x, int y) {
-        this.dimensions = new Point(x, y);
+    public WorldCanvas(Point worldDimensions) {
+        this.worldDimensions = worldDimensions;
         this.setBackground(WATER);
-        this.setSize(x, y);
+        this.setSize(this.worldDimensions.getX(), this.worldDimensions.getY());
     }
 
     public void paint(Graphics g) {
-        int width = dimensions.getX();
-        int height = dimensions.getY();
+        int width = worldDimensions.getX();
+        int height = worldDimensions.getY();
         g.clearRect(0, 0, width, height);
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
@@ -44,7 +44,7 @@ public class WorldCanvas extends Canvas {
         g.setColor(BAZILLUS);
         List<Point> population = world.getPositionsOfAllCells();
         for (Point p:population) {
-            Point[] square = p.getNeighbourhood(dimensions);
+            Point[] square = p.getNeighbourhood(worldDimensions);
             for(Point pixel:square){
                 g.drawLine(pixel.getX(), pixel.getY(), pixel.getX(), pixel.getY());
             }
@@ -55,8 +55,8 @@ public class WorldCanvas extends Canvas {
         paint(g);
     }
 
-    public Point getDimensions() {
-        return dimensions;
+    public Point getWorldDimensions() {
+        return worldDimensions;
     }
 
     public void setWorld(World world) {

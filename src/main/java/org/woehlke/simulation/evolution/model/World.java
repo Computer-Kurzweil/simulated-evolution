@@ -19,22 +19,22 @@ public class World {
     private List<Cell> cells;
     private int INITIAL_POPULATION = 20;
     private Random random;
-    private Point max;
+    private Point worldDimensions;
     private WorldMapFood worldMapFood;
 
-    public World(int x, int y) {
+    public World(Point worldDimensions) {
         long seed = new Date().getTime();
         random = new Random(seed);
-        max = new Point(x, y);
-        worldMapFood = new WorldMapFood(max,random);
+        this.worldDimensions = worldDimensions;
+        worldMapFood = new WorldMapFood(this.worldDimensions,random);
         createPopulation();
     }
 
     private void createPopulation() {
         cells = new ArrayList<Cell>();
         for (int i = 0; i < INITIAL_POPULATION; i++) {
-            int x = random.nextInt(max.getX());
-            int y = random.nextInt(max.getY());
+            int x = random.nextInt(worldDimensions.getX());
+            int y = random.nextInt(worldDimensions.getY());
             if (x < 0) {
                 x *= -1;
             }
@@ -42,7 +42,7 @@ public class World {
                 y *= -1;
             }
             Point pos = new Point(x, y);
-            Cell cell = new Cell(max, pos, random);
+            Cell cell = new Cell(worldDimensions, pos, random);
             cells.add(cell);
         }
     }

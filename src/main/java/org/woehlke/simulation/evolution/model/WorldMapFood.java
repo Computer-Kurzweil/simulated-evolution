@@ -43,12 +43,12 @@ public class WorldMapFood {
         return worldMapFood[x][y] > 0;
     }
 
-    public int eat(Point pos) {
-        Point neighbourhood[] = pos.getNeighbourhood(this.dimensions);
+    public int eat(Point position) {
+        Point neighbourhood[] = position.getNeighbourhood(this.dimensions);
         int food=0;
-        for (Point position:neighbourhood){
-            food += worldMapFood[position.getX()][position.getY()];
-            worldMapFood[position.getX()][position.getY()]=0;
+        for (Point neighbourhoodPosition:neighbourhood){
+            food += worldMapFood[neighbourhoodPosition.getX()][neighbourhoodPosition.getY()];
+            worldMapFood[neighbourhoodPosition.getX()][neighbourhoodPosition.getY()]=0;
         }
         return food;
     }
