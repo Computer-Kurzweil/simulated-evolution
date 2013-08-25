@@ -44,7 +44,10 @@ public class WorldCanvas extends Canvas {
         g.setColor(BAZILLUS);
         List<Point> population = world.getPositionsOfAllCells();
         for (Point p:population) {
-            g.fillRect(p.getX() - 1, p.getY() - 1, 3, 3);
+            Point[] square = p.getNeighbourhood(dimensions);
+            for(Point pixel:square){
+                g.drawLine(pixel.getX(), pixel.getY(), pixel.getX(), pixel.getY());
+            }
         }
     }
 

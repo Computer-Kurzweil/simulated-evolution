@@ -13,8 +13,10 @@ import org.woehlke.simulation.evolution.view.WorldCanvas;
 public class Controller extends Thread
         implements Runnable {
     private World world;
-    private Boolean goOn;
     private WorldCanvas canvas;
+
+    private int THREAD_SLEEP_TIME = 100;
+    private Boolean goOn;
 
     public Controller() {
         goOn = Boolean.TRUE;
@@ -28,7 +30,7 @@ public class Controller extends Thread
             }
             world.letLivePopulation();
             canvas.repaint();
-            try { sleep(150); }
+            try { sleep(THREAD_SLEEP_TIME); }
             catch (InterruptedException e) { e.printStackTrace(); }
         }
         while (doIt);

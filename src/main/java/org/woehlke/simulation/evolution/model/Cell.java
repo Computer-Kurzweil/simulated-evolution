@@ -57,19 +57,19 @@ public class Cell {
                 case FORWARD:
                     move = new Point(0, 2);
                     break;
-                case RIGHT:
+                case HARD_RIGHT:
                     move = new Point(2, 1);
                     break;
-                case RIGHT_RIGHT:
+                case SOFT_RIGHT:
                     move = new Point(2, -1);
                     break;
                 case BACKWARDS:
                     move = new Point(0, -2);
                     break;
-                case LEFT_LEFT:
+                case SOFT_LEFT:
                     move = new Point(-2, -1);
                     break;
-                case LEFT:
+                case HARD_LEFT:
                     move = new Point(-2, 1);
                     break;
             }

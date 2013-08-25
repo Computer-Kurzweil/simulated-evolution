@@ -9,9 +9,9 @@ package org.woehlke.simulation.evolution.model;
  */
 public enum Dna {
     FORWARD,
-    RIGHT,
-    RIGHT_RIGHT,
+    HARD_RIGHT,
+    SOFT_RIGHT,
     BACKWARDS,
-    LEFT_LEFT,
-    LEFT
+    SOFT_LEFT,
+    HARD_LEFT
 }
