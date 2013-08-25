@@ -27,14 +27,14 @@ public class AppMainFrame extends Frame implements ImageObserver,
         exe = new SimulatedEvolutionApplet();
         exe.init();
         add("Center", exe);
-        setBounds(100, 100, exe.getCanvasDimensions().getX() + 30, exe.getCanvasDimensions().getY() + 30);
+        setBounds(100, 100, exe.getCanvasDimensions().getX(), exe.getCanvasDimensions().getY() + 30);
         setVisible(true);
         toFront();
         addWindowListener(this);
     }
 
     public void windowOpened(WindowEvent e) {
-        setBounds(100, 100, exe.getCanvasDimensions().getX() + 30, exe.getCanvasDimensions().getY() + 30);
+        setBounds(100, 100, exe.getCanvasDimensions().getX(), exe.getCanvasDimensions().getY() + 30);
         setVisible(true);
         toFront();
     }
@@ -52,7 +52,7 @@ public class AppMainFrame extends Frame implements ImageObserver,
     }
 
     public void windowDeiconified(WindowEvent e) {
-        setBounds(100, 100, exe.getCanvasDimensions().getX() + 30, exe.getCanvasDimensions().getY() + 30);
+        setBounds(100, 100, exe.getCanvasDimensions().getX(), exe.getCanvasDimensions().getY() + 30);
         setVisible(true);
         toFront();
     }
