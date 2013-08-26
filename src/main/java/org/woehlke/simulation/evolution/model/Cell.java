@@ -20,8 +20,8 @@ public class Cell {
     private LifeCycle lifeCycle;
 
     public Cell(Point max, Point position, Random random) {
-        this.max = new Point(max);
-        this.position = new Point(position);
+        this.max = max;
+        this.position = position;
         this.random = random;
         this.core = new CellCore(random);
         this.max.killNagative();
@@ -34,55 +34,66 @@ public class Cell {
 
     private Cell(int fat, CellCore rna, Point position, Point max, Random random) {
         lifeCycle = new LifeCycle(fat);
-        this.max = new Point(max);
-        this.position = new Point(position);
+        this.max = max;
+        this.position = position;
         this.random = random;
         this.core = rna;
         orientation = getRandomOrientation();
     }
 
+    private int dnaBase;
+
     private Dna getRandomOrientation() {
-        int dnaLength = Dna.values().length;
-        int dnaBase = random.nextInt(dnaLength);
+        dnaBase = random.nextInt(Dna.values().length);
         if (dnaBase < 0) {
             dnaBase *= -1;
         }
         return Dna.values()[dnaBase];
     }
 
+    private int iOrientation;
+    private int iRandomOrientation;
+    private int newOrientation;
+    private Dna randomOrientation;
+
     private void getNextOrientation() {
-        Dna randomOrientation = core.getRandomOrientation();
-        int iOrientation = orientation.ordinal();
-        int iRandomOrientation = randomOrientation.ordinal();
-        int newOrientation = (iOrientation + iRandomOrientation) % Dna.values().length;
+        randomOrientation = core.getRandomOrientation();
+        iOrientation = orientation.ordinal();
+        iRandomOrientation = randomOrientation.ordinal();
+        newOrientation = (iOrientation + iRandomOrientation) % Dna.values().length;
         orientation = Dna.values()[newOrientation];
     }
+
+    private final Point MOVE_FORWARD = new Point(0, 2);
+    private final Point MOVE_HARD_RIGHT = new Point(2, 1);
+    private final Point MOVE_SOFT_RIGHT = new Point(2, -1);
+    private final Point MOVE_BACKWARDS = new Point(0, -2);
+    private final Point MOVE_SOFT_LEFT = new Point(-2, -1);
+    private final Point MOVE_HARD_LEFT = new Point(-2, 1);
 
     public void move() {
             if(lifeCycle.move()){
             getNextOrientation();
-            Point move = new Point(0, 0);
             switch (orientation) {
                 case FORWARD:
-                    move = new Point(0, 2);
+                    position.add(MOVE_FORWARD);
                     break;
                 case HARD_RIGHT:
-                    move = new Point(2, 1);
+                    position.add(MOVE_HARD_RIGHT);
                     break;
                 case SOFT_RIGHT:
-                    move = new Point(2, -1);
+                    position.add(MOVE_SOFT_RIGHT);
                     break;
                 case BACKWARDS:
-                    move = new Point(0, -2);
+                    position.add(MOVE_BACKWARDS);
                     break;
                 case SOFT_LEFT:
-                    move = new Point(-2, -1);
+                    position.add(MOVE_SOFT_LEFT);
                     break;
                 case HARD_LEFT:
-                    move = new Point(-2, 1);
+                    position.add(MOVE_HARD_LEFT);
                     break;
             }
-            position.add(move);
             position.add(max);
             position.normalize(max);
         }

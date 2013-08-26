@@ -12,100 +12,95 @@ import java.util.ArrayList;
  * Time: 19:55:23
  */
 public class CellCore {
-    private List<Integer> dna;
+    private int[] dna = new int[Dna.values().length];
     private int MAX_VALUE = 16;
     private int MAX_INITIAL_VALUE = 8;
     private Random random;
 
     public CellCore(Random random) {
-        dna = new ArrayList<Integer>();
         this.random = random;
-        for (int i = 0; i < Dna.values().length; i++) {
-            int gen = random.nextInt() % MAX_INITIAL_VALUE;
-            dna.add(gen);
+        for (i = 0; i < Dna.values().length; i++) {
+            dna[i] = random.nextInt() % MAX_INITIAL_VALUE;
         }
     }
 
-    private CellCore(Random random, List<Integer> rna) {
+    private CellCore(Random random, int[] rna) {
         this.random = random;
-        dna = new ArrayList<Integer>();
-        dna.addAll(rna);
+        dna=rna;
     }
+
+    private int baseIndex;
 
     public CellCore mitosisFactory() {
-        List<Integer> rna = new ArrayList<Integer>();
-        for (Integer dnaBase:dna) {
-            rna.add(dnaBase);
+        int[] rna = new int[Dna.values().length];
+        for (i = 0; i < Dna.values().length; i++) {
+            rna[i]=dna[i];
         }
         CellCore child = new CellCore(random, rna);
-        int baseIndex = random.nextInt() % Dna.values().length;
+        baseIndex = random.nextInt() % Dna.values().length;
         if (baseIndex < 0) {
             baseIndex *= -1;
         }
-        Dna base[] = Dna.values();
-        this.decrease(base[baseIndex]);
-        child.increase(base[baseIndex]);
+        this.decrease(Dna.values()[baseIndex]);
+        child.increase(Dna.values()[baseIndex]);
         return child;
     }
 
     private void increase(Dna base) {
-        int value = dna.get(base.ordinal());
-        if (value == MAX_VALUE) {
-            for (int i = 0; i < dna.size(); i++) {
-                Integer val = dna.get(i);
-                val--;
-                dna.set(i, val);
+        if (dna[base.ordinal()] == MAX_VALUE) {
+            for (i = 0; i < dna.length; i++) {
+                dna[i]--;
             }
         }
-        Integer val = dna.get(base.ordinal());
-        val++;
-        dna.set(base.ordinal(), val);
+        dna[base.ordinal()]++;
     }
 
     private void decrease(Dna base) {
-        int value = dna.get(base.ordinal());
-        if (value == -MAX_VALUE) {
-            for (int i = 0; i < dna.size(); i++) {
-                Integer val = dna.get(i);
-                val++;
-                dna.set(i, val);
+        if (dna[base.ordinal()] == -MAX_VALUE) {
+            for (i = 0; i < dna.length; i++) {
+                dna[i]++;
             }
         }
-        dna.set(base.ordinal(), 0);
+        dna[base.ordinal()]--;
     }
 
+    private double[] rna = new double[Dna.values().length];
+    private int i = 0;
+    private double sumDna = 0.0;
+    private int newInt = 0;
+    private double sumRandom;
+    private double val;
+    private double sum;
+    private Dna orientation = Dna.FORWARD;
+
     public Dna getRandomOrientation() {
-        Dna orientation = Dna.FORWARD;
-        int dnaLength = Dna.values().length;
-        double sumDna = 0.0;
-        for (int i = 0; i < dnaLength; i++) {
-            double val = dna.get(i).longValue() ^ 2;
+        for (i = 0; i < Dna.values().length; i++) {
+            val = dna[i] ^ 2;
             if (val < 0) {
                 val *= -1;
             }
             sumDna += val;
         }
-        double sum = 0.0;
-        double[] rna = new double[dnaLength];
-        for (int i = 0; i < dnaLength; i++) {
-            double val = dna.get(i).longValue() ^ 2;
+        sum = 0.0;
+        for (i = 0; i < Dna.values().length; i++) {
+            val = dna[1] ^ 2;
             if (val < 0) {
                 val *= -1;
             }
             sum += val / sumDna;
-            rna[i] = sum;
+            rna[i] = sum / 1;
         }
         if (sumDna != 0) {
-            double val = new Double(random.nextInt(MAX_VALUE) ^ 2);
+            val =  random.nextInt(MAX_VALUE) ^ 2;
             if (val < 0) {
                 val *= -1;
             }
-            double sumRandom = val / new Double(MAX_VALUE ^ 2);
+            sumRandom = val / (MAX_VALUE ^ 2);
             if (sumRandom < 0) {
                 sumRandom *= -1;
             }
-            int newInt = 0;
-            for (int i = 0; i < dnaLength; i++) {
+            newInt = 0;
+            for (int i = 0; i < Dna.values().length; i++) {
                 if (sumRandom > rna[i]) {
                     newInt = i;
                 }

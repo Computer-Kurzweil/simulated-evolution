@@ -13,13 +13,9 @@ public class Point implements Serializable {
 
     private int x = 0;
     private int y = 0;
+    private Point neighbourhood[] = new Point[9];
 
-    public Point(Point p) {
-        this.x = p.getX();
-        this.y = p.getY();
-    }
-
-    public Point(int x, int y) {
+    public Point(final int x, final int y) {
         this.x = x;
         this.y = y;
     }
@@ -59,19 +55,45 @@ public class Point implements Serializable {
         this.y %= p.getY();
     }
 
+    private int i=0;
+
     public Point[] getNeighbourhood(Point max){
-        Point neighbourhood[] = new Point[9];
         int maxX = max.getX();
         int maxY = max.getY();
-        neighbourhood[0]= new Point((this.x+maxX-1) % maxX,(this.y+maxY-1) % maxY);
-        neighbourhood[1]= new Point((this.x+maxX-1) % maxX,this.y);
-        neighbourhood[2]= new Point((this.x+maxX-1) % maxX,(this.y+maxY+1) % maxY);
-        neighbourhood[3]= new Point(this.x,(this.y+maxY-1) % maxY);
-        neighbourhood[4]= new Point(this.x,this.y);
-        neighbourhood[5]= new Point(this.x,(this.y+maxY+1) % maxY);
-        neighbourhood[6]= new Point((this.x+maxX+1) % maxX,(this.y+maxY-1) % maxY);
-        neighbourhood[7]= new Point((this.x+maxX+1) % maxX,this.y);
-        neighbourhood[8]= new Point((this.x+maxX+1) % maxX,(this.y+maxY+1) % maxY);
+
+        for(i=0; i<neighbourhood.length;i++){
+            if(neighbourhood[i]==null){
+                neighbourhood[i]=new Point(0,0);
+            }
+        }
+
+        neighbourhood[0].setX((this.x+maxX-1) % maxX);
+        neighbourhood[0].setY((this.y+maxY-1) % maxY);
+
+        neighbourhood[1].setX((this.x+maxX-1) % maxX);
+        neighbourhood[1].setY(this.y);
+
+        neighbourhood[2].setX((this.x+maxX-1) % maxX);
+        neighbourhood[2].setY((this.y+maxY+1) % maxY);
+
+        neighbourhood[3].setX(this.x);
+        neighbourhood[3].setX((this.y+maxY-1) % maxY);
+
+        neighbourhood[4].setX(this.x);
+        neighbourhood[4].setY(this.y);
+
+        neighbourhood[5].setX(this.x);
+        neighbourhood[5].setY((this.y+maxY+1) % maxY);
+
+        neighbourhood[6].setX((this.x+maxX+1) % maxX);
+        neighbourhood[6].setY((this.y+maxY-1) % maxY);
+
+        neighbourhood[7].setX((this.x+maxX+1) % maxX);
+        neighbourhood[7].setY(this.y);
+
+        neighbourhood[8].setX((this.x+maxX+1) % maxX);
+        neighbourhood[8].setY((this.y+maxY+1) % maxY);
+
         return neighbourhood;
     }
 }

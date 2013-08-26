@@ -28,14 +28,20 @@ public class WorldCanvas extends Canvas {
         this.setSize(this.worldDimensions.getX(), this.worldDimensions.getY());
     }
 
+    private int width;
+    private int height;
+
+    private int x;
+    private int y;
+
     public void paint(Graphics g) {
-        int width = worldDimensions.getX();
-        int height = worldDimensions.getY();
+        g.setColor(FOOD);
+        width = worldDimensions.getX();
+        height = worldDimensions.getY();
         g.clearRect(0, 0, width, height);
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
+        for (y = 0; y < height; y++) {
+            for (x = 0; x < width; x++) {
                 if (world.hasFood(x, y)) {
-                    g.setColor(FOOD);
                     g.drawLine(x, y, x, y);
                 }
             }
