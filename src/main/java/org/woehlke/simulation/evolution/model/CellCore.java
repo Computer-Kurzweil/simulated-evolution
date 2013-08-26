@@ -70,8 +70,10 @@ public class CellCore {
                 val++;
                 dna.set(i, val);
             }
+            dna.set(base.ordinal(), 0);
+        } else {
+            dna.set(base.ordinal(), value-1);
         }
-        dna.set(base.ordinal(), 0);
     }
 
     public Dna getRandomOrientation() {
