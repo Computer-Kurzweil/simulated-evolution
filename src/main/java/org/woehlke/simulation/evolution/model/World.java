@@ -23,7 +23,8 @@ public class World {
     private WorldMapFood worldMapFood;
 
     public World(Point worldDimensions) {
-        random = new Random(new Date().getTime());
+        long seed = new Date().getTime();
+        random = new Random(seed);
         this.worldDimensions = worldDimensions;
         worldMapFood = new WorldMapFood(this.worldDimensions,random);
         createPopulation();
@@ -40,16 +41,15 @@ public class World {
             if (y < 0) {
                 y *= -1;
             }
-            Point position = new Point(x, y);
-            Cell cell = new Cell(worldDimensions, position, random);
+            Point pos = new Point(x, y);
+            Cell cell = new Cell(worldDimensions, pos, random);
             cells.add(cell);
         }
     }
 
-    private Point position;
-
     public void letLivePopulation() {
         worldMapFood.letFoodGrow();
+        Point pos;
         List<Cell> children = new ArrayList<Cell>();
         List<Cell> died = new ArrayList<Cell>();
         for (Cell cell:cells) {
@@ -57,8 +57,8 @@ public class World {
             if(cell.died()){
                 died.add(cell);
             } else {
-                position = cell.getPosition();
-                int food = worldMapFood.eat(position);
+                pos = cell.getPosition();
+                int food = worldMapFood.eat(pos);
                 cell.eat(food);
                 if (cell.isPregnant()) {
                     Cell child = cell.cellDivisionFactory();
@@ -70,8 +70,7 @@ public class World {
             cells.remove(dead);
         }
         cells.addAll(children);
-        died.clear();
-        children.clear();
+
     }
 
     public List<Cell> getAllCells(){

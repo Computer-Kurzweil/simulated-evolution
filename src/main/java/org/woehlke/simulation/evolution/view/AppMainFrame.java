@@ -15,7 +15,7 @@ import java.io.Serializable;
  * Date: 04.02.2006
  * Time: 18:47:46
  */
-public class AppMainFrame extends JFrame implements ImageObserver,
+public class AppMainFrame extends Frame implements ImageObserver,
         MenuContainer,
         Serializable,
         Accessible,

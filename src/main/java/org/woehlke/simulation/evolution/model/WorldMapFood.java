@@ -24,18 +24,12 @@ public class WorldMapFood {
         this.random=random;
     }
 
-    private int f;
-    private int x;
-    private int y;
-    private int startx;
-    private int starty;
-
     public void letFoodGrow() {
-        f = 0;
+        int f = 0;
         while (f < FOOD_PER_DAY) {
             f++;
-            x = random.nextInt(this.dimensions.getX());
-            y = random.nextInt(this.dimensions.getY());
+            int x = random.nextInt(this.dimensions.getX());
+            int y = random.nextInt(this.dimensions.getY());
             if (x < 0) {
                 x *= -1;
             }
@@ -46,12 +40,12 @@ public class WorldMapFood {
         }
         if(EABLE_GARDEN_OF_EDEN){
             f = 0;
-            startx = this.dimensions.getX() / 5;
-            starty = this.dimensions.getY() / 5;
+            int startx = this.dimensions.getX() / 5;
+            int starty = this.dimensions.getY() / 5;
             while (f < FOOD_PER_DAY*4) {
                 f++;
-                x = random.nextInt(startx);
-                y = random.nextInt(starty);
+                int x = random.nextInt(startx);
+                int y = random.nextInt(starty);
                 if (x < 0) {
                     x *= -1;
                 }
@@ -67,12 +61,9 @@ public class WorldMapFood {
         return worldMapFood[x][y] > 0;
     }
 
-    int food=0;
-    private Point[] neighbourhood;
-
     public int eat(Point position) {
-        neighbourhood = position.getNeighbourhood(this.dimensions);
-        food=0;
+        Point neighbourhood[] = position.getNeighbourhood(this.dimensions);
+        int food=0;
         for (Point neighbourhoodPosition:neighbourhood){
             food += worldMapFood[neighbourhoodPosition.getX()][neighbourhoodPosition.getY()];
             worldMapFood[neighbourhoodPosition.getX()][neighbourhoodPosition.getY()]=0;
