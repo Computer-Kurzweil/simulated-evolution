@@ -59,30 +59,9 @@ public class Cell {
     }
 
     public void move() {
-            if(lifeCycle.move()){
+        if(lifeCycle.move()){
             getNextOrientation();
-            Point move = new Point(0, 0);
-            switch (orientation) {
-                case FORWARD:
-                    move = new Point(0, 2);
-                    break;
-                case HARD_RIGHT:
-                    move = new Point(2, 1);
-                    break;
-                case SOFT_RIGHT:
-                    move = new Point(2, -1);
-                    break;
-                case BACKWARDS:
-                    move = new Point(0, -2);
-                    break;
-                case SOFT_LEFT:
-                    move = new Point(-2, -1);
-                    break;
-                case HARD_LEFT:
-                    move = new Point(-2, 1);
-                    break;
-            }
-            position.add(move);
+            position.add(orientation.getMove());
             position.add(max);
             position.normalize(max);
         }
