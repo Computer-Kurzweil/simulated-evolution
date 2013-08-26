@@ -3,7 +3,10 @@ package org.woehlke.simulation.evolution.view;
 import org.woehlke.simulation.evolution.model.*;
 import org.woehlke.simulation.evolution.model.Point;
 
+import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.awt.image.ImageObserver;
 import java.util.List;
 
 
@@ -14,7 +17,7 @@ import java.util.List;
  * Date: 05.02.2006
  * Time: 00:51:51
  */
-public class WorldCanvas extends Canvas {
+public class WorldCanvas extends JComponent {
 
     private World world;
     private Point worldDimensions;
@@ -29,14 +32,16 @@ public class WorldCanvas extends Canvas {
     }
 
     public void paint(Graphics g) {
+        super.paintComponent(g);
         int width = worldDimensions.getX();
         int height = worldDimensions.getY();
-        g.clearRect(0, 0, width, height);
+        g.setColor(WATER);
+        g.fillRect(0,0,width,height);
+        g.setColor(FOOD);
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
                 if (world.hasFood(x, y)) {
-                    g.setColor(FOOD);
-                    g.drawLine(x, y, x, y);
+                    g.drawLine(x,y,x,y);
                 }
             }
         }
@@ -45,9 +50,10 @@ public class WorldCanvas extends Canvas {
             Point[] square = p.getPosition().getNeighbourhood(worldDimensions);
             g.setColor(p.getLifeCycleStatus().getColor());
             for(Point pixel:square){
-                g.drawLine(pixel.getX(), pixel.getY(), pixel.getX(), pixel.getY());
+                g.drawLine(pixel.getX(),pixel.getY(),pixel.getX(),pixel.getY());
             }
         }
+        //System.out.print(".");
     }
 
     public void update(Graphics g) {

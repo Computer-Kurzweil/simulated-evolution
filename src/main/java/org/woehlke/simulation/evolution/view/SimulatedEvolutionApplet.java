@@ -5,7 +5,7 @@ import org.woehlke.simulation.evolution.model.World;
 import org.woehlke.simulation.evolution.model.Point;
 
 import javax.accessibility.Accessible;
-import java.applet.Applet;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.image.ImageObserver;
 import java.io.Serializable;
@@ -17,7 +17,7 @@ import java.io.Serializable;
  * Date: 04.02.2006
  * Time: 18:33:14
  */
-public class SimulatedEvolutionApplet extends Applet implements ImageObserver, MenuContainer, Serializable, Accessible {
+public class SimulatedEvolutionApplet extends JApplet implements ImageObserver, MenuContainer, Serializable, Accessible {
 
     private Label title = new Label("Simulated Evolution");
     private ControllerThread controllerThread;

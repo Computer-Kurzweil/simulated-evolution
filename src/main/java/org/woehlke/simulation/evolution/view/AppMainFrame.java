@@ -15,7 +15,7 @@ import java.io.Serializable;
  * Date: 04.02.2006
  * Time: 18:47:46
  */
-public class AppMainFrame extends Frame implements ImageObserver,
+public class AppMainFrame extends JFrame implements ImageObserver,
         MenuContainer,
         Serializable,
         Accessible,
@@ -29,6 +29,7 @@ public class AppMainFrame extends Frame implements ImageObserver,
         exe.init();
         add("Center", exe);
         setBounds(100, 100, exe.getCanvasDimensions().getX(), exe.getCanvasDimensions().getY() + 30);
+        pack();
         setVisible(true);
         toFront();
         addWindowListener(this);
