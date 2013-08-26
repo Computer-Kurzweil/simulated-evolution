@@ -14,3 +14,12 @@ git clone https://github.com/phasenraum2010/simulated-evolution.git
 cd simulated-evolution
 
 mvn clean install exec:java
+
+Run the Java Applet
+-------------------
+go to http://www.thomas-woehlke.de/a/simulated-evolution/
+
+Project Documentation
+---------------------
+go to http://thomas-woehlke.de/p/simulated-evolution/
+
