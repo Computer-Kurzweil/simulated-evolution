@@ -23,6 +23,14 @@ If a cell doesn't eat enough, it will first stand still and after a while it die
 
 [img/screen2.png] Figure Screen
 
+* Run the Desktop Application
+
+    git clone https://github.com/phasenraum2010/simulated-evolution.git
+
+    cd simulated-evolution
+
+    mvn clean install exec:java
+
 * UML Class Model
 
 [img/Class_Model.jpg] Figure Class Model
