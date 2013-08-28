@@ -81,14 +81,6 @@
                     <showDeprecation>true</showDeprecation>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>1.2.1</version>
-                <configuration>
-                    <mainClass>org.test.int1.Main</mainClass>
-                </configuration>
-            </plugin>
 
             <!-- Fuer Continous-Integration et al.: Auschecken von Subversion mittels
                 Maven. http://maven.apache.org/scm/ -->
