@@ -15,11 +15,10 @@ cd simulated-evolution
 
 mvn clean install exec:java
 
-Run the Java Applet
--------------------
-go to http://www.thomas-woehlke.de/a/simulated-evolution/
-
 Project Documentation
 ---------------------
-go to http://thomas-woehlke.de/p/simulated-evolution/
+go to http://woehlke.org/p/simulated-evolution/
 
+Blog
+----
+go to http://thomas-woehlke.blogspot.de/2016/01/simulated-evolution-artificial-life-and.html
