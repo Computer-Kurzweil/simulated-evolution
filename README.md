@@ -21,8 +21,10 @@ Run the Desktop Application
 
 ```git clone [https://github.com/phasenraum2010/simulated-evolution.git](https://github.com/phasenraum2010/simulated-evolution.git)
 ```
+
 ```cd simulated-evolution
 ```
+
 ```mvn clean install exec:java
 ```
 
