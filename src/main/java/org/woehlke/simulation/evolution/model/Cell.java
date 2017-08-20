@@ -45,29 +45,29 @@ public class Cell {
     /**
      * The World Dimensions in which this Cell can move.
      */
-    private Point max;
+    private final Point worldDimensions;
 
     /**
      * Random Generator is set from outside by Constructor.
      */
     private Random random;
 
-    public Cell(Point max, Point position, Random random) {
-        this.max = new Point(max);
+    public Cell(Point worldDimensions, Point position, Random random) {
+        this.worldDimensions = new Point(worldDimensions);
         this.position = new Point(position);
         this.random = random;
         this.cellCore = new CellCore(random);
-        this.max.killNagative();
-        this.position.setX(random.nextInt() % max.getX());
-        this.position.setY(random.nextInt() % max.getY());
-        this.position.killNagative();
+        this.worldDimensions.absoluteValue();
+        this.position.setX(random.nextInt() % worldDimensions.getX());
+        this.position.setY(random.nextInt() % worldDimensions.getY());
+        this.position.absoluteValue();
         this.orientation = getRandomOrientation();
         this.lifeCycle = new LifeCycle();
     }
 
-    private Cell(int fat, CellCore rna, Point position, Point max, Random random) {
+    private Cell(int fat, CellCore rna, Point position, Point worldDimensions, Random random) {
         lifeCycle = new LifeCycle(fat);
-        this.max = new Point(max);
+        this.worldDimensions = new Point(worldDimensions);
         this.position = new Point(position);
         this.random = random;
         this.cellCore = rna;
@@ -98,8 +98,8 @@ public class Cell {
         if(lifeCycle.move()){
             getNextOrientation();
             position.add(orientation.getMove());
-            position.add(max);
-            position.normalize(max);
+            position.add(worldDimensions);
+            position.normalize(worldDimensions);
         }
     }
 
@@ -113,7 +113,7 @@ public class Cell {
     public Cell performReproductionByCellDivision() {
         CellCore rna = cellCore.performMitosis();
         lifeCycle.haveSex();
-        Cell child = new Cell(lifeCycle.getFat(), rna, position, max, random);
+        Cell child = new Cell(lifeCycle.getFat(), rna, position, worldDimensions, random);
         return child;
     }
 

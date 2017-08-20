@@ -54,7 +54,23 @@ public class Point implements Serializable {
         this.y = y;
     }
 
-    public void killNagative() {
+    public int getWidth() {
+        return x;
+    }
+
+    public void setWidth(int width) {
+        this.x = width;
+    }
+
+    public int getHeight() {
+        return y;
+    }
+
+    public void setHeight(int height) {
+        this.y = height;
+    }
+
+    public void absoluteValue() {
         if (y < 0) {
             y *= -1;
         }
