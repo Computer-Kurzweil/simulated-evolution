@@ -39,18 +39,9 @@
             <item name="Home" href="/" />
             <item name="GitHub project" href="https://github.com/phasenraum2010/simulated-evolution/" />
             <item name="Blog" href="https://thomas-woehlke.blogspot.de/2016/01/simulated-evolution-artificial-life-and.html" />
-            <item name="Release notes" href="release-notes.html" />
-        </menu>
-        <menu name="Download" inherit="top">
-            <item name="Download" href="skin/index.html#Usage" />
             <item name="License" href="license.html" />
         </menu>
-        <menu name="Documentation" inherit="bottom">
-            <item name="Development" href="development.html" />
-            <item name="Contribute" href="contribute.html" />
-        </menu>
         <menu name="Contribute" inherit="bottom">
-            <item name="Contribute" href="contribute.html" />
             <item name="Issues" href="https://github.com/phasenraum2010/simulated-evolution/issues/" />
             <item name="Fork on GitHub" href="https://github.com/phasenraum2010/simulated-evolution/" />
             <item name="Donate" href="https://www.paypal.me/ThomasWoehlke" />
