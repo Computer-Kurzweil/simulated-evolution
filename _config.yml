@@ -1,1 +1,4 @@
-theme: jekyll-theme-tactile
+theme: jekyll-theme-slate
+title: Simulated Evolution
+description: Artificial Life Simulation of Bacteria Motion depending on DNA
+google_analytics: UA-17174370-10

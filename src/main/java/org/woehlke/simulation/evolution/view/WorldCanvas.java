@@ -5,8 +5,6 @@ import org.woehlke.simulation.evolution.model.Point;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.awt.image.ImageObserver;
 import java.util.List;
 
 
@@ -53,7 +51,6 @@ public class WorldCanvas extends JComponent {
                 g.drawLine(pixel.getX(),pixel.getY(),pixel.getX(),pixel.getY());
             }
         }
-        //System.out.print(".");
     }
 
     public void update(Graphics g) {

@@ -11,7 +11,7 @@ import java.awt.image.ImageObserver;
 import java.io.Serializable;
 
 /**
- * (C) 2006 - 2008 Thomas Woehlke.
+ * (C) 2013 Thomas Woehlke.
  * http://thomas-woehlke.de/p/simulated-evolution/
  * @author Thomas Woehlke
  * Date: 04.02.2006
@@ -19,7 +19,7 @@ import java.io.Serializable;
  */
 public class SimulatedEvolutionApplet extends JApplet implements ImageObserver, MenuContainer, Serializable, Accessible {
 
-    private Label title = new Label("Simulated Evolution");
+    private Label title = new Label("Artificial Life Simulation of Bacteria Motion depending on DNA - (C) 2013 Thomas Woehlke");
     private ControllerThread controllerThread;
     private WorldCanvas canvas;
     private World world;

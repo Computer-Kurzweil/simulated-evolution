@@ -12,6 +12,7 @@ import java.util.ArrayList;
  * Time: 19:55:23
  */
 public class CellCore {
+
     private List<Integer> dna;
     private int MAX_VALUE = 16;
     private int MAX_INITIAL_VALUE = 8;

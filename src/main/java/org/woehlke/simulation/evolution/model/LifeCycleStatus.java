@@ -3,11 +3,11 @@ package org.woehlke.simulation.evolution.model;
 import java.awt.*;
 
 /**
- * Created with IntelliJ IDEA.
- * User: tw
+ * (C) 2006 - 2008 Thomas Woehlke.
+ * http://thomas-woehlke.de/p/simulated-evolution/
+ * @author Thomas Woehlke
  * Date: 25.08.13
  * Time: 12:40
- * To change this template use File | Settings | File Templates.
  */
 public enum LifeCycleStatus {
 

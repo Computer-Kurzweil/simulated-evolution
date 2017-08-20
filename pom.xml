@@ -9,9 +9,10 @@
     <url>http://www.thomas-woehlke.de/p/simulated-evolution</url>
 
     <properties>
-        <java-version>1.6</java-version>
-        <maven.scm.version>1.8.1</maven.scm.version>
-        <encoding>UTF-8</encoding>
+        <java-version>1.8</java-version>
+        <maven.scm.version>1.9.5</maven.scm.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
     <dependencies>
@@ -25,54 +26,52 @@
 
     <organization>
         <name>Thomas Woehlke</name>
-        <url>https://github.com/phasenraum2010/simulated-evolution</url>
+        <url>https://github.com/phasenraum2010</url>
     </organization>
-    <inceptionYear>2008</inceptionYear>
+
+    <inceptionYear>2013</inceptionYear>
+
     <scm>
         <url>https://github.com/phasenraum2010/simulated-evolution.git</url>
         <connection>scm:git:https://github.com/phasenraum2010/simulated-evolution.git</connection>
         <developerConnection>scm:git:https://github.com/phasenraum2010/simulated-evolution.git</developerConnection>
-      <tag>HEAD</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
+
     <issueManagement>
         <url>https://github.com/phasenraum2010/simulated-evolution/issues/</url>
         <system>GitHub</system>
     </issueManagement>
+
     <distributionManagement>
         <site>
             <id>simulatedevolution.shadowfax.fritz.box</id>
             <url>file:///opt/local/apache2/htdocs/p/simulated-evolution</url>
         </site>
     </distributionManagement>
+
     <developers>
         <developer>
             <name>Thomas Wöhlke</name>
             <email>thomas@woehlke.org</email>
-            <url>https://github.com/phasenraum2010/simulated-evolution</url>
+            <url>https://twitter.com/ThomasWoehlke</url>
         </developer>
     </developers>
 
+    <licenses>
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+        </license>
+    </licenses>
+
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-eclipse-plugin</artifactId>
-                <version>2.9</version>
-                <configuration>
-                    <additionalProjectnatures>
-                        <projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
-                    </additionalProjectnatures>
-                    <additionalBuildcommands>
-                        <buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
-                    </additionalBuildcommands>
-                    <downloadSources>true</downloadSources>
-                    <downloadJavadocs>true</downloadJavadocs>
-                </configuration>
-            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.5</version>
+                <version>3.6.2</version>
                 <configuration>
                     <source>${java-version}</source>
                     <target>${java-version}</target>
@@ -94,99 +93,66 @@
                 <groupId>org.apache.maven.scm</groupId>
                 <artifactId>maven-scm</artifactId>
                 <version>${maven.scm.version}</version>
-                <configuration>
-                    <encoding>UTF-8</encoding>
-                </configuration>
             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.scm</groupId>
                 <artifactId>maven-scm-providers</artifactId>
                 <version>${maven.scm.version}</version>
-                <configuration>
-                    <encoding>UTF-8</encoding>
-                </configuration>
             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.scm</groupId>
                 <artifactId>maven-scm-providers-svn</artifactId>
                 <version>${maven.scm.version}</version>
-                <configuration>
-                    <encoding>UTF-8</encoding>
-                </configuration>
             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.scm</groupId>
                 <artifactId>maven-scm-provider-svnexe</artifactId>
                 <version>${maven.scm.version}</version>
-                <configuration>
-                    <encoding>UTF-8</encoding>
-                </configuration>
             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.scm</groupId>
                 <artifactId>maven-scm-provider-svn-commons</artifactId>
                 <version>${maven.scm.version}</version>
-                <configuration>
-                    <encoding>UTF-8</encoding>
-                </configuration>
             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.scm</groupId>
                 <artifactId>maven-scm-providers-git</artifactId>
                 <version>${maven.scm.version}</version>
-                <configuration>
-                    <encoding>UTF-8</encoding>
-                </configuration>
             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.scm</groupId>
                 <artifactId>maven-scm-provider-gitexe</artifactId>
                 <version>${maven.scm.version}</version>
-                <configuration>
-                    <encoding>UTF-8</encoding>
-                </configuration>
             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.scm</groupId>
                 <artifactId>maven-scm-provider-git-commons</artifactId>
                 <version>${maven.scm.version}</version>
-                <configuration>
-                    <encoding>UTF-8</encoding>
-                </configuration>
             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.scm</groupId>
                 <artifactId>maven-scm-manager-plexus</artifactId>
                 <version>${maven.scm.version}</version>
-                <configuration>
-                    <encoding>UTF-8</encoding>
-                </configuration>
             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.scm</groupId>
                 <artifactId>maven-scm-managers</artifactId>
                 <version>${maven.scm.version}</version>
-                <configuration>
-                    <encoding>UTF-8</encoding>
-                </configuration>
             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.scm</groupId>
                 <artifactId>maven-scm-client</artifactId>
                 <version>${maven.scm.version}</version>
-                <configuration>
-                    <encoding>UTF-8</encoding>
-                </configuration>
             </plugin>
 
             <plugin>
@@ -203,12 +169,11 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-site-plugin</artifactId>
-                <version>3.4</version>
+                <version>3.6</version>
                 <inherited>true</inherited>
                 <configuration>
                     <locales>en</locales>
                     <outputDirectory>target/site</outputDirectory>
-                    <outputEncoding>${encoding}</outputEncoding>
                     <generateReports>true</generateReports>
                 </configuration>
                 <dependencies>
@@ -226,32 +191,67 @@
                 </dependencies>
             </plugin>
 
-            <!-- http://maven.apache.org/plugins/maven-dependency-plugin/usage.html -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.10</version>
-            </plugin>
-
-            <!-- This Plugin looks up SVN -->
-            <!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-changelog-plugin</artifactId>
-                <version>2.2</version> </plugin> -->
-
-
-
-            <!-- <plugin> <groupId>org.codehaus.mojo</groupId> <artifactId>cobertura-maven-plugin</artifactId>
-                <version>2.5.2</version> </plugin> -->
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-                <version>2.4</version>
+                <version>3.0.1</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.0.1</version>
+                <executions>
+                    <execution>
+                        <id>src-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <!-- use copy-dependencies instead if you don't want to explode the sources -->
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <classifier>sources</classifier>
+                            <failOnMissingClassifierArtifact>false</failOnMissingClassifierArtifact>
+                            <outputDirectory>${project.build.directory}/sources</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.0.0-M1</version>
+                <configuration>
+                    <maxmemory>2048m</maxmemory>
+                    <source>1.8</source>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <javadocExecutable>${java.home}/../bin/javadoc</javadocExecutable>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>javadoc-javadoc-package</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>javadoc</goal>
+                        </goals>
+                        <configuration>
+                            <!--
+                            <linksource>true</linksource>
+                            -->
+                            <maxmemory>2048m</maxmemory>
+                            <source>1.8</source>
+                            <encoding>${project.build.sourceEncoding}</encoding>
+                            <javadocExecutable>${java.home}/../bin/javadoc</javadocExecutable>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
 
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
-                <version>1.4.0</version>
+                <version>1.6.0</version>
                 <executions>
                     <execution>
                         <goals>
@@ -260,19 +260,19 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>org.woehlke.simulation.evolution.desktop.AppMainDesktop</mainClass>
+                    <mainClass>org.woehlke.simulation.evolution.desktop.SimulatedEvolutionApplication</mainClass>
                 </configuration>
             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>2.6</version>
+                <version>3.0.2</version>
                 <configuration>
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>org.woehlke.simulation.evolution.desktop.AppMainDesktop</mainClass>
+                            <mainClass>org.woehlke.simulation.evolution.desktop.SimulatedEvolutionApplication</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -286,43 +286,30 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-project-info-reports-plugin</artifactId>
-                <version>2.8.1</version>
+                <version>2.9</version>
             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.10.3</version>
+                <version>3.0.0-M1</version>
                 <configuration>
-                    <!-- <links> <link>http://java.sun.com/javase/6/docs/api/</link> <link>http://static.springframework.org/spring/docs/3.0.x/api/</link>
-                             <link>http://static.springframework.org/spring-webflow/docs/2.1.x/javadoc-api/</link>
-                             <link>http://static.springframework.org/spring-security/site/apidocs/</link>
-                             <link>http://tiles.apache.org/2.1/framework/apidocs/index.html</link> <link>http://www.hibernate.org/hib_docs/v3/api/</link>
-                             <link>http://docs.jboss.org/hibernate/stable/annotations/api/</link> <link>http://docs.jboss.org/hibernate/stable/entitymanager/api/</link>
-                             </links> -->
                     <linksource>true</linksource>
                     <maxmemory>1024m</maxmemory>
                     <source>${java-version}</source>
-                    <encoding>${encoding}</encoding>
                 </configuration>
             </plugin>
-            <!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-surefire-plugin</artifactId>
-                   <version>2.2</version> </plugin> <plugin> <groupId>org.apache.maven.plugins</groupId>
-                   <artifactId>maven-surefire-report-plugin</artifactId> <version>2.0</version>
-                   </plugin> -->
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <version>2.17</version>
-                <configuration>
-                    <encoding>${encoding}</encoding>
-                </configuration>
             </plugin>
 
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>findbugs-maven-plugin</artifactId>
-                <version>3.0.3</version>
+                <version>3.0.5</version>
                 <configuration>
                     <onlyAnalyze>org.woehlke.*</onlyAnalyze>
                     <omitVisitors>FindDeadLocalStores</omitVisitors>
@@ -342,9 +329,8 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
-                <version>3.6</version>
+                <version>3.8</version>
                 <configuration>
-                    <sourceEncoding>${encoding}</sourceEncoding>
                     <minimumTokens>100</minimumTokens>
                     <targetJdk>${java-version}</targetJdk>
                     <excludeRoots>
@@ -357,15 +343,12 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>taglist-maven-plugin</artifactId>
                 <version>2.4</version>
-                <configuration>
-                    <encoding>${encoding}</encoding>
-                </configuration>
             </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-changes-plugin</artifactId>
-                <version>2.11</version>
+                <version>2.12.1</version>
                 <configuration>
                     <githubAPIScheme>https</githubAPIScheme>
                     <githubAPIPort>443</githubAPIPort>
@@ -382,7 +365,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-report-plugin</artifactId>
-                <version>2.19.1</version>
+                <version>2.20</version>
             </plugin>
 
             <plugin>
