@@ -9,6 +9,17 @@
         http://maven.apache.org/plugins/maven-changes-plugin/changes.html
     -->
     <body>
+        <release version="1.1" date="2017-08-20" description="Second release">
+            <action issue="13" type="update">
+                Update README.md #13
+            </action>
+            <action issue="12" type="update">
+                Update maven plugins #12
+            </action>
+            <action issue="11" type="update">
+                Update Java and jdk-Version to 1.8 #11
+            </action>
+        </release>
         <release version="1.0" date="2013-08-24" description="First release">
             <action issue="5" type="update">
                Project setup at github. Maven setup Site and changes. Code Cleanup.
