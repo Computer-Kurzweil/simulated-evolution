@@ -16,16 +16,18 @@ Movement of the cells depends on random and their DNA. A fit cell moves around a
 Reproduction is done by splitting the cell and randomly changing the DNA of the two new Cells.
 If a cell doesn't eat enough, it will first stand still and after a while it dies.
 
+Screenshot
+----------
+
+![My image](username.github.com/repository/img/image.jpg)
+
 Run the Desktop Application
 ---------------------------
 
-```git clone [https://github.com/phasenraum2010/simulated-evolution.git](https://github.com/phasenraum2010/simulated-evolution.git)
 ```
-
-```cd simulated-evolution
-```
-
-```mvn clean install exec:java
+git clone https://github.com/phasenraum2010/simulated-evolution.git
+cd simulated-evolution
+mvn clean install exec:java
 ```
 
 Project Documentation
