@@ -82,6 +82,7 @@ public class LifeCycle {
 
     /**
      * moving consumes food energy
+     * @return true, if cell has enough energy to move.
      */
     public boolean move() {
         age++;
