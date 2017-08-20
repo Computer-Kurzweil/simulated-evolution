@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/DECORATION/1.0.0"
+<project name="Reflow Maven Skin"
+         xmlns="http://maven.apache.org/DECORATION/1.3.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/DECORATION/1.0.0
-    http://maven.apache.org/xsd/decoration-1.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/DECORATION/1.3.0 http://maven.apache.org/xsd/decoration-1.3.0.xsd">
     <skin>
-        <groupId>lt.velykis.maven.skins</groupId>
-        <artifactId>reflow-maven-skin</artifactId>
-        <version>1.1.1</version>
+        <groupId>org.apache.maven.skins</groupId>
+        <artifactId>maven-fluido-skin</artifactId>
+        <version>1.5</version>
     </skin>
     <!-- http://andriusvelykis.github.io/reflow-maven-skin/skin/ -->
     <bannerLeft>
@@ -14,53 +14,47 @@
         <src>/img/phasenraum_logo.gif</src>
         <href>http://woehlke.org/</href>
     </bannerLeft>
-    <body>
-        <menu ref="parent"/>
-        <menu ref="modules"/>
-        <menu ref="reports"/>
-    </body>
     <publishDate position="navigation-bottom"/>
     <poweredBy>
         <logo name="Maven" href="http://maven.apache.org/"
               img="http://maven.apache.org/images/logos/maven-feather.png"/>
     </poweredBy>
-    <custom>
-        <reflowSkin>
-            <theme>bootswatch-spacelab</theme>
-            <highlightJs>true</highlightJs>
-            <brand>
-                <name>Simulated Evolution</name>
-                <href>https://github.com/phasenraum2010/simulated-evolution</href>
-            </brand>
-            <slogan>Artificial Life Simulation of Bacteria Motion depending on DNA</slogan>
-            <titleTemplate>%2$s | %1$s</titleTemplate>
-            <toc>top</toc>
-            <topNav>Download|reports</topNav>
-            <bottomNav>
-                <column>Main|Download</column>
-                <column>Documentation</column>
-                <column>reports|modules</column>
-            </bottomNav>
-            <bottomDescription>
-                Artificial Life Simulation of Bacteria Motion depending on DNA
-            </bottomDescription>
-            <pages>
-                <index project="project-id">
-                    <shortTitle>Welcome</shortTitle>
-                    <breadcrumbs>true</breadcrumbs>
-                    <toc>true</toc>
-                    <sections>
-                        <carousel />
-                        <body />
-                        <sidebar />
-                        <thumbs>2</thumbs>
-                        <columns>3</columns>
-                    </sections>
-                </index>
-                <developer-info>
-                    <toc>sidebar</toc>
-                </developer-info>
-            </pages>
-        </reflowSkin>
-    </custom>
+    <body>
+        <!-- Add a rel to Google profile for all pages -->
+        <head>
+            <!--
+            <link rel="author" href="https://plus.google.com/u/0/103952923222929770455" ></link>
+            -->
+        </head>
+
+        <links>
+            <item name="GitHub project" href="https://github.com/phasenraum2010/simulated-evolution/" />
+        </links>
+
+        <breadcrumbs>
+            <item name="Simulated Evolution" href="/" />
+        </breadcrumbs>
+
+        <menu name="Main" inherit="top">
+            <item name="Home" href="/" />
+            <item name="GitHub project" href="https://github.com/phasenraum2010/simulated-evolution/" />
+            <item name="Blog" href="https://thomas-woehlke.blogspot.de/2016/01/simulated-evolution-artificial-life-and.html" />
+            <item name="Release notes" href="release-notes.html" />
+        </menu>
+        <menu name="Download" inherit="top">
+            <item name="Download" href="skin/index.html#Usage" />
+            <item name="License" href="license.html" />
+        </menu>
+        <menu name="Documentation" inherit="bottom">
+            <item name="Development" href="development.html" />
+            <item name="Contribute" href="contribute.html" />
+        </menu>
+        <menu name="Contribute" inherit="bottom">
+            <item name="Contribute" href="contribute.html" />
+            <item name="Issues" href="https://github.com/phasenraum2010/simulated-evolution/issues/" />
+            <item name="Fork on GitHub" href="https://github.com/phasenraum2010/simulated-evolution/" />
+            <item name="Donate" href="https://www.paypal.me/ThomasWoehlke" />
+        </menu>
+        <menu name="Maven documentation" ref="reports" inherit="bottom"/>
+    </body>
 </project>
