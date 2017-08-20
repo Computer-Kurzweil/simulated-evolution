@@ -7,6 +7,9 @@ import java.util.Random;
  * It's state is position, orientation and LifeCycle.
  * The Cell has a CellCore with the DNA Genome for Moving around.
  *
+ * Simulated Evolution.
+ * Artificial Life Simulation of Bacteria Motion depending on DNA.
+ *
  * @see org.woehlke.simulation.evolution.model.CellCore
  * @see org.woehlke.simulation.evolution.model.LifeCycle
  * @see org.woehlke.simulation.evolution.model.LifeCycleStatus

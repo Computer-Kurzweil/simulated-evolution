@@ -9,12 +9,15 @@ import java.awt.image.ImageObserver;
 import java.io.Serializable;
 
 /**
- * This Frame wraps the SimulatedEvolutionApplet which is the Container for this Simulution.
+ * This Frame wraps the SimulatedEvolutionApplet which is the Container for this Simulation.
  *
  * @see org.woehlke.simulation.evolution.view.SimulatedEvolutionApplet
  * @see javax.swing.JFrame
  * @see java.awt.image.ImageObserver
  * @see java.awt.event.WindowListener
+ *
+ * Simulated Evolution.
+ * Artificial Life Simulation of Bacteria Motion depending on DNA.
  *
  * &copy; 2006 - 2008 Thomas Woehlke.
  * http://thomas-woehlke.de/p/simulated-evolution/

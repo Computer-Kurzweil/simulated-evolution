@@ -5,6 +5,9 @@ import java.util.Random;
 /**
  * Map of World where every Place can have food needed by the Bacteria Cells for eating.
  *
+ * Simulated Evolution.
+ * Artificial Life Simulation of Bacteria Motion depending on DNA.
+ *
  * &copy; 2006 - 2013 Thomas Woehlke.
  * http://thomas-woehlke.de/p/simulated-evolution/
  * @author Thomas Woehlke

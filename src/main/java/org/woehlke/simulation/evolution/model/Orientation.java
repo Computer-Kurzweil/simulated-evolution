@@ -3,6 +3,9 @@ package org.woehlke.simulation.evolution.model;
 /**
  * Orientation defines the new position after next move.
  *
+ * Simulated Evolution.
+ * Artificial Life Simulation of Bacteria Motion depending on DNA.
+ *
  * &copy; 2006 - 2008 Thomas Woehlke.
  * http://thomas-woehlke.de/p/simulated-evolution/
  * @author Thomas Woehlke
@@ -24,7 +27,7 @@ public enum Orientation {
         return move;
     }
 
-    private Orientation(int x, int y){
+    Orientation(int x, int y){
         move = new Point(x,y);
     }
 

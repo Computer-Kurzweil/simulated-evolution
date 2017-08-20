@@ -6,6 +6,9 @@ import org.woehlke.simulation.evolution.view.WorldCanvas;
 /**
  * The ControllerThread controls the Interactions between Model and View (MVC-Pattern).
  *
+ * Simulated Evolution.
+ * Artificial Life Simulation of Bacteria Motion depending on DNA.
+ *
  * &copy; 2006 - 2013 Thomas Woehlke.
  * http://thomas-woehlke.de/p/simulated-evolution/
  * @author Thomas Woehlke

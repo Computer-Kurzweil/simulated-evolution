@@ -14,6 +14,9 @@ import java.io.Serializable;
  * The Container for running the Simulation.
  * It containes a World Data Model, a Controller Thread and a WorldCanvas View.
  *
+ * Simulated Evolution.
+ * Artificial Life Simulation of Bacteria Motion depending on DNA.
+ *
  * (C) 2013 Thomas Woehlke.
  * http://thomas-woehlke.de/p/simulated-evolution/
  * @author Thomas Woehlke

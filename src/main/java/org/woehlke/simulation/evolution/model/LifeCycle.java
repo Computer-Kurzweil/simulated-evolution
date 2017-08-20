@@ -6,6 +6,9 @@ package org.woehlke.simulation.evolution.model;
  * the cell becomes able to reproduce by cell division.
  * If there is not enough food, the cell will not move and later it will die.
  *
+ * Simulated Evolution.
+ * Artificial Life Simulation of Bacteria Motion depending on DNA.
+ *
  * &copy; 2006 - 2008 Thomas Woehlke.
  * http://thomas-woehlke.de/p/simulated-evolution/
  * @author Thomas Woehlke

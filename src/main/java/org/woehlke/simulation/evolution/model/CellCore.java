@@ -7,6 +7,9 @@ import java.util.ArrayList;
 /**
  * The CellCore contains the DNA which has influence on orientation at moving.
  *
+ * Simulated Evolution.
+ * Artificial Life Simulation of Bacteria Motion depending on DNA.
+ *
  * &copy; 2006 - 2008 Thomas Woehlke.
  * http://thomas-woehlke.de/p/simulated-evolution/
  * @author Thomas Woehlke
