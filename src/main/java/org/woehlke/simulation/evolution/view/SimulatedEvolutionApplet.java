@@ -19,6 +19,8 @@ import java.io.Serializable;
  */
 public class SimulatedEvolutionApplet extends JApplet implements ImageObserver, MenuContainer, Serializable, Accessible {
 
+    static final long serialVersionUID = 242L;
+
     private Label title = new Label("Artificial Life Simulation of Bacteria Motion depending on DNA - (C) 2013 Thomas Woehlke");
     private ControllerThread controllerThread;
     private WorldCanvas canvas;

@@ -11,6 +11,8 @@ import java.io.Serializable;
  */
 public class Point implements Serializable {
 
+    static final long serialVersionUID = 242L;
+
     private int x = 0;
     private int y = 0;
 

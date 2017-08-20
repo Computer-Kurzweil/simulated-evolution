@@ -17,6 +17,8 @@ import java.util.List;
  */
 public class WorldCanvas extends JComponent {
 
+    static final long serialVersionUID = 242L;
+
     private World world;
     private Point worldDimensions;
 
