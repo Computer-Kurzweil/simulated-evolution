@@ -4,41 +4,61 @@ import org.woehlke.simulation.evolution.model.World;
 import org.woehlke.simulation.evolution.view.WorldCanvas;
 
 /**
- * (C) 2006 - 2013 Thomas Woehlke.
+ * The ControllerThread controls the Interactions between Model and View (MVC-Pattern).
+ *
+ * &copy; 2006 - 2013 Thomas Woehlke.
  * http://thomas-woehlke.de/p/simulated-evolution/
  * @author Thomas Woehlke
  * Date: 05.02.2006
  * Time: 00:36:20
  */
-public class ControllerThread extends Thread
-        implements Runnable {
+public class ControllerThread extends Thread implements Runnable {
+
+    /**
+     * Data Model for the Simulation
+     */
     private World world;
+
+    /**
+     * Canvas, where to paint in the GUI.
+     */
     private WorldCanvas canvas;
 
-    private int THREAD_SLEEP_TIME = 100;
-    private Boolean goOn;
+    /**
+     * Time to Wait in ms.
+     */
+    private final int TIME_TO_WAIT = 100;
+
+    /**
+     * Control for Threading
+     */
+    private Boolean mySemaphore;
 
     public ControllerThread() {
-        goOn = Boolean.TRUE;
+        mySemaphore = Boolean.TRUE;
     }
 
     public void run() {
-        boolean doIt;
+        boolean doMyJob;
         do {
-            synchronized (goOn) {
-                doIt = goOn.booleanValue();
+            synchronized (mySemaphore) {
+                doMyJob = mySemaphore.booleanValue();
             }
             world.letLivePopulation();
             canvas.repaint();
-            try { sleep(THREAD_SLEEP_TIME); }
-            catch (InterruptedException e) { e.printStackTrace(); }
+            try {
+                sleep(TIME_TO_WAIT);
+            }
+            catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
-        while (doIt);
+        while (doMyJob);
     }
 
     public void exit() {
-        synchronized (goOn) {
-            goOn = Boolean.FALSE;
+        synchronized (mySemaphore) {
+            mySemaphore = Boolean.FALSE;
         }
     }
 

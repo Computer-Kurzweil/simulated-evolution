@@ -9,7 +9,9 @@ import java.util.List;
 
 
 /**
- * (C) 2006 - 2008 Thomas Woehlke.
+ * View for the World Data Model for Displaying Food and Bacteria Cells.
+ *
+ * &copy; 2006 - 2008 Thomas Woehlke.
  * http://thomas-woehlke.de/p/simulated-evolution/
  * @author Thomas Woehlke
  * Date: 05.02.2006
@@ -19,7 +21,11 @@ public class WorldCanvas extends JComponent {
 
     static final long serialVersionUID = 242L;
 
+    /**
+     * Reference to the Data Model.
+     */
     private World world;
+
     private Point worldDimensions;
 
     private final Color WATER = Color.BLACK;
@@ -31,6 +37,10 @@ public class WorldCanvas extends JComponent {
         this.setSize(this.worldDimensions.getX(), this.worldDimensions.getY());
     }
 
+    /**
+     * Paint the World on the Canvas and show Food and Bacteria Cells.
+     * @param g Graphics Context with the Tools for Painting.
+     */
     public void paint(Graphics g) {
         super.paintComponent(g);
         int width = worldDimensions.getX();

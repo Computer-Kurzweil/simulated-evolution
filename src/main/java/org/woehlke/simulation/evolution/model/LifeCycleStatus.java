@@ -3,7 +3,12 @@ package org.woehlke.simulation.evolution.model;
 import java.awt.*;
 
 /**
- * (C) 2006 - 2008 Thomas Woehlke.
+ * The Status of the Cell's LifeCycle.
+ * It is Displayed as Color of the Cell.
+ *
+ * @see LifeCycle
+ *
+ * &copy; 2006 - 2008 Thomas Woehlke.
  * http://thomas-woehlke.de/p/simulated-evolution/
  * @author Thomas Woehlke
  * Date: 25.08.13
@@ -20,7 +25,7 @@ public enum LifeCycleStatus {
 
     private Color color;
 
-    private LifeCycleStatus(Color color){
+    LifeCycleStatus(Color color){
         this.color=color;
     }
 

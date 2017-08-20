@@ -3,7 +3,9 @@ package org.woehlke.simulation.evolution.model;
 import java.io.Serializable;
 
 /**
- * (C) 2006 - 2008 Thomas Woehlke.
+ * A Point is used to define the Position of Cell or as a Vector for defining Dimensions.
+ *
+ * &copy; 2006 - 2008 Thomas Woehlke.
  * http://thomas-woehlke.de/p/simulated-evolution/
  * @author Thomas Woehlke
  * Date: 04.02.2006
@@ -13,7 +15,14 @@ public class Point implements Serializable {
 
     static final long serialVersionUID = 242L;
 
+    /**
+     * Horizontal X-Coordinate. Also used as Width;
+     */
     private int x = 0;
+
+    /**
+     * Vertical Y-Coordinate. Also used as Height;
+     */
     private int y = 0;
 
     public Point(Point p) {
@@ -61,6 +70,12 @@ public class Point implements Serializable {
         this.y %= p.getY();
     }
 
+
+    /**
+     * Get Neighbourhood.
+     * @param max - limit the dimensions of the world around
+     * @return The Set of Points belonging to the Neighbourhood of the position given by this Point Object.
+     */
     public Point[] getNeighbourhood(Point max){
         Point neighbourhood[] = new Point[9];
         int maxX = max.getX();

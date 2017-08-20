@@ -3,19 +3,40 @@ package org.woehlke.simulation.evolution.model;
 import java.util.Random;
 
 /**
- * (C) 2006 - 2013 Thomas Woehlke.
+ * Map of World where every Place can have food needed by the Bacteria Cells for eating.
+ *
+ * &copy; 2006 - 2013 Thomas Woehlke.
  * http://thomas-woehlke.de/p/simulated-evolution/
  * @author Thomas Woehlke
- * User: thomas
  * Date: 24.08.13
  * Time: 12:37
  */
 public class WorldMapFood {
 
+    /**
+     * Grid of World where every Place can have food.
+     */
     private int worldMapFood[][];
-    private Random random;
+
+    /**
+     * How much food per Time Step (a day) shall be placed in this World.
+     */
     private final int FOOD_PER_DAY = 10;
+
+    /**
+     * A Garden of Eden is an Area where much more Food grows within the same time.
+     * As a Result of Evolution you will find sucessful Bacteria Cells with a different DNA and Motion as outside the Garden of Eden.
+     */
     private final boolean EABLE_GARDEN_OF_EDEN = true;
+
+    /**
+     * Random Generator used for placing food, coming from another Object.
+     */
+    private Random random;
+
+    /**
+     * Dimension for the Grid inside the WorldMapFood which is the Same as in World Data Model and in the View.
+     */
     private Point dimensions;
 
     public WorldMapFood(Point dimensions,Random random){
@@ -24,6 +45,9 @@ public class WorldMapFood {
         this.random=random;
     }
 
+    /**
+     * Delivers new food to random positions.
+     */
     public void letFoodGrow() {
         int f = 0;
         while (f < FOOD_PER_DAY) {
@@ -61,6 +85,14 @@ public class WorldMapFood {
         return worldMapFood[x][y] > 0;
     }
 
+    /**
+     * Reduces Food in the Grid by eating and delivers the food energy to the eating Cell.
+     *
+     * @see LifeCycle
+     *
+     * @param position where is the food and the eating cell
+     * @return the engergy of the food, will be added to cell's fat.
+     */
     public int eat(Point position) {
         Point neighbourhood[] = position.getNeighbourhood(this.dimensions);
         int food=0;

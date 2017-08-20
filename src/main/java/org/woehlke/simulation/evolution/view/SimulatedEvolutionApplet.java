@@ -11,6 +11,9 @@ import java.awt.image.ImageObserver;
 import java.io.Serializable;
 
 /**
+ * The Container for running the Simulation.
+ * It containes a World Data Model, a Controller Thread and a WorldCanvas View.
+ *
  * (C) 2013 Thomas Woehlke.
  * http://thomas-woehlke.de/p/simulated-evolution/
  * @author Thomas Woehlke
@@ -21,9 +24,21 @@ public class SimulatedEvolutionApplet extends JApplet implements ImageObserver, 
 
     static final long serialVersionUID = 242L;
 
-    private Label title = new Label("Artificial Life Simulation of Bacteria Motion depending on DNA - (C) 2013 Thomas Woehlke");
+    private Label title = new Label("      Artificial Life Simulation of Bacteria Motion depending on DNA - (C) 2013 Thomas Woehlke");
+
+    /**
+     * ControllerThread for Interachtions between Model and View (MVC-Pattern).
+     */
     private ControllerThread controllerThread;
+
+    /**
+     * The View for the World. Food and Cells are painted to the Canvas.
+     */
     private WorldCanvas canvas;
+
+    /**
+     * Data Model for the Simulation. The World contains the Bacteria Cells and the Food.
+     */
     private World world;
 
     public void init() {
