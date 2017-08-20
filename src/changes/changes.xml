@@ -9,6 +9,14 @@
         http://maven.apache.org/plugins/maven-changes-plugin/changes.html
     -->
     <body>
+        <release version="1.2" date="2017-08-20" description="Second release">
+            <action issue="15" type="update">
+                Add Javadoc to Explain how the Simulation and it's Parts work #15
+            </action>
+            <action issue="14" type="update">
+                Make Source Code more Readable with better Naming. #14
+            </action>
+        </release>
         <release version="1.1" date="2017-08-20" description="Second release">
             <action issue="13" type="update">
                 Update README.md #13
