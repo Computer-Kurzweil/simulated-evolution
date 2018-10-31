@@ -46,3 +46,5 @@ Blog Article
 Project Documentation
 ---------------------
 please visit [http://woehlke.org/p/simulated-evolution/](http://woehlke.org/p/simulated-evolution/)
+
+https://www.spektrum.de/lp/digital?gclid=EAIaIQobChMIycyDv_Sw3gIVLbHtCh2xWwBgEAAYASAAEgL7HfD_BwE
