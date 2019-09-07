@@ -22,6 +22,18 @@ If a cell doesn't eat enough, it will first stand still and after a while it die
 
 ![Later Screen](etc/img/screen2.png)
 
+### Explanation
+```
+   	water
+   	food
+   	cell is young
+    cell is fat enough to reproduce
+    cell is old enough to reproduce
+    cell is hungry and waiting for food or death
+    cell is old and waiting for death
+*	(if cell is fat and old enough for reproduction it splits and changes the childrens DNA)
+```
+
 ## UML Class Model
 
 ![UML Class Model](etc/img/Class_Model.jpg)
