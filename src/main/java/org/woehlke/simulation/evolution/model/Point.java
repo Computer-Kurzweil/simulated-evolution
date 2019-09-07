@@ -16,7 +16,7 @@ import java.io.Serializable;
  */
 public class Point implements Serializable {
 
-    static final long serialVersionUID = 242L;
+    private static final long serialVersionUID = 6978067997297990242L;
 
     /**
      * Horizontal X-Coordinate. Also used as Width;

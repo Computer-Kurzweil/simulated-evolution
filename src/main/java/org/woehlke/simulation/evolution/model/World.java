@@ -26,7 +26,7 @@ import java.util.Random;
  */
 public class World implements Serializable {
 
-    static final long serialVersionUID = 242L;
+    private static final long serialVersionUID = -3323914357940044359L;
 
     /**
      * List of the Simulated Bacteria Cells.
@@ -36,7 +36,7 @@ public class World implements Serializable {
     /**
      * Start with 20 Cells.
      */
-    private final int INITIAL_POPULATION = 20;
+    private final static int INITIAL_POPULATION = 20;
 
     /**
      * Random Generator used for Bacteria Motion.
@@ -46,12 +46,12 @@ public class World implements Serializable {
     /**
      * Definition of the World's Size in Pixel Width and Height.
      */
-    private Point worldDimensions;
+    private final Point worldDimensions;
 
     /**
      * Map of the World monitoring growth and eating food.
      */
-    private WorldMapFood worldMapFood;
+    private final WorldMapFood worldMapFood;
 
     public World(Point worldDimensions) {
         long seed = new Date().getTime();
@@ -65,7 +65,7 @@ public class World implements Serializable {
      * Create the initial Population of Bacteria Cells and give them their position in the World.
      */
     private void createPopulation() {
-        cells = new ArrayList<Cell>();
+        cells = new ArrayList<>();
         for (int i = 0; i < INITIAL_POPULATION; i++) {
             int x = random.nextInt(worldDimensions.getX());
             int y = random.nextInt(worldDimensions.getY());
@@ -88,8 +88,8 @@ public class World implements Serializable {
     public void letLivePopulation() {
         worldMapFood.letFoodGrow();
         Point pos;
-        List<Cell> children = new ArrayList<Cell>();
-        List<Cell> died = new ArrayList<Cell>();
+        List<Cell> children = new ArrayList<>();
+        List<Cell> died = new ArrayList<>();
         for (Cell cell:cells) {
             cell.move();
             if(cell.died()){

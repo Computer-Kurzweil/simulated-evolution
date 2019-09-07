@@ -1,5 +1,6 @@
 package org.woehlke.simulation.evolution.model;
 
+import java.io.Serializable;
 import java.util.Random;
 
 /**
@@ -14,23 +15,25 @@ import java.util.Random;
  * Date: 24.08.13
  * Time: 12:37
  */
-public class WorldMapFood {
+public class WorldMapFood implements Serializable {
+
+    private static final long serialVersionUID = 7206903832639173306L;
 
     /**
      * Grid of World where every Place can have food.
      */
-    private int worldMapFood[][];
+    private int[][] worldMapFood;
 
     /**
      * How much food per Time Step (a day) shall be placed in this World.
      */
-    private final int FOOD_PER_DAY = 10;
+    private final static int FOOD_PER_DAY = 10;
 
     /**
      * A Garden of Eden is an Area where much more Food grows within the same time.
      * As a Result of Evolution you will find sucessful Bacteria Cells with a different DNA and Motion as outside the Garden of Eden.
      */
-    private final boolean EABLE_GARDEN_OF_EDEN = true;
+    private final static boolean EABLE_GARDEN_OF_EDEN = true;
 
     /**
      * Random Generator used for placing food, coming from another Object.
@@ -40,7 +43,7 @@ public class WorldMapFood {
     /**
      * Dimension for the Grid inside the WorldMapFood which is the Same as in World Data Model and in the View.
      */
-    private Point worldDimensions;
+    private final Point worldDimensions;
 
     public WorldMapFood(Point worldDimensions, Random random){
         this.worldDimensions = worldDimensions;
@@ -97,7 +100,7 @@ public class WorldMapFood {
      * @return the engergy of the food, will be added to cell's fat.
      */
     public int eat(Point position) {
-        Point neighbourhood[] = position.getNeighbourhood(this.worldDimensions);
+        Point[] neighbourhood = position.getNeighbourhood(this.worldDimensions);
         int food=0;
         for (Point neighbourhoodPosition:neighbourhood){
             food += worldMapFood[neighbourhoodPosition.getX()][neighbourhoodPosition.getY()];

@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="Reflow Maven Skin"
+<project name="Simulated Evolution"
          xmlns="http://maven.apache.org/DECORATION/1.3.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/DECORATION/1.3.0 http://maven.apache.org/xsd/decoration-1.3.0.xsd">
-    <skin>
-        <groupId>org.apache.maven.skins</groupId>
-        <artifactId>maven-fluido-skin</artifactId>
-        <version>1.5</version>
-    </skin>
-    <!-- http://andriusvelykis.github.io/reflow-maven-skin/skin/ -->
     <bannerLeft>
         <name>Simulated Evolution</name>
         <src>/img/phasenraum_logo.gif</src>
-        <href>http://woehlke.org/</href>
+        <href>http://homepage.ruhr-uni-bochum.de/Thomas.Woehlke/p/simulated-evolution/</href>
+        <!--
+        <href>https://thomas-woehlke.blogspot.com/2016/01/simulated-evolution-artificial-life-and.html</href>
+        -->
     </bannerLeft>
     <publishDate position="navigation-bottom"/>
     <poweredBy>

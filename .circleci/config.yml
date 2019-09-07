@@ -1,0 +1,23 @@
+version: 2.1
+jobs:
+  build:
+    docker:
+      - image: buildpack-deps:cosmic
+    steps:
+      - run:
+          name: Setup Build Environment
+          command: |
+            echo 'Hello World!'
+            echo 'Seting up the Build Environment'
+            apt-get update
+            apt-get upgrade -y
+            echo 'Start: Installing java, groovy and gradle!'
+            apt-get install openjdk-8-jdk groovy gradle -y
+            echo 'Done:  Installing java, groovy and gradle!'
+      - checkout
+      - run:
+          name: Building Project
+          command:  |
+            echo 'running gradle build!'
+            ./gradlew --max-workers 1 --continue build
+            ./gradlew --max-workers 1 --continue jar

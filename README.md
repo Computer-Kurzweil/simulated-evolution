@@ -11,6 +11,38 @@ Movement of the cells depends on random and their DNA. A fit cell moves around a
 Reproduction is done by splitting the cell and randomly changing the DNA of the two new Cells.
 If a cell doesn't eat enough, it will first stand still and after a while it dies.
 
+Blog Article 
+------------
+* [http://thomas-woehlke.blogspot.de/2016/01/simulated-evolution-artificial-life-and.html](http://thomas-woehlke.blogspot.de/2016/01/simulated-evolution-artificial-life-and.html)
+
+Screenshot
+----------
+
+![Early Screen](./src/site/resources/img/screen1.png)
+
+![Later Screen](./src/site/resources/img/screen2.png)
+
+
+UML Class Model
+---------------
+
+![UML Class Model](./src/site/resources/img/Class_Model.jpg)
+
+
+Git Repository
+-----------------
+* [https://bitbucket.org/ThomasWoehlke/simulated-evolution](https://bitbucket.org/ThomasWoehlke/simulated-evolution)
+
+Project Documentation
+---------------------
+please visit 
+
+* [https://www.spektrum.de/](https://www.spektrum.de/lp/digital?gclid=EAIaIQobChMIycyDv_Sw3gIVLbHtCh2xWwBgEAAYASAAEgL7HfD_BwE)
+
+Maven Wrapper
+-------------
+* [https://github.com/takari/maven-wrapper](https://github.com/takari/maven-wrapper) 
+* [https://www.baeldung.com/maven-wrapper](https://www.baeldung.com/maven-wrapper) 
 
 Run the Desktop Application
 ---------------------------
@@ -18,33 +50,15 @@ Run the Desktop Application
 ```
 git clone https://github.com/phasenraum2010/simulated-evolution.git
 cd simulated-evolution
-mvnw clean install exec:java
+mvnw -Pdefault clean install exec:java
 ```
 
-Screenshot
-----------
-
-![Early Screen](http://woehlke.org/p/simulated-evolution/img/screen1.png)
-
-![Later Screen](http://woehlke.org/p/simulated-evolution/img/screen2.png)
-
-
-UML Class Model
----------------
-
-![UML Class Model](http://woehlke.org/p/simulated-evolution/img/Class_Model.jpg)
+Run the Applet Test
+-------------------
+```
+git clone https://github.com/phasenraum2010/simulated-evolution.git
+cd simulated-evolution
+mvnw -Pdefault clean install exec:java
+```
 
 
-Github Repository
------------------
-[https://github.com/phasenraum2010/simulated-evolution](https://github.com/phasenraum2010/simulated-evolution)
-
-Blog Article 
-------------
-[http://thomas-woehlke.blogspot.de/2016/01/simulated-evolution-artificial-life-and.html](http://thomas-woehlke.blogspot.de/2016/01/simulated-evolution-artificial-life-and.html)
-
-Project Documentation
----------------------
-please visit [http://woehlke.org/p/simulated-evolution/](http://woehlke.org/p/simulated-evolution/)
-
-https://www.spektrum.de/lp/digital?gclid=EAIaIQobChMIycyDv_Sw3gIVLbHtCh2xWwBgEAAYASAAEgL7HfD_BwE

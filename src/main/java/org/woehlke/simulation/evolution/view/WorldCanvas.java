@@ -1,10 +1,12 @@
 package org.woehlke.simulation.evolution.view;
 
+import org.woehlke.simulation.evolution.SimulatedEvolution;
 import org.woehlke.simulation.evolution.model.*;
 import org.woehlke.simulation.evolution.model.Point;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.Serializable;
 import java.util.List;
 
 
@@ -14,15 +16,15 @@ import java.util.List;
  * Simulated Evolution.
  * Artificial Life Simulation of Bacteria Motion depending on DNA.
  *
- * &copy; 2006 - 2008 Thomas Woehlke.
+ * &copy; 2006 - 2018 Thomas Woehlke.
  * http://thomas-woehlke.de/p/simulated-evolution/
  * @author Thomas Woehlke
  * Date: 05.02.2006
  * Time: 00:51:51
  */
-public class WorldCanvas extends JComponent {
+public class WorldCanvas extends JComponent implements SimulatedEvolution, Serializable {
 
-    static final long serialVersionUID = 242L;
+    private static final long serialVersionUID = -27002509360079509L;
 
     /**
      * Reference to the Data Model.
@@ -37,7 +39,6 @@ public class WorldCanvas extends JComponent {
     public WorldCanvas(Point worldDimensions) {
         this.worldDimensions = worldDimensions;
         this.setBackground(WATER);
-        this.setSize(this.worldDimensions.getX(), this.worldDimensions.getY());
     }
 
     /**

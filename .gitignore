@@ -1,6 +1,8 @@
-/simulated-evolution.iml
-/SimulatedEvolution.mdzip.bak
-/SimulatedEvolution.mdzip_pre18.1.mdzip.bak
-/target
-/.idea
-/.project
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build
+
+.idea
+*.iml

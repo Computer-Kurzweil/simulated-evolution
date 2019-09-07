@@ -4,7 +4,7 @@ import org.woehlke.simulation.evolution.model.World;
 import org.woehlke.simulation.evolution.view.WorldCanvas;
 
 /**
- * The ControllerThread controls the Interactions between Model and View (MVC-Pattern).
+ * The ControllerThreadApplet controls the Interactions between Model and View (MVC-Pattern).
  *
  * Simulated Evolution.
  * Artificial Life Simulation of Bacteria Motion depending on DNA.
@@ -15,29 +15,31 @@ import org.woehlke.simulation.evolution.view.WorldCanvas;
  * Date: 05.02.2006
  * Time: 00:36:20
  */
-public class ControllerThread extends Thread implements Runnable {
+public class ControllerThreadApplet extends Thread implements Runnable {
 
     /**
      * Data Model for the Simulation
      */
-    private World world;
+    protected final World world;
 
     /**
      * Canvas, where to paint in the GUI.
      */
-    private WorldCanvas canvas;
+    protected final WorldCanvas canvas;
 
     /**
      * Time to Wait in ms.
      */
-    private final int TIME_TO_WAIT = 100;
+    protected final int TIME_TO_WAIT = 100;
 
     /**
      * Control for Threading
      */
-    private Boolean mySemaphore;
+    protected Boolean mySemaphore;
 
-    public ControllerThread() {
+    public ControllerThreadApplet(World world, WorldCanvas canvas) {
+        this.world = world;
+        this.canvas = canvas;
         mySemaphore = Boolean.TRUE;
     }
 
@@ -63,13 +65,5 @@ public class ControllerThread extends Thread implements Runnable {
         synchronized (mySemaphore) {
             mySemaphore = Boolean.FALSE;
         }
-    }
-
-    public void setCanvas(WorldCanvas canvas) {
-        this.canvas = canvas;
-    }
-
-    public void setWorld(World world) {
-        this.world = world;
     }
 }

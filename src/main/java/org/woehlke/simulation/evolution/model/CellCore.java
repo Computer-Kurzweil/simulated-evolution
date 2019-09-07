@@ -1,5 +1,6 @@
 package org.woehlke.simulation.evolution.model;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Random;
 import java.util.ArrayList;
@@ -16,7 +17,9 @@ import java.util.ArrayList;
  * Date: 04.02.2006
  * Time: 19:55:23
  */
-public class CellCore {
+public class CellCore implements Serializable {
+
+    private static final long serialVersionUID = -3019959290948066782L;
 
     /**
      * The DNA Values of the Genome.
@@ -33,7 +36,7 @@ public class CellCore {
     private Random random;
 
     public CellCore(Random random) {
-        dna = new ArrayList<Integer>();
+        dna = new ArrayList<>();
         this.random = random;
         for (int i = 0; i < Orientation.values().length; i++) {
             int gen = random.nextInt() % MAX_INITIAL_VALUE;
@@ -43,7 +46,7 @@ public class CellCore {
 
     private CellCore(Random random, List<Integer> rna) {
         this.random = random;
-        dna = new ArrayList<Integer>();
+        dna = new ArrayList<>();
         dna.addAll(rna);
     }
 
@@ -56,7 +59,7 @@ public class CellCore {
      * @return the other Child CellCore.
      */
     public CellCore performMitosis() {
-        List<Integer> rna = new ArrayList<Integer>();
+        List<Integer> rna = new ArrayList<>();
         for (Integer dnaBase:dna) {
             rna.add(dnaBase);
         }
@@ -65,7 +68,7 @@ public class CellCore {
         if (baseIndex < MIN_VALUE) {
             baseIndex *= -1;
         }
-        Orientation base[] = Orientation.values();
+        Orientation[] base = Orientation.values();
         this.decrease(base[baseIndex]);
         child.increase(base[baseIndex]);
         return child;
@@ -124,11 +127,11 @@ public class CellCore {
             rna[i] = sum;
         }
         if (sumDna != 0) {
-            double val = new Double(random.nextInt(MAX_VALUE) ^ 2);
+            double val = Double.valueOf(random.nextInt(MAX_VALUE) ^ 2);
             if (val < MIN_VALUE) {
                 val *= -1;
             }
-            double sumRandom = val / new Double(MAX_VALUE ^ 2);
+            double sumRandom = val / Double.valueOf(MAX_VALUE ^ 2);
             if (sumRandom < MIN_VALUE) {
                 sumRandom *= -1;
             }

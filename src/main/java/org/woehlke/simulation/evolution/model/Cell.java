@@ -1,5 +1,6 @@
 package org.woehlke.simulation.evolution.model;
 
+import java.io.Serializable;
 import java.util.Random;
 
 /**
@@ -20,7 +21,9 @@ import java.util.Random;
  * Date: 04.02.2006
  * Time: 19:06:43
  */
-public class Cell {
+public class Cell implements Serializable {
+
+    private static final long serialVersionUID = -7194182402841173981L;
 
     /**
      * Contains the DNA for Random based Moving
