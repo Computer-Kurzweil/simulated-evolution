@@ -23,6 +23,12 @@ If a cell doesn't eat enough, it will first stand still and after a while it die
 ![Later Screen](etc/img/screen2.png)
 
 ### Explanation
+<style>
+.tablelines table, .tablelines td, .tablelines th {
+    border: 1px solid black;
+}
+</style>
+
 | Color | Explanation |
 |-------|-------------|
 | ![](etc/img/black.png) | water           |
@@ -33,6 +39,7 @@ If a cell doesn't eat enough, it will first stand still and after a while it die
 | ![](etc/img/light_gray.png)  | cell is hungry and waiting for food or death   |
 | ![](etc/img/dark_gray.png)  | cell is old and waiting for death   |
 | &nbsp; | * (if cell is fat and old enough for reproduction it splits and changes the childrens DNA)   |
+{: .tablelines}
 
 ## UML Class Model
 
