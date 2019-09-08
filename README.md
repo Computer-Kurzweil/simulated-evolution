@@ -23,6 +23,7 @@ If a cell doesn't eat enough, it will first stand still and after a while it die
 ![Later Screen](etc/img/screen2.png)
 
 ### Explanation
+
 <style>
 .tablelines table, .tablelines td, .tablelines th {
     border: 1px solid black;
