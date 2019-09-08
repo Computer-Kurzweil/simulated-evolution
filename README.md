@@ -25,13 +25,13 @@ If a cell doesn't eat enough, it will first stand still and after a while it die
 ### Explanation
 | Color | Explanation |
 |-------|-------------|
-| <p style="color:#000000">&nbsp;</p> | water           |
-| <p style="bgcolor:#00FF00">&nbsp;</p> | food            |
-| <span style="bgcolor:#0000FF">&nbsp;</span> | cell is young   |
-| <span style="bgcolor:#FFFF00">&nbsp;</span> | cell is fat enough to reproduce*   |
-| <span style="bgcolor:#FF0000">&nbsp;</span> | cell is old enough to reproduce*   |
-| <span style="bgcolor:#C0C0C0">&nbsp;</span> | cell is hungry and waiting for food or death   |
-| <span style="bgcolor:#404040">&nbsp;</span> | cell is old and waiting for death   |
+| <font color="#000000">&diams;</font> | water           |
+| <span style="bgcolor:#00FF00">&diams;</span> | food            |
+| <span style="bgcolor:#0000FF">&diams;</span> | cell is young   |
+| <span style="bgcolor:#FFFF00">&diams;</span> | cell is fat enough to reproduce*   |
+| <span style="bgcolor:#FF0000">&diams;</span> | cell is old enough to reproduce*   |
+| <span style="bgcolor:#C0C0C0">&diams;</span> | cell is hungry and waiting for food or death   |
+| <span style="bgcolor:#404040">&diams;</span> | cell is old and waiting for death   |
 | &nbsp; | * (if cell is fat and old enough for reproduction it splits and changes the childrens DNA)   |
 
 ## UML Class Model
