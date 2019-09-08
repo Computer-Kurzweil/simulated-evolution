@@ -25,8 +25,8 @@ If a cell doesn't eat enough, it will first stand still and after a while it die
 ### Explanation
 | Color | Explanation |
 |-------|-------------|
-| <span style="bgcolor:#000000">&nbsp;</span> | water           |
-| <span style="bgcolor:#00FF00">&nbsp;</span> | food            |
+| <p style="color:#000000">&nbsp;</p> | water           |
+| <p style="bgcolor:#00FF00">&nbsp;</p> | food            |
 | <span style="bgcolor:#0000FF">&nbsp;</span> | cell is young   |
 | <span style="bgcolor:#FFFF00">&nbsp;</span> | cell is fat enough to reproduce*   |
 | <span style="bgcolor:#FF0000">&nbsp;</span> | cell is old enough to reproduce*   |
