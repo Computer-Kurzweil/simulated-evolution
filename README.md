@@ -23,16 +23,16 @@ If a cell doesn't eat enough, it will first stand still and after a while it die
 ![Later Screen](etc/img/screen2.png)
 
 ### Explanation
-```
-   	water
-   	food
-   	cell is young
-    cell is fat enough to reproduce
-    cell is old enough to reproduce
-    cell is hungry and waiting for food or death
-    cell is old and waiting for death
-*	(if cell is fat and old enough for reproduction it splits and changes the childrens DNA)
-```
+| Color | Explanation |
+|-------|-------------|
+| <span style="bgcolor:#000000">&nbsp;</span> | water           |
+| <span style="bgcolor:#00FF00">&nbsp;</span> | food            |
+| <span style="bgcolor:#0000FF">&nbsp;</span> | cell is young   |
+| <span style="bgcolor:#FFFF00">&nbsp;</span> | cell is fat enough to reproduce*   |
+| <span style="bgcolor:#FF0000">&nbsp;</span> | cell is old enough to reproduce*   |
+| <span style="bgcolor:#C0C0C0">&nbsp;</span> | cell is hungry and waiting for food or death   |
+| <span style="bgcolor:#404040">&nbsp;</span> | cell is old and waiting for death   |
+| &nbsp; | * (if cell is fat and old enough for reproduction it splits and changes the childrens DNA)   |
 
 ## UML Class Model
 
@@ -40,10 +40,6 @@ If a cell doesn't eat enough, it will first stand still and after a while it die
 
 ## Git Repository
 * [https://github.com/thomaswoehlke/simulated-evolution](https://github.com/thomaswoehlke/simulated-evolution)
-
-## Maven Wrapper
-* [https://github.com/takari/maven-wrapper](https://github.com/takari/maven-wrapper) 
-* [https://www.baeldung.com/maven-wrapper](https://www.baeldung.com/maven-wrapper) 
 
 ## Run the Desktop Application
 ```
