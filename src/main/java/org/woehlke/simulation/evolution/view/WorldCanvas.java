@@ -31,13 +31,11 @@ public class WorldCanvas extends JComponent implements SimulatedEvolution, Seria
      */
     private World world;
 
-    private Point worldDimensions;
-
     private final Color WATER = Color.BLACK;
     private final Color FOOD = Color.GREEN;
 
-    public WorldCanvas(Point worldDimensions) {
-        this.worldDimensions = worldDimensions;
+    public WorldCanvas(World world) {
+        this.world = world;
         this.setBackground(WATER);
     }
 
@@ -47,8 +45,8 @@ public class WorldCanvas extends JComponent implements SimulatedEvolution, Seria
      */
     public void paint(Graphics g) {
         super.paintComponent(g);
-        int width = worldDimensions.getX();
-        int height = worldDimensions.getY();
+        int width = world.getWorldDimensions().getX();
+        int height = world.getWorldDimensions().getY();
         g.setColor(WATER);
         g.fillRect(0,0,width,height);
         g.setColor(FOOD);
@@ -61,7 +59,7 @@ public class WorldCanvas extends JComponent implements SimulatedEvolution, Seria
         }
         List<Cell> population = world.getAllCells();
         for (Cell p:population) {
-            Point[] square = p.getPosition().getNeighbourhood(worldDimensions);
+            Point[] square = p.getPosition().getNeighbourhood(world.getWorldDimensions());
             g.setColor(p.getLifeCycleStatus().getColor());
             for(Point pixel:square){
                 g.drawLine(pixel.getX(),pixel.getY(),pixel.getX(),pixel.getY());
@@ -73,11 +71,7 @@ public class WorldCanvas extends JComponent implements SimulatedEvolution, Seria
         paint(g);
     }
 
-    public Point getWorldDimensions() {
-        return worldDimensions;
-    }
-
-    public void setWorld(World world) {
-        this.world = world;
+    public void prepareMe(){
+        this.setBounds(this.world.getSimulatedEvolutionAppletConfig().getCanvasRectangle());
     }
 }

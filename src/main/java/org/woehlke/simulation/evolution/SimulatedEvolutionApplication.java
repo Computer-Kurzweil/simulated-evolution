@@ -34,20 +34,7 @@ public class SimulatedEvolutionApplication implements SimulatedEvolution {
      * @param args CLI Parameter
      */
     public static void main(String[] args) {
-        String title = TITLE;
-        String subtitle = SUB_TITLE;
-        String footer = FOOTER;
-        int startPositionOnScreenX = START_POSITION_ON_SCREEN_X;
-        int startPositionOnScreenY  = START_POSITION_ON_SCREEN_Y;
-        int heightOfTitle = HEIGHT_OF_TITLE;
-        int scale = SCALE;
-        int width = WIDTH;
-        int height = HEIGHT;
-        SimulatedEvolutionFrameConfig config = new SimulatedEvolutionFrameConfig(
-            title, subtitle ,footer,
-            startPositionOnScreenX,startPositionOnScreenY,heightOfTitle,
-            scale, width, height
-        );
+        SimulatedEvolutionFrameConfig config = new SimulatedEvolutionFrameConfig();
         SimulatedEvolutionFrame simulatedEvolutionFrame = new SimulatedEvolutionFrame(config);
         System.out.println("Hello, World!");
     }

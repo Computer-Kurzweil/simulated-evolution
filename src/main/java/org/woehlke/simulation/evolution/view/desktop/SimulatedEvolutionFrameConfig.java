@@ -22,50 +22,11 @@ public class SimulatedEvolutionFrameConfig extends SimulatedEvolutionAppletConfi
 
     private static final long serialVersionUID = -5570983544014723773L;
 
-    private int startPositionOnScreenX;
-
-    private int startPositionOnScreenY;
-
-    private int heightOfTitle;
-
-    private final String subtitle;
-
-    private final String footer;
-
-    public SimulatedEvolutionFrameConfig(String title,
-                                         String subtitle,
-                                         String footer,
-                                         int startPositionOnScreenX,
-                                         int startPositionOnScreenY,
-                                         int heightOfTitle,
-                                         int scale,
-                                         int width,
-                                         int height) {
-        super(title, scale, width, height);
-        this.subtitle = subtitle;
-        this.footer = footer;
-        this.startPositionOnScreenX = startPositionOnScreenX;
-        this.startPositionOnScreenY = startPositionOnScreenY;
-        this.heightOfTitle = heightOfTitle;
+    public SimulatedEvolutionFrameConfig() {
+        super(TITLE, SUB_TITLE, FOOTER,
+                SCALE, WIDTH, HEIGHT,HEIGHT_OF_TITLE,
+                START_POSITION_ON_SCREEN_X,START_POSITION_ON_SCREEN_Y
+        );
     }
 
-    public int getStartPositionOnScreenX() {
-        return startPositionOnScreenX;
-    }
-
-    public int getStartPositionOnScreenY() {
-        return startPositionOnScreenY;
-    }
-
-    public int getHeightOfTitle() {
-        return heightOfTitle;
-    }
-
-    public String getSubtitle() {
-        return subtitle;
-    }
-
-    public String getFooter() {
-        return footer;
-    }
 }

@@ -5,6 +5,7 @@ import org.woehlke.simulation.evolution.control.ControllerThreadApplet;
 import org.woehlke.simulation.evolution.model.World;
 import org.woehlke.simulation.evolution.model.Point;
 import org.woehlke.simulation.evolution.view.WorldCanvas;
+import org.woehlke.simulation.evolution.view.desktop.SimulatedEvolutionFrameConfig;
 
 import javax.accessibility.Accessible;
 import javax.swing.*;
@@ -45,27 +46,18 @@ public class SimulatedEvolutionApplet extends JApplet
      */
     private World world;
 
-    private SimulatedEvolutionAppletConfig simulatedEvolutionAppletConfig;
+    private SimulatedEvolutionAppletConfig simulatedEvolutionAppletConfig = new SimulatedEvolutionAppletConfig();
+
+    private BorderLayout layout = new BorderLayout();
+
+    private Label titleLabel;
 
     public void init() {
-        int scale = 2;
-        int width = 320;
-        int height = 234;
-        String subtitle = SUB_TITLE;
-        this.simulatedEvolutionAppletConfig = new SimulatedEvolutionAppletConfig(
-            subtitle, scale, width, height
-        );
-        //
-        Label titleLabel = new Label(this.simulatedEvolutionAppletConfig.getTitle());
-        this.setLayout(new BorderLayout());
+        this.titleLabel = new Label(this.simulatedEvolutionAppletConfig.getTitle());
+        this.setLayout(layout);
         this.add(titleLabel, BorderLayout.NORTH);
-        Point worldDimensions = new Point(
-            this.simulatedEvolutionAppletConfig.getWidth(),
-            this.simulatedEvolutionAppletConfig.getHeight()
-        );
-        world = new World(worldDimensions);
-        canvas = new WorldCanvas(worldDimensions);
-        canvas.setWorld(world);
+        world = new World(this.simulatedEvolutionAppletConfig);
+        canvas = new WorldCanvas(world);
         this.add(canvas, BorderLayout.CENTER);
         controllerThreadApplet = new ControllerThreadApplet(world, canvas);
         controllerThreadApplet.start();
@@ -77,7 +69,4 @@ public class SimulatedEvolutionApplet extends JApplet
     public void stop() {
     }
 
-    public Point getCanvasDimensions() {
-        return canvas.getWorldDimensions();
-    }
 }

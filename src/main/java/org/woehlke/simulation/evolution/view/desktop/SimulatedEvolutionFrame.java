@@ -5,6 +5,8 @@ import org.woehlke.simulation.evolution.control.ControllerThreadDesktop;
 import org.woehlke.simulation.evolution.model.Point;
 import org.woehlke.simulation.evolution.model.World;
 import org.woehlke.simulation.evolution.view.WorldCanvas;
+import org.woehlke.simulation.evolution.view.applet.PanelNorth;
+import org.woehlke.simulation.evolution.view.applet.PanelSouth;
 import org.woehlke.simulation.evolution.view.applet.SimulatedEvolutionApplet;
 
 import javax.swing.*;
@@ -48,24 +50,24 @@ public class SimulatedEvolutionFrame extends JFrame implements ImageObserver,
      */
     private final World world;
 
+    private final PanelNorth panelNorth;
+    private final PanelSouth panelSouth;
+
+    private final BorderLayout layout = new BorderLayout();
+
     public void prepareMe(){
-        int x = simulatedEvolutionFrameConfig.getStartPositionOnScreenX();
-        int y = simulatedEvolutionFrameConfig.getStartPositionOnScreenY();
-        int width = this.simulatedEvolutionFrameConfig.getWidth();
-        int height = this.simulatedEvolutionFrameConfig.getHeight() +
-            ( 2 * simulatedEvolutionFrameConfig.getHeightOfTitle());
-        int startX = x;
-        int startY = y + simulatedEvolutionFrameConfig.getHeightOfTitle();
-        this.canvas.setBounds(
-            startX,
-            startY,
-            width,
-            this.simulatedEvolutionFrameConfig.getHeight());
-        this.setBounds(x, y, width, height);
+        this.setBounds(this.simulatedEvolutionFrameConfig.getFrameRectangle());
+    }
+
+    public void prepareAll(){
+        this.canvas.prepareMe();
+        this.panelNorth.prepareMe();
+        this.panelSouth.prepareMe();
+        this.prepareMe();
     }
 
     public void showMe(){
-        prepareMe();
+        prepareAll();
         setVisible(true);
         toFront();
     }
@@ -73,23 +75,19 @@ public class SimulatedEvolutionFrame extends JFrame implements ImageObserver,
     public SimulatedEvolutionFrame(SimulatedEvolutionFrameConfig simulatedEvolutionFrameConfig) {
         super(simulatedEvolutionFrameConfig.getTitle());
         this.simulatedEvolutionFrameConfig = simulatedEvolutionFrameConfig;
-        Label subtitleLabel = new Label(this.simulatedEvolutionFrameConfig.getSubtitle());
-        Label footerLabel = new Label(this.simulatedEvolutionFrameConfig.getFooter());
-        this.setLayout(new BorderLayout());
-        this.add(subtitleLabel, BorderLayout.PAGE_START);
-        Point worldDimensions = new Point(
-            this.simulatedEvolutionFrameConfig.getWidth(),
-            this.simulatedEvolutionFrameConfig.getHeight()
-        );
-        this.world = new World(worldDimensions);
-        this.canvas = new WorldCanvas(worldDimensions);
-        canvas.setWorld(world);
+        this.panelSouth = new PanelSouth(simulatedEvolutionFrameConfig);
+        this.panelNorth = new PanelNorth(simulatedEvolutionFrameConfig);
+        this.world = new World(simulatedEvolutionFrameConfig);
+        this.canvas = new WorldCanvas(this.world);
+        this.setLayout(layout);
+        this.add(panelNorth, BorderLayout.NORTH);
         this.add(canvas,BorderLayout.CENTER);
-        this.add(footerLabel,BorderLayout.PAGE_END);
-        prepareMe();
+        this.add(panelSouth,BorderLayout.SOUTH);
+        prepareAll();
         pack();
         ControllerThreadDesktop control = new ControllerThreadDesktop(
-            this.canvas, this.world,this);
+            this.canvas, this.world,this
+        );
         addWindowListener(control);
         control.start();
         showMe();
