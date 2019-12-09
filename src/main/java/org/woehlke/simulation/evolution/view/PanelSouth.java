@@ -1,7 +1,7 @@
 package org.woehlke.simulation.evolution.view;
 
 import org.woehlke.simulation.evolution.config.Preparable;
-import org.woehlke.simulation.evolution.config.SimulatedEvolutionFrameConfig;
+import org.woehlke.simulation.evolution.config.SimulatedEvolutionConfig;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,13 +18,13 @@ public class PanelSouth extends JPanel implements Preparable {
 
     public final String layoutConstraint  = BorderLayout.CENTER;
 
-    public PanelSouth(SimulatedEvolutionFrameConfig simulatedEvolutionFrameConfig){
-        this.footerLabel = new JLabel(simulatedEvolutionFrameConfig.getFooter());
+    public PanelSouth(SimulatedEvolutionConfig simulatedEvolutionConfig){
+        this.footerLabel = new JLabel(simulatedEvolutionConfig.getFooter());
         this.layout.setAlignment(FlowLayout.CENTER);
         this.setLayout(this.layout);
         this.add(this.footerLabel, this.layoutConstraint);
-        this.preferredSize = simulatedEvolutionFrameConfig.getPreferredSize();
-        this.panelSouthRectangle = simulatedEvolutionFrameConfig.getPanelSouthRectangle();
+        this.preferredSize = simulatedEvolutionConfig.getPreferredSize();
+        this.panelSouthRectangle = simulatedEvolutionConfig.getPanelSouthRectangle();
         this.setPreferredSize(this.preferredSize);
     }
 

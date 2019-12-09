@@ -73,6 +73,6 @@ public class WorldCanvas extends JComponent implements GuiConfig, Serializable, 
     }
 
     public void prepareMe(){
-        this.setBounds(this.world.getSimulatedEvolutionAppletConfig().getCanvasRectangle());
+        this.setBounds(this.world.getSimulatedEvolutionConfig().getCanvasRectangle());
     }
 }

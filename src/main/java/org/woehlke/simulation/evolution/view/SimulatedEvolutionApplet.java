@@ -3,8 +3,7 @@ package org.woehlke.simulation.evolution.view;
 import org.woehlke.simulation.evolution.config.GuiConfig;
 import org.woehlke.simulation.evolution.control.ControllerThreadApplet;
 import org.woehlke.simulation.evolution.model.World;
-import org.woehlke.simulation.evolution.view.WorldCanvas;
-import org.woehlke.simulation.evolution.config.SimulatedEvolutionAppletConfig;
+import org.woehlke.simulation.evolution.config.SimulatedEvolutionConfig;
 
 import javax.accessibility.Accessible;
 import javax.swing.*;
@@ -45,17 +44,17 @@ public class SimulatedEvolutionApplet extends JApplet
      */
     private World world;
 
-    private SimulatedEvolutionAppletConfig simulatedEvolutionAppletConfig = new SimulatedEvolutionAppletConfig();
+    private SimulatedEvolutionConfig simulatedEvolutionConfig = new SimulatedEvolutionConfig();
 
     private BorderLayout layout = new BorderLayout();
 
     private JLabel titleLabel;
 
     public void init() {
-        this.titleLabel = new JLabel(this.simulatedEvolutionAppletConfig.getTitle());
+        this.titleLabel = new JLabel(this.simulatedEvolutionConfig.getTitle());
         this.rootPane.setLayout(layout);
         this.rootPane.add(titleLabel, BorderLayout.NORTH);
-        this.world = new World(this.simulatedEvolutionAppletConfig);
+        this.world = new World(this.simulatedEvolutionConfig);
         this.canvas = new WorldCanvas(world);
         this.rootPane.add(canvas, BorderLayout.CENTER);
         this.controllerThreadApplet = new ControllerThreadApplet(world, canvas);

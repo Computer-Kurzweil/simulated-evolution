@@ -1,7 +1,7 @@
 package org.woehlke.simulation.evolution.view;
 
 import org.woehlke.simulation.evolution.config.GuiConfig;
-import org.woehlke.simulation.evolution.config.SimulatedEvolutionFrameConfig;
+import org.woehlke.simulation.evolution.config.SimulatedEvolutionConfig;
 
 /**
  * Class with main Method for Starting the Desktop Application.
@@ -33,7 +33,7 @@ public class SimulatedEvolutionApplication implements GuiConfig {
      * @param args CLI Parameter
      */
     public static void main(String[] args) {
-        SimulatedEvolutionFrameConfig config = new SimulatedEvolutionFrameConfig();
+        SimulatedEvolutionConfig config = new SimulatedEvolutionConfig();
         SimulatedEvolutionFrame simulatedEvolutionFrame = new SimulatedEvolutionFrame(config);
         System.out.println("Hello, World!");
     }

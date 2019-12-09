@@ -1,7 +1,5 @@
 package org.woehlke.simulation.evolution.config;
 
-import org.woehlke.simulation.evolution.config.GuiConfig;
-
 import java.awt.*;
 import java.io.Serializable;
 
@@ -17,7 +15,7 @@ import java.io.Serializable;
  * Date: 17.11.2018
  * Time: 16:33:14
  */
-public class SimulatedEvolutionAppletConfig implements Serializable, GuiConfig {
+public class SimulatedEvolutionConfig implements Serializable, GuiConfig {
 
     private static final long serialVersionUID = -4370382255481437491L;
 
@@ -41,7 +39,7 @@ public class SimulatedEvolutionAppletConfig implements Serializable, GuiConfig {
 
     private Rectangle canvasRectangle;
 
-    public SimulatedEvolutionAppletConfig(){
+    public SimulatedEvolutionConfig(){
         this.title = TITLE;
         this.scale = SCALE;
         this.width = WIDTH * SCALE;
@@ -54,7 +52,7 @@ public class SimulatedEvolutionAppletConfig implements Serializable, GuiConfig {
         init();
     }
 
-    public SimulatedEvolutionAppletConfig(
+    public SimulatedEvolutionConfig(
         String title, String subtitle, String footer,
         int scale, int width, int height, int heightOfTitle,
         int startPositionOnScreenX, int startPositionOnScreenY

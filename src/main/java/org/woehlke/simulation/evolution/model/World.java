@@ -1,7 +1,7 @@
 package org.woehlke.simulation.evolution.model;
 
 
-import org.woehlke.simulation.evolution.config.SimulatedEvolutionAppletConfig;
+import org.woehlke.simulation.evolution.config.SimulatedEvolutionConfig;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -55,15 +55,15 @@ public class World implements Serializable {
      */
     private final WorldMapFood worldMapFood;
 
-    private SimulatedEvolutionAppletConfig simulatedEvolutionAppletConfig;
+    private SimulatedEvolutionConfig simulatedEvolutionConfig;
 
-    public World(SimulatedEvolutionAppletConfig simulatedEvolutionAppletConfig) {
-        this.simulatedEvolutionAppletConfig = simulatedEvolutionAppletConfig;
+    public World(SimulatedEvolutionConfig simulatedEvolutionConfig) {
+        this.simulatedEvolutionConfig = simulatedEvolutionConfig;
         long seed = new Date().getTime();
         random = new Random(seed);
         this.worldDimensions  = new Point(
-            simulatedEvolutionAppletConfig.getWidth(),
-            simulatedEvolutionAppletConfig.getHeight()
+            simulatedEvolutionConfig.getWidth(),
+            simulatedEvolutionConfig.getHeight()
         );
         worldMapFood = new WorldMapFood(this.worldDimensions,random);
         createPopulation();
@@ -130,7 +130,7 @@ public class World implements Serializable {
         return worldDimensions;
     }
 
-    public SimulatedEvolutionAppletConfig getSimulatedEvolutionAppletConfig() {
-        return simulatedEvolutionAppletConfig;
+    public SimulatedEvolutionConfig getSimulatedEvolutionConfig() {
+        return simulatedEvolutionConfig;
     }
 }

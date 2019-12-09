@@ -2,9 +2,9 @@ package org.woehlke.simulation.evolution.view;
 
 import org.woehlke.simulation.evolution.config.Preparable;
 import org.woehlke.simulation.evolution.config.GuiConfig;
+import org.woehlke.simulation.evolution.config.SimulatedEvolutionConfig;
 import org.woehlke.simulation.evolution.control.ControllerThreadDesktop;
 import org.woehlke.simulation.evolution.model.World;
-import org.woehlke.simulation.evolution.config.SimulatedEvolutionFrameConfig;
 
 import javax.swing.*;
 import java.awt.*;
@@ -36,7 +36,7 @@ public class SimulatedEvolutionFrame extends JFrame implements ImageObserver,
 
     private static final long serialVersionUID = -3830377190196972207L;
 
-    private SimulatedEvolutionFrameConfig simulatedEvolutionFrameConfig;
+    private SimulatedEvolutionConfig simulatedEvolutionConfig;
 
     /**
      * The View for the World. Food and Cells are painted to the Canvas.
@@ -54,7 +54,7 @@ public class SimulatedEvolutionFrame extends JFrame implements ImageObserver,
     private final BorderLayout layout = new BorderLayout();
 
     public void prepareMe(){
-        this.setBounds(this.simulatedEvolutionFrameConfig.getFrameRectangle());
+        this.setBounds(this.simulatedEvolutionConfig.getFrameRectangle());
     }
 
     public void prepareAll(){
@@ -70,12 +70,12 @@ public class SimulatedEvolutionFrame extends JFrame implements ImageObserver,
         toFront();
     }
 
-    public SimulatedEvolutionFrame(SimulatedEvolutionFrameConfig simulatedEvolutionFrameConfig) {
-        super(simulatedEvolutionFrameConfig.getTitle());
-        this.simulatedEvolutionFrameConfig = simulatedEvolutionFrameConfig;
-        this.panelSouth = new PanelSouth(simulatedEvolutionFrameConfig);
-        this.panelNorth = new PanelNorth(simulatedEvolutionFrameConfig);
-        this.world = new World(simulatedEvolutionFrameConfig);
+    public SimulatedEvolutionFrame(SimulatedEvolutionConfig simulatedEvolutionConfig) {
+        super(simulatedEvolutionConfig.getTitle());
+        this.simulatedEvolutionConfig = simulatedEvolutionConfig;
+        this.panelSouth = new PanelSouth(simulatedEvolutionConfig);
+        this.panelNorth = new PanelNorth(simulatedEvolutionConfig);
+        this.world = new World(simulatedEvolutionConfig);
         this.canvas = new WorldCanvas(this.world);
         rootPane.setLayout(layout);
         rootPane.add(panelNorth, BorderLayout.NORTH);
