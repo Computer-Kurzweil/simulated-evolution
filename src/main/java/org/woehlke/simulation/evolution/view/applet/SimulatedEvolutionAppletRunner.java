@@ -1,7 +1,7 @@
-package org.woehlke.simulation.evolution;
+package org.woehlke.simulation.evolution.view.applet;
 
 
-import org.woehlke.simulation.evolution.view.applet.SimulatedEvolutionApplet;
+import org.woehlke.simulation.evolution.view.config.SimulatedEvolution;
 
 public class SimulatedEvolutionAppletRunner implements SimulatedEvolution {
 

@@ -1,13 +1,13 @@
-package org.woehlke.simulation.evolution.view.applet;
+package org.woehlke.simulation.evolution.view;
 
-import org.woehlke.simulation.evolution.view.desktop.SimulatedEvolutionFrameConfig;
+import org.woehlke.simulation.evolution.view.config.SimulatedEvolutionFrameConfig;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class PanelSouth extends JPanel {
 
-    private final BorderLayout layout = new BorderLayout();
+    private final FlowLayout layout = new FlowLayout();
 
     private final JLabel footerLabel;
 
@@ -19,6 +19,7 @@ public class PanelSouth extends JPanel {
 
     public PanelSouth(SimulatedEvolutionFrameConfig simulatedEvolutionFrameConfig){
         this.footerLabel = new JLabel(simulatedEvolutionFrameConfig.getFooter());
+        this.layout.setAlignment(FlowLayout.CENTER);
         this.setLayout(this.layout);
         this.add(this.footerLabel, this.layoutConstraint);
         this.preferredSize = simulatedEvolutionFrameConfig.getPreferredSize();

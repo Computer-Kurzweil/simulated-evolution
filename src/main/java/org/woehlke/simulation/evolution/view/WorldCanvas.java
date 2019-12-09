@@ -1,6 +1,6 @@
 package org.woehlke.simulation.evolution.view;
 
-import org.woehlke.simulation.evolution.SimulatedEvolution;
+import org.woehlke.simulation.evolution.view.config.SimulatedEvolution;
 import org.woehlke.simulation.evolution.model.*;
 import org.woehlke.simulation.evolution.model.Point;
 

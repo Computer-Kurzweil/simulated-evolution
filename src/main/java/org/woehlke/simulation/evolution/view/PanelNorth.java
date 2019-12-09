@@ -1,11 +1,13 @@
-package org.woehlke.simulation.evolution.view.applet;
+package org.woehlke.simulation.evolution.view;
+
+import org.woehlke.simulation.evolution.view.config.SimulatedEvolutionAppletConfig;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class PanelNorth extends JPanel {
 
-    private final BorderLayout layout = new BorderLayout();
+    private final FlowLayout layout = new FlowLayout();
 
     private final JLabel subtitleLabel;
 
@@ -17,6 +19,7 @@ public class PanelNorth extends JPanel {
 
     public PanelNorth(SimulatedEvolutionAppletConfig simulatedEvolutionAppletConfig){
         this.subtitleLabel = new JLabel(simulatedEvolutionAppletConfig.getSubtitle());
+        this.layout.setAlignment(FlowLayout.CENTER);
         this.setLayout(layout);
         this.add(subtitleLabel,layoutConstraint);
         this.preferredSize = simulatedEvolutionAppletConfig.getPreferredSize();

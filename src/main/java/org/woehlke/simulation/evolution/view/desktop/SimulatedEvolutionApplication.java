@@ -1,8 +1,8 @@
-package org.woehlke.simulation.evolution;
+package org.woehlke.simulation.evolution.view.desktop;
 
+import org.woehlke.simulation.evolution.view.config.SimulatedEvolution;
 import org.woehlke.simulation.evolution.view.applet.SimulatedEvolutionApplet;
-import org.woehlke.simulation.evolution.view.desktop.SimulatedEvolutionFrame;
-import org.woehlke.simulation.evolution.view.desktop.SimulatedEvolutionFrameConfig;
+import org.woehlke.simulation.evolution.view.config.SimulatedEvolutionFrameConfig;
 
 /**
  * Class with main Method for Starting the Desktop Application.

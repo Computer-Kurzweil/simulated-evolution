@@ -1,6 +1,4 @@
-package org.woehlke.simulation.evolution.view.applet;
-
-import org.woehlke.simulation.evolution.SimulatedEvolution;
+package org.woehlke.simulation.evolution.view.config;
 
 import java.awt.*;
 import java.io.Serializable;

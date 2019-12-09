@@ -1,8 +1,8 @@
-package org.woehlke.simulation.evolution;
+package org.woehlke.simulation.evolution.view.config;
 
 public interface SimulatedEvolution {
 
-    String SPACE = "      ";
+    String SPACE = "";
 
     String SUB_TITLE = SPACE
         + "Artificial Life Simulation of Bacteria Motion depending on DNA";
@@ -11,7 +11,7 @@ public interface SimulatedEvolution {
 
     String FOOTER = SPACE + "(C) 2018 Thomas Woehlke";
 
-    int HEIGHT_OF_TITLE = 30;
+    int HEIGHT_OF_TITLE = 12;
 
     int START_POSITION_ON_SCREEN_X = 100;
 

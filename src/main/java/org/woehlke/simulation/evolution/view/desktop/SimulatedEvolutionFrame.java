@@ -1,13 +1,13 @@
 package org.woehlke.simulation.evolution.view.desktop;
 
-import org.woehlke.simulation.evolution.SimulatedEvolution;
+import org.woehlke.simulation.evolution.view.config.SimulatedEvolution;
 import org.woehlke.simulation.evolution.control.ControllerThreadDesktop;
-import org.woehlke.simulation.evolution.model.Point;
 import org.woehlke.simulation.evolution.model.World;
 import org.woehlke.simulation.evolution.view.WorldCanvas;
-import org.woehlke.simulation.evolution.view.applet.PanelNorth;
-import org.woehlke.simulation.evolution.view.applet.PanelSouth;
+import org.woehlke.simulation.evolution.view.PanelNorth;
+import org.woehlke.simulation.evolution.view.PanelSouth;
 import org.woehlke.simulation.evolution.view.applet.SimulatedEvolutionApplet;
+import org.woehlke.simulation.evolution.view.config.SimulatedEvolutionFrameConfig;
 
 import javax.swing.*;
 import java.awt.*;
@@ -79,10 +79,10 @@ public class SimulatedEvolutionFrame extends JFrame implements ImageObserver,
         this.panelNorth = new PanelNorth(simulatedEvolutionFrameConfig);
         this.world = new World(simulatedEvolutionFrameConfig);
         this.canvas = new WorldCanvas(this.world);
-        this.setLayout(layout);
-        this.add(panelNorth, BorderLayout.NORTH);
-        this.add(canvas,BorderLayout.CENTER);
-        this.add(panelSouth,BorderLayout.SOUTH);
+        rootPane.setLayout(layout);
+        rootPane.add(panelNorth, BorderLayout.NORTH);
+        rootPane.add(canvas,BorderLayout.CENTER);
+        rootPane.add(panelSouth,BorderLayout.SOUTH);
         prepareAll();
         pack();
         ControllerThreadDesktop control = new ControllerThreadDesktop(

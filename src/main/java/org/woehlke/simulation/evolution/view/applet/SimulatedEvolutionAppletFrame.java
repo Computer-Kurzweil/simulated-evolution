@@ -1,7 +1,7 @@
 package org.woehlke.simulation.evolution.view.applet;
 
 
-import org.woehlke.simulation.evolution.SimulatedEvolution;
+import org.woehlke.simulation.evolution.view.config.SimulatedEvolution;
 
 import javax.swing.*;
 import java.awt.*;

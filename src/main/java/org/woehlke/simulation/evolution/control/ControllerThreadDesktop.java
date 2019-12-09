@@ -1,6 +1,6 @@
 package org.woehlke.simulation.evolution.control;
 
-import org.woehlke.simulation.evolution.SimulatedEvolution;
+import org.woehlke.simulation.evolution.view.config.SimulatedEvolution;
 import org.woehlke.simulation.evolution.model.World;
 import org.woehlke.simulation.evolution.view.desktop.SimulatedEvolutionFrame;
 import org.woehlke.simulation.evolution.view.WorldCanvas;

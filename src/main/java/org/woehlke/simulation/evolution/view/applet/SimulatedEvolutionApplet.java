@@ -1,11 +1,10 @@
 package org.woehlke.simulation.evolution.view.applet;
 
-import org.woehlke.simulation.evolution.SimulatedEvolution;
+import org.woehlke.simulation.evolution.view.config.SimulatedEvolution;
 import org.woehlke.simulation.evolution.control.ControllerThreadApplet;
 import org.woehlke.simulation.evolution.model.World;
-import org.woehlke.simulation.evolution.model.Point;
 import org.woehlke.simulation.evolution.view.WorldCanvas;
-import org.woehlke.simulation.evolution.view.desktop.SimulatedEvolutionFrameConfig;
+import org.woehlke.simulation.evolution.view.config.SimulatedEvolutionAppletConfig;
 
 import javax.accessibility.Accessible;
 import javax.swing.*;
@@ -50,17 +49,17 @@ public class SimulatedEvolutionApplet extends JApplet
 
     private BorderLayout layout = new BorderLayout();
 
-    private Label titleLabel;
+    private JLabel titleLabel;
 
     public void init() {
-        this.titleLabel = new Label(this.simulatedEvolutionAppletConfig.getTitle());
-        this.setLayout(layout);
-        this.add(titleLabel, BorderLayout.NORTH);
-        world = new World(this.simulatedEvolutionAppletConfig);
-        canvas = new WorldCanvas(world);
-        this.add(canvas, BorderLayout.CENTER);
-        controllerThreadApplet = new ControllerThreadApplet(world, canvas);
-        controllerThreadApplet.start();
+        this.titleLabel = new JLabel(this.simulatedEvolutionAppletConfig.getTitle());
+        this.rootPane.setLayout(layout);
+        this.rootPane.add(titleLabel, BorderLayout.NORTH);
+        this.world = new World(this.simulatedEvolutionAppletConfig);
+        this.canvas = new WorldCanvas(world);
+        this.rootPane.add(canvas, BorderLayout.CENTER);
+        this.controllerThreadApplet = new ControllerThreadApplet(world, canvas);
+        this.controllerThreadApplet.start();
     }
 
     public void destroy() {
