@@ -1,14 +1,10 @@
-package org.woehlke.simulation.evolution.view.desktop;
+package org.woehlke.simulation.evolution.view;
 
-import org.woehlke.simulation.evolution.view.config.Preparable;
-import org.woehlke.simulation.evolution.view.config.SimulatedEvolution;
+import org.woehlke.simulation.evolution.config.Preparable;
+import org.woehlke.simulation.evolution.config.GuiConfig;
 import org.woehlke.simulation.evolution.control.ControllerThreadDesktop;
 import org.woehlke.simulation.evolution.model.World;
-import org.woehlke.simulation.evolution.view.WorldCanvas;
-import org.woehlke.simulation.evolution.view.PanelNorth;
-import org.woehlke.simulation.evolution.view.PanelSouth;
-import org.woehlke.simulation.evolution.view.applet.SimulatedEvolutionApplet;
-import org.woehlke.simulation.evolution.view.config.SimulatedEvolutionFrameConfig;
+import org.woehlke.simulation.evolution.config.SimulatedEvolutionFrameConfig;
 
 import javax.swing.*;
 import java.awt.*;
@@ -36,7 +32,7 @@ public class SimulatedEvolutionFrame extends JFrame implements ImageObserver,
         MenuContainer,
         Serializable,
         Preparable,
-    SimulatedEvolution {
+    GuiConfig {
 
     private static final long serialVersionUID = -3830377190196972207L;
 

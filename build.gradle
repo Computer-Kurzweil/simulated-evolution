@@ -28,5 +28,5 @@ dependencies {
 
 application {
     // Define the main class for the application
-    mainClassName = 'org.woehlke.simulation.evolution.view.desktop.SimulatedEvolutionApplication'
+    mainClassName = 'org.woehlke.simulation.evolution.view.SimulatedEvolutionApplication'
 }

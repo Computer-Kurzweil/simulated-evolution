@@ -1,4 +1,6 @@
-package org.woehlke.simulation.evolution.view.config;
+package org.woehlke.simulation.evolution.config;
+
+import org.woehlke.simulation.evolution.config.GuiConfig;
 
 import java.awt.*;
 import java.io.Serializable;
@@ -15,7 +17,7 @@ import java.io.Serializable;
  * Date: 17.11.2018
  * Time: 16:33:14
  */
-public class SimulatedEvolutionAppletConfig implements Serializable, SimulatedEvolution {
+public class SimulatedEvolutionAppletConfig implements Serializable, GuiConfig {
 
     private static final long serialVersionUID = -4370382255481437491L;
 

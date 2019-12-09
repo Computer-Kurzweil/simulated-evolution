@@ -1,9 +1,9 @@
-package org.woehlke.simulation.evolution.view.applet;
+package org.woehlke.simulation.evolution.view;
 
 
-import org.woehlke.simulation.evolution.view.config.SimulatedEvolution;
+import org.woehlke.simulation.evolution.config.GuiConfig;
 
-public class SimulatedEvolutionAppletRunner implements SimulatedEvolution {
+public class SimulatedEvolutionAppletRunner implements GuiConfig {
 
     /**
      * Starting the Desktop Application

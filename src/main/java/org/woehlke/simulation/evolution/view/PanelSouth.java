@@ -1,7 +1,7 @@
 package org.woehlke.simulation.evolution.view;
 
-import org.woehlke.simulation.evolution.view.config.Preparable;
-import org.woehlke.simulation.evolution.view.config.SimulatedEvolutionFrameConfig;
+import org.woehlke.simulation.evolution.config.Preparable;
+import org.woehlke.simulation.evolution.config.SimulatedEvolutionFrameConfig;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,7 +1,7 @@
 package org.woehlke.simulation.evolution.model;
 
 
-import org.woehlke.simulation.evolution.view.config.SimulatedEvolutionAppletConfig;
+import org.woehlke.simulation.evolution.config.SimulatedEvolutionAppletConfig;
 
 import java.io.Serializable;
 import java.util.ArrayList;

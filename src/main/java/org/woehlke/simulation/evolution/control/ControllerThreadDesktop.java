@@ -1,8 +1,8 @@
 package org.woehlke.simulation.evolution.control;
 
-import org.woehlke.simulation.evolution.view.config.SimulatedEvolution;
+import org.woehlke.simulation.evolution.config.GuiConfig;
 import org.woehlke.simulation.evolution.model.World;
-import org.woehlke.simulation.evolution.view.desktop.SimulatedEvolutionFrame;
+import org.woehlke.simulation.evolution.view.SimulatedEvolutionFrame;
 import org.woehlke.simulation.evolution.view.WorldCanvas;
 
 import java.awt.event.WindowEvent;
@@ -24,7 +24,7 @@ import java.io.Serializable;
 public class ControllerThreadDesktop extends ControllerThreadApplet implements Runnable,
     Serializable,
     WindowListener,
-    SimulatedEvolution {
+    GuiConfig {
 
     private static final long serialVersionUID = -7066881081524661452L;
 

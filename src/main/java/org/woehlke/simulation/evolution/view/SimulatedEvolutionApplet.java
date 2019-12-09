@@ -1,10 +1,10 @@
-package org.woehlke.simulation.evolution.view.applet;
+package org.woehlke.simulation.evolution.view;
 
-import org.woehlke.simulation.evolution.view.config.SimulatedEvolution;
+import org.woehlke.simulation.evolution.config.GuiConfig;
 import org.woehlke.simulation.evolution.control.ControllerThreadApplet;
 import org.woehlke.simulation.evolution.model.World;
 import org.woehlke.simulation.evolution.view.WorldCanvas;
-import org.woehlke.simulation.evolution.view.config.SimulatedEvolutionAppletConfig;
+import org.woehlke.simulation.evolution.config.SimulatedEvolutionAppletConfig;
 
 import javax.accessibility.Accessible;
 import javax.swing.*;
@@ -26,7 +26,7 @@ import java.io.Serializable;
  * Time: 18:33:14
  */
 public class SimulatedEvolutionApplet extends JApplet
-    implements ImageObserver, MenuContainer, Serializable, Accessible, SimulatedEvolution {
+    implements ImageObserver, MenuContainer, Serializable, Accessible, GuiConfig {
 
     private static final long serialVersionUID = -8586633326682669768L;
 

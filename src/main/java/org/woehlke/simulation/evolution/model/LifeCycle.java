@@ -1,5 +1,7 @@
 package org.woehlke.simulation.evolution.model;
 
+import org.woehlke.simulation.evolution.config.LifeCycleConfig;
+
 import java.io.Serializable;
 
 /**
@@ -17,7 +19,7 @@ import java.io.Serializable;
  * Date: 04.02.2006
  * Time: 23:12:31
  */
-public class LifeCycle implements Serializable {
+public class LifeCycle implements Serializable, LifeCycleConfig {
 
     private static final long serialVersionUID = 6940694660036948381L;
 
@@ -35,45 +37,6 @@ public class LifeCycle implements Serializable {
      * Status of the LifeCycle is fat, age and hunger.
      */
     private int hunger;
-
-
-    /**
-     * LifeCycle Threshold Parameter
-     */
-    private final static int MAX_FAT = 2000;
-
-    /**
-     * LifeCycle Threshold Parameter
-     */
-    private final static int MAX_HUNGER = 1000;
-
-    /**
-     * LifeCycle Threshold Parameter
-     */
-    private final static int FULL_AGE = 200;
-
-    /**
-     * LifeCycle Threshold Parameter
-     */
-    private final static int FAT_MINIMUM_FOR_SEX = 800;
-
-    /**
-     * LifeCycle Threshold Parameter
-     */
-    private final static int FAT_AT_BIRTH = 500;
-
-    /**
-     * LifeCycle Threshold Parameter
-     */
-    private final static int FAT_PER_FOOD = 25;
-
-    /**
-     * LifeCycle Threshold Parameter
-     */
-    private final static int OLD_AGE = 800;
-
-    /** LifeCycle Threshold Parameter */
-    private final static int MAX_AGE = 1000;
 
     public LifeCycle() {
         hunger = 0;

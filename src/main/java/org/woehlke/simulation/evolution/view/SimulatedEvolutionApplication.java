@@ -1,8 +1,7 @@
-package org.woehlke.simulation.evolution.view.desktop;
+package org.woehlke.simulation.evolution.view;
 
-import org.woehlke.simulation.evolution.view.config.SimulatedEvolution;
-import org.woehlke.simulation.evolution.view.applet.SimulatedEvolutionApplet;
-import org.woehlke.simulation.evolution.view.config.SimulatedEvolutionFrameConfig;
+import org.woehlke.simulation.evolution.config.GuiConfig;
+import org.woehlke.simulation.evolution.config.SimulatedEvolutionFrameConfig;
 
 /**
  * Class with main Method for Starting the Desktop Application.
@@ -25,7 +24,7 @@ import org.woehlke.simulation.evolution.view.config.SimulatedEvolutionFrameConfi
  *
  * http://thomas-woehlke.de/p/simulated-evolution/
  */
-public class SimulatedEvolutionApplication implements SimulatedEvolution {
+public class SimulatedEvolutionApplication implements GuiConfig {
 
     private SimulatedEvolutionApplication() { }
 

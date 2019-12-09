@@ -1,7 +1,7 @@
-package org.woehlke.simulation.evolution.view.applet;
+package org.woehlke.simulation.evolution.view;
 
 
-import org.woehlke.simulation.evolution.view.config.SimulatedEvolution;
+import org.woehlke.simulation.evolution.config.GuiConfig;
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,7 +23,7 @@ import java.io.Serializable;
 public class SimulatedEvolutionAppletFrame extends JFrame implements ImageObserver,
     MenuContainer,
     Serializable,
-    SimulatedEvolution {
+    GuiConfig {
 
     private static final long serialVersionUID = 7150458408439002782L;
 }
