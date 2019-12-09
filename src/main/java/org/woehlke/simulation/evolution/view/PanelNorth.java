@@ -1,11 +1,12 @@
 package org.woehlke.simulation.evolution.view;
 
+import org.woehlke.simulation.evolution.view.config.Preparable;
 import org.woehlke.simulation.evolution.view.config.SimulatedEvolutionAppletConfig;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class PanelNorth extends JPanel {
+public class PanelNorth extends JPanel implements Preparable {
 
     private final FlowLayout layout = new FlowLayout();
 

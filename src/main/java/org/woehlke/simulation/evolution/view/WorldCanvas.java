@@ -1,5 +1,6 @@
 package org.woehlke.simulation.evolution.view;
 
+import org.woehlke.simulation.evolution.view.config.Preparable;
 import org.woehlke.simulation.evolution.view.config.SimulatedEvolution;
 import org.woehlke.simulation.evolution.model.*;
 import org.woehlke.simulation.evolution.model.Point;
@@ -22,7 +23,7 @@ import java.util.List;
  * Date: 05.02.2006
  * Time: 00:51:51
  */
-public class WorldCanvas extends JComponent implements SimulatedEvolution, Serializable {
+public class WorldCanvas extends JComponent implements SimulatedEvolution, Serializable, Preparable {
 
     private static final long serialVersionUID = -27002509360079509L;
 

@@ -1,5 +1,6 @@
 package org.woehlke.simulation.evolution.view.desktop;
 
+import org.woehlke.simulation.evolution.view.config.Preparable;
 import org.woehlke.simulation.evolution.view.config.SimulatedEvolution;
 import org.woehlke.simulation.evolution.control.ControllerThreadDesktop;
 import org.woehlke.simulation.evolution.model.World;
@@ -34,6 +35,7 @@ import java.io.Serializable;
 public class SimulatedEvolutionFrame extends JFrame implements ImageObserver,
         MenuContainer,
         Serializable,
+        Preparable,
     SimulatedEvolution {
 
     private static final long serialVersionUID = -3830377190196972207L;
