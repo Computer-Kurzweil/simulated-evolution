@@ -40,7 +40,7 @@ public class ControllerThreadApplet extends Thread implements Runnable {
     public ControllerThreadApplet(World world, WorldCanvas canvas) {
         this.world = world;
         this.canvas = canvas;
-        mySemaphore = Boolean.TRUE;
+        this.mySemaphore = Boolean.TRUE;
     }
 
     public void run() {
@@ -53,9 +53,8 @@ public class ControllerThreadApplet extends Thread implements Runnable {
             canvas.repaint();
             try {
                 sleep(TIME_TO_WAIT);
-            }
-            catch (InterruptedException e) {
-                e.printStackTrace();
+            } catch (InterruptedException e) {
+                System.out.println(e.getLocalizedMessage());
             }
         }
         while (doMyJob);

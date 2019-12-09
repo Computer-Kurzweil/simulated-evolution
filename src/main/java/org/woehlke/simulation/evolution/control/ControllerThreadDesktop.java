@@ -38,7 +38,7 @@ public class ControllerThreadDesktop extends ControllerThreadApplet implements R
         this.simulatedEvolutionFrame = simulatedEvolutionFrame;
     }
 
-    public void show(){
+    private void show(){
         this.simulatedEvolutionFrame.showMe();
     }
 
