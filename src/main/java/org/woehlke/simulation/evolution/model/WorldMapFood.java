@@ -1,5 +1,7 @@
 package org.woehlke.simulation.evolution.model;
 
+import org.woehlke.simulation.evolution.config.WorldMapFoodConf;
+
 import java.io.Serializable;
 import java.util.Random;
 
@@ -15,7 +17,7 @@ import java.util.Random;
  * Date: 24.08.13
  * Time: 12:37
  */
-public class WorldMapFood implements Serializable {
+public class WorldMapFood implements Serializable, WorldMapFoodConf {
 
     private static final long serialVersionUID = 7206903832639173306L;
 
@@ -23,17 +25,6 @@ public class WorldMapFood implements Serializable {
      * Grid of World where every Place can have food.
      */
     private int[][] worldMapFood;
-
-    /**
-     * How much food per Time Step (a day) shall be placed in this World.
-     */
-    private final static int FOOD_PER_DAY = 10;
-
-    /**
-     * A Garden of Eden is an Area where much more Food grows within the same time.
-     * As a Result of Evolution you will find sucessful Bacteria Cells with a different DNA and Motion as outside the Garden of Eden.
-     */
-    private final static boolean EABLE_GARDEN_OF_EDEN = true;
 
     /**
      * Random Generator used for placing food, coming from another Object.

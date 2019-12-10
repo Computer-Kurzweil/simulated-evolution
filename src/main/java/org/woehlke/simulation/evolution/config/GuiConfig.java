@@ -24,4 +24,7 @@ public interface GuiConfig {
     int HEIGHT = 234;
 
     int EXIT_STATUS = 0;
+
+    int QUEUE_MAX_LENGTH = 1000;
+
 }

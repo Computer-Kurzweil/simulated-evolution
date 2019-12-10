@@ -4,10 +4,8 @@ package org.woehlke.simulation.evolution.model;
 import org.woehlke.simulation.evolution.config.SimulatedEvolutionConfig;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
  * The World contains Water, Cells and Food.
@@ -36,11 +34,6 @@ public class World implements Serializable {
     private List<Cell> cells;
 
     /**
-     * Start with 20 Cells.
-     */
-    private final static int INITIAL_POPULATION = 20;
-
-    /**
      * Random Generator used for Bacteria Motion.
      */
     private Random random;
@@ -55,6 +48,8 @@ public class World implements Serializable {
      */
     private final WorldMapFood worldMapFood;
 
+    private final ConcurrentLinkedQueue<LifeCycleCount> count;
+
     private SimulatedEvolutionConfig simulatedEvolutionConfig;
 
     public World(SimulatedEvolutionConfig simulatedEvolutionConfig) {
@@ -66,6 +61,8 @@ public class World implements Serializable {
             simulatedEvolutionConfig.getHeight()
         );
         worldMapFood = new WorldMapFood(this.worldDimensions,random);
+        cells = new ArrayList<>();
+        count = new ConcurrentLinkedQueue<>();
         createPopulation();
     }
 
@@ -73,8 +70,8 @@ public class World implements Serializable {
      * Create the initial Population of Bacteria Cells and give them their position in the World.
      */
     private void createPopulation() {
-        cells = new ArrayList<>();
-        for (int i = 0; i < INITIAL_POPULATION; i++) {
+        LifeCycleCount lifeCycleCount = new LifeCycleCount();
+        for (int i = 0; i < simulatedEvolutionConfig.getInitialPopulation(); i++) {
             int x = random.nextInt(worldDimensions.getX());
             int y = random.nextInt(worldDimensions.getY());
             if (x < 0) {
@@ -87,6 +84,11 @@ public class World implements Serializable {
             Cell cell = new Cell(worldDimensions, pos, random);
             cells.add(cell);
         }
+        for (Cell cell:cells) {
+            lifeCycleCount.add(cell.getLifeCycleStatus());
+        }
+        System.out.println(lifeCycleCount);
+        count.add(lifeCycleCount);
     }
 
     /**
@@ -94,6 +96,7 @@ public class World implements Serializable {
      * Every Cell moves, eats, dies of hunger, and it has sex: splitting into two children with changed DNA.
      */
     public void letLivePopulation() {
+        LifeCycleCount lifeCycleCount = new LifeCycleCount();
         worldMapFood.letFoodGrow();
         Point pos;
         List<Cell> children = new ArrayList<>();
@@ -116,6 +119,14 @@ public class World implements Serializable {
             cells.remove(dead);
         }
         cells.addAll(children);
+        for (Cell cell:cells) {
+            lifeCycleCount.add(cell.getLifeCycleStatus());
+        }
+        System.out.println(lifeCycleCount);
+        count.add(lifeCycleCount);
+        if(count.size() > simulatedEvolutionConfig.getQueueMaxLength()){
+            count.poll();
+        }
     }
 
     public List<Cell> getAllCells(){

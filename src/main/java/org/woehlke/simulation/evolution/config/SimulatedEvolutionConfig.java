@@ -15,7 +15,7 @@ import java.io.Serializable;
  * Date: 17.11.2018
  * Time: 16:33:14
  */
-public class SimulatedEvolutionConfig implements Serializable, GuiConfig {
+public class SimulatedEvolutionConfig implements Serializable, GuiConfig, WorldMapFoodConf {
 
     private static final long serialVersionUID = -4370382255481437491L;
 
@@ -28,6 +28,9 @@ public class SimulatedEvolutionConfig implements Serializable, GuiConfig {
     private final int heightOfTitle;
     private final int startPositionOnScreenX;
     private final int startPositionOnScreenY;
+
+    private final int queueMaxLength;
+    private final int initialPopulation;
 
     private Dimension preferredSize;
 
@@ -49,13 +52,15 @@ public class SimulatedEvolutionConfig implements Serializable, GuiConfig {
         this.heightOfTitle = HEIGHT_OF_TITLE;
         this.startPositionOnScreenX = START_POSITION_ON_SCREEN_X;
         this.startPositionOnScreenY = START_POSITION_ON_SCREEN_Y;
+        this.queueMaxLength = QUEUE_MAX_LENGTH;
+        this.initialPopulation = INITIAL_POPULATION;
         init();
     }
 
     public SimulatedEvolutionConfig(
         String title, String subtitle, String footer,
         int scale, int width, int height, int heightOfTitle,
-        int startPositionOnScreenX, int startPositionOnScreenY
+        int startPositionOnScreenX, int startPositionOnScreenY, int queueMaxLength, int initialPopulation
     ) {
         this.title = title;
         this.scale = scale;
@@ -66,6 +71,8 @@ public class SimulatedEvolutionConfig implements Serializable, GuiConfig {
         this.heightOfTitle = heightOfTitle;
         this.startPositionOnScreenX = startPositionOnScreenX;
         this.startPositionOnScreenY = startPositionOnScreenY;
+        this.queueMaxLength = queueMaxLength;
+        this.initialPopulation = initialPopulation;
         init();
     }
 
@@ -143,5 +150,13 @@ public class SimulatedEvolutionConfig implements Serializable, GuiConfig {
 
     public Rectangle getCanvasRectangle() {
         return canvasRectangle;
+    }
+
+    public int getQueueMaxLength() {
+        return queueMaxLength;
+    }
+
+    public int getInitialPopulation() {
+        return initialPopulation;
     }
 }
