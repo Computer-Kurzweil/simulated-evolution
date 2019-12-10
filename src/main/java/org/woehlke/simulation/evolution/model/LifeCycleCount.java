@@ -88,7 +88,6 @@ public class LifeCycleCount implements Serializable {
             ", fullAge=" + fullAge +
             ", hungry=" + hungry +
             ", old=" + old +
-            ", dead=" + dead +
             ", total=" + total +
             '}';
     }
