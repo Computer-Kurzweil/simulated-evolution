@@ -10,7 +10,7 @@ public class PanelSouth extends JPanel implements Preparable {
 
     private final FlowLayout layout = new FlowLayout();
 
-    private final JLabel footerLabel;
+    private final JButton footerLabel;
 
     private final Rectangle panelSouthRectangle;
 
@@ -19,7 +19,7 @@ public class PanelSouth extends JPanel implements Preparable {
     public final String layoutConstraint  = BorderLayout.CENTER;
 
     public PanelSouth(SimulatedEvolutionConfig simulatedEvolutionConfig){
-        this.footerLabel = new JLabel(simulatedEvolutionConfig.getFooter());
+        this.footerLabel = new JButton(simulatedEvolutionConfig.getFooter());
         this.layout.setAlignment(FlowLayout.CENTER);
         this.setLayout(this.layout);
         this.add(this.footerLabel, this.layoutConstraint);
