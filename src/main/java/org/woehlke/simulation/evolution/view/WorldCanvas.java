@@ -26,7 +26,7 @@ import static org.woehlke.simulation.evolution.config.GuiConfigColors.COLOR_WATE
  * Date: 05.02.2006
  * Time: 00:51:51
  */
-public class WorldCanvas extends JComponent implements GuiConfigDefault, Serializable, Preparable {
+public class WorldCanvas extends JComponent implements GuiConfigDefault, Serializable {
 
   private static final long serialVersionUID = -27002509360079509L;
 
@@ -75,16 +75,12 @@ public class WorldCanvas extends JComponent implements GuiConfigDefault, Seriali
   }
 
   public void update(Graphics g) {
-    paint(g);
-  }
-
-  public void prepareMe() {
     Dimension preferredSize = new Dimension(
       this.world.getWorldDimensions().getWidth(),
       this.world.getWorldDimensions().getHeight()
-     );
+    );
     this.setPreferredSize(preferredSize);
-    //this.setBounds(this.world.getCanvasRectangle());
+    paint(g);
   }
 
   public World getWorld() {

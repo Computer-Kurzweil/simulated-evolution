@@ -8,21 +8,16 @@ import java.awt.*;
 /**
  * TODO write doc.
  */
-public class PanelCopyright extends JPanel implements Preparable {
+public class PanelCopyright extends JPanel {
 
   private final FlowLayout layout = new FlowLayout();
 
-  private final JLabel footerLabel;
-
-  public final String layoutConstraint = BorderLayout.CENTER;
+  private final JLabel copyrightLabel;
 
   public PanelCopyright(GuiConfig guiConfig) {
-    this.footerLabel = new JLabel(guiConfig.getFooter());
+    this.copyrightLabel = new JLabel(guiConfig.getFooter());
     this.setLayout(this.layout);
     this.layout.setAlignment(FlowLayout.CENTER);
-    this.add(this.footerLabel, this.layoutConstraint);
-  }
-
-  public void prepareMe() {
+    this.add(this.copyrightLabel);
   }
 }

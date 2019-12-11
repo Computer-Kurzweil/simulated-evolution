@@ -28,7 +28,6 @@ import java.io.Serializable;
 public class SimulatedEvolutionFrame extends JFrame implements ImageObserver,
   MenuContainer,
   Serializable,
-  Preparable,
   GuiConfigDefault {
 
   private static final long serialVersionUID = -3830377190196972207L;
@@ -42,20 +41,6 @@ public class SimulatedEvolutionFrame extends JFrame implements ImageObserver,
   private final PanelSubtitle panelSubtitle;
   private final PanelCopyright panelCopyright;
   private final PanelButtons panelButtons;
-
-  public void prepareMe() {
-    //this.setPreferredSize(this.guiConfig.getFrameRectangle().getSize());
-    //this.setBounds(this.guiConfig.getFrameRectangle());
-  }
-
-  public void prepareAll() {
-    this.canvas.prepareMe();
-    this.panelSubtitle.prepareMe();
-    this.panelCopyright.prepareMe();
-    this.panelButtons.prepareMe();
-    this.prepareMe();
-    pack();
-  }
 
   public void showMe() {
     pack();
