@@ -2,7 +2,6 @@ package org.woehlke.simulation.evolution.statistics;
 
 import org.woehlke.simulation.evolution.SimulatedEvolutionConfig;
 
-import java.io.Serializable;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
@@ -20,6 +19,14 @@ public class LifeCycleCountContainer {
    */
   private final SimulatedEvolutionConfig simulatedEvolutionConfig;
 
+  /**
+   * TODO write doc.
+   */
+  private LifeCycleCount lifeCycleCount;
+
+  /**
+   * TODO write doc.
+   */
   private long worldIteration;
 
   public LifeCycleCountContainer(SimulatedEvolutionConfig simulatedEvolutionConfig) {
@@ -29,6 +36,7 @@ public class LifeCycleCountContainer {
   }
 
   public void add(LifeCycleCount lifeCycleCount) {
+    this.lifeCycleCount = lifeCycleCount;
     count.add(lifeCycleCount);
     if (count.size() > simulatedEvolutionConfig.getStatisticsConfig().getQueueMaxLength()) {
       count.poll();
@@ -39,5 +47,9 @@ public class LifeCycleCountContainer {
 
   public long getWorldIteration() {
     return worldIteration;
+  }
+
+  public LifeCycleCount getLifeCycleCount() {
+    return lifeCycleCount;
   }
 }
