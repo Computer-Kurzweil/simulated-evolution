@@ -1,6 +1,7 @@
 package org.woehlke.simulation.evolution.statistics;
 
 import org.woehlke.simulation.evolution.SimulatedEvolutionConfig;
+import org.woehlke.simulation.evolution.control.ControllerThreadDesktop;
 
 import java.util.concurrent.ConcurrentLinkedQueue;
 
@@ -27,12 +28,24 @@ public class LifeCycleCountContainer {
   /**
    * TODO write doc.
    */
+  private ControllerThreadDesktop controller;
+
+  /**
+   * TODO write doc.
+   */
   private long worldIteration;
 
   public LifeCycleCountContainer(SimulatedEvolutionConfig simulatedEvolutionConfig) {
     this.simulatedEvolutionConfig = simulatedEvolutionConfig;
     count = new ConcurrentLinkedQueue<>();
     worldIteration = 0L;
+  }
+
+  /**
+   * TODO write doc.
+   */
+  public void addController(ControllerThreadDesktop controller) {
+    this.controller = controller;
   }
 
   /**
@@ -45,6 +58,9 @@ public class LifeCycleCountContainer {
       count.poll();
     }
     worldIteration++;
+    if(controller!=null){
+      controller.updateLifeCycleCount();
+    }
     System.out.println(worldIteration + " : " + lifeCycleCount);
   }
 
@@ -53,6 +69,13 @@ public class LifeCycleCountContainer {
   }
 
   public LifeCycleCount getLifeCycleCount() {
+    if(lifeCycleCount==null){
+      lifeCycleCount = new LifeCycleCount();
+    }
     return lifeCycleCount;
+  }
+
+  public ControllerThreadDesktop getController() {
+    return controller;
   }
 }

@@ -98,4 +98,8 @@ public class ControllerThreadDesktop extends ControllerThreadApplet implements R
       }
     }
   }
+
+  public void updateLifeCycleCount() {
+    simulatedEvolutionFrame.updateLifeCycleCount();
+  }
 }
