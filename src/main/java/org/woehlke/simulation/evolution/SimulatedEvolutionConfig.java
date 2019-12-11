@@ -1,4 +1,7 @@
-package org.woehlke.simulation.evolution.config;
+package org.woehlke.simulation.evolution;
+
+import org.woehlke.simulation.evolution.config.GuiConfig;
+import org.woehlke.simulation.evolution.config.WorldMapFoodConf;
 
 import java.awt.*;
 import java.io.Serializable;
@@ -19,29 +22,90 @@ public class SimulatedEvolutionConfig implements Serializable, GuiConfig, WorldM
 
     private static final long serialVersionUID = -4370382255481437491L;
 
+  /**
+   * TODO write doc.
+   */
     private final String title;
+
+  /**
+   * TODO write doc.
+   */
     private final String subtitle;
+
+  /**
+   * TODO write doc.
+   */
     private final String footer;
+
+  /**
+   * TODO write doc.
+   */
     private final int scale;
+
+  /**
+   * TODO write doc.
+   */
     private final int width;
+
+  /**
+   * TODO write doc.
+   */
     private final int height;
+
+  /**
+   * TODO write doc.
+   */
     private final int heightOfTitle;
+
+  /**
+   * TODO write doc.
+   */
     private final int startPositionOnScreenX;
+
+  /**
+   * TODO write doc.
+   */
     private final int startPositionOnScreenY;
 
+
+  /**
+   * TODO write doc.
+   */
     private final int queueMaxLength;
+
+  /**
+   * TODO write doc.
+   */
     private final int initialPopulation;
 
+  /**
+   * TODO write doc.
+   */
     private Dimension preferredSize;
 
+  /**
+   * TODO write doc.
+   */
     private Rectangle frameRectangle;
 
+  /**
+   * TODO write doc.
+   */
     private Rectangle panelNorthRectangle;
 
+  /**
+   * TODO write doc.
+   */
     private Rectangle panelSouthRectangle;
 
+  /**
+   * TODO write doc.
+   */
     private Rectangle canvasRectangle;
 
+  /**
+   * TODO write doc.
+   */
     public SimulatedEvolutionConfig(){
         this.title = TITLE;
         this.scale = SCALE;
@@ -57,6 +121,9 @@ public class SimulatedEvolutionConfig implements Serializable, GuiConfig, WorldM
         init();
     }
 
+  /**
+   * TODO write doc.
+   */
     public SimulatedEvolutionConfig(
         String title, String subtitle, String footer,
         int scale, int width, int height, int heightOfTitle,
@@ -76,6 +143,9 @@ public class SimulatedEvolutionConfig implements Serializable, GuiConfig, WorldM
         init();
     }
 
+  /**
+   * TODO write doc.
+   */
     public void init(){
         int width = this.getWidth();
         int height = ( this.scale * this.getHeightOfTitle() );

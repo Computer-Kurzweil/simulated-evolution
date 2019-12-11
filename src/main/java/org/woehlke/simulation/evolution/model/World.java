@@ -1,11 +1,12 @@
 package org.woehlke.simulation.evolution.model;
 
 
-import org.woehlke.simulation.evolution.config.SimulatedEvolutionConfig;
+import org.woehlke.simulation.evolution.SimulatedEvolutionConfig;
+import org.woehlke.simulation.evolution.statistics.LifeCycleCount;
+import org.woehlke.simulation.evolution.statistics.LifeCycleCountContainer;
 
 import java.io.Serializable;
 import java.util.*;
-import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
  * The World contains Water, Cells and Food.
@@ -48,10 +49,19 @@ public class World implements Serializable {
      */
     private final WorldMapFood worldMapFood;
 
-    private final ConcurrentLinkedQueue<LifeCycleCount> count;
+    /**
+     * TODO write doc.
+     */
+    private final LifeCycleCountContainer count;
 
+    /**
+     * TODO write doc.
+     */
     private SimulatedEvolutionConfig simulatedEvolutionConfig;
 
+    /**
+     * TODO write doc.
+     */
     public World(SimulatedEvolutionConfig simulatedEvolutionConfig) {
         this.simulatedEvolutionConfig = simulatedEvolutionConfig;
         long seed = new Date().getTime();
@@ -62,7 +72,7 @@ public class World implements Serializable {
         );
         worldMapFood = new WorldMapFood(this.worldDimensions,random);
         cells = new ArrayList<>();
-        count = new ConcurrentLinkedQueue<>();
+        count = new LifeCycleCountContainer(simulatedEvolutionConfig);
         createPopulation();
     }
 
@@ -85,7 +95,7 @@ public class World implements Serializable {
             cells.add(cell);
         }
         for (Cell cell:cells) {
-            lifeCycleCount.add(cell.getLifeCycleStatus());
+            lifeCycleCount.countStatusOfOneCell(cell.getLifeCycleStatus());
         }
         System.out.println(lifeCycleCount);
         count.add(lifeCycleCount);
@@ -120,13 +130,9 @@ public class World implements Serializable {
         }
         cells.addAll(children);
         for (Cell cell:cells) {
-            lifeCycleCount.add(cell.getLifeCycleStatus());
+            lifeCycleCount.countStatusOfOneCell(cell.getLifeCycleStatus());
         }
-        System.out.println(lifeCycleCount);
         count.add(lifeCycleCount);
-        if(count.size() > simulatedEvolutionConfig.getQueueMaxLength()){
-            count.poll();
-        }
     }
 
     public List<Cell> getAllCells(){

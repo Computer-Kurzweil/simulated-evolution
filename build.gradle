@@ -20,7 +20,8 @@ dependencies {
 }
 
 application {
-    mainClassName = 'org.woehlke.simulation.evolution.view.SimulatedEvolutionApplication'
+  //mainClassName = 'org.woehlke.simulation.evolution.SimulatedEvolutionAppletRunner'
+  mainClassName = 'org.woehlke.simulation.evolution.SimulatedEvolutionApplication'
 }
 
 checkstyle {

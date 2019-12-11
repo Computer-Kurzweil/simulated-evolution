@@ -78,6 +78,9 @@ public class WorldMapFood implements Serializable, WorldMapFoodConf {
         }
     }
 
+  /**
+   * TODO write doc.
+   */
     public boolean hasFood(int x, int y) {
         return worldMapFood[x][y] > 0;
     }
