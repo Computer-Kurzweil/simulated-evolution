@@ -40,7 +40,8 @@ public class SimulatedEvolutionFrame extends JFrame implements ImageObserver,
    */
   private final WorldCanvas canvas;
   private final PanelSubtitle panelSubtitle;
-  private final PanelSouth panelSouth;
+  private final PanelCopyright panelCopyright;
+  private final PanelButtons panelButtons;
 
   public void prepareMe() {
     //this.setPreferredSize(this.guiConfig.getFrameRectangle().getSize());
@@ -50,13 +51,14 @@ public class SimulatedEvolutionFrame extends JFrame implements ImageObserver,
   public void prepareAll() {
     this.canvas.prepareMe();
     this.panelSubtitle.prepareMe();
-    this.panelSouth.prepareMe();
+    this.panelCopyright.prepareMe();
+    this.panelButtons.prepareMe();
     this.prepareMe();
     pack();
   }
 
   public void showMe() {
-    prepareAll();
+    pack();
     setVisible(true);
     toFront();
   }
@@ -65,14 +67,19 @@ public class SimulatedEvolutionFrame extends JFrame implements ImageObserver,
     super(guiConfig.getTitle());
     this.guiConfig = guiConfig;
     this.panelSubtitle = new PanelSubtitle(this.guiConfig);
-    this.panelSouth = new PanelSouth(this.guiConfig);
+    this.panelCopyright = new PanelCopyright(guiConfig);
+    this.panelButtons = new PanelButtons(guiConfig);
     this.canvas = canvas;
+    JSeparator separator = new JSeparator();
     BoxLayout layout = new BoxLayout(rootPane,BoxLayout.PAGE_AXIS);
     rootPane.setLayout(layout);
     rootPane.add(panelSubtitle);
     rootPane.add(canvas);
-    rootPane.add(panelSouth);
-    prepareAll();
+    rootPane.add(this.panelCopyright);
+    rootPane.add(separator);
+    rootPane.add(this.panelButtons);
+    pack();
+    //prepareAll();
   }
 
   public WorldCanvas getCanvas() {

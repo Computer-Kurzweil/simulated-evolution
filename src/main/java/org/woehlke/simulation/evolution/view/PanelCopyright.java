@@ -14,8 +14,6 @@ public class PanelCopyright extends JPanel implements Preparable {
 
   private final JLabel footerLabel;
 
-  private final GuiConfig guiConfig;
-
   public final String layoutConstraint = BorderLayout.CENTER;
 
   public PanelCopyright(GuiConfig guiConfig) {
@@ -23,12 +21,8 @@ public class PanelCopyright extends JPanel implements Preparable {
     this.setLayout(this.layout);
     this.layout.setAlignment(FlowLayout.CENTER);
     this.add(this.footerLabel, this.layoutConstraint);
-    this.guiConfig = guiConfig;
-    //this.setPreferredSize(this.guiConfig.getPanelSouthRectangle().getSize());
   }
 
   public void prepareMe() {
-    //this.setPreferredSize(this.guiConfig.getPanelSouthRectangle().getSize());
-    //this.setBounds(this.guiConfig.getPanelSouthRectangle());
   }
 }

@@ -38,7 +38,11 @@ public class WorldCanvas extends JComponent implements GuiConfigDefault, Seriali
   public WorldCanvas(World world) {
     this.world = world;
     this.setBackground(COLOR_WATER);
-    this.setPreferredSize(world.getCanvasRectangle().getSize());
+    Dimension preferredSize = new Dimension(
+      this.world.getWorldDimensions().getWidth(),
+      this.world.getWorldDimensions().getHeight()
+    );
+    this.setPreferredSize(preferredSize);
   }
 
   /**
@@ -75,8 +79,12 @@ public class WorldCanvas extends JComponent implements GuiConfigDefault, Seriali
   }
 
   public void prepareMe() {
-    this.setPreferredSize(this.world.getCanvasRectangle().getSize());
-    this.setBounds(this.world.getCanvasRectangle());
+    Dimension preferredSize = new Dimension(
+      this.world.getWorldDimensions().getWidth(),
+      this.world.getWorldDimensions().getHeight()
+     );
+    this.setPreferredSize(preferredSize);
+    //this.setBounds(this.world.getCanvasRectangle());
   }
 
   public World getWorld() {

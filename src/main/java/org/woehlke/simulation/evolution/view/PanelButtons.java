@@ -28,12 +28,9 @@ public class PanelButtons extends JPanel implements Preparable{
     this.add( this.button3 );
     this.add( this.button4 );
     this.guiConfig = guiConfig;
-    //this.setPreferredSize(this.guiConfig.getPanelSouthRectangle().getSize());
   }
 
   @Override
   public void prepareMe() {
-    //this.setPreferredSize(this.guiConfig.getPanelSouthRectangle().getSize());
-    //this.setBounds(this.guiConfig.getPanelSouthRectangle());
   }
 }

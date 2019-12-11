@@ -5,7 +5,6 @@ import org.woehlke.simulation.evolution.SimulatedEvolutionConfig;
 import org.woehlke.simulation.evolution.statistics.LifeCycleCount;
 import org.woehlke.simulation.evolution.statistics.LifeCycleCountContainer;
 
-import java.awt.*;
 import java.io.Serializable;
 import java.util.*;
 import java.util.List;
@@ -144,7 +143,4 @@ public class World implements Serializable {
     return this.simulatedEvolutionConfig.getWorldConfig().getWorldDimensions();
   }
 
-  public Rectangle getCanvasRectangle() {
-    return this.simulatedEvolutionConfig.getGuiConfig().getCanvasRectangle();
-  }
 }

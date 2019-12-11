@@ -24,11 +24,11 @@ public class PanelSubtitle extends JPanel implements Preparable {
     this.setLayout(layout);
     this.add(subtitleLabel, layoutConstraint);
     this.guiConfig = guiConfig;
-    this.setPreferredSize(this.guiConfig.getPanelNorthRectangle().getSize());
+    //this.setPreferredSize(this.guiConfig.getPanelNorthRectangle().getSize());
   }
 
   public void prepareMe() {
-    this.setPreferredSize(this.guiConfig.getPanelNorthRectangle().getSize());
-    this.setBounds(this.guiConfig.getPanelNorthRectangle());
+    //this.setPreferredSize(this.guiConfig.getPanelNorthRectangle().getSize());
+    //this.setBounds(this.guiConfig.getPanelNorthRectangle());
   }
 }
