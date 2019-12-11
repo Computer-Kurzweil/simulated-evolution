@@ -43,7 +43,7 @@ public class SimulatedEvolutionFrame extends JFrame implements ImageObserver,
   private final PanelSubtitle panelSubtitle;
   private final PanelCopyright panelCopyright;
   private final PanelButtons panelButtons;
-
+  private final PanelLifeCycleStatus panelLifeCycleStatus;
 
   /**
    * TODO write doc.
@@ -70,14 +70,18 @@ public class SimulatedEvolutionFrame extends JFrame implements ImageObserver,
     this.panelSubtitle = new PanelSubtitle(this.guiConfig);
     this.panelCopyright = new PanelCopyright(this.guiConfig);
     this.panelButtons = new PanelButtons(guiConfig);
+    this.panelLifeCycleStatus = new PanelLifeCycleStatus();
     this.canvas = canvas;
-    JSeparator separator = new JSeparator();
+    JSeparator separator1 = new JSeparator();
+    JSeparator separator2 = new JSeparator();
     BoxLayout layout = new BoxLayout(rootPane, BoxLayout.PAGE_AXIS);
     rootPane.setLayout(layout);
-    rootPane.add(panelSubtitle);
+    rootPane.add(this.panelSubtitle);
     rootPane.add(canvas);
     rootPane.add(this.panelCopyright);
-    rootPane.add(separator);
+    rootPane.add(separator1);
+    rootPane.add(this.panelLifeCycleStatus);
+    rootPane.add(separator2);
     rootPane.add(this.panelButtons);
     pack();
   }
