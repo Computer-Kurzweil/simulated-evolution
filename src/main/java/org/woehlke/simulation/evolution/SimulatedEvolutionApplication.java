@@ -7,6 +7,8 @@ import org.woehlke.simulation.evolution.view.SimulatedEvolutionApplet;
 import org.woehlke.simulation.evolution.view.SimulatedEvolutionFrame;
 import org.woehlke.simulation.evolution.view.WorldCanvas;
 
+import java.awt.*;
+
 import static org.woehlke.simulation.evolution.config.GuiConfigDefault.TITLE;
 
 /**

@@ -11,6 +11,7 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowStateListener;
 import java.awt.image.ImageObserver;
 import java.io.Serializable;
+import java.util.function.DoubleToIntFunction;
 
 /**
  * This Frame wraps the SimulatedEvolutionApplet which is the Container for this Simulation.
@@ -48,6 +49,16 @@ public class SimulatedEvolutionFrame extends JFrame implements ImageObserver,
 
   public void showMe() {
     pack();
+    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    double height = rootPane.getHeight();
+    double width = rootPane.getWidth();
+    double startX =  (screenSize.getWidth() - width) / 2d;
+    double startY =  (screenSize.getHeight() - height) / 2d;
+    int myheight = Double.valueOf(height).intValue();
+    int mywidth =  Double.valueOf(width).intValue();
+    int mystartX = Double.valueOf(startX).intValue();
+    int mystartY = Double.valueOf(startY).intValue();
+    this.setBounds(mystartX,mystartY,mywidth,myheight);
     setVisible(true);
     toFront();
   }
