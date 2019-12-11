@@ -54,31 +54,23 @@ public class WorldMapFood implements Serializable, WorldMapFoodConfigDefault {
     int food = 0;
     while (food < this.config.getWorldMapFoodConfig().getFoodPerDay()) {
       food++;
-      int x = random.nextInt(this.worldDimensions.getX());
-      int y = random.nextInt(this.worldDimensions.getY());
-      if (x < 0) {
-        x *= -1;
-      }
-      if (y < 0) {
-        y *= -1;
-      }
-      worldMapFood[x][y]++;
+      int posX = random.nextInt(this.worldDimensions.getX());
+      int posY = random.nextInt(this.worldDimensions.getY());
+      posX *= Integer.signum(posX);
+      posY *= Integer.signum(posY);
+      worldMapFood[posX][posY]++;
     }
     if (this.config.getWorldMapFoodConfig().isEableGardenOfEden()) {
       food = 0;
-      int startx = this.worldDimensions.getX() / 5;
-      int starty = this.worldDimensions.getY() / 5;
+      int startX = this.worldDimensions.getX() / 5;
+      int startY = this.worldDimensions.getY() / 5;
       while (food < FOOD_PER_DAY * 4) {
         food++;
-        int x = random.nextInt(startx);
-        int y = random.nextInt(starty);
-        if (x < 0) {
-          x *= -1;
-        }
-        if (y < 0) {
-          y *= -1;
-        }
-        worldMapFood[x + startx * 2][y + starty * 2]++;
+        int posX = random.nextInt(startX);
+        int posY = random.nextInt(startY);
+        posX *= Integer.signum(posX);
+        posY *= Integer.signum(posY);
+        worldMapFood[posX + startX * 2][posY + startY * 2]++;
       }
     }
   }
@@ -111,9 +103,9 @@ public class WorldMapFood implements Serializable, WorldMapFoodConfigDefault {
     if (!this.config.getWorldMapFoodConfig().isEableGardenOfEden()) {
       int startx = this.worldDimensions.getX() / 5;
       int starty = this.worldDimensions.getY() / 5;
-      for( int x = 0; x < startx; x++){
-        for (int y = 0; y < starty; y++){
-          worldMapFood[x + startx * 2][y + starty * 2]=0;
+      for( int posX = 0; posX < startx; posX++){
+        for (int posY = 0; posY < starty; posY++){
+          worldMapFood[posX + startx * 2][posY + starty * 2]=0;
         }
       }
     }

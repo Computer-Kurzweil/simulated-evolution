@@ -48,39 +48,39 @@ public class WorldCanvas extends JComponent implements GuiConfigDefault, Seriali
   /**
    * Paint the World on the Canvas and show Food and Bacteria Cells.
    *
-   * @param g Graphics Context with the Tools for Painting.
+   * @param graphics Graphics Context with the Tools for Painting.
    */
-  public void paint(Graphics g) {
-    super.paintComponent(g);
+  public void paint(Graphics graphics) {
+    super.paintComponent(graphics);
     int width = world.getWorldDimensions().getWidth();
     int height = world.getWorldDimensions().getHeight();
-    g.setColor(COLOR_WATER);
-    g.fillRect(0, 0, width, height);
-    g.setColor(COLOR_FOOD);
-    for (int y = 0; y < height; y++) {
-      for (int x = 0; x < width; x++) {
-        if (world.hasFood(x, y)) {
-          g.drawLine(x, y, x, y);
+    graphics.setColor(COLOR_WATER);
+    graphics.fillRect(0, 0, width, height);
+    graphics.setColor(COLOR_FOOD);
+    for (int posY = 0; posY < height; posY++) {
+      for (int posX = 0; posX < width; posX++) {
+        if (world.hasFood(posX, posY)) {
+          graphics.drawLine(posX, posY, posX, posY);
         }
       }
     }
     List<Cell> population = world.getAllCells();
-    for (Cell p : population) {
-      Point[] square = p.getPosition().getNeighbourhood(world.getWorldDimensions());
-      g.setColor(p.getLifeCycleStatus().getColor());
+    for (Cell cell : population) {
+      Point[] square = cell.getPosition().getNeighbourhood(world.getWorldDimensions());
+      graphics.setColor(cell.getLifeCycleStatus().getColor());
       for (Point pixel : square) {
-        g.drawLine(pixel.getX(), pixel.getY(), pixel.getX(), pixel.getY());
+        graphics.drawLine(pixel.getX(), pixel.getY(), pixel.getX(), pixel.getY());
       }
     }
   }
 
-  public void update(Graphics g) {
+  public void update(Graphics graphics) {
     Dimension preferredSize = new Dimension(
       this.world.getWorldDimensions().getWidth(),
       this.world.getWorldDimensions().getHeight()
     );
     this.setPreferredSize(preferredSize);
-    paint(g);
+    paint(graphics);
   }
 
   public World getWorld() {

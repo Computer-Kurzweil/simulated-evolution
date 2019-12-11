@@ -74,16 +74,12 @@ public class World implements Serializable {
   private void createPopulation() {
     LifeCycleCount lifeCycleCount = new LifeCycleCount();
     for (int i = 0; i < simulatedEvolutionConfig.getWorldConfig().getInitialPopulation(); i++) {
-      int x = random.nextInt(simulatedEvolutionConfig.getWorldConfig().getWidth());
-      int y = random.nextInt(simulatedEvolutionConfig.getWorldConfig().getHeight());
-      if (x < 0) {
-        x *= -1;
-      }
-      if (y < 0) {
-        y *= -1;
-      }
-      Point pos = new Point(x, y);
-      Cell cell = new Cell(simulatedEvolutionConfig.getWorldConfig().getWorldDimensions(), pos, random);
+      int worldMapFoodX = random.nextInt(simulatedEvolutionConfig.getWorldConfig().getWidth());
+      int worldMapFoodY = random.nextInt(simulatedEvolutionConfig.getWorldConfig().getHeight());
+      worldMapFoodX *= Integer.signum(worldMapFoodX);
+      worldMapFoodY *= Integer.signum(worldMapFoodY);
+      Point position = new Point(worldMapFoodX, worldMapFoodY);
+      Cell cell = new Cell(simulatedEvolutionConfig.getWorldConfig().getWorldDimensions(), position, random);
       cells.add(cell);
     }
     for (Cell cell : cells) {
