@@ -10,7 +10,6 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowFocusListener;
 import java.awt.event.WindowListener;
 import java.awt.event.WindowStateListener;
-import java.io.Serializable;
 
 /**
  * The ControllerThreadApplet controls the Interactions between Model and View (MVC-Pattern).
@@ -26,13 +25,10 @@ import java.io.Serializable;
  * Time: 00:36:20
  */
 public class ControllerThreadDesktop extends ControllerThreadApplet implements Runnable,
-  Serializable,
   WindowListener,
   WindowFocusListener,
   WindowStateListener,
   GuiConfigDefault {
-
-  private static final long serialVersionUID = -7066881081524661452L;
 
   private final SimulatedEvolutionFrame simulatedEvolutionFrame;
 

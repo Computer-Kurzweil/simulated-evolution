@@ -1,6 +1,5 @@
 package org.woehlke.simulation.evolution.model;
 
-import java.io.Serializable;
 import java.util.Random;
 
 /**
@@ -110,7 +109,7 @@ public class Cell {
    * After performing Reproduction by Cell Division this Cell is one of the two Children this Method
    * returns the other Child.
    *
-   * @return the other Child
+   * @return the other Child.
    * @see CellCore#performMitosis()
    */
   public Cell performReproductionByCellDivision() {
@@ -137,7 +136,7 @@ public class Cell {
   /**
    * Eat the available Food in this Position.
    *
-   * @param food the available Food in this Position
+   * @param food the available Food in this Position.
    */
   public void eat(int food) {
     lifeCycle.eat(food);

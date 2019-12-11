@@ -89,8 +89,8 @@ public class World {
   }
 
   /**
-   * One Step of Time in the World in which the Population of Bacteria Cell perform Life:
-   * Every Cell moves, eats, dies of hunger, and it has sex: splitting into two children with changed DNA.
+   * One Step of Time in the World in which the Population of Bacteria Cell perform Life.
+   * Every Cell moves, eats, dies of hunger, and it has sex. splitting into two children with changed DNA.
    */
   public void letLivePopulation() {
     LifeCycleCount lifeCycleCount = new LifeCycleCount();

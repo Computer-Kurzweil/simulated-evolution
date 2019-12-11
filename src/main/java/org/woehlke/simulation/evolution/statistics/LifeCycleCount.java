@@ -2,8 +2,6 @@ package org.woehlke.simulation.evolution.statistics;
 
 import org.woehlke.simulation.evolution.model.LifeCycleStatus;
 
-import java.io.Serializable;
-
 /**
  * TODO write doc.
  */

@@ -30,8 +30,6 @@ import java.awt.image.ImageObserver;
 public class SimulatedEvolutionApplet extends JApplet
   implements ImageObserver, MenuContainer, Accessible, GuiConfigDefault {
 
-  private static final long serialVersionUID = -8586633326682669768L;
-
   /**
    * ControllerThreadApplet for Interachtions between Model and View (MVC-Pattern).
    */

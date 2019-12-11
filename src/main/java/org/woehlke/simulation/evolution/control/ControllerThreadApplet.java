@@ -87,4 +87,12 @@ public class ControllerThreadApplet extends Thread implements Runnable {
   public void showStatistic() {
 
   }
+
+  public World getWorld() {
+    return world;
+  }
+
+  public WorldCanvas getCanvas() {
+    return canvas;
+  }
 }

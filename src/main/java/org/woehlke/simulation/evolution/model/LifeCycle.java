@@ -22,8 +22,6 @@ import java.io.Serializable;
  */
 public class LifeCycle implements LifeCycleConfigDefault {
 
-  private static final long serialVersionUID = 6940694660036948381L;
-
   /**
    * Status of the LifeCycle is fat, age and hunger.
    */
@@ -52,7 +50,7 @@ public class LifeCycle implements LifeCycleConfigDefault {
   }
 
   /**
-   * moving consumes food energy
+   * moving consumes food energy.
    *
    * @return true, if cell has enough energy to move.
    */

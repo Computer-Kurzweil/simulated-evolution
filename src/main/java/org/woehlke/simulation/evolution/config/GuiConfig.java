@@ -1,13 +1,9 @@
 package org.woehlke.simulation.evolution.config;
 
-import java.io.Serializable;
-
 /**
  * TODO write doc.
  */
-public class GuiConfig implements GuiConfigDefault, Serializable {
-
-  private static final long serialVersionUID = 5214232331004556939L;
+public class GuiConfig implements GuiConfigDefault {
 
   /**
    * TODO write doc.

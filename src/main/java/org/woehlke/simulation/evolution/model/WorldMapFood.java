@@ -21,8 +21,6 @@ import java.util.Random;
  */
 public class WorldMapFood implements WorldMapFoodConfigDefault {
 
-  private static final long serialVersionUID = 7206903832639173306L;
-
   /**
    * Grid of World where every Place can have food.
    */

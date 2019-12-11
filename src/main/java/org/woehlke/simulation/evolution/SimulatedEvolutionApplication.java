@@ -43,7 +43,7 @@ public class SimulatedEvolutionApplication {
   /**
    * Starting the Desktop Application.
    *
-   * @param args CLI Parameter
+   * @param args CLI Parameter.
    */
   public static void main(String[] args) {
     SimulatedEvolutionApplication application = new SimulatedEvolutionApplication();

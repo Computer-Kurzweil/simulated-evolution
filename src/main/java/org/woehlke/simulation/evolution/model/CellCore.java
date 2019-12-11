@@ -20,8 +20,6 @@ import java.util.ArrayList;
  */
 public class CellCore {
 
-  private static final long serialVersionUID = -3019959290948066782L;
-
   /**
    * The DNA Values of the Genome.
    */

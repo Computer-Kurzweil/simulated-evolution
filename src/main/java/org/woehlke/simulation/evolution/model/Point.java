@@ -15,8 +15,6 @@ package org.woehlke.simulation.evolution.model;
  */
 public class Point {
 
-  private static final long serialVersionUID = 6978067997297990242L;
-
   /**
    * Horizontal X-Coordinate. Also used as Width;
    */
@@ -92,7 +90,7 @@ public class Point {
   /**
    * Get Neighbourhood.
    *
-   * @param max - limit the dimensions of the world around
+   * @param max - limit the dimensions of the world around.
    * @return The Set of Points belonging to the Neighbourhood of the position given by this Point Object.
    */
   public Point[] getNeighbourhood(Point max) {

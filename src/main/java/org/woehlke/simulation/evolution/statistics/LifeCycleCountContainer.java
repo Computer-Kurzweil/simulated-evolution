@@ -35,6 +35,9 @@ public class LifeCycleCountContainer {
     worldIteration = 0L;
   }
 
+  /**
+   * TODO write doc.
+   */
   public void add(LifeCycleCount lifeCycleCount) {
     this.lifeCycleCount = lifeCycleCount;
     count.add(lifeCycleCount);

@@ -9,7 +9,7 @@ import org.junit.Test;
 public class AppTest {
 
     /**
-     * Rigourous Test :-)
+     * When I am grown up, I will be a cool Uni Test.
      */
     @Test
     public void testApp()

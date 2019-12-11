@@ -12,8 +12,13 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import static org.woehlke.simulation.evolution.config.GuiConfigDefault.*;
+import static org.woehlke.simulation.evolution.config.GuiConfigDefault.BUTTON_FOOD_DECREASE;
+import static org.woehlke.simulation.evolution.config.GuiConfigDefault.BUTTON_FOOD_INCREASE;
+import static org.woehlke.simulation.evolution.config.GuiConfigDefault.BUTTON_TOGGLE_GARDEN_OF_EDEN;
 
+/**
+ * TODO write doc.
+ */
 public class PanelButtons extends JPanel implements ActionListener {
 
   private final JButton buttonFoodPerDayIncrease;
