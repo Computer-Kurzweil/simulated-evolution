@@ -34,13 +34,13 @@ import static org.woehlke.simulation.evolution.config.GuiConfigDefault.TITLE;
 public class SimulatedEvolutionApplication {
 
   private SimulatedEvolutionApplication() {
-      SimulatedEvolutionConfig config = new SimulatedEvolutionConfig();
-      World world = new World(config);
-      WorldCanvas canvas = new WorldCanvas(world);
-      SimulatedEvolutionFrame frame = new SimulatedEvolutionFrame(config,canvas);
-      ControllerThreadDesktop controller = new ControllerThreadDesktop(canvas,world,frame);
-      frame.addController(controller);
-      controller.start();
+    SimulatedEvolutionConfig config = new SimulatedEvolutionConfig();
+    World world = new World(config);
+    WorldCanvas canvas = new WorldCanvas(world);
+    SimulatedEvolutionFrame frame = new SimulatedEvolutionFrame(config, canvas);
+    ControllerThreadDesktop controller = new ControllerThreadDesktop(canvas, world, frame);
+    frame.addController(controller);
+    controller.start();
   }
 
   /**

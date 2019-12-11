@@ -44,7 +44,7 @@ public class ControllerThreadApplet extends Thread implements Runnable {
     this.mySemaphore = Boolean.TRUE;
   }
 
-  protected void show(){
+  protected void show() {
   }
 
   public void run() {
@@ -71,15 +71,15 @@ public class ControllerThreadApplet extends Thread implements Runnable {
     }
   }
 
-  public void increaseFoodPerDay(){
+  public void increaseFoodPerDay() {
     world.getSimulatedEvolutionConfig().getWorldMapFoodConfig().increaseFoodPerDay();
   }
 
-  public void decreaseFoodPerDay(){
+  public void decreaseFoodPerDay() {
     world.getSimulatedEvolutionConfig().getWorldMapFoodConfig().decreaseFoodPerDay();
   }
 
-  public void toggleGardenOfEden(){
+  public void toggleGardenOfEden() {
     world.getSimulatedEvolutionConfig().getWorldMapFoodConfig().toggleGardenOfEden();
     world.getWorldMapFood().toggleGardenOfEden();
   }

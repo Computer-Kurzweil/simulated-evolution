@@ -16,7 +16,7 @@ public class WorldMapFoodConfig implements WorldMapFoodConfigDefault {
    */
   private volatile boolean eableGardenOfEden;
 
-  public WorldMapFoodConfig(){
+  public WorldMapFoodConfig() {
     this.foodPerDay = FOOD_PER_DAY;
     this.eableGardenOfEden = EABLE_GARDEN_OF_EDEN;
   }
@@ -37,19 +37,19 @@ public class WorldMapFoodConfig implements WorldMapFoodConfigDefault {
     this.eableGardenOfEden = eableGardenOfEden;
   }
 
-  public synchronized void increaseFoodPerDay(){
+  public synchronized void increaseFoodPerDay() {
     this.foodPerDay++;
   }
 
-  public synchronized void decreaseFoodPerDay(){
+  public synchronized void decreaseFoodPerDay() {
     this.foodPerDay--;
   }
 
-  public synchronized void resetFoodPerDay(){
+  public synchronized void resetFoodPerDay() {
     this.foodPerDay = FOOD_PER_DAY;
   }
 
-  public synchronized void toggleGardenOfEden(){
+  public synchronized void toggleGardenOfEden() {
     this.eableGardenOfEden = !this.eableGardenOfEden;
   }
 

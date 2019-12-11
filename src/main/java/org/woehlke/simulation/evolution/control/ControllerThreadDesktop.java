@@ -89,14 +89,16 @@ public class ControllerThreadDesktop extends ControllerThreadApplet implements R
 
   @Override
   public void windowStateChanged(WindowEvent e) {
-    if(e.getSource() == this.simulatedEvolutionFrame){
-      switch (e.getNewState()){
+    if (e.getSource() == this.simulatedEvolutionFrame) {
+      switch (e.getNewState()) {
         case Frame.MAXIMIZED_BOTH:
         case Frame.MAXIMIZED_HORIZ:
         case Frame.MAXIMIZED_VERT:
         case Frame.NORMAL:
-          show(); break;
-        default: break;
+          show();
+          break;
+        default:
+          break;
       }
     }
   }

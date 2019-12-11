@@ -26,17 +26,17 @@ public class PanelButtons extends JPanel implements ActionListener {
     foodPerDayField = new JTextField(config.getFoodPerDay(), 3);
     boolean selected = config.getWorldMapFoodConfig().isEableGardenOfEden();
     this.gardenOfEdenEnabled = new JCheckBox("Garden of Eden enabled", selected);
-    this.buttonFoodPerDayIncrease = new  JButton(BUTTON_FOOD_INCREASE);
-    this.buttonFoodPerDayDecrease = new  JButton(BUTTON_FOOD_DECREASE);
-    this.buttonToggleGardenOfEden = new  JButton(BUTTON_TOGGLE_GARDEN_OF_EDEN);
+    this.buttonFoodPerDayIncrease = new JButton(BUTTON_FOOD_INCREASE);
+    this.buttonFoodPerDayDecrease = new JButton(BUTTON_FOOD_DECREASE);
+    this.buttonToggleGardenOfEden = new JButton(BUTTON_TOGGLE_GARDEN_OF_EDEN);
     FlowLayout layout = new FlowLayout();
     this.setLayout(layout);
-    this.add( foodPerDayLabel );
-    this.add( foodPerDayField );
-    this.add( gardenOfEdenEnabled );
-    this.add( this.buttonFoodPerDayIncrease );
-    this.add( this.buttonFoodPerDayDecrease );
-    this.add( this.buttonToggleGardenOfEden );
+    this.add(foodPerDayLabel);
+    this.add(foodPerDayField);
+    this.add(gardenOfEdenEnabled);
+    this.add(this.buttonFoodPerDayIncrease);
+    this.add(this.buttonFoodPerDayDecrease);
+    this.add(this.buttonToggleGardenOfEden);
   }
 
   public void addController(ControllerThreadDesktop controller) {
@@ -48,13 +48,13 @@ public class PanelButtons extends JPanel implements ActionListener {
 
   @Override
   public void actionPerformed(ActionEvent ae) {
-    if(ae.getSource() == this.buttonFoodPerDayIncrease){
+    if (ae.getSource() == this.buttonFoodPerDayIncrease) {
       this.controller.increaseFoodPerDay();
       this.foodPerDayField.setText(config.getFoodPerDay());
-    } else if(ae.getSource() == this.buttonFoodPerDayDecrease){
+    } else if (ae.getSource() == this.buttonFoodPerDayDecrease) {
       this.controller.decreaseFoodPerDay();
       this.foodPerDayField.setText(config.getFoodPerDay());
-    } else if(ae.getSource() == this.buttonToggleGardenOfEden){
+    } else if (ae.getSource() == this.buttonToggleGardenOfEden) {
       this.controller.toggleGardenOfEden();
       boolean selected = config.getWorldMapFoodConfig().isEableGardenOfEden();
       gardenOfEdenEnabled.setSelected(selected);

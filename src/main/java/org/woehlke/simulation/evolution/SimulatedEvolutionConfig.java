@@ -28,7 +28,7 @@ public class SimulatedEvolutionConfig implements Serializable {
 
   private final WorldConfig worldConfig;
 
-    private final WorldMapFoodConfig worldMapFoodConfig;
+  private final WorldMapFoodConfig worldMapFoodConfig;
 
   /**
    * TODO write doc.
@@ -56,7 +56,7 @@ public class SimulatedEvolutionConfig implements Serializable {
     return worldMapFoodConfig;
   }
 
-  public String getFoodPerDay(){
+  public String getFoodPerDay() {
     return "" + worldMapFoodConfig.getFoodPerDay();
   }
 }

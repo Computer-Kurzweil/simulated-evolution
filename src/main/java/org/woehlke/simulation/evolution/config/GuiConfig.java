@@ -37,7 +37,7 @@ public class GuiConfig implements GuiConfigDefault, Serializable {
    */
   private final int height;
 
-  public GuiConfig(){
+  public GuiConfig() {
     this.title = TITLE;
     this.scale = SCALE;
     this.width = WIDTH;

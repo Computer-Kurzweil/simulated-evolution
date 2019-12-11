@@ -103,9 +103,9 @@ public class WorldMapFood implements Serializable, WorldMapFoodConfigDefault {
     if (!this.config.getWorldMapFoodConfig().isEableGardenOfEden()) {
       int startx = this.worldDimensions.getX() / 5;
       int starty = this.worldDimensions.getY() / 5;
-      for( int posX = 0; posX < startx; posX++){
-        for (int posY = 0; posY < starty; posY++){
-          worldMapFood[posX + startx * 2][posY + starty * 2]=0;
+      for (int posX = 0; posX < startx; posX++) {
+        for (int posY = 0; posY < starty; posY++) {
+          worldMapFood[posX + startx * 2][posY + starty * 2] = 0;
         }
       }
     }

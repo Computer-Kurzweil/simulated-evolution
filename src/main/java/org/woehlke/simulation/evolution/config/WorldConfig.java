@@ -26,19 +26,19 @@ public class WorldConfig implements WorldConfigDefault {
    */
   private final int initialPopulation;
 
-  public WorldConfig(){
-    this.width  = WIDTH;
+  public WorldConfig() {
+    this.width = WIDTH;
     this.height = HEIGHT;
-    this.scale  = SCALE;
+    this.scale = SCALE;
     this.initialPopulation = INITIAL_POPULATION;
   }
 
   @Transient
-  public Point getWorldDimensions(){
-      return new Point(
-        this.getWidth() * this.getScale(),
-        this.getHeight() * this.getScale()
-      );
+  public Point getWorldDimensions() {
+    return new Point(
+      this.getWidth() * this.getScale(),
+      this.getHeight() * this.getScale()
+    );
   }
 
   public int getWidth() {

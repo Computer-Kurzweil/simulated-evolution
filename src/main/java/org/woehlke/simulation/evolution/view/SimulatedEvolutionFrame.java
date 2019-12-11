@@ -52,13 +52,13 @@ public class SimulatedEvolutionFrame extends JFrame implements ImageObserver,
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     double height = rootPane.getHeight();
     double width = rootPane.getWidth();
-    double startX =  (screenSize.getWidth() - width) / 2d;
-    double startY =  (screenSize.getHeight() - height) / 2d;
+    double startX = (screenSize.getWidth() - width) / 2d;
+    double startY = (screenSize.getHeight() - height) / 2d;
     int myheight = Double.valueOf(height).intValue();
-    int mywidth =  Double.valueOf(width).intValue();
+    int mywidth = Double.valueOf(width).intValue();
     int mystartX = Double.valueOf(startX).intValue();
     int mystartY = Double.valueOf(startY).intValue();
-    this.setBounds(mystartX,mystartY,mywidth,myheight);
+    this.setBounds(mystartX, mystartY, mywidth, myheight);
     setVisible(true);
     toFront();
   }
@@ -71,7 +71,7 @@ public class SimulatedEvolutionFrame extends JFrame implements ImageObserver,
     this.panelButtons = new PanelButtons(guiConfig);
     this.canvas = canvas;
     JSeparator separator = new JSeparator();
-    BoxLayout layout = new BoxLayout(rootPane,BoxLayout.PAGE_AXIS);
+    BoxLayout layout = new BoxLayout(rootPane, BoxLayout.PAGE_AXIS);
     rootPane.setLayout(layout);
     rootPane.add(panelSubtitle);
     rootPane.add(canvas);
