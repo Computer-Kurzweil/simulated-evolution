@@ -2,7 +2,6 @@ package org.woehlke.simulation.evolution.config;
 
 import org.woehlke.simulation.evolution.model.Point;
 
-import java.awt.*;
 import java.beans.Transient;
 
 public class WorldConfig implements WorldConfigDefault {

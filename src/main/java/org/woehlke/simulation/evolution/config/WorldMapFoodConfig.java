@@ -6,15 +6,34 @@ package org.woehlke.simulation.evolution.config;
 public class WorldMapFoodConfig implements WorldMapFoodConfigDefault {
 
   /**
-   * TODO write doc.
+   * How much food per Time Step (a day) shall be placed in this World.
    */
-  private final int initialPopulation;
+  private int foodPerDay;
+
+  /**
+   * A Garden of Eden is an Area where much more Food grows within the same time.
+   * As a Result of Evolution you will find sucessful Bacteria Cells with a different DNA and Motion as outside the Garden of Eden.
+   */
+  private boolean eableGardenOfEden;
 
   public WorldMapFoodConfig(){
-    this.initialPopulation = INITIAL_POPULATION;
+    this.foodPerDay = FOOD_PER_DAY;
+    this.eableGardenOfEden = EABLE_GARDEN_OF_EDEN;
   }
 
-  public int getInitialPopulation() {
-    return initialPopulation;
+  public int getFoodPerDay() {
+    return foodPerDay;
+  }
+
+  public void setFoodPerDay(int foodPerDay) {
+    this.foodPerDay = foodPerDay;
+  }
+
+  public boolean isEableGardenOfEden() {
+    return eableGardenOfEden;
+  }
+
+  public void setEableGardenOfEden(boolean eableGardenOfEden) {
+    this.eableGardenOfEden = eableGardenOfEden;
   }
 }

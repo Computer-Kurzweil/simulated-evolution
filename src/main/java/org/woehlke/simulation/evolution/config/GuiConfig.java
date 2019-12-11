@@ -1,7 +1,5 @@
 package org.woehlke.simulation.evolution.config;
 
-import javax.swing.*;
-import java.awt.*;
 import java.io.Serializable;
 
 /**
@@ -39,26 +37,6 @@ public class GuiConfig implements GuiConfigDefault, Serializable {
    */
   private final int height;
 
-  /**
-   * TODO write doc.
-   */
-  private final int heightOfTitle;
-
-  /**
-   * TODO write doc.
-   */
-  private final int heightOfFooter;
-
-  /**
-   * TODO write doc.
-   */
-  private final int startPositionOnScreenX;
-
-  /**
-   * TODO write doc.
-   */
-  private final int startPositionOnScreenY;
-
   public GuiConfig(){
     this.title = TITLE;
     this.scale = SCALE;
@@ -66,35 +44,8 @@ public class GuiConfig implements GuiConfigDefault, Serializable {
     this.height = HEIGHT;
     this.subtitle = SUB_TITLE;
     this.footer = FOOTER;
-    this.heightOfTitle = HEIGHT_OF_TITLE;
-    this.heightOfFooter = HEIGHT_OF_FOOTER;
-    this.startPositionOnScreenX = START_POSITION_ON_SCREEN_X;
-    this.startPositionOnScreenY = START_POSITION_ON_SCREEN_Y;
-    init();
   }
 
-  /**
-   * TODO write doc.
-   */
-  public void init() {
-   // int widthSubtitle = (this.getScale() * this.getWidth());
-   // int widthCanvas = widthSubtitle;
-   // int widthFooter = widthSubtitle;
-   // int widthFrame = widthSubtitle;
-   // int heightSubtitle = (this.getScale() * this.getHeightOfTitle());
-   // int heightCanvas = (this.getScale() * this.getHeight());
-  //  int heightCopyright = (this.getScale() * this.getHeightOfTitle());
- //   int heightButtons = (this.getScale() * this.getHeightOfFooter());
-   // int heightFooter = (heightCopyright + heightButtons + JSeparator.HEIGHT);
-   // int heightFrame = heightSubtitle + heightCanvas + heightFooter;
-  //  int startFrameX = this.getStartPositionOnScreenX();
-  //  int startFrameY = this.getStartPositionOnScreenY();
-   // int startCanvasY = startFrameX + this.getHeightOfTitle();
-   // int startFooterY = startFrameY + this.getHeight();
-   // int startCopyrightY = startFooterY;
- //   int startButtonsY = startCopyrightY + heightCopyright + JSeparator.HEIGHT;
-
-  }
 
   public String getTitle() {
     return title;
@@ -118,22 +69,6 @@ public class GuiConfig implements GuiConfigDefault, Serializable {
 
   public int getHeight() {
     return height;
-  }
-
-  public int getHeightOfTitle() {
-    return heightOfTitle;
-  }
-
-  public int getHeightOfFooter() {
-    return heightOfFooter;
-  }
-
-  public int getStartPositionOnScreenX() {
-    return startPositionOnScreenX;
-  }
-
-  public int getStartPositionOnScreenY() {
-    return startPositionOnScreenY;
   }
 
 }
