@@ -143,4 +143,11 @@ public class World implements Serializable {
     return this.simulatedEvolutionConfig.getWorldConfig().getWorldDimensions();
   }
 
+  public WorldMapFood getWorldMapFood() {
+    return worldMapFood;
+  }
+
+  public LifeCycleCountContainer getCount() {
+    return count;
+  }
 }

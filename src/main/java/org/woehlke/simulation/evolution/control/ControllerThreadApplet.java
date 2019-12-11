@@ -81,6 +81,7 @@ public class ControllerThreadApplet extends Thread implements Runnable {
 
   public void toggleGardenOfEden(){
     world.getSimulatedEvolutionConfig().getWorldMapFoodConfig().toggleGardenOfEden();
+    world.getWorldMapFood().toggleGardenOfEden();
   }
 
   public void showStatistic() {

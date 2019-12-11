@@ -51,9 +51,9 @@ public class WorldMapFood implements Serializable, WorldMapFoodConfigDefault {
    * Delivers new food to random positions.
    */
   public void letFoodGrow() {
-    int f = 0;
-    while (f < this.config.getWorldMapFoodConfig().getFoodPerDay()) {
-      f++;
+    int food = 0;
+    while (food < this.config.getWorldMapFoodConfig().getFoodPerDay()) {
+      food++;
       int x = random.nextInt(this.worldDimensions.getX());
       int y = random.nextInt(this.worldDimensions.getY());
       if (x < 0) {
@@ -65,11 +65,11 @@ public class WorldMapFood implements Serializable, WorldMapFoodConfigDefault {
       worldMapFood[x][y]++;
     }
     if (this.config.getWorldMapFoodConfig().isEableGardenOfEden()) {
-      f = 0;
+      food = 0;
       int startx = this.worldDimensions.getX() / 5;
       int starty = this.worldDimensions.getY() / 5;
-      while (f < FOOD_PER_DAY * 4) {
-        f++;
+      while (food < FOOD_PER_DAY * 4) {
+        food++;
         int x = random.nextInt(startx);
         int y = random.nextInt(starty);
         if (x < 0) {
@@ -105,5 +105,17 @@ public class WorldMapFood implements Serializable, WorldMapFoodConfigDefault {
       worldMapFood[neighbourhoodPosition.getX()][neighbourhoodPosition.getY()] = 0;
     }
     return food;
+  }
+
+  public void toggleGardenOfEden() {
+    if (!this.config.getWorldMapFoodConfig().isEableGardenOfEden()) {
+      int startx = this.worldDimensions.getX() / 5;
+      int starty = this.worldDimensions.getY() / 5;
+      for( int x = 0; x < startx; x++){
+        for (int y = 0; y < starty; y++){
+          worldMapFood[x + startx * 2][y + starty * 2]=0;
+        }
+      }
+    }
   }
 }
