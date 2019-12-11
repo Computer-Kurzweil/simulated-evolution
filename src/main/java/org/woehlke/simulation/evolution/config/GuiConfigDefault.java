@@ -20,6 +20,14 @@ public interface GuiConfigDefault extends WorldConfigDefault {
    */
   String FOOTER = "(C) 2018 Thomas Woehlke";
 
+  String BUTTON_FOOD_INCREASE = "More Food";
+
+  String BUTTON_FOOD_DECREASE = "Less Food";
+
+  String BUTTON_TOGGLE_GARDEN_OF_EDEN = "Garden of Eden";
+
+  String BUTTON_SHOW_STATISTICS = "Statistics";
+
   /**
    * TODO write doc.
    */

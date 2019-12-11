@@ -5,6 +5,8 @@ import org.woehlke.simulation.evolution.config.GuiConfig;
 import javax.swing.*;
 import java.awt.*;
 
+import static org.woehlke.simulation.evolution.config.GuiConfigDefault.*;
+
 public class PanelButtons extends JPanel {
 
   private final JButton button1;
@@ -13,10 +15,10 @@ public class PanelButtons extends JPanel {
   private final JButton button4;
 
   public PanelButtons(GuiConfig guiConfig) {
-    this.button1 = new  JButton("YO!");
-    this.button2 = new  JButton("Booo!");
-    this.button3 = new  JButton("pfff!");
-    this.button4 = new  JButton("boum!");
+    this.button1 = new  JButton(BUTTON_FOOD_INCREASE);
+    this.button2 = new  JButton(BUTTON_FOOD_DECREASE);
+    this.button3 = new  JButton(BUTTON_TOGGLE_GARDEN_OF_EDEN);
+    this.button4 = new  JButton(BUTTON_SHOW_STATISTICS);
     FlowLayout layout = new FlowLayout();
     this.setLayout(layout);
     this.add( this.button1 );
