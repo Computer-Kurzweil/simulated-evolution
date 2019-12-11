@@ -36,7 +36,7 @@ public class ControllerThreadApplet extends Thread implements Runnable {
   /**
    * Control for Threading
    */
-  protected Boolean mySemaphore;
+  private Boolean mySemaphore;
 
   public ControllerThreadApplet(World world, WorldCanvas canvas) {
     this.world = world;
@@ -47,9 +47,10 @@ public class ControllerThreadApplet extends Thread implements Runnable {
   protected void show(){
   }
 
+  private volatile boolean doMyJob;
+
   public void run() {
     show();
-    boolean doMyJob;
     do {
       synchronized (mySemaphore) {
         doMyJob = mySemaphore.booleanValue();
@@ -69,5 +70,17 @@ public class ControllerThreadApplet extends Thread implements Runnable {
     synchronized (mySemaphore) {
       mySemaphore = Boolean.FALSE;
     }
+  }
+
+  public void increaseFoodPerDay(){
+    world.getSimulatedEvolutionConfig().getWorldMapFoodConfig().increaseFoodPerDay();
+  }
+
+  public void decreaseFoodPerDay(){
+    world.getSimulatedEvolutionConfig().getWorldMapFoodConfig().decreaseFoodPerDay();
+  }
+
+  public void toggleGardenOfEden(){
+    world.getSimulatedEvolutionConfig().getWorldMapFoodConfig().toggleGardenOfEden();
   }
 }

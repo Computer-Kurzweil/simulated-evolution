@@ -18,7 +18,7 @@ public interface GuiConfigDefault extends WorldConfigDefault {
   /**
    * TODO write doc.
    */
-  String FOOTER = "(C) 2018 Thomas Woehlke";
+  String COPYRIGHT = "(C) 2018 Thomas Woehlke";
 
   String BUTTON_FOOD_INCREASE = "More Food";
 

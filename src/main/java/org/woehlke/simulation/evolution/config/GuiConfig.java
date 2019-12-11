@@ -43,7 +43,7 @@ public class GuiConfig implements GuiConfigDefault, Serializable {
     this.width = WIDTH;
     this.height = HEIGHT;
     this.subtitle = SUB_TITLE;
-    this.footer = FOOTER;
+    this.footer = COPYRIGHT;
   }
 
 
