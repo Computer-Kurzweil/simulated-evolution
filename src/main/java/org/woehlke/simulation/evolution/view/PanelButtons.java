@@ -42,9 +42,9 @@ public class PanelButtons extends JPanel implements ActionListener {
     this.setLayout(layout);
     this.add(foodPerDayLabel);
     this.add(foodPerDayField);
-    this.add(gardenOfEdenEnabled);
     this.add(this.buttonFoodPerDayIncrease);
     this.add(this.buttonFoodPerDayDecrease);
+    this.add(gardenOfEdenEnabled);
     this.add(this.buttonToggleGardenOfEden);
   }
 

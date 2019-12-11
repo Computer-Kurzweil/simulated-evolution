@@ -61,7 +61,7 @@ public class LifeCycleCountContainer {
     if(controller!=null){
       controller.updateLifeCycleCount();
     }
-    System.out.println(worldIteration + " : " + lifeCycleCount);
+    //System.out.println(worldIteration + " : " + lifeCycleCount);
   }
 
   public long getWorldIteration() {
