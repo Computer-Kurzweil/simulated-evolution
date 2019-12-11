@@ -37,6 +37,7 @@ public class SimulatedEvolutionApplication implements GuiConfig {
   public static void main(String[] args) {
     SimulatedEvolutionConfig config = new SimulatedEvolutionConfig();
     SimulatedEvolutionFrame simulatedEvolutionFrame = new SimulatedEvolutionFrame(config);
+    simulatedEvolutionFrame.run();
     System.out.println(TITLE +": Started the Desktop Application");
   }
 }

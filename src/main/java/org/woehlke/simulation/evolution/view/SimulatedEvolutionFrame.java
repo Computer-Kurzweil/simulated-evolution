@@ -31,12 +31,13 @@ import java.io.Serializable;
 public class SimulatedEvolutionFrame extends JFrame implements ImageObserver,
   MenuContainer,
   Serializable,
+  Runnable,
   Preparable,
   GuiConfig {
 
   private static final long serialVersionUID = -3830377190196972207L;
 
-  private SimulatedEvolutionConfig simulatedEvolutionConfig;
+  private final SimulatedEvolutionConfig simulatedEvolutionConfig;
 
   /**
    * The View for the World. Food and Cells are painted to the Canvas.
@@ -48,10 +49,15 @@ public class SimulatedEvolutionFrame extends JFrame implements ImageObserver,
    */
   private final World world;
 
+  /**
+   * TODO write doc.
+   */
+  private final ControllerThreadDesktop controller;
+
   private final PanelNorth panelNorth;
   private final PanelSouth panelSouth;
 
-  private final BorderLayout layout = new BorderLayout();
+  private final BorderLayout layoutSimulatedEvolutionFrame = new BorderLayout();
 
   public void prepareMe() {
     this.setBounds(this.simulatedEvolutionConfig.getFrameRectangle());
@@ -77,18 +83,21 @@ public class SimulatedEvolutionFrame extends JFrame implements ImageObserver,
     this.panelNorth = new PanelNorth(simulatedEvolutionConfig);
     this.world = new World(simulatedEvolutionConfig);
     this.canvas = new WorldCanvas(this.world);
-    rootPane.setLayout(layout);
+    rootPane.setLayout(layoutSimulatedEvolutionFrame);
     rootPane.add(panelNorth, BorderLayout.NORTH);
     rootPane.add(canvas, BorderLayout.CENTER);
     rootPane.add(panelSouth, BorderLayout.SOUTH);
     prepareAll();
     pack();
-    ControllerThreadDesktop control = new ControllerThreadDesktop(
+    controller = new ControllerThreadDesktop(
       this.canvas, this.world, this
     );
-    addWindowListener(control);
-    control.start();
-    showMe();
+    addWindowListener(controller);
   }
 
+  @Override
+  public void run() {
+    controller.start();
+    showMe();
+  }
 }

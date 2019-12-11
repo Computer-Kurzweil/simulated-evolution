@@ -31,10 +31,10 @@ public class WorldCanvas extends JComponent implements GuiConfig, Serializable, 
   /**
    * Reference to the Data Model.
    */
-  private World world;
+  private final World world;
 
-  private final Color WATER = Color.BLACK;
-  private final Color FOOD = Color.GREEN;
+  private final static Color WATER = Color.BLACK;
+  private final static Color FOOD = Color.GREEN;
 
   public WorldCanvas(World world) {
     this.world = world;
@@ -76,5 +76,9 @@ public class WorldCanvas extends JComponent implements GuiConfig, Serializable, 
 
   public void prepareMe() {
     this.setBounds(this.world.getSimulatedEvolutionConfig().getCanvasRectangle());
+  }
+
+  public World getWorld() {
+    return world;
   }
 }
