@@ -1,12 +1,12 @@
 package org.woehlke.simulation.evolution;
 
+import static org.woehlke.simulation.evolution.config.GuiConfigDefault.TITLE;
+
 import org.woehlke.simulation.evolution.control.ControllerThreadDesktop;
 import org.woehlke.simulation.evolution.model.World;
 import org.woehlke.simulation.evolution.view.SimulatedEvolutionApplet;
 import org.woehlke.simulation.evolution.view.SimulatedEvolutionFrame;
 import org.woehlke.simulation.evolution.view.WorldCanvas;
-
-import static org.woehlke.simulation.evolution.config.GuiConfigDefault.TITLE;
 
 /**
  * Class with main Method for Starting the Desktop Application.
