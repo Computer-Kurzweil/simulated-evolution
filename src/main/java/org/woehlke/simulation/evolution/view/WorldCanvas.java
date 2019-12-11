@@ -37,7 +37,7 @@ public class WorldCanvas extends JComponent implements GuiConfigDefault, Seriali
    */
   private final World world;
 
-  public WorldCanvas(World world) {
+  public WorldCanvas(final World world) {
     this.world = world;
     this.setBackground(COLOR_WATER);
     Dimension preferredSize = new Dimension(
