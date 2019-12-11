@@ -1,38 +1,33 @@
 package org.woehlke.simulation.evolution.view;
 
-import org.woehlke.simulation.evolution.config.Preparable;
-import org.woehlke.simulation.evolution.SimulatedEvolutionConfig;
+import org.woehlke.simulation.evolution.config.GuiConfig;
 
 import javax.swing.*;
-import java.awt.*;
 
-/**
- * TODO write doc.
- */
 public class PanelSouth extends JPanel implements Preparable {
 
-    private final FlowLayout layout = new FlowLayout();
+  private final PanelCopyright panelCopyright;
 
-    private final JButton footerLabel;
+  private final PanelButtons panelButtons;
 
-    private final Rectangle panelSouthRectangle;
+  private final GuiConfig guiConfig;
 
-    private final Dimension preferredSize;
+  public PanelSouth(GuiConfig guiConfig){
+    this.guiConfig = guiConfig;
+    this.panelCopyright = new PanelCopyright(guiConfig);
+    this.panelButtons = new PanelButtons(guiConfig);
+    BoxLayout layout = new BoxLayout(this,BoxLayout.PAGE_AXIS);
+    JSeparator separator = new JSeparator();
+    this.setLayout(layout);
+    this.add(this.panelCopyright);
+    this.add(separator);
+    this.add(this.panelButtons);
+    //this.setPreferredSize(this.guiConfig.getPanelSouthRectangle().getSize());
+  }
 
-    public final String layoutConstraint  = BorderLayout.CENTER;
-
-    public PanelSouth(SimulatedEvolutionConfig simulatedEvolutionConfig){
-        this.footerLabel = new JButton(simulatedEvolutionConfig.getFooter());
-        this.layout.setAlignment(FlowLayout.CENTER);
-        this.setLayout(this.layout);
-        this.add(this.footerLabel, this.layoutConstraint);
-        this.preferredSize = simulatedEvolutionConfig.getPreferredSize();
-        this.panelSouthRectangle = simulatedEvolutionConfig.getPanelSouthRectangle();
-        this.setPreferredSize(this.preferredSize);
-    }
-
-    public void prepareMe(){
-        this.setPreferredSize(this.preferredSize);
-        this.setBounds( this.panelSouthRectangle );
-    }
+  @Override
+  public void prepareMe() {
+   //this.setPreferredSize(this.guiConfig.getPanelSouthRectangle().getSize());
+    //this.setBounds(this.guiConfig.getPanelSouthRectangle());
+  }
 }

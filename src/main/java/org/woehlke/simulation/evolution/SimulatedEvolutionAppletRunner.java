@@ -1,12 +1,12 @@
 package org.woehlke.simulation.evolution;
 
-import org.woehlke.simulation.evolution.config.GuiConfig;
+import org.woehlke.simulation.evolution.config.GuiConfigDefault;
 import org.woehlke.simulation.evolution.view.SimulatedEvolutionApplet;
 
 /**
  * TODO write doc.
  */
-public class SimulatedEvolutionAppletRunner implements GuiConfig {
+public class SimulatedEvolutionAppletRunner implements GuiConfigDefault {
 
   private SimulatedEvolutionAppletRunner() {
   }
@@ -18,6 +18,6 @@ public class SimulatedEvolutionAppletRunner implements GuiConfig {
    */
   public static void main(String[] args) {
     SimulatedEvolutionApplet simulatedEvolutionApplet = new SimulatedEvolutionApplet();
-    System.out.println(TITLE +": Started the AppletRunner");
+    System.out.println(TITLE + ": Started the AppletRunner");
   }
 }

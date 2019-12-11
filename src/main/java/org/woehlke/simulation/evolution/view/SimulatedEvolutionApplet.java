@@ -1,6 +1,6 @@
 package org.woehlke.simulation.evolution.view;
 
-import org.woehlke.simulation.evolution.config.GuiConfig;
+import org.woehlke.simulation.evolution.config.GuiConfigDefault;
 import org.woehlke.simulation.evolution.control.ControllerThreadApplet;
 import org.woehlke.simulation.evolution.model.World;
 import org.woehlke.simulation.evolution.SimulatedEvolutionConfig;
@@ -26,7 +26,7 @@ import java.io.Serializable;
  * Time: 18:33:14
  */
 public class SimulatedEvolutionApplet extends JApplet
-  implements ImageObserver, MenuContainer, Serializable, Accessible, GuiConfig {
+  implements ImageObserver, MenuContainer, Accessible, GuiConfigDefault {
 
   private static final long serialVersionUID = -8586633326682669768L;
 
@@ -55,7 +55,7 @@ public class SimulatedEvolutionApplet extends JApplet
   private JLabel titleLabel;
 
   public void init() {
-    this.titleLabel = new JLabel(this.simulatedEvolutionConfig.getTitle());
+    this.titleLabel = new JLabel(this.simulatedEvolutionConfig.getGuiConfig().getTitle());
     this.rootPane.setLayout(layout);
     this.rootPane.add(titleLabel, BorderLayout.NORTH);
     this.world = new World(this.simulatedEvolutionConfig);

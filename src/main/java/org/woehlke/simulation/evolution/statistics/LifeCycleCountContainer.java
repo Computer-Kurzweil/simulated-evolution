@@ -22,18 +22,22 @@ public class LifeCycleCountContainer implements Serializable {
 
   private long worldIteration;
 
-  public LifeCycleCountContainer(SimulatedEvolutionConfig simulatedEvolutionConfig){
+  public LifeCycleCountContainer(SimulatedEvolutionConfig simulatedEvolutionConfig) {
     this.simulatedEvolutionConfig = simulatedEvolutionConfig;
     count = new ConcurrentLinkedQueue<>();
     worldIteration = 0L;
   }
 
-  public void add(LifeCycleCount lifeCycleCount){
+  public void add(LifeCycleCount lifeCycleCount) {
     count.add(lifeCycleCount);
-    if(count.size() > simulatedEvolutionConfig.getQueueMaxLength()){
+    if (count.size() > simulatedEvolutionConfig.getStatisticsConfig().getQueueMaxLength()) {
       count.poll();
     }
     worldIteration++;
-    System.out.println(worldIteration+" : "+lifeCycleCount);
+    System.out.println(worldIteration + " : " + lifeCycleCount);
+  }
+
+  public long getWorldIteration() {
+    return worldIteration;
   }
 }

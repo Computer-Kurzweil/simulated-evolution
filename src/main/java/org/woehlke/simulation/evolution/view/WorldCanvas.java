@@ -1,7 +1,6 @@
 package org.woehlke.simulation.evolution.view;
 
-import org.woehlke.simulation.evolution.config.Preparable;
-import org.woehlke.simulation.evolution.config.GuiConfig;
+import org.woehlke.simulation.evolution.config.GuiConfigDefault;
 import org.woehlke.simulation.evolution.model.*;
 import org.woehlke.simulation.evolution.model.Point;
 
@@ -9,6 +8,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.Serializable;
 import java.util.List;
+
+import static org.woehlke.simulation.evolution.config.GuiConfigColors.COLOR_FOOD;
+import static org.woehlke.simulation.evolution.config.GuiConfigColors.COLOR_WATER;
 
 
 /**
@@ -24,7 +26,7 @@ import java.util.List;
  * Date: 05.02.2006
  * Time: 00:51:51
  */
-public class WorldCanvas extends JComponent implements GuiConfig, Serializable, Preparable {
+public class WorldCanvas extends JComponent implements GuiConfigDefault, Serializable, Preparable {
 
   private static final long serialVersionUID = -27002509360079509L;
 
@@ -33,12 +35,10 @@ public class WorldCanvas extends JComponent implements GuiConfig, Serializable, 
    */
   private final World world;
 
-  private final static Color WATER = Color.BLACK;
-  private final static Color FOOD = Color.GREEN;
-
   public WorldCanvas(World world) {
     this.world = world;
-    this.setBackground(WATER);
+    this.setBackground(COLOR_WATER);
+    this.setPreferredSize(world.getCanvasRectangle().getSize());
   }
 
   /**
@@ -48,11 +48,11 @@ public class WorldCanvas extends JComponent implements GuiConfig, Serializable, 
    */
   public void paint(Graphics g) {
     super.paintComponent(g);
-    int width = world.getWorldDimensions().getX();
-    int height = world.getWorldDimensions().getY();
-    g.setColor(WATER);
+    int width = world.getWorldDimensions().getWidth();
+    int height = world.getWorldDimensions().getHeight();
+    g.setColor(COLOR_WATER);
     g.fillRect(0, 0, width, height);
-    g.setColor(FOOD);
+    g.setColor(COLOR_FOOD);
     for (int y = 0; y < height; y++) {
       for (int x = 0; x < width; x++) {
         if (world.hasFood(x, y)) {
@@ -75,7 +75,8 @@ public class WorldCanvas extends JComponent implements GuiConfig, Serializable, 
   }
 
   public void prepareMe() {
-    this.setBounds(this.world.getSimulatedEvolutionConfig().getCanvasRectangle());
+    this.setPreferredSize(this.world.getCanvasRectangle().getSize());
+    this.setBounds(this.world.getCanvasRectangle());
   }
 
   public World getWorld() {

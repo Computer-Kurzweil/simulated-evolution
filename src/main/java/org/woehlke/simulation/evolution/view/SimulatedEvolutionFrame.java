@@ -1,10 +1,7 @@
 package org.woehlke.simulation.evolution.view;
 
-import org.woehlke.simulation.evolution.config.Preparable;
 import org.woehlke.simulation.evolution.config.GuiConfig;
-import org.woehlke.simulation.evolution.SimulatedEvolutionConfig;
-import org.woehlke.simulation.evolution.control.ControllerThreadDesktop;
-import org.woehlke.simulation.evolution.model.World;
+import org.woehlke.simulation.evolution.config.GuiConfigDefault;
 
 import javax.swing.*;
 import java.awt.*;
@@ -31,43 +28,31 @@ import java.io.Serializable;
 public class SimulatedEvolutionFrame extends JFrame implements ImageObserver,
   MenuContainer,
   Serializable,
-  Runnable,
   Preparable,
-  GuiConfig {
+  GuiConfigDefault {
 
   private static final long serialVersionUID = -3830377190196972207L;
 
-  private final SimulatedEvolutionConfig simulatedEvolutionConfig;
+  private final GuiConfig guiConfig;
 
   /**
    * The View for the World. Food and Cells are painted to the Canvas.
    */
   private final WorldCanvas canvas;
-
-  /**
-   * Data Model for the Simulation. The World contains the Bacteria Cells and the Food.
-   */
-  private final World world;
-
-  /**
-   * TODO write doc.
-   */
-  private final ControllerThreadDesktop controller;
-
-  private final PanelNorth panelNorth;
+  private final PanelSubtitle panelSubtitle;
   private final PanelSouth panelSouth;
 
-  private final BorderLayout layoutSimulatedEvolutionFrame = new BorderLayout();
-
   public void prepareMe() {
-    this.setBounds(this.simulatedEvolutionConfig.getFrameRectangle());
+    //this.setPreferredSize(this.guiConfig.getFrameRectangle().getSize());
+    //this.setBounds(this.guiConfig.getFrameRectangle());
   }
 
   public void prepareAll() {
     this.canvas.prepareMe();
-    this.panelNorth.prepareMe();
+    this.panelSubtitle.prepareMe();
     this.panelSouth.prepareMe();
     this.prepareMe();
+    pack();
   }
 
   public void showMe() {
@@ -76,28 +61,22 @@ public class SimulatedEvolutionFrame extends JFrame implements ImageObserver,
     toFront();
   }
 
-  public SimulatedEvolutionFrame(SimulatedEvolutionConfig simulatedEvolutionConfig) {
-    super(simulatedEvolutionConfig.getTitle());
-    this.simulatedEvolutionConfig = simulatedEvolutionConfig;
-    this.panelSouth = new PanelSouth(simulatedEvolutionConfig);
-    this.panelNorth = new PanelNorth(simulatedEvolutionConfig);
-    this.world = new World(simulatedEvolutionConfig);
-    this.canvas = new WorldCanvas(this.world);
-    rootPane.setLayout(layoutSimulatedEvolutionFrame);
-    rootPane.add(panelNorth, BorderLayout.NORTH);
-    rootPane.add(canvas, BorderLayout.CENTER);
-    rootPane.add(panelSouth, BorderLayout.SOUTH);
+  public SimulatedEvolutionFrame(GuiConfig guiConfig, WorldCanvas canvas) {
+    super(guiConfig.getTitle());
+    this.guiConfig = guiConfig;
+    this.panelSubtitle = new PanelSubtitle(this.guiConfig);
+    this.panelSouth = new PanelSouth(this.guiConfig);
+    this.canvas = canvas;
+    BoxLayout layout = new BoxLayout(rootPane,BoxLayout.PAGE_AXIS);
+    rootPane.setLayout(layout);
+    rootPane.add(panelSubtitle);
+    rootPane.add(canvas);
+    rootPane.add(panelSouth);
     prepareAll();
-    pack();
-    controller = new ControllerThreadDesktop(
-      this.canvas, this.world, this
-    );
-    addWindowListener(controller);
   }
 
-  @Override
-  public void run() {
-    controller.start();
-    showMe();
+  public WorldCanvas getCanvas() {
+    return canvas;
   }
+
 }
