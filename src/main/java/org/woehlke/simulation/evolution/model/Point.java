@@ -1,7 +1,5 @@
 package org.woehlke.simulation.evolution.model;
 
-import java.io.Serializable;
-
 /**
  * A Point is used to define the Position of Cell or as a Vector for defining Dimensions.
  * <p>
@@ -15,7 +13,7 @@ import java.io.Serializable;
  * Date: 04.02.2006
  * Time: 23:47:05
  */
-public class Point implements Serializable {
+public class Point {
 
   private static final long serialVersionUID = 6978067997297990242L;
 

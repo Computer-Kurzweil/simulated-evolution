@@ -7,7 +7,7 @@ import java.io.Serializable;
 /**
  * TODO write doc.
  */
-public class LifeCycleCount implements Serializable {
+public class LifeCycleCount {
 
   /**
    * TODO write doc.

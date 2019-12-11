@@ -21,27 +21,27 @@ import java.util.Random;
  * &copy; 2006 - 2008 Thomas Woehlke.
  * http://thomas-woehlke.de/p/simulated-evolution/
  */
-public class Cell implements Serializable {
+public class Cell {
 
   private static final long serialVersionUID = -7194182402841173981L;
 
   /**
-   * Contains the DNA for Random based Moving
+   * Contains the DNA for Random based Moving.
    */
   private CellCore cellCore;
 
   /**
-   * The Cell's state is position, orientation and LifeCycle
+   * The Cell's state is position, orientation and LifeCycle.
    */
   private Point position;
 
   /**
-   * The Cell's state is position, orientation and LifeCycle
+   * The Cell's state is position, orientation and LifeCycle.
    */
   private Orientation orientation;
 
   /**
-   * The Cell's state is position, orientation and LifeCycle
+   * The Cell's state is position, orientation and LifeCycle.
    */
   private LifeCycle lifeCycle;
 
@@ -107,7 +107,8 @@ public class Cell implements Serializable {
   }
 
   /**
-   * After performing Reproduction by Cell Division this Cell is one of the two Children this Method returns the other Child.
+   * After performing Reproduction by Cell Division this Cell is one of the two Children this Method
+   * returns the other Child.
    *
    * @return the other Child
    * @see CellCore#performMitosis()
@@ -127,14 +128,14 @@ public class Cell implements Serializable {
   }
 
   /**
-   * @return true, if this Cell is able to perform Reproduction by Cell Division
+   * @return true, if this Cell is able to perform Reproduction by Cell Division.
    */
   public boolean isPregnant() {
     return lifeCycle.isPregnant();
   }
 
   /**
-   * Eat the available Food in this Position
+   * Eat the available Food in this Position.
    *
    * @param food the available Food in this Position
    */
@@ -143,14 +144,14 @@ public class Cell implements Serializable {
   }
 
   /**
-   * @return true, if this Cell died of hunger
+   * @return true, if this Cell died of hunger.
    */
   public boolean died() {
     return lifeCycle.isDead();
   }
 
   /**
-   * @return the LifeCycleStatus of this Cell
+   * @return the LifeCycleStatus of this Cell.
    */
   public LifeCycleStatus getLifeCycleStatus() {
     return lifeCycle.getLifeCycleStatus();

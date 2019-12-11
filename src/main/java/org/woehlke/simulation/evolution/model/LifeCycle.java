@@ -20,7 +20,7 @@ import java.io.Serializable;
  * Date: 04.02.2006
  * Time: 23:12:31
  */
-public class LifeCycle implements Serializable, LifeCycleConfigDefault {
+public class LifeCycle implements LifeCycleConfigDefault {
 
   private static final long serialVersionUID = 6940694660036948381L;
 

@@ -1,5 +1,8 @@
 package org.woehlke.simulation.evolution.config;
 
+/**
+ * TODO write doc.
+ */
 public interface StatisticsConfigDefault {
 
   /**

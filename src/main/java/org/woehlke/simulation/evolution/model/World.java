@@ -5,9 +5,10 @@ import org.woehlke.simulation.evolution.SimulatedEvolutionConfig;
 import org.woehlke.simulation.evolution.statistics.LifeCycleCount;
 import org.woehlke.simulation.evolution.statistics.LifeCycleCountContainer;
 
-import java.io.Serializable;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 /**
  * The World contains Water, Cells and Food.
@@ -26,9 +27,7 @@ import java.util.List;
  * &copy; 2006 - 2008 Thomas Woehlke.
  * http://thomas-woehlke.de/p/simulated-evolution/
  */
-public class World implements Serializable {
-
-  private static final long serialVersionUID = -3323914357940044359L;
+public class World {
 
   /**
    * List of the Simulated Bacteria Cells.

@@ -5,13 +5,14 @@ import org.woehlke.simulation.evolution.config.GuiConfig;
 import org.woehlke.simulation.evolution.config.GuiConfigDefault;
 import org.woehlke.simulation.evolution.control.ControllerThreadDesktop;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowStateListener;
+import javax.swing.BoxLayout;
+import javax.swing.JFrame;
+import javax.swing.JSeparator;
+import java.awt.Dimension;
+import java.awt.MenuContainer;
+import java.awt.Toolkit;
 import java.awt.image.ImageObserver;
 import java.io.Serializable;
-import java.util.function.DoubleToIntFunction;
 
 /**
  * This Frame wraps the SimulatedEvolutionApplet which is the Container for this Simulation.
@@ -52,13 +53,13 @@ public class SimulatedEvolutionFrame extends JFrame implements ImageObserver,
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     double height = rootPane.getHeight();
     double width = rootPane.getWidth();
-    double startX = (screenSize.getWidth() - width) / 2d;
-    double startY = (screenSize.getHeight() - height) / 2d;
+    double startX =  (screenSize.getWidth() - width) / 2d;
+    double startY =  (screenSize.getHeight() - height) / 2d;
     int myheight = Double.valueOf(height).intValue();
-    int mywidth = Double.valueOf(width).intValue();
+    int mywidth =  Double.valueOf(width).intValue();
     int mystartX = Double.valueOf(startX).intValue();
     int mystartY = Double.valueOf(startY).intValue();
-    this.setBounds(mystartX, mystartY, mywidth, myheight);
+    this.setBounds(mystartX,mystartY,mywidth,myheight);
     setVisible(true);
     toFront();
   }
@@ -71,7 +72,7 @@ public class SimulatedEvolutionFrame extends JFrame implements ImageObserver,
     this.panelButtons = new PanelButtons(guiConfig);
     this.canvas = canvas;
     JSeparator separator = new JSeparator();
-    BoxLayout layout = new BoxLayout(rootPane, BoxLayout.PAGE_AXIS);
+    BoxLayout layout = new BoxLayout(rootPane,BoxLayout.PAGE_AXIS);
     rootPane.setLayout(layout);
     rootPane.add(panelSubtitle);
     rootPane.add(canvas);
@@ -100,6 +101,7 @@ public class SimulatedEvolutionFrame extends JFrame implements ImageObserver,
   public PanelButtons getPanelButtons() {
     return panelButtons;
   }
+
 
   public void addController(ControllerThreadDesktop controller) {
     this.addWindowListener(controller);

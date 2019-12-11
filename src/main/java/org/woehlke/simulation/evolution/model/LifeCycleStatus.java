@@ -1,6 +1,6 @@
 package org.woehlke.simulation.evolution.model;
 
-import java.awt.*;
+import java.awt.Color;
 
 import static org.woehlke.simulation.evolution.config.GuiConfigColors.*;
 

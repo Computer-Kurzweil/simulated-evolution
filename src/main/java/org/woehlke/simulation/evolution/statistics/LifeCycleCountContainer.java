@@ -8,7 +8,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 /**
  * TODO write doc.
  */
-public class LifeCycleCountContainer implements Serializable {
+public class LifeCycleCountContainer {
 
   /**
    * TODO write doc.

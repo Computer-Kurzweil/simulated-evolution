@@ -18,7 +18,7 @@ import java.util.ArrayList;
  * Date: 04.02.2006
  * Time: 19:55:23
  */
-public class CellCore implements Serializable {
+public class CellCore {
 
   private static final long serialVersionUID = -3019959290948066782L;
 

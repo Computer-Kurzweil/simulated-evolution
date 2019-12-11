@@ -6,10 +6,12 @@ import org.woehlke.simulation.evolution.model.World;
 import org.woehlke.simulation.evolution.SimulatedEvolutionConfig;
 
 import javax.accessibility.Accessible;
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JApplet;
+import javax.swing.JLabel;
+
+import java.awt.MenuContainer;
+import java.awt.BorderLayout;
 import java.awt.image.ImageObserver;
-import java.io.Serializable;
 
 /**
  * The Container for running the Simulation.
@@ -71,4 +73,35 @@ public class SimulatedEvolutionApplet extends JApplet
   public void stop() {
   }
 
+  public ControllerThreadApplet getControllerThreadApplet() {
+    return controllerThreadApplet;
+  }
+
+  public void setControllerThreadApplet(ControllerThreadApplet controllerThreadApplet) {
+    this.controllerThreadApplet = controllerThreadApplet;
+  }
+
+  public WorldCanvas getCanvas() {
+    return canvas;
+  }
+
+  public void setCanvas(WorldCanvas canvas) {
+    this.canvas = canvas;
+  }
+
+  public World getWorld() {
+    return world;
+  }
+
+  public void setWorld(World world) {
+    this.world = world;
+  }
+
+  public SimulatedEvolutionConfig getSimulatedEvolutionConfig() {
+    return simulatedEvolutionConfig;
+  }
+
+  public void setSimulatedEvolutionConfig(SimulatedEvolutionConfig simulatedEvolutionConfig) {
+    this.simulatedEvolutionConfig = simulatedEvolutionConfig;
+  }
 }

@@ -1,7 +1,10 @@
 package org.woehlke.simulation.evolution.config;
 
-import java.awt.*;
+import java.awt.Color;
 
+/**
+ * hallo.
+ */
 public interface GuiConfigColors {
 
   Color COLOR_WATER = Color.BLACK;

@@ -2,8 +2,9 @@ package org.woehlke.simulation.evolution.view;
 
 import org.woehlke.simulation.evolution.config.GuiConfig;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import java.awt.FlowLayout;
 
 /**
  * TODO write doc.

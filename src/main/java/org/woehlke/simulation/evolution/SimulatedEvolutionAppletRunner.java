@@ -12,7 +12,7 @@ public class SimulatedEvolutionAppletRunner implements GuiConfigDefault {
   }
 
   /**
-   * Starting the Desktop Application
+   * Starting the Desktop Application.
    *
    * @param args CLI Parameter
    */

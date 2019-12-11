@@ -1,9 +1,10 @@
 package org.woehlke.simulation.evolution;
 
-import org.woehlke.simulation.evolution.config.*;
 
-import java.awt.*;
-import java.io.Serializable;
+import org.woehlke.simulation.evolution.config.GuiConfig;
+import org.woehlke.simulation.evolution.config.StatisticsConfig;
+import org.woehlke.simulation.evolution.config.WorldConfig;
+import org.woehlke.simulation.evolution.config.WorldMapFoodConfig;
 
 /**
  * The Config for running the Simulation.
@@ -18,9 +19,7 @@ import java.io.Serializable;
  * Date: 17.11.2018
  * Time: 16:33:14
  */
-public class SimulatedEvolutionConfig implements Serializable {
-
-  private static final long serialVersionUID = -4370382255481437491L;
+public class SimulatedEvolutionConfig {
 
   private final GuiConfig guiConfig;
 

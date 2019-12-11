@@ -3,8 +3,12 @@ package org.woehlke.simulation.evolution.view;
 import org.woehlke.simulation.evolution.SimulatedEvolutionConfig;
 import org.woehlke.simulation.evolution.control.ControllerThreadDesktop;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -39,6 +43,9 @@ public class PanelButtons extends JPanel implements ActionListener {
     this.add(this.buttonToggleGardenOfEden);
   }
 
+  /**
+   * TODO write doc.
+   */
   public void addController(ControllerThreadDesktop controller) {
     this.controller = controller;
     this.buttonFoodPerDayIncrease.addActionListener(this);
@@ -46,6 +53,9 @@ public class PanelButtons extends JPanel implements ActionListener {
     this.buttonToggleGardenOfEden.addActionListener(this);
   }
 
+  /**
+   * TODO write doc.
+   */
   @Override
   public void actionPerformed(ActionEvent ae) {
     if (ae.getSource() == this.buttonFoodPerDayIncrease) {

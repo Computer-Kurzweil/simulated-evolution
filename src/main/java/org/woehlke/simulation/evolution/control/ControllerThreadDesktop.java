@@ -5,7 +5,7 @@ import org.woehlke.simulation.evolution.model.World;
 import org.woehlke.simulation.evolution.view.SimulatedEvolutionFrame;
 import org.woehlke.simulation.evolution.view.WorldCanvas;
 
-import java.awt.*;
+import java.awt.Frame;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowFocusListener;
 import java.awt.event.WindowListener;

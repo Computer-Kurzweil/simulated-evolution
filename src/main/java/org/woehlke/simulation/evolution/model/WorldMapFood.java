@@ -19,7 +19,7 @@ import java.util.Random;
  * Date: 24.08.13
  * Time: 12:37
  */
-public class WorldMapFood implements Serializable, WorldMapFoodConfigDefault {
+public class WorldMapFood implements WorldMapFoodConfigDefault {
 
   private static final long serialVersionUID = 7206903832639173306L;
 

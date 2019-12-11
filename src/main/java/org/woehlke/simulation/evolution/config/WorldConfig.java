@@ -4,6 +4,9 @@ import org.woehlke.simulation.evolution.model.Point;
 
 import java.beans.Transient;
 
+/**
+ * TODO write doc.
+ */
 public class WorldConfig implements WorldConfigDefault {
 
   /**

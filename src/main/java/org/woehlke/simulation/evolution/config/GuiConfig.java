@@ -7,6 +7,8 @@ import java.io.Serializable;
  */
 public class GuiConfig implements GuiConfigDefault, Serializable {
 
+  private static final long serialVersionUID = 5214232331004556939L;
+
   /**
    * TODO write doc.
    */

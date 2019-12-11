@@ -19,7 +19,7 @@ import org.woehlke.simulation.evolution.view.WorldCanvas;
 public class ControllerThreadApplet extends Thread implements Runnable {
 
   /**
-   * Data Model for the Simulation
+   * Data Model for the Simulation.
    */
   protected final World world;
 
@@ -34,7 +34,7 @@ public class ControllerThreadApplet extends Thread implements Runnable {
   protected final int TIME_TO_WAIT = 100;
 
   /**
-   * Control for Threading
+   * Control for Threading.
    */
   private Boolean mySemaphore;
 

@@ -1,13 +1,10 @@
 package org.woehlke.simulation.evolution;
 
-import org.woehlke.simulation.evolution.config.GuiConfigDefault;
 import org.woehlke.simulation.evolution.control.ControllerThreadDesktop;
 import org.woehlke.simulation.evolution.model.World;
 import org.woehlke.simulation.evolution.view.SimulatedEvolutionApplet;
 import org.woehlke.simulation.evolution.view.SimulatedEvolutionFrame;
 import org.woehlke.simulation.evolution.view.WorldCanvas;
-
-import java.awt.*;
 
 import static org.woehlke.simulation.evolution.config.GuiConfigDefault.TITLE;
 
@@ -44,7 +41,7 @@ public class SimulatedEvolutionApplication {
   }
 
   /**
-   * Starting the Desktop Application
+   * Starting the Desktop Application.
    *
    * @param args CLI Parameter
    */
