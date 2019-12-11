@@ -1,10 +1,14 @@
 package org.woehlke.simulation.evolution.view;
 
+import org.woehlke.simulation.evolution.SimulatedEvolutionConfig;
 import org.woehlke.simulation.evolution.config.GuiConfig;
 import org.woehlke.simulation.evolution.config.GuiConfigDefault;
+import org.woehlke.simulation.evolution.control.ControllerThreadDesktop;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowStateListener;
 import java.awt.image.ImageObserver;
 import java.io.Serializable;
 
@@ -48,11 +52,11 @@ public class SimulatedEvolutionFrame extends JFrame implements ImageObserver,
     toFront();
   }
 
-  public SimulatedEvolutionFrame(GuiConfig guiConfig, WorldCanvas canvas) {
-    super(guiConfig.getTitle());
-    this.guiConfig = guiConfig;
+  public SimulatedEvolutionFrame(SimulatedEvolutionConfig guiConfig, WorldCanvas canvas) {
+    super(guiConfig.getGuiConfig().getTitle());
+    this.guiConfig = guiConfig.getGuiConfig();
     this.panelSubtitle = new PanelSubtitle(this.guiConfig);
-    this.panelCopyright = new PanelCopyright(guiConfig);
+    this.panelCopyright = new PanelCopyright(this.guiConfig);
     this.panelButtons = new PanelButtons(guiConfig);
     this.canvas = canvas;
     JSeparator separator = new JSeparator();
@@ -64,11 +68,33 @@ public class SimulatedEvolutionFrame extends JFrame implements ImageObserver,
     rootPane.add(separator);
     rootPane.add(this.panelButtons);
     pack();
-    //prepareAll();
   }
 
   public WorldCanvas getCanvas() {
     return canvas;
+  }
+
+  public GuiConfig getGuiConfig() {
+    return guiConfig;
+  }
+
+  public PanelSubtitle getPanelSubtitle() {
+    return panelSubtitle;
+  }
+
+  public PanelCopyright getPanelCopyright() {
+    return panelCopyright;
+  }
+
+  public PanelButtons getPanelButtons() {
+    return panelButtons;
+  }
+
+  public void addController(ControllerThreadDesktop controller) {
+    this.addWindowListener(controller);
+    this.addWindowFocusListener(controller);
+    this.addWindowStateListener(controller);
+    this.panelButtons.addController(controller);
   }
 
 }

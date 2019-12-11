@@ -62,7 +62,7 @@ public class World implements Serializable {
     this.simulatedEvolutionConfig = simulatedEvolutionConfig;
     long seed = new Date().getTime();
     random = new Random(seed);
-    worldMapFood = new WorldMapFood(simulatedEvolutionConfig.getWorldConfig().getWorldDimensions(), random);
+    worldMapFood = new WorldMapFood(simulatedEvolutionConfig, random);
     cells = new ArrayList<>();
     count = new LifeCycleCountContainer(simulatedEvolutionConfig);
     createPopulation();

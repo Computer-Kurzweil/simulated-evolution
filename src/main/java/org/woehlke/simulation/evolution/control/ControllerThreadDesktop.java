@@ -5,8 +5,11 @@ import org.woehlke.simulation.evolution.model.World;
 import org.woehlke.simulation.evolution.view.SimulatedEvolutionFrame;
 import org.woehlke.simulation.evolution.view.WorldCanvas;
 
+import java.awt.*;
 import java.awt.event.WindowEvent;
+import java.awt.event.WindowFocusListener;
 import java.awt.event.WindowListener;
+import java.awt.event.WindowStateListener;
 import java.io.Serializable;
 
 /**
@@ -25,6 +28,8 @@ import java.io.Serializable;
 public class ControllerThreadDesktop extends ControllerThreadApplet implements Runnable,
   Serializable,
   WindowListener,
+  WindowFocusListener,
+  WindowStateListener,
   GuiConfigDefault {
 
   private static final long serialVersionUID = -7066881081524661452L;
@@ -70,5 +75,29 @@ public class ControllerThreadDesktop extends ControllerThreadApplet implements R
   }
 
   public void windowDeactivated(WindowEvent e) {
+  }
+
+  @Override
+  public void windowGainedFocus(WindowEvent e) {
+    show();
+  }
+
+  @Override
+  public void windowLostFocus(WindowEvent e) {
+
+  }
+
+  @Override
+  public void windowStateChanged(WindowEvent e) {
+    if(e.getSource() == this.simulatedEvolutionFrame){
+      switch (e.getNewState()){
+        case Frame.MAXIMIZED_BOTH:
+        case Frame.MAXIMIZED_HORIZ:
+        case Frame.MAXIMIZED_VERT:
+        case Frame.NORMAL:
+          show(); break;
+        default: break;
+      }
+    }
   }
 }

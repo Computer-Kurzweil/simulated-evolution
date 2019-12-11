@@ -1,5 +1,6 @@
 package org.woehlke.simulation.evolution.model;
 
+import org.woehlke.simulation.evolution.SimulatedEvolutionConfig;
 import org.woehlke.simulation.evolution.config.WorldMapFoodConfigDefault;
 
 import java.io.Serializable;
@@ -37,8 +38,11 @@ public class WorldMapFood implements Serializable, WorldMapFoodConfigDefault {
    */
   private final Point worldDimensions;
 
-  public WorldMapFood(Point worldDimensions, Random random) {
-    this.worldDimensions = worldDimensions;
+  private final SimulatedEvolutionConfig config;
+
+  public WorldMapFood(SimulatedEvolutionConfig simulatedEvolutionConfig, Random random) {
+    this.config = simulatedEvolutionConfig;
+    this.worldDimensions = simulatedEvolutionConfig.getWorldConfig().getWorldDimensions();
     worldMapFood = new int[this.worldDimensions.getX()][this.worldDimensions.getY()];
     this.random = random;
   }
@@ -48,7 +52,7 @@ public class WorldMapFood implements Serializable, WorldMapFoodConfigDefault {
    */
   public void letFoodGrow() {
     int f = 0;
-    while (f < FOOD_PER_DAY) {
+    while (f < this.config.getWorldMapFoodConfig().getFoodPerDay()) {
       f++;
       int x = random.nextInt(this.worldDimensions.getX());
       int y = random.nextInt(this.worldDimensions.getY());
@@ -60,7 +64,7 @@ public class WorldMapFood implements Serializable, WorldMapFoodConfigDefault {
       }
       worldMapFood[x][y]++;
     }
-    if (EABLE_GARDEN_OF_EDEN) {
+    if (this.config.getWorldMapFoodConfig().isEableGardenOfEden()) {
       f = 0;
       int startx = this.worldDimensions.getX() / 5;
       int starty = this.worldDimensions.getY() / 5;

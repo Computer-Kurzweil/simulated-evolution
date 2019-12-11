@@ -35,9 +35,9 @@ public class SimulatedEvolutionApplication {
       SimulatedEvolutionConfig config = new SimulatedEvolutionConfig();
       World world = new World(config);
       WorldCanvas canvas = new WorldCanvas(world);
-      SimulatedEvolutionFrame frame = new SimulatedEvolutionFrame(config.getGuiConfig(),canvas);
+      SimulatedEvolutionFrame frame = new SimulatedEvolutionFrame(config,canvas);
       ControllerThreadDesktop controller = new ControllerThreadDesktop(canvas,world,frame);
-      frame.addWindowListener(controller);
+      frame.addController(controller);
       controller.start();
   }
 

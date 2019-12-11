@@ -47,10 +47,9 @@ public class ControllerThreadApplet extends Thread implements Runnable {
   protected void show(){
   }
 
-  private volatile boolean doMyJob;
-
   public void run() {
     show();
+    boolean doMyJob = true;
     do {
       synchronized (mySemaphore) {
         doMyJob = mySemaphore.booleanValue();
@@ -82,5 +81,9 @@ public class ControllerThreadApplet extends Thread implements Runnable {
 
   public void toggleGardenOfEden(){
     world.getSimulatedEvolutionConfig().getWorldMapFoodConfig().toggleGardenOfEden();
+  }
+
+  public void showStatistic() {
+
   }
 }

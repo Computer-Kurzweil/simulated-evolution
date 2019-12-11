@@ -55,4 +55,8 @@ public class SimulatedEvolutionConfig implements Serializable {
   public WorldMapFoodConfig getWorldMapFoodConfig() {
     return worldMapFoodConfig;
   }
+
+  public String getFoodPerDay(){
+    return "" + worldMapFoodConfig.getFoodPerDay();
+  }
 }
