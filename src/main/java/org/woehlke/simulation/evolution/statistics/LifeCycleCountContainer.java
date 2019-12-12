@@ -13,27 +13,27 @@ public class LifeCycleCountContainer {
   /**
    * TODO write doc.
    */
-  private final ConcurrentLinkedQueue<LifeCycleCount> count;
+  private volatile ConcurrentLinkedQueue<LifeCycleCount> count;
 
   /**
    * TODO write doc.
    */
-  private final SimulatedEvolutionConfig simulatedEvolutionConfig;
+  private volatile SimulatedEvolutionConfig simulatedEvolutionConfig;
 
   /**
    * TODO write doc.
    */
-  private LifeCycleCount lifeCycleCount;
+  private volatile LifeCycleCount lifeCycleCount;
 
   /**
    * TODO write doc.
    */
-  private ControllerThreadDesktop controller;
+  private volatile ControllerThreadDesktop controller;
 
   /**
    * TODO write doc.
    */
-  private long worldIteration;
+  private volatile long worldIteration;
 
   public LifeCycleCountContainer(SimulatedEvolutionConfig simulatedEvolutionConfig) {
     this.simulatedEvolutionConfig = simulatedEvolutionConfig;
@@ -51,7 +51,7 @@ public class LifeCycleCountContainer {
   /**
    * TODO write doc.
    */
-  public void add(LifeCycleCount lifeCycleCount) {
+  public synchronized void add(LifeCycleCount lifeCycleCount) {
     this.lifeCycleCount = lifeCycleCount;
     count.add(lifeCycleCount);
     if (count.size() > simulatedEvolutionConfig.getStatisticsConfig().getQueueMaxLength()) {

@@ -30,7 +30,7 @@ public class ControllerThreadDesktop extends ControllerThreadApplet implements R
   WindowStateListener,
   GuiConfigDefault {
 
-  private final SimulatedEvolutionFrame simulatedEvolutionFrame;
+  private volatile SimulatedEvolutionFrame simulatedEvolutionFrame;
 
   public ControllerThreadDesktop(
     WorldCanvas canvas,
