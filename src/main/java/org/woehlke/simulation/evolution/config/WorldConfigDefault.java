@@ -8,12 +8,12 @@ public interface WorldConfigDefault {
   /**
    * TODO write doc.
    */
-  int WIDTH = 320;
+  int WIDTH = 384;
 
   /**
    * TODO write doc.
    */
-  int HEIGHT = 234;
+  int HEIGHT = 280;
 
   /**
    * TODO write doc.

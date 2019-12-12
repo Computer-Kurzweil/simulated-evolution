@@ -7,7 +7,9 @@ import org.woehlke.simulation.evolution.statistics.LifeCycleCountContainer;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import java.awt.FlowLayout;
+import java.awt.*;
+
+import static org.woehlke.simulation.evolution.config.GuiConfigColors.*;
 
 /**
  * TODO write doc.
@@ -39,6 +41,13 @@ public class PanelLifeCycleStatus extends JPanel {
     oldCells = new JTextField(""+lifeCycleCount.getOldCells(),cols);
     JLabel populationLabel = new JLabel("population");
     population = new JTextField(""+lifeCycleCount.getPopulation(),cols);
+    youngCells.setForeground(Color.WHITE);
+    youngCells.setBackground(COLOR_YOUNG);
+    youngAndFatCells.setBackground(COLOR_YOUNG_AND_FAT);
+    fullAgeCells.setBackground(COLOR_FULL_AGE);
+    hungryCells.setBackground(COLOR_HUNGRY);
+    oldCells.setBackground(COLOR_OLD);
+    oldCells.setForeground(Color.WHITE);
     FlowLayout layout = new FlowLayout();
     this.setLayout(layout);
     this.add(youngCellsLabel);
