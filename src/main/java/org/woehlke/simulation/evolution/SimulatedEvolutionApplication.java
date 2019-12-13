@@ -2,11 +2,8 @@ package org.woehlke.simulation.evolution;
 
 import static org.woehlke.simulation.evolution.config.GuiConfigDefault.TITLE;
 
-import org.woehlke.simulation.evolution.control.ControllerThreadDesktop;
-import org.woehlke.simulation.evolution.model.World;
-import org.woehlke.simulation.evolution.view.SimulatedEvolutionApplet;
+import org.woehlke.simulation.evolution.control.ObjectRegistry;
 import org.woehlke.simulation.evolution.view.SimulatedEvolutionFrame;
-import org.woehlke.simulation.evolution.view.WorldCanvas;
 
 /**
  * Class with main Method for Starting the Desktop Application.
@@ -15,7 +12,6 @@ import org.woehlke.simulation.evolution.view.WorldCanvas;
  * <p>
  * http://thomas-woehlke.de/p/simulated-evolution/
  * @see SimulatedEvolutionFrame
- * @see SimulatedEvolutionApplet
  * <p>
  * Simulated Evolution. Artificial Life Simulation of Bacteria Motion depending on DNA.
  * <p>
@@ -31,14 +27,17 @@ import org.woehlke.simulation.evolution.view.WorldCanvas;
 public class SimulatedEvolutionApplication {
 
   private SimulatedEvolutionApplication() {
-    SimulatedEvolutionConfig config = new SimulatedEvolutionConfig();
-    World world = new World(config);
-    WorldCanvas canvas = new WorldCanvas(world);
-    SimulatedEvolutionFrame frame = new SimulatedEvolutionFrame(config, canvas);
-    ControllerThreadDesktop controller = new ControllerThreadDesktop(canvas, world, frame);
-    frame.addController(controller);
-    controller.start();
+    ObjectRegistry ctx = new ObjectRegistry();
+    SimulatedEvolutionFrame frame = new SimulatedEvolutionFrame(ctx);
+    ctx.setFrame(frame);
+    try {
+      ctx.getController().start();
+    } catch (IllegalThreadStateException e){
+    }
   }
+
+
+
 
   /**
    * Starting the Desktop Application.

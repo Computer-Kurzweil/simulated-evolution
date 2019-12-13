@@ -1,10 +1,8 @@
 package org.woehlke.simulation.evolution.model;
 
-import org.woehlke.simulation.evolution.SimulatedEvolutionConfig;
 import org.woehlke.simulation.evolution.config.WorldMapFoodConfigDefault;
+import org.woehlke.simulation.evolution.control.ObjectRegistry;
 
-import java.io.Serializable;
-import java.util.Random;
 
 /**
  * Map of World where every Place can have food needed by the Bacteria Cells for eating.
@@ -26,23 +24,12 @@ public class WorldMapFood implements WorldMapFoodConfigDefault {
    */
   private int[][] worldMapFood;
 
-  /**
-   * Random Generator used for placing food, coming from another Object.
-   */
-  private Random random;
+  private final ObjectRegistry ctx;
 
-  /**
-   * Dimension for the Grid inside the WorldMapFood which is the Same as in World Data Model and in the View.
-   */
-  private final Point worldDimensions;
-
-  private final SimulatedEvolutionConfig config;
-
-  public WorldMapFood(SimulatedEvolutionConfig simulatedEvolutionConfig, Random random) {
-    this.config = simulatedEvolutionConfig;
-    this.worldDimensions = simulatedEvolutionConfig.getWorldConfig().getWorldDimensions();
-    worldMapFood = new int[this.worldDimensions.getX()][this.worldDimensions.getY()];
-    this.random = random;
+  public WorldMapFood(ObjectRegistry ctx) {
+    this.ctx = ctx;
+    worldMapFood = new int[ctx.getWorldConfig().getWorldDimensions().getX()]
+      [ctx.getWorldConfig().getWorldDimensions().getY()];
   }
 
   /**
@@ -50,22 +37,22 @@ public class WorldMapFood implements WorldMapFoodConfigDefault {
    */
   public void letFoodGrow() {
     int food = 0;
-    while (food < this.config.getWorldMapFoodConfig().getFoodPerDay()) {
+    while (food < ctx.getWorldMapFoodConfig().getFoodPerDay()) {
       food++;
-      int posX = random.nextInt(this.worldDimensions.getX());
-      int posY = random.nextInt(this.worldDimensions.getY());
+      int posX = ctx.getRandom().nextInt(ctx.getWorldConfig().getWorldDimensions().getX());
+      int posY = ctx.getRandom().nextInt(ctx.getWorldConfig().getWorldDimensions().getY());
       posX *= Integer.signum(posX);
       posY *= Integer.signum(posY);
       worldMapFood[posX][posY]++;
     }
-    if (this.config.getWorldMapFoodConfig().isEableGardenOfEden()) {
+    if (ctx.getWorldMapFoodConfig().isEableGardenOfEden()) {
       food = 0;
-      int startX = this.worldDimensions.getX() / 5;
-      int startY = this.worldDimensions.getY() / 5;
+      int startX = ctx.getWorldConfig().getWorldDimensions().getX() / 5;
+      int startY = ctx.getWorldConfig().getWorldDimensions().getY() / 5;
       while (food < FOOD_PER_DAY * 4) {
         food++;
-        int posX = random.nextInt(startX);
-        int posY = random.nextInt(startY);
+        int posX = ctx.getRandom().nextInt(startX);
+        int posY = ctx.getRandom().nextInt(startY);
         posX *= Integer.signum(posX);
         posY *= Integer.signum(posY);
         worldMapFood[posX + startX * 2][posY + startY * 2]++;
@@ -88,7 +75,7 @@ public class WorldMapFood implements WorldMapFoodConfigDefault {
    * @see LifeCycle
    */
   public int eat(Point position) {
-    Point[] neighbourhood = position.getNeighbourhood(this.worldDimensions);
+    Point[] neighbourhood = position.getNeighbourhood(ctx.getWorldConfig().getWorldDimensions());
     int food = 0;
     for (Point neighbourhoodPosition : neighbourhood) {
       food += worldMapFood[neighbourhoodPosition.getX()][neighbourhoodPosition.getY()];
@@ -98,9 +85,9 @@ public class WorldMapFood implements WorldMapFoodConfigDefault {
   }
 
   public void toggleGardenOfEden() {
-    if (!this.config.getWorldMapFoodConfig().isEableGardenOfEden()) {
-      int startx = this.worldDimensions.getX() / 5;
-      int starty = this.worldDimensions.getY() / 5;
+    if (!ctx.getWorldMapFoodConfig().isEableGardenOfEden()) {
+      int startx = ctx.getWorldConfig().getWorldDimensions().getX() / 5;
+      int starty = ctx.getWorldConfig().getWorldDimensions().getY() / 5;
       for (int posX = 0; posX < startx; posX++) {
         for (int posY = 0; posY < starty; posY++) {
           worldMapFood[posX + startx * 2][posY + starty * 2] = 0;

@@ -1,8 +1,7 @@
 package org.woehlke.simulation.evolution.view;
 
-import org.woehlke.simulation.evolution.control.ControllerThreadDesktop;
-import org.woehlke.simulation.evolution.statistics.LifeCycleCount;
-import org.woehlke.simulation.evolution.statistics.LifeCycleCountContainer;
+import org.woehlke.simulation.evolution.control.ObjectRegistry;
+import org.woehlke.simulation.evolution.model.LifeCycleCount;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -23,11 +22,11 @@ public class PanelLifeCycleStatus extends JPanel {
   private JTextField oldCells;
   private JTextField population;
 
-  private LifeCycleCountContainer count;
+  private ObjectRegistry ctx;
 
-  public PanelLifeCycleStatus(LifeCycleCountContainer count) {
-    this.count = count;
-    LifeCycleCount lifeCycleCount = count.getLifeCycleCount();
+  public PanelLifeCycleStatus(ObjectRegistry ctx) {
+    this.ctx=ctx;
+    LifeCycleCount lifeCycleCount = ctx.getStatistics().getLifeCycleCount();
     int cols = 3;
     JLabel youngCellsLabel = new JLabel("young");
     youngCells = new JTextField(""+lifeCycleCount.getDeadCells(),cols);
@@ -68,7 +67,7 @@ public class PanelLifeCycleStatus extends JPanel {
    * TODO write doc.
    */
   public void updateLifeCycleCount() {
-    LifeCycleCount lifeCycleCount = count.getLifeCycleCount();
+    LifeCycleCount lifeCycleCount = ctx.getStatistics().getLifeCycleCount();
     youngCells.setText(""+lifeCycleCount.getYoungCells());
     youngAndFatCells.setText(""+lifeCycleCount.getYoungAndFatCells());
     fullAgeCells.setText(""+lifeCycleCount.getFullAgeCells());
@@ -77,7 +76,4 @@ public class PanelLifeCycleStatus extends JPanel {
     population.setText(""+lifeCycleCount.getPopulation());
   }
 
-  public void addController(ControllerThreadDesktop controller) {
-    count.addController(controller);
-  }
 }

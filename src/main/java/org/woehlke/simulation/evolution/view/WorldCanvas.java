@@ -1,9 +1,9 @@
 package org.woehlke.simulation.evolution.view;
 
 import org.woehlke.simulation.evolution.config.GuiConfigDefault;
+import org.woehlke.simulation.evolution.control.ObjectRegistry;
 import org.woehlke.simulation.evolution.model.Cell;
 import org.woehlke.simulation.evolution.model.Point;
-import org.woehlke.simulation.evolution.model.World;
 
 import javax.swing.JComponent;
 import java.awt.Dimension;
@@ -35,14 +35,14 @@ public class WorldCanvas extends JComponent implements GuiConfigDefault, Seriali
   /**
    * Reference to the Data Model.
    */
-  private final World world;
+  private final ObjectRegistry ctx;
 
-  public WorldCanvas(final World world) {
-    this.world = world;
+  public WorldCanvas(ObjectRegistry ctx) {
+    this.ctx = ctx;
     this.setBackground(COLOR_WATER);
     Dimension preferredSize = new Dimension(
-      this.world.getWorldDimensions().getWidth(),
-      this.world.getWorldDimensions().getHeight()
+      ctx.getWorldConfig().getWorldDimensions().getWidth(),
+      ctx.getWorldConfig().getWorldDimensions().getHeight()
     );
     this.setPreferredSize(preferredSize);
   }
@@ -54,21 +54,21 @@ public class WorldCanvas extends JComponent implements GuiConfigDefault, Seriali
    */
   public void paint(Graphics graphics) {
     super.paintComponent(graphics);
-    int width = world.getWorldDimensions().getWidth();
-    int height = world.getWorldDimensions().getHeight();
+    int width = ctx.getWorldConfig().getWorldDimensions().getWidth();
+    int height = ctx.getWorldConfig().getWorldDimensions().getHeight();
     graphics.setColor(COLOR_WATER);
     graphics.fillRect(0, 0, width, height);
     graphics.setColor(COLOR_FOOD);
     for (int posY = 0; posY < height; posY++) {
       for (int posX = 0; posX < width; posX++) {
-        if (world.hasFood(posX, posY)) {
+        if (ctx.getWorld().hasFood(posX, posY)) {
           graphics.drawLine(posX, posY, posX, posY);
         }
       }
     }
-    List<Cell> population = world.getAllCells();
+    List<Cell> population = ctx.getWorld().getAllCells();
     for (Cell cell : population) {
-      Point[] square = cell.getPosition().getNeighbourhood(world.getWorldDimensions());
+      Point[] square = cell.getPosition().getNeighbourhood(ctx.getWorldConfig().getWorldDimensions());
       graphics.setColor(cell.getLifeCycleStatus().getColor());
       for (Point pixel : square) {
         graphics.drawLine(pixel.getX(), pixel.getY(), pixel.getX(), pixel.getY());
@@ -78,14 +78,11 @@ public class WorldCanvas extends JComponent implements GuiConfigDefault, Seriali
 
   public void update(Graphics graphics) {
     Dimension preferredSize = new Dimension(
-      this.world.getWorldDimensions().getWidth(),
-      this.world.getWorldDimensions().getHeight()
+      ctx.getWorldConfig().getWorldDimensions().getWidth(),
+      ctx.getWorldConfig().getWorldDimensions().getHeight()
     );
     this.setPreferredSize(preferredSize);
     paint(graphics);
   }
 
-  public World getWorld() {
-    return world;
-  }
 }

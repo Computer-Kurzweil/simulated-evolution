@@ -1,7 +1,7 @@
 package org.woehlke.simulation.evolution.view;
 
-import org.woehlke.simulation.evolution.SimulatedEvolutionConfig;
 import org.woehlke.simulation.evolution.control.ControllerThreadDesktop;
+import org.woehlke.simulation.evolution.control.ObjectRegistry;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -26,14 +26,13 @@ public class PanelButtons extends JPanel implements ActionListener {
   private final JButton buttonToggleGardenOfEden;
   private JCheckBox gardenOfEdenEnabled;
   private JTextField foodPerDayField;
-  private SimulatedEvolutionConfig config;
-  private ControllerThreadDesktop controller;
+  private ObjectRegistry ctx;
 
-  public PanelButtons(SimulatedEvolutionConfig config) {
-    this.config = config;
+  public PanelButtons(ObjectRegistry ctx) {
+    this.ctx=ctx;
     JLabel foodPerDayLabel = new JLabel("Food per Day: ");
-    foodPerDayField = new JTextField(config.getFoodPerDay(), 3);
-    boolean selected = config.getWorldMapFoodConfig().isEableGardenOfEden();
+    foodPerDayField = new JTextField(ctx.getFoodPerDay(), 3);
+    boolean selected = ctx.getWorldMapFoodConfig().isEableGardenOfEden();
     this.gardenOfEdenEnabled = new JCheckBox("Garden of Eden enabled", selected);
     this.buttonFoodPerDayIncrease = new JButton(BUTTON_FOOD_INCREASE);
     this.buttonFoodPerDayDecrease = new JButton(BUTTON_FOOD_DECREASE);
@@ -46,13 +45,6 @@ public class PanelButtons extends JPanel implements ActionListener {
     this.add(this.buttonFoodPerDayDecrease);
     this.add(gardenOfEdenEnabled);
     this.add(this.buttonToggleGardenOfEden);
-  }
-
-  /**
-   * TODO write doc.
-   */
-  public void addController(ControllerThreadDesktop controller) {
-    this.controller = controller;
     this.buttonFoodPerDayIncrease.addActionListener(this);
     this.buttonFoodPerDayDecrease.addActionListener(this);
     this.buttonToggleGardenOfEden.addActionListener(this);
@@ -64,14 +56,14 @@ public class PanelButtons extends JPanel implements ActionListener {
   @Override
   public void actionPerformed(ActionEvent ae) {
     if (ae.getSource() == this.buttonFoodPerDayIncrease) {
-      this.controller.increaseFoodPerDay();
-      this.foodPerDayField.setText(config.getFoodPerDay());
+      ctx.getController().increaseFoodPerDay();
+      this.foodPerDayField.setText(ctx.getFoodPerDay());
     } else if (ae.getSource() == this.buttonFoodPerDayDecrease) {
-      this.controller.decreaseFoodPerDay();
-      this.foodPerDayField.setText(config.getFoodPerDay());
+      ctx.getController().decreaseFoodPerDay();
+      this.foodPerDayField.setText(ctx.getFoodPerDay());
     } else if (ae.getSource() == this.buttonToggleGardenOfEden) {
-      this.controller.toggleGardenOfEden();
-      boolean selected = config.getWorldMapFoodConfig().isEableGardenOfEden();
+      ctx.getController().toggleGardenOfEden();
+      boolean selected = ctx.getWorldMapFoodConfig().isEableGardenOfEden();
       gardenOfEdenEnabled.setSelected(selected);
     }
   }

@@ -1,9 +1,7 @@
 package org.woehlke.simulation.evolution.view;
 
-import org.woehlke.simulation.evolution.SimulatedEvolutionConfig;
-import org.woehlke.simulation.evolution.config.GuiConfig;
 import org.woehlke.simulation.evolution.config.GuiConfigDefault;
-import org.woehlke.simulation.evolution.control.ControllerThreadDesktop;
+import org.woehlke.simulation.evolution.control.ObjectRegistry;
 
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
@@ -19,7 +17,7 @@ import java.awt.image.ImageObserver;
  * @author Thomas Woehlke
  * Date: 04.02.2006
  * Time: 18:47:46
- * @see SimulatedEvolutionApplet
+ *
  * @see javax.swing.JFrame
  * @see java.awt.image.ImageObserver
  * @see java.awt.event.WindowListener
@@ -33,17 +31,6 @@ import java.awt.image.ImageObserver;
 public class SimulatedEvolutionFrame extends JFrame implements ImageObserver,
   MenuContainer,
   GuiConfigDefault {
-
-  private final GuiConfig guiConfig;
-
-  /**
-   * The View for the World. Food and Cells are painted to the Canvas.
-   */
-  private final WorldCanvas canvas;
-  private final PanelSubtitle panelSubtitle;
-  private final PanelCopyright panelCopyright;
-  private final PanelButtons panelButtons;
-  private final PanelLifeCycleStatus panelLifeCycleStatus;
 
   /**
    * TODO write doc.
@@ -60,67 +47,27 @@ public class SimulatedEvolutionFrame extends JFrame implements ImageObserver,
     int mystartX = Double.valueOf(startX).intValue();
     int mystartY = Double.valueOf(startY).intValue();
     this.setBounds(mystartX, mystartY, mywidth, myheight);
-    setVisible(true);
+    rootPane.setVisible(true);
     toFront();
   }
 
-  public SimulatedEvolutionFrame(SimulatedEvolutionConfig guiConfig, WorldCanvas canvas) {
-    super(guiConfig.getGuiConfig().getTitle());
-    this.guiConfig = guiConfig.getGuiConfig();
-    this.panelSubtitle = new PanelSubtitle(this.guiConfig);
-    this.panelCopyright = new PanelCopyright(this.guiConfig);
-    this.panelButtons = new PanelButtons(guiConfig);
-    this.panelLifeCycleStatus = new PanelLifeCycleStatus(canvas.getWorld().getCount());
-    this.canvas = canvas;
+  private final ObjectRegistry ctx;
+
+  public SimulatedEvolutionFrame(ObjectRegistry ctx) {
+    super(ctx.getGuiConfig().getTitle());
+    this.ctx=ctx;
     JSeparator separator1 = new JSeparator();
     JSeparator separator2 = new JSeparator();
     BoxLayout layout = new BoxLayout(rootPane, BoxLayout.PAGE_AXIS);
     rootPane.setLayout(layout);
-    rootPane.add(this.panelSubtitle);
-    rootPane.add(canvas);
-    rootPane.add(this.panelCopyright);
+    rootPane.add(ctx.getPanelSubtitle());
+    rootPane.add(ctx.getCanvas());
+    rootPane.add(ctx.getPanelCopyright());
     rootPane.add(separator1);
-    rootPane.add(this.panelLifeCycleStatus);
+    rootPane.add(ctx.getPanelLifeCycleStatus());
     rootPane.add(separator2);
-    rootPane.add(this.panelButtons);
+    rootPane.add(ctx.getPanelButtons());
     pack();
-  }
-
-  public WorldCanvas getCanvas() {
-    return canvas;
-  }
-
-  public GuiConfig getGuiConfig() {
-    return guiConfig;
-  }
-
-  public PanelSubtitle getPanelSubtitle() {
-    return panelSubtitle;
-  }
-
-  public PanelCopyright getPanelCopyright() {
-    return panelCopyright;
-  }
-
-  public PanelButtons getPanelButtons() {
-    return panelButtons;
-  }
-
-  /**
-   * TODO write doc.
-   */
-  public void addController(ControllerThreadDesktop controller) {
-    this.addWindowListener(controller);
-    this.addWindowFocusListener(controller);
-    this.addWindowStateListener(controller);
-    this.panelButtons.addController(controller);
-    this.panelLifeCycleStatus.addController(controller);
-  }
-
-  /**
-   * TODO write doc.
-   */
-  public void updateLifeCycleCount() {
-    panelLifeCycleStatus.updateLifeCycleCount();
+    showMe();
   }
 }

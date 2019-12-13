@@ -1,4 +1,4 @@
-package org.woehlke.simulation.evolution.statistics;
+package org.woehlke.simulation.evolution.model;
 
 import org.woehlke.simulation.evolution.model.LifeCycleStatus;
 

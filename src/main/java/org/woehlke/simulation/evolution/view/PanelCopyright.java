@@ -1,6 +1,6 @@
 package org.woehlke.simulation.evolution.view;
 
-import org.woehlke.simulation.evolution.config.GuiConfig;
+import org.woehlke.simulation.evolution.control.ObjectRegistry;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -15,8 +15,8 @@ public class PanelCopyright extends JPanel {
 
   private final JLabel copyrightLabel;
 
-  public PanelCopyright(GuiConfig guiConfig) {
-    this.copyrightLabel = new JLabel(guiConfig.getFooter());
+  public PanelCopyright(ObjectRegistry ctx) {
+    this.copyrightLabel = new JLabel(ctx.getGuiConfig().getFooter());
     this.setLayout(this.layout);
     this.layout.setAlignment(FlowLayout.CENTER);
     this.add(this.copyrightLabel);

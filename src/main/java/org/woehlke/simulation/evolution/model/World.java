@@ -1,9 +1,7 @@
 package org.woehlke.simulation.evolution.model;
 
 
-import org.woehlke.simulation.evolution.SimulatedEvolutionConfig;
-import org.woehlke.simulation.evolution.statistics.LifeCycleCount;
-import org.woehlke.simulation.evolution.statistics.LifeCycleCountContainer;
+import org.woehlke.simulation.evolution.control.ObjectRegistry;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -34,36 +32,14 @@ public class World {
    */
   private List<Cell> cells;
 
-  /**
-   * Random Generator used for Bacteria Motion.
-   */
-  private Random random;
-
-  /**
-   * Map of the World monitoring growth and eating food.
-   */
-  private final WorldMapFood worldMapFood;
+  private final ObjectRegistry ctx;
 
   /**
    * TODO write doc.
    */
-  private final LifeCycleCountContainer count;
-
-  /**
-   * TODO write doc.
-   */
-  private SimulatedEvolutionConfig simulatedEvolutionConfig;
-
-  /**
-   * TODO write doc.
-   */
-  public World(SimulatedEvolutionConfig simulatedEvolutionConfig) {
-    this.simulatedEvolutionConfig = simulatedEvolutionConfig;
-    long seed = new Date().getTime();
-    random = new Random(seed);
-    worldMapFood = new WorldMapFood(simulatedEvolutionConfig, random);
+  public World(ObjectRegistry ctx) {
+    this.ctx = ctx;
     cells = new ArrayList<>();
-    count = new LifeCycleCountContainer(simulatedEvolutionConfig);
     createPopulation();
   }
 
@@ -72,20 +48,20 @@ public class World {
    */
   private void createPopulation() {
     LifeCycleCount lifeCycleCount = new LifeCycleCount();
-    for (int i = 0; i < simulatedEvolutionConfig.getWorldConfig().getInitialPopulation(); i++) {
-      int worldMapFoodX = random.nextInt(simulatedEvolutionConfig.getWorldConfig().getWidth());
-      int worldMapFoodY = random.nextInt(simulatedEvolutionConfig.getWorldConfig().getHeight());
+    for (int i = 0; i < ctx.getWorldConfig().getInitialPopulation(); i++) {
+      int worldMapFoodX = ctx.getRandom().nextInt(ctx.getWorldConfig().getWidth());
+      int worldMapFoodY = ctx.getRandom().nextInt(ctx.getWorldConfig().getHeight());
       worldMapFoodX *= Integer.signum(worldMapFoodX);
       worldMapFoodY *= Integer.signum(worldMapFoodY);
       Point position = new Point(worldMapFoodX, worldMapFoodY);
-      Cell cell = new Cell(simulatedEvolutionConfig.getWorldConfig().getWorldDimensions(), position, random);
+      Cell cell = new Cell(ctx.getWorldConfig().getWorldDimensions(), position, ctx.getRandom());
       cells.add(cell);
     }
     for (Cell cell : cells) {
       lifeCycleCount.countStatusOfOneCell(cell.getLifeCycleStatus());
     }
     System.out.println(lifeCycleCount);
-    count.add(lifeCycleCount);
+    ctx.getStatistics().add(lifeCycleCount);
   }
 
   /**
@@ -94,7 +70,7 @@ public class World {
    */
   public void letLivePopulation() {
     LifeCycleCount lifeCycleCount = new LifeCycleCount();
-    worldMapFood.letFoodGrow();
+    ctx.getWorldMapFood().letFoodGrow();
     Point pos;
     List<Cell> children = new ArrayList<>();
     List<Cell> died = new ArrayList<>();
@@ -104,7 +80,7 @@ public class World {
         died.add(cell);
       } else {
         pos = cell.getPosition();
-        int food = worldMapFood.eat(pos);
+        int food = ctx.getWorldMapFood().eat(pos);
         cell.eat(food);
         if (cell.isPregnant()) {
           Cell child = cell.performReproductionByCellDivision();
@@ -119,7 +95,7 @@ public class World {
     for (Cell cell : cells) {
       lifeCycleCount.countStatusOfOneCell(cell.getLifeCycleStatus());
     }
-    count.add(lifeCycleCount);
+    ctx.getStatistics().add(lifeCycleCount);
   }
 
   public List<Cell> getAllCells() {
@@ -127,22 +103,7 @@ public class World {
   }
 
   public boolean hasFood(int x, int y) {
-    return worldMapFood.hasFood(x, y);
+    return ctx.getWorldMapFood().hasFood(x, y);
   }
 
-  public SimulatedEvolutionConfig getSimulatedEvolutionConfig() {
-    return simulatedEvolutionConfig;
-  }
-
-  public Point getWorldDimensions() {
-    return this.simulatedEvolutionConfig.getWorldConfig().getWorldDimensions();
-  }
-
-  public WorldMapFood getWorldMapFood() {
-    return worldMapFood;
-  }
-
-  public LifeCycleCountContainer getCount() {
-    return count;
-  }
 }

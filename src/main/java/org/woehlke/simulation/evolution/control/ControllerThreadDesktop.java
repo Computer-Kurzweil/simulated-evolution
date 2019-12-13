@@ -1,9 +1,6 @@
 package org.woehlke.simulation.evolution.control;
 
 import org.woehlke.simulation.evolution.config.GuiConfigDefault;
-import org.woehlke.simulation.evolution.model.World;
-import org.woehlke.simulation.evolution.view.SimulatedEvolutionFrame;
-import org.woehlke.simulation.evolution.view.WorldCanvas;
 
 import java.awt.Frame;
 import java.awt.event.WindowEvent;
@@ -24,25 +21,49 @@ import java.awt.event.WindowStateListener;
  * Date: 05.02.2006
  * Time: 00:36:20
  */
-public class ControllerThreadDesktop extends ControllerThreadApplet implements Runnable,
+public class ControllerThreadDesktop extends Thread implements Runnable,
   WindowListener,
   WindowFocusListener,
   WindowStateListener,
   GuiConfigDefault {
 
-  private volatile SimulatedEvolutionFrame simulatedEvolutionFrame;
+  /**
+   * Time to Wait in ms.
+   */
+  protected final int TIME_TO_WAIT = 100;
 
-  public ControllerThreadDesktop(
-    WorldCanvas canvas,
-    World world,
-    SimulatedEvolutionFrame simulatedEvolutionFrame
-  ) {
-    super(world, canvas);
-    this.simulatedEvolutionFrame = simulatedEvolutionFrame;
+  /**
+   * Control for Threading.
+   */
+  private Boolean mySemaphore;
+
+  private final ObjectRegistry ctx;
+
+  public ControllerThreadDesktop(ObjectRegistry ctx) {
+    this.ctx = ctx;
+    this.mySemaphore = Boolean.TRUE;
+  }
+
+  public void run() {
+    show();
+    boolean doMyJob = true;
+    do {
+      synchronized (mySemaphore) {
+        doMyJob = mySemaphore.booleanValue();
+      }
+      ctx.getWorld().letLivePopulation();
+      ctx.getCanvas().repaint();
+      try {
+        sleep(TIME_TO_WAIT);
+      } catch (InterruptedException e) {
+        System.out.println(e.getLocalizedMessage());
+      }
+    }
+    while (doMyJob);
   }
 
   protected void show() {
-    this.simulatedEvolutionFrame.showMe();
+    this.ctx.getFrame().showMe();
   }
 
   public void windowOpened(WindowEvent e) {
@@ -58,12 +79,12 @@ public class ControllerThreadDesktop extends ControllerThreadApplet implements R
   }
 
   public void windowClosing(WindowEvent e) {
-    super.exit();
+    this.exit();
     System.exit(EXIT_STATUS);
   }
 
   public void windowClosed(WindowEvent e) {
-    super.exit();
+    this.exit();
     System.exit(EXIT_STATUS);
   }
 
@@ -85,7 +106,7 @@ public class ControllerThreadDesktop extends ControllerThreadApplet implements R
 
   @Override
   public void windowStateChanged(WindowEvent e) {
-    if (e.getSource() == this.simulatedEvolutionFrame) {
+    if (e.getSource() == ctx.getFrame()) {
       switch (e.getNewState()) {
         case Frame.MAXIMIZED_BOTH:
         case Frame.MAXIMIZED_HORIZ:
@@ -100,6 +121,30 @@ public class ControllerThreadDesktop extends ControllerThreadApplet implements R
   }
 
   public void updateLifeCycleCount() {
-    simulatedEvolutionFrame.updateLifeCycleCount();
+    ctx.getPanelLifeCycleStatus().updateLifeCycleCount();
   }
+
+  public void exit() {
+    synchronized (mySemaphore) {
+      mySemaphore = Boolean.FALSE;
+    }
+  }
+
+  public void increaseFoodPerDay() {
+    ctx.getWorldMapFoodConfig().increaseFoodPerDay();
+  }
+
+  public void decreaseFoodPerDay() {
+    ctx.getWorldMapFoodConfig().decreaseFoodPerDay();
+  }
+
+  public void toggleGardenOfEden() {
+    ctx.getWorldMapFoodConfig().toggleGardenOfEden();
+    ctx.getWorldMapFood().toggleGardenOfEden();
+  }
+
+  public void showStatistic() {
+
+  }
+
 }

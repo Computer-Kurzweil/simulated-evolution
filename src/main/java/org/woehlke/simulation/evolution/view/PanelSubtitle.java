@@ -1,6 +1,6 @@
 package org.woehlke.simulation.evolution.view;
 
-import org.woehlke.simulation.evolution.config.GuiConfig;
+import org.woehlke.simulation.evolution.control.ObjectRegistry;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -13,8 +13,8 @@ public class PanelSubtitle extends JPanel {
 
   private final JLabel subtitleLabel;
 
-  public PanelSubtitle(GuiConfig guiConfig) {
-    this.subtitleLabel = new JLabel(guiConfig.getSubtitle());
+  public PanelSubtitle(ObjectRegistry ctx) {
+    this.subtitleLabel = new JLabel(ctx.getGuiConfig().getSubtitle());
     FlowLayout layout = new FlowLayout();
     this.setLayout(layout);
     this.add(subtitleLabel);
