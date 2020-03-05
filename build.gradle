@@ -22,6 +22,6 @@ application {
   mainClassName = 'org.woehlke.simulation.evolution.SimulatedEvolutionApplication'
 }
 
-checkstyle {
-    ignoreFailures = true
-}
+//checkstyle {
+//    ignoreFailures = true
+//}
