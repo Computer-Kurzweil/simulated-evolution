@@ -5,9 +5,8 @@ plugins {
     id 'base'        // https://docs.gradle.org/current/userguide/base_plugin.html
     id 'java'        // https://docs.gradle.org/current/userguide/java_plugin.html
     id 'application' // https://docs.gradle.org/current/userguide/application_plugin.html
-    id 'idea'        // https://docs.gradle.org/current/userguide/idea_plugin.html
-    id 'checkstyle'  // https://docs.gradle.org/current/userguide/checkstyle_plugin.html
-   // id 'pmd'         // https://docs.gradle.org/current/userguide/pmd_plugin.html
+    //id 'idea'        // https://docs.gradle.org/current/userguide/idea_plugin.html
+    //id 'checkstyle'  // https://docs.gradle.org/current/userguide/checkstyle_plugin.html
 }
 
 repositories {
@@ -20,17 +19,9 @@ dependencies {
 }
 
 application {
-  //mainClassName = 'org.woehlke.simulation.evolution.SimulatedEvolutionAppletRunner'
   mainClassName = 'org.woehlke.simulation.evolution.SimulatedEvolutionApplication'
 }
 
 checkstyle {
     ignoreFailures = true
 }
-
-/*
-pmd {
-    ignoreFailures = true
-    consoleOutput = true
-}
-*/
