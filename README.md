@@ -16,23 +16,23 @@ If a cell doesn't eat enough, it will first stand still and after a while it die
 
 ### Early Screen 
 
-![Early Screen](etc/img/screen1.png)
+![Early Screen](src/main/resources/img/screen1.png)
 
 ### Later Screen 
 
-![Later Screen](etc/img/screen2.png)
+![Later Screen](src/main/resources/img/screen2.png)
 
 ### Explanation
 
 | Color | Explanation |
 |-------|-------------|
-| ![](etc/img/black.png) | water           |
-| ![](etc/img/green.png) | food            |
-| ![](etc/img/blue.png) | cell is young   |
-| ![](etc/img/yellow.png)  | cell is fat enough to reproduce*   |
-| ![](etc/img/red.png)  | cell is old enough to reproduce*   |
-| ![](etc/img/light_gray.png)  | cell is hungry and waiting for food or death   |
-| ![](etc/img/dark_gray.png)  | cell is old and waiting for death   |
+| ![](src/main/resources/img/black.png) | water           |
+| ![](src/main/resources/img/green.png) | food            |
+| ![](src/main/resources/img/blue.png) | cell is young   |
+| ![](src/main/resources/img/yellow.png)  | cell is fat enough to reproduce*   |
+| ![](src/main/resources/img/red.png)  | cell is old enough to reproduce*   |
+| ![](src/main/resources/img/light_gray.png)  | cell is hungry and waiting for food or death   |
+| ![](src/main/resources/img/dark_gray.png)  | cell is old and waiting for death   |
 | &nbsp; | * (if cell is fat and old enough for reproduction it splits and changes the childrens DNA)   |
 
 
@@ -47,7 +47,7 @@ If a cell doesn't eat enough, it will first stand still and after a while it die
 ```
 git clone https://github.com/thomaswoehlke/simulated-evolution.git
 cd simulated-evolution
-./gradlw run
+./gradlew clean shadowJar runShadow
 ```
 
 ## Run the Applet Test
