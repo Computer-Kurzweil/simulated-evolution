@@ -12,11 +12,10 @@ plugins {
     id 'idea'
 }
 
-def applicationNameConfig = 'simulated-evolution'
+def group = 'org.woehlke.computer.kurzweil'
+def applicationNameConfig = 'simulatedevolution'
 def mainClassNameConfig = 'org.woehlke.simulation.evolution.SimulatedEvolutionApplication'
-
 def applicationName = "${applicationNameConfig}"
-def group = 'org.woehlke.simulation.evolution'
 ////version = '1.9'
 //version = '1.9-SNAPSHOT'
 def sourceCompatibility = '13'
