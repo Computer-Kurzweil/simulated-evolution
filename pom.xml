@@ -95,6 +95,11 @@
         <junit5Version>5.6.0</junit5Version>
         <log4j2Version>2.13.0</log4j2Version>
         <lombokVersion>1.18.12</lombokVersion>
+        <orgApacheCommonsLang3VersionVersion>3.9</orgApacheCommonsLang3VersionVersion>
+        <jacksonDatabindVersion>2.9.8</jacksonDatabindVersion>
+        <orgYamlSnakeyamlVersion>1.17</orgYamlSnakeyamlVersion>
+        <javaxValidationApiVersion>2.0.1.Final</javaxValidationApiVersion>
+        <comGoogleGuavaVersion>28.0-jre</comGoogleGuavaVersion>
     </properties>
 
     <dependencyManagement>
@@ -190,6 +195,61 @@
                 <version>${junit5Version}</version>
                 <scope>test</scope>
             </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.dataformat</groupId>
+                <artifactId>jackson-dataformat-yaml</artifactId>
+                <version>${jacksonDatabindVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.dataformat</groupId>
+                <artifactId>jackson-dataformat-properties</artifactId>
+                <version>${jacksonDatabindVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.dataformat</groupId>
+                <artifactId>jackson-dataformat-xml</artifactId>
+                <version>${jacksonDatabindVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.dataformat</groupId>
+                <artifactId>jackson-dataformat-ion</artifactId>
+                <version>${jacksonDatabindVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${jacksonDatabindVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jacksonDatabindVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>${jacksonDatabindVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${orgApacheCommonsLang3VersionVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.yaml</groupId>
+                <artifactId>snakeyaml</artifactId>
+                <version>${orgYamlSnakeyamlVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${comGoogleGuavaVersion}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.validation</groupId>
+                <artifactId>validation-api</artifactId>
+                <version>${javaxValidationApiVersion}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -267,6 +327,50 @@
             <groupId>org.junit.vintage</groupId>
             <artifactId>junit-vintage-engine</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-yaml</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-properties</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-xml</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-ion</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.yaml</groupId>
+            <artifactId>snakeyaml</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
         </dependency>
     </dependencies>
 
@@ -436,7 +540,7 @@
                         <executions>
                             <execution>
                                 <id>src-dependencies</id>
-                                <phase>pre-clean</phase>
+                                <phase>post-clean</phase>
                                 <goals>
                                     <goal>purge-local-repository</goal>
                                     <goal>sources</goal>
