@@ -17,7 +17,6 @@
         <url>https://github.com/Computer-Kurzweil/simulated-evolution.git</url>
         <connection>scm:git:git@github.com:Computer-Kurzweil/simulated-evolution.git</connection>
         <developerConnection>scm:git:git@github.com:Computer-Kurzweil/simulated-evolution.git</developerConnection>
-        <tag>simulated-evolution-1.2</tag>
     </scm>
     <issueManagement>
         <url>https://github.com/Computer-Kurzweil/simulated-evolution/issues/</url>
