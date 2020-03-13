@@ -20,7 +20,7 @@ cmd /c  mvnw dependency:collect
 rem cmd /c  mvnw dependency:copy
 cmd /c  mvnw dependency:copy-dependencies
 cmd /c  mvnw dependency:display-ancestors
-cmd /c  mvnw dependency:get
+rem cmd /c  mvnw dependency:get
 cmd /c  mvnw dependency:go-offline
 cmd /c  mvnw dependency:help
 cmd /c  mvnw dependency:list
@@ -40,7 +40,7 @@ cmd /c  mvnw -e clean install exec:java
 goto:FINALE
 
 :MAIN
-goto:RUN
+goto:BUILD
 rem goto:BUILD
 
 :FINALE
