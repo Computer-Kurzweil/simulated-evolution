@@ -35,12 +35,17 @@ rem cmd /c  mvnw dependency:unpack
 rem cmd /c  mvnw dependency:unpack-dependencies
 goto:FINALE
 
+:SETUP
+cmd /c  mvnw -Psetup
+goto:FINALE
+
 :RUN
-cmd /c  mvnw -e clean install exec:java
+cmd /c  mvnw
 goto:FINALE
 
 :MAIN
 goto:RUN
+goto:SETUP
 rem goto:BUILD
 
 :FINALE

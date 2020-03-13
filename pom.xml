@@ -448,6 +448,7 @@
                                     <goal>list-repositories</goal>
                                     <goal>properties</goal>
                                     <goal>copy-dependencies</goal>
+                                    <goal>unpack-dependencies</goal>
                                 </goals>
                                 <configuration>
                                     <classifier>sources</classifier>
