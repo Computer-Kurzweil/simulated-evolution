@@ -271,6 +271,8 @@
     </dependencies>
 
     <build>
+        <finalName>{project.artifactId}</finalName>
+        <defaultGoal>clean install exec:java</defaultGoal>
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -331,33 +333,6 @@
             </plugins>
         </pluginManagement>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>src-dependencies</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>resolve</goal>
-                            <goal>sources</goal>
-                            <goal>resolve-plugins</goal>
-                            <goal>analyze</goal>
-                            <goal>collect</goal>
-                            <goal>build-classpath</goal>
-                            <goal>list</goal>
-                            <goal>list-repositories</goal>
-                            <goal>properties</goal>
-                            <goal>copy-dependencies</goal>
-                        </goals>
-                        <configuration>
-                            <classifier>sources</classifier>
-                            <failOnMissingClassifierArtifact>false</failOnMissingClassifierArtifact>
-                            <outputDirectory>${project.build.directory}/sources</outputDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
             <!--
             <plugin>
                 <groupId>org.projectlombok</groupId>
@@ -393,32 +368,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <configuration>
-                    <maxmemory>2048m</maxmemory>
-                    <source>${java-version}</source>
-                    <encoding>${project.build.sourceEncoding}</encoding>
-                    <javadocExecutable>${java.home}/bin/javadoc</javadocExecutable>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>javadoc-javadoc-package</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>javadoc</goal>
-                        </goals>
-                        <configuration>
-                            <linksource>true</linksource>
-                            <maxmemory>2048m</maxmemory>
-                            <source>${java-version}</source>
-                            <encoding>${project.build.sourceEncoding}</encoding>
-                            <javadocExecutable>${java.home}/bin/javadoc</javadocExecutable>
-                        </configuration>
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -469,4 +418,121 @@
         </plugins>
     </build>
 
+    <profiles>
+        <profile>
+            <id>run</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>src-dependencies</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>sources</goal>
+                                <goal>copy-dependencies</goal>
+                            </goals>
+                            <configuration>
+                                <classifier>sources</classifier>
+                                <failOnMissingClassifierArtifact>false</failOnMissingClassifierArtifact>
+                                <outputDirectory>${project.build.directory}/sources</outputDirectory>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-javadoc-plugin</artifactId>
+                    <configuration>
+                        <skip>true</skip>
+                        <maxmemory>2048m</maxmemory>
+                        <source>${java-version}</source>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                        <javadocExecutable>${java.home}/bin/javadoc</javadocExecutable>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>javadoc-javadoc-package</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>javadoc</goal>
+                            </goals>
+                            <configuration>
+                                <linksource>true</linksource>
+                                <maxmemory>2048m</maxmemory>
+                                <source>${java-version}</source>
+                                <encoding>${project.build.sourceEncoding}</encoding>
+                                <javadocExecutable>${java.home}/bin/javadoc</javadocExecutable>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>setup</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-dependency-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>src-dependencies</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>resolve</goal>
+                                    <goal>sources</goal>
+                                    <goal>resolve-plugins</goal>
+                                    <goal>analyze</goal>
+                                    <goal>collect</goal>
+                                    <goal>list</goal>
+                                    <goal>list-repositories</goal>
+                                    <goal>properties</goal>
+                                    <goal>copy-dependencies</goal>
+                                </goals>
+                                <configuration>
+                                    <classifier>sources</classifier>
+                                    <failOnMissingClassifierArtifact>false</failOnMissingClassifierArtifact>
+                                    <outputDirectory>${project.build.directory}/sources</outputDirectory>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <configuration>
+                            <maxmemory>2048m</maxmemory>
+                            <source>${java-version}</source>
+                            <encoding>${project.build.sourceEncoding}</encoding>
+                            <javadocExecutable>${java.home}/bin/javadoc</javadocExecutable>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>javadoc-javadoc-package</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>javadoc</goal>
+                                </goals>
+                                <configuration>
+                                    <linksource>true</linksource>
+                                    <maxmemory>2048m</maxmemory>
+                                    <source>${java-version}</source>
+                                    <encoding>${project.build.sourceEncoding}</encoding>
+                                    <javadocExecutable>${java.home}/bin/javadoc</javadocExecutable>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
