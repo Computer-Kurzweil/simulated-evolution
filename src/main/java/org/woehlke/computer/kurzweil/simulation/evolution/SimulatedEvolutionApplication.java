@@ -1,4 +1,4 @@
-package org.woehlke.computer.kurzweil.simulation.evolution.desktop;
+package org.woehlke.computer.kurzweil.simulation.evolution;
 
 import org.woehlke.computer.kurzweil.simulation.evolution.view.SimulatedEvolutionFrame;
 
