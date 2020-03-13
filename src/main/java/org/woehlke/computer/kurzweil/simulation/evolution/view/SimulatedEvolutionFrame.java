@@ -31,6 +31,8 @@ public class SimulatedEvolutionFrame extends JFrame implements ImageObserver,
         Accessible,
         WindowListener {
 
+    static final long serialVersionUID = 242L;
+
     private final static String TITLE = "Simulated Evolution";
 
     private final static int EXIT_STATUS = 0;

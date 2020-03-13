@@ -1,5 +1,8 @@
 package org.woehlke.computer.kurzweil.simulation.evolution.model;
 
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 
 import java.util.Random;
@@ -20,6 +23,8 @@ import java.util.Random;
  * Time: 19:06:43
  */
 @Log4j2
+@ToString(exclude = {"random"})
+@EqualsAndHashCode(exclude = {"random"})
 public class Cell {
 
     /**

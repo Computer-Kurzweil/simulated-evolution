@@ -1,5 +1,7 @@
 package org.woehlke.computer.kurzweil.simulation.evolution.model;
 
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 
 import java.util.List;
@@ -16,6 +18,8 @@ import java.util.ArrayList;
  * Time: 19:55:23
  */
 @Log4j2
+@ToString(exclude = {"random"})
+@EqualsAndHashCode(exclude = {"random"})
 public class CellCore {
 
     /**

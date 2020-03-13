@@ -1,5 +1,7 @@
 package org.woehlke.computer.kurzweil.simulation.evolution.model;
 
+import lombok.Getter;
+import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 
 import java.awt.*;
@@ -17,6 +19,8 @@ import java.awt.*;
  * Time: 12:40
  */
 @Log4j2
+@Getter
+@ToString
 public enum LifeCycleStatus {
 
     YOUNG(Color.BLUE),
@@ -32,7 +36,4 @@ public enum LifeCycleStatus {
         this.color=color;
     }
 
-    public Color getColor(){
-        return color;
-    }
 }
