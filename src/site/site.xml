@@ -8,7 +8,6 @@
         <artifactId>maven-fluido-skin</artifactId>
         <version>1.8</version>
     </skin>
-    <!-- http://andriusvelykis.github.io/reflow-maven-skin/skin/ -->
     <bannerLeft>
         <name>Simulated Evolution</name>
         <src>/img/phasenraum_logo.gif</src>
@@ -22,30 +21,25 @@
     <body>
         <!-- Add a rel to Google profile for all pages -->
         <head>
-            <!--
-            <link rel="author" href="https://plus.google.com/u/0/103952923222929770455" ></link>
-            -->
+            <link rel="author" href="https://github.com/thomaswoehlke" ></link>
         </head>
-
         <links>
-            <item name="GitHub project" href="https://github.com/phasenraum2010/simulated-evolution/" />
+            <item name="GitHub project" href="https://github.com/Computer-Kurzweil/simulated-evolution/" />
         </links>
-
         <breadcrumbs>
             <item name="Simulated Evolution" href="/" />
         </breadcrumbs>
-
         <menu name="Main" inherit="top">
             <item name="Home" href="/" />
-            <item name="GitHub project" href="https://github.com/phasenraum2010/simulated-evolution/" />
+            <item name="GitHub project" href="https://github.com/Computer-Kurzweil/simulated-evolution" />
             <item name="Blog" href="https://thomas-woehlke.blogspot.de/2016/01/simulated-evolution-artificial-life-and.html" />
             <item name="License" href="license.html" />
         </menu>
         <menu name="Contribute" inherit="bottom">
-            <item name="Issues" href="https://github.com/phasenraum2010/simulated-evolution/issues/" />
-            <item name="Fork on GitHub" href="https://github.com/phasenraum2010/simulated-evolution/" />
+            <item name="Issues" href="https://github.com/Computer-Kurzweil/simulated-evolution/issues/" />
+            <item name="Fork on GitHub" href="https://github.com/Computer-Kurzweil/simulated-evolution/" />
             <item name="Donate" href="https://www.paypal.me/ThomasWoehlke" />
         </menu>
-        <menu name="Maven documentation" ref="reports" inherit="bottom"/>
+        <menu name="Maven Reports" ref="reports" inherit="bottom"/>
     </body>
 </project>
