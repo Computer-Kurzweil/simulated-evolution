@@ -290,36 +290,6 @@
                     <version>3.9.0</version>
                 </plugin>
                 <plugin>
-                    <groupId>org.apache.maven.scm</groupId>
-                    <artifactId>maven-scm-provider-svnexe</artifactId>
-                    <version>${maven.scm.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.scm</groupId>
-                    <artifactId>maven-scm-provider-svn-commons</artifactId>
-                    <version>${maven.scm.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.scm</groupId>
-                    <artifactId>maven-scm-provider-gitexe</artifactId>
-                    <version>${maven.scm.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.scm</groupId>
-                    <artifactId>maven-scm-provider-git-commons</artifactId>
-                    <version>${maven.scm.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.scm</groupId>
-                    <artifactId>maven-scm-manager-plexus</artifactId>
-                    <version>${maven.scm.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.scm</groupId>
-                    <artifactId>maven-scm-client</artifactId>
-                    <version>${maven.scm.version}</version>
-                </plugin>
-                <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>exec-maven-plugin</artifactId>
                     <version>1.6.0</version>
@@ -480,30 +450,6 @@
                     <outputDirectory>target/site</outputDirectory>
                     <generateReports>true</generateReports>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.scm</groupId>
-                <artifactId>maven-scm-provider-svnexe</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.scm</groupId>
-                <artifactId>maven-scm-provider-svn-commons</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.scm</groupId>
-                <artifactId>maven-scm-provider-gitexe</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.scm</groupId>
-                <artifactId>maven-scm-provider-git-commons</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.scm</groupId>
-                <artifactId>maven-scm-manager-plexus</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.scm</groupId>
-                <artifactId>maven-scm-client</artifactId>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
