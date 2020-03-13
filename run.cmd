@@ -1,3 +1,5 @@
+
+
 cmd /c  mvnw clean
 cmd /c  mvnw install
 cmd /c  mvnw dependency:resolve
@@ -7,7 +9,6 @@ rem cmd /c  mvnw site
 rem cmd /c  mvnw dependency:analyze
 rem cmd /c  mvnw dependency:analyze-report
 rem cmd /c  mvnw dependency:analyze-dept-mgt
-
 cmd /c  mvnw dependency:analyze
 cmd /c  mvnw dependency:analyze-dep-mgt
 cmd /c  mvnw dependency:analyze-duplicate
