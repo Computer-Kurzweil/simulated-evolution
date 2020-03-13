@@ -15,7 +15,7 @@ cmd /c  mvnw dependency:analyze-only
 cmd /c  mvnw dependency:analyze-report
 cmd /c  mvnw dependency:build-classpath
 cmd /c  mvnw dependency:collect
-cmd /c  mvnw dependency:copy
+rem cmd /c  mvnw dependency:copy
 cmd /c  mvnw dependency:copy-dependencies
 cmd /c  mvnw dependency:display-ancestors
 cmd /c  mvnw dependency:get
