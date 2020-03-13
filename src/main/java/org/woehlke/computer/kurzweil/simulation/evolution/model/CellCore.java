@@ -1,5 +1,7 @@
 package org.woehlke.computer.kurzweil.simulation.evolution.model;
 
+import lombok.extern.log4j.Log4j2;
+
 import java.util.List;
 import java.util.Random;
 import java.util.ArrayList;
@@ -13,6 +15,7 @@ import java.util.ArrayList;
  * Date: 04.02.2006
  * Time: 19:55:23
  */
+@Log4j2
 public class CellCore {
 
     /**

@@ -1,5 +1,6 @@
 package org.woehlke.computer.kurzweil.simulation.evolution.control;
 
+import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulation.evolution.model.WorldModel;
 import org.woehlke.computer.kurzweil.simulation.evolution.view.WorldCanvas;
 
@@ -12,6 +13,7 @@ import org.woehlke.computer.kurzweil.simulation.evolution.view.WorldCanvas;
  * Date: 05.02.2006
  * Time: 00:36:20
  */
+@Log4j2
 public class ControllerThread extends Thread implements Runnable {
 
     /**

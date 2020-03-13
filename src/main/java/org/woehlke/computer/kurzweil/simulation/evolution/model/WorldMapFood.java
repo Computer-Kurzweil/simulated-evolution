@@ -1,5 +1,7 @@
 package org.woehlke.computer.kurzweil.simulation.evolution.model;
 
+import lombok.extern.log4j.Log4j2;
+
 import java.util.Random;
 
 /**
@@ -11,6 +13,7 @@ import java.util.Random;
  * Date: 24.08.13
  * Time: 12:37
  */
+@Log4j2
 public class WorldMapFood {
 
     /**

@@ -1,5 +1,7 @@
 package org.woehlke.computer.kurzweil.simulation.evolution.view;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.woehlke.computer.kurzweil.simulation.evolution.model.Cell;
 import org.woehlke.computer.kurzweil.simulation.evolution.model.WorldPoint;
 import org.woehlke.computer.kurzweil.simulation.evolution.model.WorldModel;
@@ -18,6 +20,7 @@ import java.util.List;
  * Date: 05.02.2006
  * Time: 00:51:51
  */
+@Getter
 public class WorldCanvas extends JComponent {
 
     static final long serialVersionUID = 242L;
@@ -25,8 +28,8 @@ public class WorldCanvas extends JComponent {
     /**
      * Reference to the Data Model.
      */
+    @Setter
     private WorldModel worldModel;
-
     private WorldPoint worldDimensions;
 
     private final Color WATER = Color.BLACK;
@@ -70,11 +73,4 @@ public class WorldCanvas extends JComponent {
         paint(g);
     }
 
-    public WorldPoint getWorldDimensions() {
-        return worldDimensions;
-    }
-
-    public void setWorldModel(WorldModel worldModel) {
-        this.worldModel = worldModel;
-    }
 }

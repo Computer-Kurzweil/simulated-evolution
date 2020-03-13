@@ -1,5 +1,7 @@
 package org.woehlke.computer.kurzweil.simulation.evolution.view;
 
+import lombok.extern.log4j.Log4j2;
+
 import javax.accessibility.Accessible;
 import javax.swing.*;
 import java.awt.*;
@@ -22,6 +24,7 @@ import java.io.Serializable;
  * Date: 04.02.2006
  * Time: 18:47:46
  */
+@Log4j2
 public class SimulatedEvolutionFrame extends JFrame implements ImageObserver,
         MenuContainer,
         Serializable,

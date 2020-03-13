@@ -1,5 +1,7 @@
 package org.woehlke.computer.kurzweil.simulation.evolution.model;
 
+import lombok.extern.log4j.Log4j2;
+
 import java.awt.*;
 
 /**
@@ -14,6 +16,7 @@ import java.awt.*;
  * Date: 25.08.13
  * Time: 12:40
  */
+@Log4j2
 public enum LifeCycleStatus {
 
     YOUNG(Color.BLUE),

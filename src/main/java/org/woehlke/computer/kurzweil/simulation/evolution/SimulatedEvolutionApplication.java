@@ -1,5 +1,6 @@
 package org.woehlke.computer.kurzweil.simulation.evolution;
 
+import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulation.evolution.view.SimulatedEvolutionFrame;
 
 /**
@@ -11,6 +12,7 @@ import org.woehlke.computer.kurzweil.simulation.evolution.view.SimulatedEvolutio
  * http://thomas-woehlke.de/p/simulated-evolution/
  * @author Thomas Woehlke
  */
+@Log4j2
 public class SimulatedEvolutionApplication {
 
     private SimulatedEvolutionApplication() { }

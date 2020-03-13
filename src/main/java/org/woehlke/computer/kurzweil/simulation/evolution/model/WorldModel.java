@@ -1,6 +1,8 @@
 package org.woehlke.computer.kurzweil.simulation.evolution.model;
 
 
+import lombok.extern.log4j.Log4j2;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -21,6 +23,7 @@ import java.util.Random;
  * Date: 04.02.2006
  * Time: 19:06:20
  */
+@Log4j2
 public class WorldModel implements Serializable {
 
     static final long serialVersionUID = 242L;

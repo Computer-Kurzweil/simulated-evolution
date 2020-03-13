@@ -1,5 +1,6 @@
 package org.woehlke.computer.kurzweil.simulation.evolution.view;
 
+import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulation.evolution.control.ControllerThread;
 import org.woehlke.computer.kurzweil.simulation.evolution.model.WorldPoint;
 import org.woehlke.computer.kurzweil.simulation.evolution.model.WorldModel;
@@ -20,6 +21,7 @@ import java.io.Serializable;
  * Date: 04.02.2006
  * Time: 18:33:14
  */
+@Log4j2
 public class SimulatedEvolutionApplet extends JApplet implements ImageObserver, MenuContainer, Serializable, Accessible {
 
     static final long serialVersionUID = 242L;

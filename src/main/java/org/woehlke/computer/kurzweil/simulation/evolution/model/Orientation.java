@@ -1,5 +1,7 @@
 package org.woehlke.computer.kurzweil.simulation.evolution.model;
 
+import lombok.extern.log4j.Log4j2;
+
 /**
  * Orientation defines the new position after next move.
  *
@@ -9,6 +11,7 @@ package org.woehlke.computer.kurzweil.simulation.evolution.model;
  * Date: 04.02.2006
  * Time: 19:50:51
  */
+@Log4j2
 public enum Orientation {
 
     FORWARD(0, 2),

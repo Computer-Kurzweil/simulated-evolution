@@ -1,5 +1,7 @@
 package org.woehlke.computer.kurzweil.simulation.evolution.model;
 
+import lombok.extern.log4j.Log4j2;
+
 import java.io.Serializable;
 
 /**
@@ -11,6 +13,7 @@ import java.io.Serializable;
  * Date: 04.02.2006
  * Time: 23:47:05
  */
+@Log4j2
 public class WorldPoint implements Serializable {
 
     static final long serialVersionUID = 242L;

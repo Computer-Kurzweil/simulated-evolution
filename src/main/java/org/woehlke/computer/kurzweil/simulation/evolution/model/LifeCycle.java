@@ -1,5 +1,7 @@
 package org.woehlke.computer.kurzweil.simulation.evolution.model;
 
+import lombok.extern.log4j.Log4j2;
+
 /**
  * State of the Cell which monitors age and getting enough food.
  * After an minimum age and at a minimum af eaten food,
@@ -12,6 +14,7 @@ package org.woehlke.computer.kurzweil.simulation.evolution.model;
  * Date: 04.02.2006
  * Time: 23:12:31
  */
+@Log4j2
 public class LifeCycle {
 
     /**
