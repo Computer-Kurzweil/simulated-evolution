@@ -18,14 +18,14 @@ public enum Orientation {
     SOFT_LEFT(-2, -1),
     HARD_LEFT(-2, 1);
 
-    private Point move;
+    private WorldPoint move;
 
-    public Point getMove() {
+    public WorldPoint getMove() {
         return move;
     }
 
     private Orientation(int x, int y){
-        move = new Point(x,y);
+        move = new WorldPoint(x,y);
     }
 
 }

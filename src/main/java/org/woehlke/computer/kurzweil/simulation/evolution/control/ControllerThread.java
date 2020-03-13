@@ -1,6 +1,6 @@
 package org.woehlke.computer.kurzweil.simulation.evolution.control;
 
-import org.woehlke.computer.kurzweil.simulation.evolution.model.World;
+import org.woehlke.computer.kurzweil.simulation.evolution.model.WorldModel;
 import org.woehlke.computer.kurzweil.simulation.evolution.view.WorldCanvas;
 
 /**
@@ -17,7 +17,7 @@ public class ControllerThread extends Thread implements Runnable {
     /**
      * Data Model for the Simulation
      */
-    private World world;
+    private WorldModel worldModel;
 
     /**
      * Canvas, where to paint in the GUI.
@@ -44,7 +44,7 @@ public class ControllerThread extends Thread implements Runnable {
             synchronized (mySemaphore) {
                 doMyJob = mySemaphore.booleanValue();
             }
-            world.letLivePopulation();
+            worldModel.letLivePopulation();
             canvas.repaint();
             try {
                 sleep(TIME_TO_WAIT);
@@ -66,7 +66,7 @@ public class ControllerThread extends Thread implements Runnable {
         this.canvas = canvas;
     }
 
-    public void setWorld(World world) {
-        this.world = world;
+    public void setWorldModel(WorldModel worldModel) {
+        this.worldModel = worldModel;
     }
 }

@@ -37,9 +37,9 @@ public class WorldMapFood {
     /**
      * Dimension for the Grid inside the WorldMapFood which is the Same as in World Data Model and in the View.
      */
-    private Point dimensions;
+    private WorldPoint dimensions;
 
-    public WorldMapFood(Point dimensions,Random random){
+    public WorldMapFood(WorldPoint dimensions, Random random){
         this.dimensions=dimensions;
         worldMapFood = new int[this.dimensions.getX()][this.dimensions.getY()];
         this.random=random;
@@ -93,10 +93,10 @@ public class WorldMapFood {
      * @param position where is the food and the eating cell
      * @return the engergy of the food, will be added to cell's fat.
      */
-    public int eat(Point position) {
-        Point neighbourhood[] = position.getNeighbourhood(this.dimensions);
+    public int eat(WorldPoint position) {
+        WorldPoint neighbourhood[] = position.getNeighbourhood(this.dimensions);
         int food=0;
-        for (Point neighbourhoodPosition:neighbourhood){
+        for (WorldPoint neighbourhoodPosition:neighbourhood){
             food += worldMapFood[neighbourhoodPosition.getX()][neighbourhoodPosition.getY()];
             worldMapFood[neighbourhoodPosition.getX()][neighbourhoodPosition.getY()]=0;
         }

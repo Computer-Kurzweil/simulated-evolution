@@ -1,8 +1,8 @@
 package org.woehlke.computer.kurzweil.simulation.evolution.view;
 
 import org.woehlke.computer.kurzweil.simulation.evolution.model.Cell;
-import org.woehlke.computer.kurzweil.simulation.evolution.model.Point;
-import org.woehlke.computer.kurzweil.simulation.evolution.model.World;
+import org.woehlke.computer.kurzweil.simulation.evolution.model.WorldPoint;
+import org.woehlke.computer.kurzweil.simulation.evolution.model.WorldModel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,14 +25,14 @@ public class WorldCanvas extends JComponent {
     /**
      * Reference to the Data Model.
      */
-    private World world;
+    private WorldModel worldModel;
 
-    private org.woehlke.computer.kurzweil.simulation.evolution.model.Point worldDimensions;
+    private WorldPoint worldDimensions;
 
     private final Color WATER = Color.BLACK;
     private final Color FOOD = Color.GREEN;
 
-    public WorldCanvas(org.woehlke.computer.kurzweil.simulation.evolution.model.Point worldDimensions) {
+    public WorldCanvas(WorldPoint worldDimensions) {
         this.worldDimensions = worldDimensions;
         this.setBackground(WATER);
         this.setSize(this.worldDimensions.getX(), this.worldDimensions.getY());
@@ -51,16 +51,16 @@ public class WorldCanvas extends JComponent {
         g.setColor(FOOD);
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
-                if (world.hasFood(x, y)) {
+                if (worldModel.hasFood(x, y)) {
                     g.drawLine(x,y,x,y);
                 }
             }
         }
-        List<Cell> population = world.getAllCells();
+        List<Cell> population = worldModel.getAllCells();
         for (Cell p:population) {
-            org.woehlke.computer.kurzweil.simulation.evolution.model.Point[] square = p.getPosition().getNeighbourhood(worldDimensions);
+            WorldPoint[] square = p.getPosition().getNeighbourhood(worldDimensions);
             g.setColor(p.getLifeCycleStatus().getColor());
-            for(org.woehlke.computer.kurzweil.simulation.evolution.model.Point pixel:square){
+            for(WorldPoint pixel:square){
                 g.drawLine(pixel.getX(),pixel.getY(),pixel.getX(),pixel.getY());
             }
         }
@@ -70,11 +70,11 @@ public class WorldCanvas extends JComponent {
         paint(g);
     }
 
-    public Point getWorldDimensions() {
+    public WorldPoint getWorldDimensions() {
         return worldDimensions;
     }
 
-    public void setWorld(World world) {
-        this.world = world;
+    public void setWorldModel(WorldModel worldModel) {
+        this.worldModel = worldModel;
     }
 }

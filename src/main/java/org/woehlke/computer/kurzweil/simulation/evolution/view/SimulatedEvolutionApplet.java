@@ -1,8 +1,8 @@
 package org.woehlke.computer.kurzweil.simulation.evolution.view;
 
 import org.woehlke.computer.kurzweil.simulation.evolution.control.ControllerThread;
-import org.woehlke.computer.kurzweil.simulation.evolution.model.Point;
-import org.woehlke.computer.kurzweil.simulation.evolution.model.World;
+import org.woehlke.computer.kurzweil.simulation.evolution.model.WorldPoint;
+import org.woehlke.computer.kurzweil.simulation.evolution.model.WorldModel;
 
 import javax.accessibility.Accessible;
 import javax.swing.*;
@@ -39,7 +39,7 @@ public class SimulatedEvolutionApplet extends JApplet implements ImageObserver, 
     /**
      * Data Model for the Simulation. The World contains the Bacteria Cells and the Food.
      */
-    private World world;
+    private WorldModel worldModel;
 
     public void init() {
         int scale = 2;
@@ -48,13 +48,13 @@ public class SimulatedEvolutionApplet extends JApplet implements ImageObserver, 
         this.setLayout(new BorderLayout());
         this.add(title, BorderLayout.NORTH);
         controllerThread = new ControllerThread();
-        org.woehlke.computer.kurzweil.simulation.evolution.model.Point worldDimensions = new org.woehlke.computer.kurzweil.simulation.evolution.model.Point(width,height);
-        world = new World(worldDimensions);
+        WorldPoint worldDimensions = new WorldPoint(width,height);
+        worldModel = new WorldModel(worldDimensions);
         canvas = new WorldCanvas(worldDimensions);
-        canvas.setWorld(world);
+        canvas.setWorldModel(worldModel);
         this.add(canvas, BorderLayout.CENTER);
         controllerThread.setCanvas(canvas);
-        controllerThread.setWorld(world);
+        controllerThread.setWorldModel(worldModel);
         controllerThread.start();
     }
 
@@ -64,7 +64,7 @@ public class SimulatedEvolutionApplet extends JApplet implements ImageObserver, 
     public void stop() {
     }
 
-    public Point getCanvasDimensions() {
+    public WorldPoint getCanvasDimensions() {
         return canvas.getWorldDimensions();
     }
 }

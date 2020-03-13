@@ -27,7 +27,7 @@ public class Cell {
     /**
      * The Cell's state is position, orientation and LifeCycle
      */
-    private Point position;
+    private WorldPoint position;
 
     /**
      * The Cell's state is position, orientation and LifeCycle
@@ -42,16 +42,16 @@ public class Cell {
     /**
      * The World Dimensions in which this Cell can move.
      */
-    private Point max;
+    private WorldPoint max;
 
     /**
      * Random Generator is set from outside by Constructor.
      */
     private Random random;
 
-    public Cell(Point max, Point position, Random random) {
-        this.max = new Point(max);
-        this.position = new Point(position);
+    public Cell(WorldPoint max, WorldPoint position, Random random) {
+        this.max = new WorldPoint(max);
+        this.position = new WorldPoint(position);
         this.random = random;
         this.cellCore = new CellCore(random);
         this.max.killNagative();
@@ -62,10 +62,10 @@ public class Cell {
         this.lifeCycle = new LifeCycle();
     }
 
-    private Cell(int fat, CellCore rna, Point position, Point max, Random random) {
+    private Cell(int fat, CellCore rna, WorldPoint position, WorldPoint max, Random random) {
         lifeCycle = new LifeCycle(fat);
-        this.max = new Point(max);
-        this.position = new Point(position);
+        this.max = new WorldPoint(max);
+        this.position = new WorldPoint(position);
         this.random = random;
         this.cellCore = rna;
         orientation = getRandomOrientation();
@@ -117,7 +117,7 @@ public class Cell {
     /**
      * @return The new Position after the last move.
      */
-    public Point getPosition() {
+    public WorldPoint getPosition() {
         return position;
     }
 

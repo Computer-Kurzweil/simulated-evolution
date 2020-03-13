@@ -11,7 +11,7 @@ import java.io.Serializable;
  * Date: 04.02.2006
  * Time: 23:47:05
  */
-public class Point implements Serializable {
+public class WorldPoint implements Serializable {
 
     static final long serialVersionUID = 242L;
 
@@ -25,12 +25,12 @@ public class Point implements Serializable {
      */
     private int y = 0;
 
-    public Point(Point p) {
+    public WorldPoint(WorldPoint p) {
         this.x = p.getX();
         this.y = p.getY();
     }
 
-    public Point(int x, int y) {
+    public WorldPoint(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -60,12 +60,12 @@ public class Point implements Serializable {
         }
     }
 
-    public void add(Point p) {
+    public void add(WorldPoint p) {
         this.x += p.getX();
         this.y += p.getY();
     }
 
-    public void normalize(Point p) {
+    public void normalize(WorldPoint p) {
         this.x %= p.getX();
         this.y %= p.getY();
     }
@@ -76,19 +76,19 @@ public class Point implements Serializable {
      * @param max - limit the dimensions of the world around
      * @return The Set of Points belonging to the Neighbourhood of the position given by this Point Object.
      */
-    public Point[] getNeighbourhood(Point max){
-        Point neighbourhood[] = new Point[9];
+    public WorldPoint[] getNeighbourhood(WorldPoint max){
+        WorldPoint neighbourhood[] = new WorldPoint[9];
         int maxX = max.getX();
         int maxY = max.getY();
-        neighbourhood[0]= new Point((this.x+maxX-1) % maxX,(this.y+maxY-1) % maxY);
-        neighbourhood[1]= new Point((this.x+maxX-1) % maxX,this.y);
-        neighbourhood[2]= new Point((this.x+maxX-1) % maxX,(this.y+maxY+1) % maxY);
-        neighbourhood[3]= new Point(this.x,(this.y+maxY-1) % maxY);
-        neighbourhood[4]= new Point(this.x,this.y);
-        neighbourhood[5]= new Point(this.x,(this.y+maxY+1) % maxY);
-        neighbourhood[6]= new Point((this.x+maxX+1) % maxX,(this.y+maxY-1) % maxY);
-        neighbourhood[7]= new Point((this.x+maxX+1) % maxX,this.y);
-        neighbourhood[8]= new Point((this.x+maxX+1) % maxX,(this.y+maxY+1) % maxY);
+        neighbourhood[0]= new WorldPoint((this.x+maxX-1) % maxX,(this.y+maxY-1) % maxY);
+        neighbourhood[1]= new WorldPoint((this.x+maxX-1) % maxX,this.y);
+        neighbourhood[2]= new WorldPoint((this.x+maxX-1) % maxX,(this.y+maxY+1) % maxY);
+        neighbourhood[3]= new WorldPoint(this.x,(this.y+maxY-1) % maxY);
+        neighbourhood[4]= new WorldPoint(this.x,this.y);
+        neighbourhood[5]= new WorldPoint(this.x,(this.y+maxY+1) % maxY);
+        neighbourhood[6]= new WorldPoint((this.x+maxX+1) % maxX,(this.y+maxY-1) % maxY);
+        neighbourhood[7]= new WorldPoint((this.x+maxX+1) % maxX,this.y);
+        neighbourhood[8]= new WorldPoint((this.x+maxX+1) % maxX,(this.y+maxY+1) % maxY);
         return neighbourhood;
     }
 }

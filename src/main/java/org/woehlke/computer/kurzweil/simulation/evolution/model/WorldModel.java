@@ -21,7 +21,7 @@ import java.util.Random;
  * Date: 04.02.2006
  * Time: 19:06:20
  */
-public class World implements Serializable {
+public class WorldModel implements Serializable {
 
     static final long serialVersionUID = 242L;
 
@@ -43,14 +43,14 @@ public class World implements Serializable {
     /**
      * Definition of the World's Size in Pixel Width and Height.
      */
-    private Point worldDimensions;
+    private WorldPoint worldDimensions;
 
     /**
      * Map of the World monitoring growth and eating food.
      */
     private WorldMapFood worldMapFood;
 
-    public World(Point worldDimensions) {
+    public WorldModel(WorldPoint worldDimensions) {
         long seed = new Date().getTime();
         random = new Random(seed);
         this.worldDimensions = worldDimensions;
@@ -72,7 +72,7 @@ public class World implements Serializable {
             if (y < 0) {
                 y *= -1;
             }
-            Point pos = new Point(x, y);
+            WorldPoint pos = new WorldPoint(x, y);
             Cell cell = new Cell(worldDimensions, pos, random);
             cells.add(cell);
         }
@@ -84,7 +84,7 @@ public class World implements Serializable {
      */
     public void letLivePopulation() {
         worldMapFood.letFoodGrow();
-        Point pos;
+        WorldPoint pos;
         List<Cell> children = new ArrayList<Cell>();
         List<Cell> died = new ArrayList<Cell>();
         for (Cell cell:cells) {
