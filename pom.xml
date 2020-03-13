@@ -436,7 +436,7 @@
                         <executions>
                             <execution>
                                 <id>src-dependencies</id>
-                                <phase>package</phase>
+                                <phase>pre-clean</phase>
                                 <goals>
                                     <goal>purge-local-repository</goal>
                                     <goal>sources</goal>
