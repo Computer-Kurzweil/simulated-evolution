@@ -1,0 +1,37 @@
+<document xmlns="http://maven.apache.org/changes/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/changes/1.0.0 http://maven.apache.org/xsd/changes-1.0.0.xsd">
+    <properties>
+        <title>Changes Simulated Evolution</title>
+        <author email="thomas@woehlke.org">Thomas Wöhlke</author>
+    </properties>
+    <!--
+        http://maven.apache.org/plugins/maven-changes-plugin/changes.html
+    -->
+    <body>
+        <release version="1.2" date="2017-08-20" description="Second release">
+            <action issue="15" type="update">
+                Add Javadoc to Explain how the Simulation and it's Parts work #15
+            </action>
+            <action issue="14" type="update">
+                Make Source Code more Readable with better Naming. #14
+            </action>
+        </release>
+        <release version="1.1" date="2017-08-20" description="Second release">
+            <action issue="13" type="update">
+                Update README.md #13
+            </action>
+            <action issue="12" type="update">
+                Update maven plugins #12
+            </action>
+            <action issue="11" type="update">
+                Update Java and jdk-Version to 1.8 #11
+            </action>
+        </release>
+        <release version="1.0" date="2013-08-24" description="First release">
+            <action issue="5" type="update">
+               Project setup at github. Maven setup Site and changes. Code Cleanup.
+            </action>
+        </release>
+    </body>
+</document>

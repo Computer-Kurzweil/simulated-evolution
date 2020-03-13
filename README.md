@@ -1,60 +1,48 @@
-# Simulated Evolution
+Simulated Evolution
+===================
 
 **Artificial Life Simulation of Bacteria Motion depending on DNA**
 
-## Abstract
+Abstract
+--------
 
 Green food appears in a world with red moving cells. These cells eat the food if it is on their position.
 Movement of the cells depends on random and their DNA. A fit cell moves around and eats enough to reproduce.
 Reproduction is done by splitting the cell and randomly changing the DNA of the two new Cells.
 If a cell doesn't eat enough, it will first stand still and after a while it dies.
 
-## Blog Article 
-* [http://thomas-woehlke.blogspot.de/2016/01/simulated-evolution-artificial-life-and.html](http://thomas-woehlke.blogspot.de/2016/01/simulated-evolution-artificial-life-and.html)
 
-## Screenshots
+Run the Desktop Application
+---------------------------
 
-### Early Screen 
-
-![Early Screen](src/main/resources/img/screen1.png)
-
-### Later Screen 
-
-![Later Screen](src/main/resources/img/screen2.png)
-
-### Explanation
-
-| Color | Explanation |
-|-------|-------------|
-| ![](src/main/resources/img/black.png) | water           |
-| ![](src/main/resources/img/green.png) | food            |
-| ![](src/main/resources/img/blue.png) | cell is young   |
-| ![](src/main/resources/img/yellow.png)  | cell is fat enough to reproduce*   |
-| ![](src/main/resources/img/red.png)  | cell is old enough to reproduce*   |
-| ![](src/main/resources/img/light_gray.png)  | cell is hungry and waiting for food or death   |
-| ![](src/main/resources/img/dark_gray.png)  | cell is old and waiting for death   |
-| &nbsp; | * (if cell is fat and old enough for reproduction it splits and changes the childrens DNA)   |
-
-
-## UML Class Model
-
-![UML Class Model](etc/img/Class_Model.jpg)
-
-## Git Repository
-* [https://github.com/thomaswoehlke/simulated-evolution](https://github.com/thomaswoehlke/simulated-evolution)
-
-## Run the Desktop Application
 ```
-git clone https://github.com/thomaswoehlke/simulated-evolution.git
+git clone https://github.com/phasenraum2010/simulated-evolution.git
 cd simulated-evolution
-./gradlew clean shadowJar runShadow
+mvnw clean install exec:java
 ```
 
-## Run the Applet Test
-```
-git clone https://github.com/thomaswoehlke/simulated-evolution.git
-cd simulated-evolution
-TODO: xxx
-```
+Screenshot
+----------
+
+![Early Screen](http://woehlke.org/p/simulated-evolution/img/screen1.png)
+
+![Later Screen](http://woehlke.org/p/simulated-evolution/img/screen2.png)
 
 
+UML Class Model
+---------------
+
+![UML Class Model](http://woehlke.org/p/simulated-evolution/img/Class_Model.jpg)
+
+
+Github Repository
+-----------------
+[https://github.com/phasenraum2010/simulated-evolution](https://github.com/phasenraum2010/simulated-evolution)
+
+Blog Article 
+------------
+[http://thomas-woehlke.blogspot.de/2016/01/simulated-evolution-artificial-life-and.html](http://thomas-woehlke.blogspot.de/2016/01/simulated-evolution-artificial-life-and.html)
+
+Project Documentation
+---------------------
+please visit [http://woehlke.org/p/simulated-evolution/](http://woehlke.org/p/simulated-evolution/)

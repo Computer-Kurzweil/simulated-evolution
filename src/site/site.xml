@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Reflow Maven Skin"
+         xmlns="http://maven.apache.org/DECORATION/1.3.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/DECORATION/1.3.0 http://maven.apache.org/xsd/decoration-1.3.0.xsd">
+    <skin>
+        <groupId>org.apache.maven.skins</groupId>
+        <artifactId>maven-fluido-skin</artifactId>
+        <version>1.8</version>
+    </skin>
+    <bannerLeft>
+        <name>Simulated Evolution</name>
+        <src>/img/phasenraum_logo.gif</src>
+        <href>http://woehlke.org/</href>
+    </bannerLeft>
+    <publishDate position="navigation-bottom"/>
+    <poweredBy>
+        <logo name="Maven" href="http://maven.apache.org/"
+              img="http://maven.apache.org/images/logos/maven-feather.png"/>
+    </poweredBy>
+    <body>
+        <links>
+            <item name="GitHub project" href="https://github.com/Computer-Kurzweil/simulated-evolution/" />
+        </links>
+        <breadcrumbs>
+            <item name="Simulated Evolution" href="/" />
+        </breadcrumbs>
+        <menu name="Main" inherit="top">
+            <item name="Home" href="/" />
+            <item name="GitHub project" href="https://github.com/Computer-Kurzweil/simulated-evolution" />
+            <item name="Blog" href="https://thomas-woehlke.blogspot.de/2016/01/simulated-evolution-artificial-life-and.html" />
+            <item name="License" href="license.html" />
+        </menu>
+        <menu name="Contribute" inherit="bottom">
+            <item name="Issues" href="https://github.com/Computer-Kurzweil/simulated-evolution/issues/" />
+            <item name="Fork on GitHub" href="https://github.com/Computer-Kurzweil/simulated-evolution/" />
+            <item name="Donate" href="https://www.paypal.me/ThomasWoehlke" />
+        </menu>
+        <menu name="Maven Reports" ref="reports" inherit="bottom"/>
+    </body>
+</project>
