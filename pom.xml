@@ -359,9 +359,7 @@
                             <goal>javadoc</goal>
                         </goals>
                         <configuration>
-                            <!--
                             <linksource>true</linksource>
-                            -->
                             <maxmemory>2048m</maxmemory>
                             <source>${java-version}</source>
                             <encoding>${project.build.sourceEncoding}</encoding>

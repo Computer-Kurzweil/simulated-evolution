@@ -36,7 +36,7 @@ rem cmd /c  mvnw dependency:unpack-dependencies
 goto:FINALE
 
 :RUN
-cmd /c  mvnw exec:java
+cmd /c  mvnw -e clean install exec:java
 goto:FINALE
 
 :MAIN
