@@ -29,5 +29,5 @@ cmd /c  mvnw dependency:resolve
 cmd /c  mvnw dependency:resolve-plugins
 cmd /c  mvnw dependency:sources
 cmd /c  mvnw dependency:tree
-cmd /c  mvnw dependency:unpack
-cmd /c  mvnw dependency:unpack-dependencies
+rem cmd /c  mvnw dependency:unpack
+rem cmd /c  mvnw dependency:unpack-dependencies
