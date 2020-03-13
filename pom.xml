@@ -277,11 +277,6 @@
             <plugins>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-dependency-plugin</artifactId>
-                    <version>3.1.2</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.6.2</version>
                 </plugin>
@@ -292,23 +287,8 @@
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>3.0.0-M1</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-shade-plugin</artifactId>
                     <version>3.2.2</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-scm-plugin</artifactId>
-                    <version>${maven.scm.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-release-plugin</artifactId>
-                    <version>3.0.0-M1</version>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
@@ -320,33 +300,9 @@
                     <artifactId>maven-jar-plugin</artifactId>
                     <version>3.2.0</version>
                 </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-jxr-plugin</artifactId>
-                    <version>3.0.0</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.projectlombok</groupId>
-                    <artifactId>lombok-maven-plugin</artifactId>
-                    <version>1.18.12.0</version>
-                </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
-            <!--
-            <plugin>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>delombok</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -372,22 +328,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-scm-plugin</artifactId>
-                <configuration>
-                    <connectionType>developerConnection</connectionType>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-release-plugin</artifactId>
-                <configuration>
-                    <preparationGoals>clean</preparationGoals>
-                    <autoVersionSubmodules>true</autoVersionSubmodules>
-                    <goals>install</goals>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
@@ -425,6 +365,15 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <build>
+                <pluginManagement>
+                    <plugins>
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-dependency-plugin</artifactId>
+                            <version>3.1.2</version>
+                        </plugin>
+                    </plugins>
+                </pluginManagement>
             <plugins>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -445,39 +394,41 @@
                         </execution>
                     </executions>
                 </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-javadoc-plugin</artifactId>
-                    <configuration>
-                        <skip>true</skip>
-                        <maxmemory>2048m</maxmemory>
-                        <source>${java-version}</source>
-                        <encoding>${project.build.sourceEncoding}</encoding>
-                        <javadocExecutable>${java.home}/bin/javadoc</javadocExecutable>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <id>javadoc-javadoc-package</id>
-                            <phase>package</phase>
-                            <goals>
-                                <goal>javadoc</goal>
-                            </goals>
-                            <configuration>
-                                <linksource>true</linksource>
-                                <maxmemory>2048m</maxmemory>
-                                <source>${java-version}</source>
-                                <encoding>${project.build.sourceEncoding}</encoding>
-                                <javadocExecutable>${java.home}/bin/javadoc</javadocExecutable>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
             </plugins>
             </build>
         </profile>
         <profile>
             <id>setup</id>
             <build>
+                <pluginManagement>
+                        <plugins>
+                            <plugin>
+                                <groupId>org.apache.maven.plugins</groupId>
+                                <artifactId>maven-dependency-plugin</artifactId>
+                                <version>3.1.2</version>
+                            </plugin>
+                            <plugin>
+                                <groupId>org.apache.maven.plugins</groupId>
+                                <artifactId>maven-javadoc-plugin</artifactId>
+                                <version>3.0.0-M1</version>
+                            </plugin>
+                            <plugin>
+                                <groupId>org.apache.maven.plugins</groupId>
+                                <artifactId>maven-scm-plugin</artifactId>
+                                <version>${maven.scm.version}</version>
+                            </plugin>
+                            <plugin>
+                                <groupId>org.apache.maven.plugins</groupId>
+                                <artifactId>maven-release-plugin</artifactId>
+                                <version>3.0.0-M1</version>
+                            </plugin>
+                            <plugin>
+                                <groupId>org.projectlombok</groupId>
+                                <artifactId>lombok-maven-plugin</artifactId>
+                                <version>1.18.12.0</version>
+                            </plugin>
+                        </plugins>
+                </pluginManagement>
                 <plugins>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
@@ -487,8 +438,8 @@
                                 <id>src-dependencies</id>
                                 <phase>package</phase>
                                 <goals>
-                                    <goal>resolve</goal>
                                     <goal>sources</goal>
+                                    <goal>resolve</goal>
                                     <goal>resolve-plugins</goal>
                                     <goal>analyze</goal>
                                     <goal>collect</goal>
@@ -531,6 +482,34 @@
                             </execution>
                         </executions>
                     </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-scm-plugin</artifactId>
+                        <configuration>
+                            <connectionType>developerConnection</connectionType>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-release-plugin</artifactId>
+                        <configuration>
+                            <preparationGoals>clean</preparationGoals>
+                            <autoVersionSubmodules>true</autoVersionSubmodules>
+                            <goals>install</goals>
+                        </configuration>
+                    </plugin>
+                      <plugin>
+                          <groupId>org.projectlombok</groupId>
+                          <artifactId>lombok-maven-plugin</artifactId>
+                          <executions>
+                              <execution>
+                                  <phase>generate-sources</phase>
+                                  <goals>
+                                      <goal>delombok</goal>
+                                  </goals>
+                              </execution>
+                          </executions>
+                      </plugin>
                 </plugins>
             </build>
         </profile>
