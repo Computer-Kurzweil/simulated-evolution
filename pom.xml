@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.woehlke.computer.kurzweil</groupId>
-    <artifactId>simulated-evolution</artifactId>
+    <artifactId>simulatedevolution</artifactId>
     <version>2.4-SNAPSHOT</version>
     <packaging>jar</packaging>
     <url>https://github.com/Computer-Kurzweil/simulated-evolution</url>
@@ -444,7 +444,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>org.woehlke.computer.kurzweil.simulation.evolution.SimulatedEvolutionApplication</mainClass>
+                    <mainClass>org.woehlke.computer.kurzweil.SimulatedEvolutionApplication</mainClass>
                 </configuration>
             </plugin>
             <plugin>
@@ -454,7 +454,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>org.woehlke.computer.kurzweil.simulation.evolution.SimulatedEvolutionApplication</mainClass>
+                            <mainClass>org.woehlke.computer.kurzweil.SimulatedEvolutionApplication</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
