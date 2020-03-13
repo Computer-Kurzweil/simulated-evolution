@@ -1,11 +1,11 @@
-package org.woehlke.simulation.evolution.desktop;
+package org.woehlke.computer.kurzweil.simulation.evolution.desktop;
 
-import org.woehlke.simulation.evolution.view.SimulatedEvolutionFrame;
+import org.woehlke.computer.kurzweil.simulation.evolution.view.SimulatedEvolutionFrame;
 
 /**
  * Class with main Method for Starting the Desktop Application.
  *
- * @see org.woehlke.simulation.evolution.view.SimulatedEvolutionFrame
+ * @see SimulatedEvolutionFrame
  *
  * &copy; 2006 - 2008 Thomas Woehlke.
  * http://thomas-woehlke.de/p/simulated-evolution/

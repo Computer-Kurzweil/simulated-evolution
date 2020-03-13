@@ -1,4 +1,4 @@
-package org.woehlke.simulation.evolution.view;
+package org.woehlke.computer.kurzweil.simulation.evolution.view;
 
 import javax.accessibility.Accessible;
 import javax.swing.*;
@@ -11,7 +11,7 @@ import java.io.Serializable;
 /**
  * This Frame wraps the SimulatedEvolutionApplet which is the Container for this Simulution.
  *
- * @see org.woehlke.simulation.evolution.view.SimulatedEvolutionApplet
+ * @see SimulatedEvolutionApplet
  * @see javax.swing.JFrame
  * @see java.awt.image.ImageObserver
  * @see java.awt.event.WindowListener

@@ -1,7 +1,7 @@
-package org.woehlke.simulation.evolution.control;
+package org.woehlke.computer.kurzweil.simulation.evolution.control;
 
-import org.woehlke.simulation.evolution.model.World;
-import org.woehlke.simulation.evolution.view.WorldCanvas;
+import org.woehlke.computer.kurzweil.simulation.evolution.model.World;
+import org.woehlke.computer.kurzweil.simulation.evolution.view.WorldCanvas;
 
 /**
  * The ControllerThread controls the Interactions between Model and View (MVC-Pattern).

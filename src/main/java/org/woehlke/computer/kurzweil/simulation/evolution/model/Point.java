@@ -1,4 +1,4 @@
-package org.woehlke.simulation.evolution.model;
+package org.woehlke.computer.kurzweil.simulation.evolution.model;
 
 import java.io.Serializable;
 

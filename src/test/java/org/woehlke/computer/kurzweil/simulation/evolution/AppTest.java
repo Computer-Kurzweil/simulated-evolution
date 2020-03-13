@@ -1,4 +1,4 @@
-package org.woehlke.simulation.evolution;
+package org.woehlke.computer.kurzweil.simulation.evolution;
 
 import org.junit.Assert;
 import org.junit.Test;

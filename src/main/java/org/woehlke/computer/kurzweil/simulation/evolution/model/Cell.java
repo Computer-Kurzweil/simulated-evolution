@@ -1,4 +1,4 @@
-package org.woehlke.simulation.evolution.model;
+package org.woehlke.computer.kurzweil.simulation.evolution.model;
 
 import java.util.Random;
 
@@ -7,9 +7,9 @@ import java.util.Random;
  * It's state is position, orientation and LifeCycle.
  * The Cell has a CellCore with the DNA Genome for Moving around.
  *
- * @see org.woehlke.simulation.evolution.model.CellCore
- * @see org.woehlke.simulation.evolution.model.LifeCycle
- * @see org.woehlke.simulation.evolution.model.LifeCycleStatus
+ * @see CellCore
+ * @see LifeCycle
+ * @see LifeCycleStatus
  *
  * &copy; 2006 - 2008 Thomas Woehlke.
  * http://thomas-woehlke.de/p/simulated-evolution/

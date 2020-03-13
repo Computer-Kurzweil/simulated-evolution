@@ -1,8 +1,8 @@
-package org.woehlke.simulation.evolution.view;
+package org.woehlke.computer.kurzweil.simulation.evolution.view;
 
-import org.woehlke.simulation.evolution.control.ControllerThread;
-import org.woehlke.simulation.evolution.model.World;
-import org.woehlke.simulation.evolution.model.Point;
+import org.woehlke.computer.kurzweil.simulation.evolution.control.ControllerThread;
+import org.woehlke.computer.kurzweil.simulation.evolution.model.Point;
+import org.woehlke.computer.kurzweil.simulation.evolution.model.World;
 
 import javax.accessibility.Accessible;
 import javax.swing.*;
@@ -48,7 +48,7 @@ public class SimulatedEvolutionApplet extends JApplet implements ImageObserver, 
         this.setLayout(new BorderLayout());
         this.add(title, BorderLayout.NORTH);
         controllerThread = new ControllerThread();
-        Point worldDimensions = new Point(width,height);
+        org.woehlke.computer.kurzweil.simulation.evolution.model.Point worldDimensions = new org.woehlke.computer.kurzweil.simulation.evolution.model.Point(width,height);
         world = new World(worldDimensions);
         canvas = new WorldCanvas(worldDimensions);
         canvas.setWorld(world);

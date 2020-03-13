@@ -1,4 +1,4 @@
-package org.woehlke.simulation.evolution.model;
+package org.woehlke.computer.kurzweil.simulation.evolution.model;
 
 /**
  * State of the Cell which monitors age and getting enough food.
