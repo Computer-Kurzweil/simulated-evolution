@@ -19,10 +19,6 @@
               img="http://maven.apache.org/images/logos/maven-feather.png"/>
     </poweredBy>
     <body>
-        <!-- Add a rel to Google profile for all pages -->
-        <head>
-            <link rel="author" href="https://github.com/thomaswoehlke" ></link>
-        </head>
         <links>
             <item name="GitHub project" href="https://github.com/Computer-Kurzweil/simulated-evolution/" />
         </links>

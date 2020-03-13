@@ -1,6 +1,33 @@
-mvnw clean
-mvnw install
-mvnw dependency:resolve
-mvnw dependency:resolve-plugins
-mvnw dependency:tree
-mvnw site
+cmd /c  mvnw clean
+cmd /c  mvnw install
+cmd /c  mvnw dependency:resolve
+cmd /c  mvnw dependency:resolve-plugins
+cmd /c  mvnw dependency:tree
+rem cmd /c  mvnw site
+rem cmd /c  mvnw dependency:analyze
+rem cmd /c  mvnw dependency:analyze-report
+rem cmd /c  mvnw dependency:analyze-dept-mgt
+
+cmd /c  mvnw dependency:analyze
+cmd /c  mvnw dependency:analyze-dep-mgt
+cmd /c  mvnw dependency:analyze-duplicate
+cmd /c  mvnw dependency:analyze-only
+cmd /c  mvnw dependency:analyze-report
+cmd /c  mvnw dependency:build-classpath
+cmd /c  mvnw dependency:collect
+cmd /c  mvnw dependency:copy
+cmd /c  mvnw dependency:copy-dependencies
+cmd /c  mvnw dependency:display-ancestors
+cmd /c  mvnw dependency:get
+cmd /c  mvnw dependency:go-offline
+cmd /c  mvnw dependency:help
+cmd /c  mvnw dependency:list
+cmd /c  mvnw dependency:list-repositories
+cmd /c  mvnw dependency:properties
+cmd /c  mvnw dependency:purge-local-repository
+cmd /c  mvnw dependency:resolve
+cmd /c  mvnw dependency:resolve-plugins
+cmd /c  mvnw dependency:sources
+cmd /c  mvnw dependency:tree
+cmd /c  mvnw dependency:unpack
+cmd /c  mvnw dependency:unpack-dependencies
