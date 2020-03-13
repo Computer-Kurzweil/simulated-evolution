@@ -3,7 +3,6 @@ package org.woehlke.computer.kurzweil.simulation.evolution.view;
 import org.woehlke.computer.kurzweil.simulation.evolution.model.Cell;
 import org.woehlke.computer.kurzweil.simulation.evolution.model.Point;
 import org.woehlke.computer.kurzweil.simulation.evolution.model.World;
-import org.woehlke.simulation.evolution.model.*;
 
 import javax.swing.*;
 import java.awt.*;
