@@ -96,7 +96,7 @@
         <log4j2Version>2.13.0</log4j2Version>
         <lombokVersion>1.18.12</lombokVersion>
         <orgApacheCommonsLang3VersionVersion>3.9</orgApacheCommonsLang3VersionVersion>
-        <jacksonDatabindVersion>2.9.8</jacksonDatabindVersion>
+        <jacksonDatabindVersion>2.10.3</jacksonDatabindVersion>
         <orgYamlSnakeyamlVersion>1.17</orgYamlSnakeyamlVersion>
         <javaxValidationApiVersion>2.0.1.Final</javaxValidationApiVersion>
         <comGoogleGuavaVersion>28.0-jre</comGoogleGuavaVersion>
