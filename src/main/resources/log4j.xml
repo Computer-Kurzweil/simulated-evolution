@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+        <RollingFileAppender name="LogFile" fileName="kurzweil.log" append="true">
+            <PatternLayout>
+                <Pattern>%d %p %class{1.} [%t] %location %m %ex%n</Pattern>
+            </PatternLayout>
+        </RollingFileAppender>
+    </Appenders>
+    <Loggers>
+        <Logger name="org.woehlke.computer.kurzweil.tabs.cca" level="info" includeLocation="true">
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Logger name="org.woehlke.computer.kurzweil.tabs.dla" level="warn" includeLocation="true">
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Logger name="org.woehlke.computer.kurzweil.tabs.simulatedevolution" level="info" includeLocation="true">
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Logger name="org.woehlke.computer.kurzweil.tabs.mandelbrot" level="warn" includeLocation="true">
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Logger name="org.woehlke.computer.kurzweil.tabs.randomwalk" level="warn" includeLocation="true">
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Logger name="org.woehlke.computer.kurzweil.application" level="info" includeLocation="true">
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Logger name="org.woehlke.computer.kurzweil.commons" level="info" includeLocation="true">
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Logger name="org.woehlke.computer.kurzweil.commons.model" level="info" includeLocation="true">
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Logger name="org.woehlke.computer.kurzweil.commons.widgets" level="info" includeLocation="true">
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>

@@ -1,0 +1,178 @@
+allinone:
+  lattice:
+    width: 640
+    height: 400
+  view:
+    title: 'Computer Kurzweil'
+    subtitle: 'Scientific Imfotainment'
+    copyright: '(c) 2020 Thomas Woehlke'
+    borderPaddingX: 5
+    borderPaddingY: 5
+    titleHeight: 60
+    startStopp: 'Start / Stop'
+    start: 'Start'
+    stop: 'Stop'
+    info: 'Info'
+mandelbrot:
+  view:
+    title: 'Mandelbrot Set'
+    subtitle: 'Fractal Mandelbrot Set drawn by a Turing Machine'
+    buttonsZoom: 'Zoom In'
+    buttonsZoomOut: 'Zoom Out'
+    buttonsSwitch: 'Mandelbrot Set <-> Julia Set'
+    buttonsZoomLabel: 'Zoom'
+    buttonsLabel: 'Choose Mouse Click Mode'
+  control:
+    threadSleepTime: 50
+simulatedevolution:
+  view:
+    title: 'Simulated Evolution'
+    subtitle: 'Artificial Life Simulation of Bacteria Motion depending on DNA'
+  control:
+    threadSleepTime: 100
+    exitStatus: 0
+    queueMaxLength: 1000
+  cellConf:
+    fatMax: 2000
+    fatHungerMax: 1000
+    fatMinimumForSex: 800
+    fatAtBirth: 500
+    fatPerFood: 25
+    ageOfAdulthood: 200
+    ageOld: 800
+    ageMax: 1000
+  population:
+    initialPopulation: 20
+    panelPopulationStatistics: 'Statistics'
+    youngCellsLabel: 'young'
+    youngAndFatCellsLabel: 'young and Fat'
+    fullAgeCellsLabel: 'full Age'
+    hungryCellsLabel: 'hungry'
+    oldCellsLabel: 'old'
+    populationLabel: 'population'
+    generationOldestLabel: 'oldest Generation'
+    generationYoungestLabel: 'youngest Generation'
+  food:
+    foodPerDay: 20
+    foodPerDayFieldColumns: 3
+    foodPerDayLabel: 'Food per Day:'
+    foodPerDayBorderLabel: 'Food per Day:'
+    buttonFoodPerDayIncrease: '+'
+    buttonFoodPerDayDecrease: '-'
+    panelFood: 'Food'
+  gardenOfEden:
+    panelGardenOfEden: 'Garden of Eden'
+    gardenOfEdenEnabled: true
+    gardenOfEdenEnabledString: 'enabled'
+    gardenOfEdenEnabledToggleButton: 'Change'
+    foodPerDay: 80
+    gardenOfEdenLatticeDivisor: 5
+    gardenOfEdenLatticeDivisorPadding: 2
+cca:
+  view:
+    title: 'Cyclic Cellular Automaton'
+    subtitle: 'Cyclic Cellular Automaton'
+    neighborhood:
+      title: 'Neighborhood'
+      typeVonNeumann: 'Von Neumann'
+      typeMoore: 'Moore'
+      typeWoehlke: 'Woehlke'
+  control:
+    threadSleepTime: 100
+randomwalk:
+  view:
+    title: 'Random Walk'
+    subtitle: 'Brownian Motion by Fractal Random Walk'
+  control:
+    threadSleepTime: 100
+dla:
+  view:
+    title: 'Diffusion Limited Aggregation'
+    subtitle: 'Fractal Random Walk due to Brownian Motion Cluster'
+  control:
+    threadSleepTime: 50
+    numberOfParticles: 30000
+kochsnowflake:
+  view:
+    title: 'Koch Snowflake'
+    subtitle: 'Fractal Koch Snowflake'
+    neighborhood:
+      title: 'Neighborhood'
+      typeVonNeumann: 'Von Neumann'
+      typeMoore: 'Moore'
+      typeWoehlke: 'Woehlke'
+  control:
+    threadSleepTime: 50
+    numberOfParticles: 30000
+samegame:
+  view:
+    title: 'Same Game'
+    subtitle: 'Play the Same Game'
+    neighborhood:
+      title: 'Neighborhood'
+      typeVonNeumann: 'Von Neumann'
+      typeMoore: 'Moore'
+      typeWoehlke: 'Woehlke'
+  control:
+    threadSleepTime: 50
+    numberOfParticles: 30000
+sierpinskitriangle:
+  view:
+    title: 'Sierpinski Triangle'
+    subtitle: 'Fractal Sierpinski Triangle'
+    neighborhood:
+      title: 'Neighborhood'
+      typeVonNeumann: 'Von Neumann'
+      typeMoore: 'Moore'
+      typeWoehlke: 'Woehlke'
+  control:
+    threadSleepTime: 50
+    numberOfParticles: 30000
+tetris:
+  view:
+    title: 'Tetris'
+    subtitle: 'Play Tetris'
+    neighborhood:
+      title: 'Neighborhood'
+      typeVonNeumann: 'Von Neumann'
+      typeMoore: 'Moore'
+      typeWoehlke: 'Woehlke'
+  control:
+    threadSleepTime: 50
+    numberOfParticles: 30000
+turmite:
+  view:
+    title: 'Turmite'
+    subtitle: 'Termites as Turing Machines with 2D Tape'
+    neighborhood:
+      title: 'Neighborhood'
+      typeVonNeumann: 'Von Neumann'
+      typeMoore: 'Moore'
+      typeWoehlke: 'Woehlke'
+  control:
+    threadSleepTime: 50
+    numberOfParticles: 30000
+wator:
+  view:
+    title: 'WaTor'
+    subtitle: 'Population Dynamics on Planet Water Torus'
+    neighborhood:
+      title: 'Neighborhood'
+      typeVonNeumann: 'Von Neumann'
+      typeMoore: 'Moore'
+      typeWoehlke: 'Woehlke'
+  control:
+    threadSleepTime: 50
+    numberOfParticles: 30000
+gameoflive:
+  view:
+    title: 'Conways Game of Life'
+    subtitle: 'Conways Game of Life Cellular Automaton'
+    neighborhood:
+      title: 'Neighborhood'
+      typeVonNeumann: 'Von Neumann'
+      typeMoore: 'Moore'
+      typeWoehlke: 'Woehlke'
+  control:
+    threadSleepTime: 50
+    numberOfParticles: 30000
