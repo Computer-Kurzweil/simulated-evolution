@@ -12,16 +12,17 @@ plugins {
     id 'idea'
 }
 
-def group = 'org.woehlke.computer.kurzweil'
 def applicationNameConfig = 'simulatedevolution'
-def mainClassNameConfig = 'org.woehlke.simulation.evolution.SimulatedEvolutionApplication'
-def applicationName = "${applicationNameConfig}"
+def mainClassNameConfig = 'org.woehlke.computer.kurzweil.simulation.evolution.SimulatedEvolutionApplication'
+
+group = 'org.woehlke.computer.kurzweil'
+applicationName = "${applicationNameConfig}"
 ////version = '1.9'
 //version = '1.9-SNAPSHOT'
-def sourceCompatibility = '13'
+sourceCompatibility = '13'
 
 def jacksonDatabindVersion = '2.9.8' //2.10.2
-def lombokVersion = '1.18.12'   
+def lombokVersion = '1.18.12'
 def log4j2Version = '2.13.0'
 def log4j12Version = '1.2.17'
 def junit5Version = '5.6.0'

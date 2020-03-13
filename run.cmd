@@ -1,1 +1,1 @@
-./gradlew clean run
+gradlew clean runShadow
