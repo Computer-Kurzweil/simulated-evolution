@@ -128,11 +128,11 @@ public class CellCore {
             rna[i] = sum;
         }
         if (sumDna != 0) {
-            double val = new Double(random.nextInt(MAX_VALUE) ^ 2);
+            double val = Double.valueOf(random.nextInt(MAX_VALUE) ^ 2);
             if (val < MIN_VALUE) {
                 val *= -1;
             }
-            double sumRandom = val / new Double(MAX_VALUE ^ 2);
+            double sumRandom = val / Double.valueOf(MAX_VALUE ^ 2);
             if (sumRandom < MIN_VALUE) {
                 sumRandom *= -1;
             }

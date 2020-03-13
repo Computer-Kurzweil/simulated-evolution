@@ -16,8 +16,8 @@ import java.io.Serializable;
  * Time: 23:47:05
  */
 @Log4j2
-@ToString(exclude = {"random"})
-@EqualsAndHashCode(exclude = {"random"})
+@ToString
+@EqualsAndHashCode
 public class WorldPoint implements Serializable {
 
     static final long serialVersionUID = 242L;
