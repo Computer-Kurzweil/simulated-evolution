@@ -375,6 +375,15 @@
                         <phase>package</phase>
                         <goals>
                             <!-- use copy-dependencies instead if you don't want to explode the sources -->
+                            <goal>resolve</goal>
+                            <goal>sources</goal>
+                            <goal>resolve-plugins</goal>
+                            <goal>analyze</goal>
+                            <goal>collect</goal>
+                            <goal>build-classpath</goal>
+                            <goal>list</goal>
+                            <goal>list-repositories</goal>
+                            <goal>properties</goal>
                             <goal>copy-dependencies</goal>
                         </goals>
                         <configuration>

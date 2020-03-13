@@ -40,7 +40,7 @@ cmd /c  mvnw -e clean install exec:java
 goto:FINALE
 
 :MAIN
-goto:BUILD
+goto:RUN
 rem goto:BUILD
 
 :FINALE
