@@ -1,5 +1,6 @@
+goto:MAIN
 
-
+:BUILD
 cmd /c  mvnw clean
 cmd /c  mvnw install
 cmd /c  mvnw dependency:resolve
@@ -32,3 +33,14 @@ cmd /c  mvnw dependency:sources
 cmd /c  mvnw dependency:tree
 rem cmd /c  mvnw dependency:unpack
 rem cmd /c  mvnw dependency:unpack-dependencies
+goto:FINALE
+
+:RUN
+cmd /c  mvnw exec:java
+goto:FINALE
+
+:MAIN
+goto:RUN
+rem goto:BUILD
+
+:FINALE
