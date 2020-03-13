@@ -16,33 +16,29 @@ Run the Desktop Application
 ---------------------------
 
 ```
-git clone https://github.com/phasenraum2010/simulated-evolution.git
+git clone https://github.com/Computer-Kurzweil/simulated-evolution.git
 cd simulated-evolution
-mvnw clean install exec:java
+mvnw
 ```
 
 Screenshot
 ----------
 
-![Early Screen](http://woehlke.org/p/simulated-evolution/img/screen1.png)
+![Early Screen](src/main/resources/img/screen1.png)
 
-![Later Screen](http://woehlke.org/p/simulated-evolution/img/screen2.png)
+![Later Screen](src/main/resources/img/screen2.png)
 
 
 UML Class Model
 ---------------
 
-![UML Class Model](http://woehlke.org/p/simulated-evolution/img/Class_Model.jpg)
+![UML Class Model](src/main/resources/img/Class_Model.jpg)
 
 
 Github Repository
 -----------------
-[https://github.com/phasenraum2010/simulated-evolution](https://github.com/phasenraum2010/simulated-evolution)
+[https://github.com/Computer-Kurzweil/simulated-evolution](https://github.com/Computer-Kurzweil/simulated-evolution)
 
 Blog Article 
 ------------
 [http://thomas-woehlke.blogspot.de/2016/01/simulated-evolution-artificial-life-and.html](http://thomas-woehlke.blogspot.de/2016/01/simulated-evolution-artificial-life-and.html)
-
-Project Documentation
----------------------
-please visit [http://woehlke.org/p/simulated-evolution/](http://woehlke.org/p/simulated-evolution/)
