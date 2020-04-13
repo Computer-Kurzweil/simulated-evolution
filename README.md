@@ -1,6 +1,8 @@
 Simulated Evolution
 ===================
 
+![Java CI with Maven](https://github.com/Computer-Kurzweil/simulated-evolution/workflows/Java%20CI%20with%20Maven/badge.svg)
+
 **Artificial Life Simulation of Bacteria Motion depending on DNA**
 
 Abstract
