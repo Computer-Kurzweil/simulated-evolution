@@ -603,7 +603,7 @@
 
     <build>
         <finalName>${project.artifactId}</finalName>
-        <defaultGoal>clean dependency:list install exec:java</defaultGoal>
+        <defaultGoal>clean dependency:list install exec:java site site:deploy</defaultGoal>
         <pluginManagement>
             <plugins>
                 <plugin>
