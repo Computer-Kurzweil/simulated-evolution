@@ -21,4 +21,4 @@ jobs:
       with:
         java-version: 1.8
     - name: Build with Maven
-      run: mvn -B clean dependency:list install site site:deploy --file pom.xml
+      run: mvn -B clean dependency:list install site --file pom.xml
