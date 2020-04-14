@@ -2,3 +2,8 @@
 
 # 2.2.1
 * https://www.torsten-horn.de/techdocs/maven.htm
+
+Fixed #17, Fixed #19, Fixed #20, Fixed #21
+
+# 2.2.2
+
