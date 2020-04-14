@@ -2,6 +2,7 @@
 
 
 ![Java CI with Maven](https://github.com/Computer-Kurzweil/simulated-evolution/workflows/Java%20CI%20with%20Maven/badge.svg)
+![Travis CI](https://travis-ci.com/Computer-Kurzweil/simulated-evolution.svg)
 
 **Artificial Life Simulation of Bacteria Motion depending on DNA**
 
