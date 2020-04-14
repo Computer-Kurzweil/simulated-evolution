@@ -1122,11 +1122,13 @@
                             <goal>unpack-dependencies</goal>
                         </goals>
                         <configuration>
-                            <type>jar</type>
-                            <!--
-                            <excludeGroupIds></excludeGroupIds>
-                            <excludeArtifactIds></excludeArtifactIds>
-                            -->
+                            <excludes>
+                                <exclude>org.apache.maven.scm:maven-scm-providers-standard</exclude>
+                                <exclude>org.apache.logging.log4j:log4j</exclude>
+                            </excludes>
+                            <overWriteReleases>true</overWriteReleases>
+                            <overWriteSnapshots>true</overWriteSnapshots>
+                            <failOnWarning>false</failOnWarning>
                             <failOnMissingClassifierArtifact>false</failOnMissingClassifierArtifact>
                             <outputDirectory>${project.build.directory}/dependency-classes/</outputDirectory>
                         </configuration>
@@ -1144,6 +1146,7 @@
                         </goals>
                         <configuration>
                             <classifier>sources</classifier>
+                            <failOnWarning>false</failOnWarning>
                             <excludeGroupIds>org.webjars,antlr,org.beanshell,org.apache.velocity</excludeGroupIds>
                             <excludeArtifactIds>weld-probe-core,antlr,bsh,velocity-tools</excludeArtifactIds>
                             <failOnMissingClassifierArtifact>false</failOnMissingClassifierArtifact>
