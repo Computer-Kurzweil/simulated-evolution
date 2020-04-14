@@ -28,7 +28,7 @@
     <distributionManagement>
         <site>
             <id>simulatedevolution.local</id>
-            <url>file://{user.home}/public_html/p/simulated-evolution</url>
+            <url>file://${user.home}/public_html/p/simulated-evolution</url>
         </site>
     </distributionManagement>
 
