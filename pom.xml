@@ -389,6 +389,11 @@
                 <version>${maven-invoker-plugin.version}</version>
                 <type>maven-plugin</type>
             </dependency>
+            <dependency>
+                <groupId>org.apache.maven.skins</groupId>
+                <artifactId>maven-fluido-skin</artifactId>
+                <version>1.8</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -598,6 +603,11 @@
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-invoker-plugin</artifactId>
             <type>maven-plugin</type>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven.skins</groupId>
+            <artifactId>maven-fluido-skin</artifactId>
+            <version>1.8</version>
         </dependency>
     </dependencies>
 
