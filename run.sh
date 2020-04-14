@@ -10,8 +10,8 @@ function run() {
 }
 
 function main() {
-    #run
     site
+    run
 }
 
 main

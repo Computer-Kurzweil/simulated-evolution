@@ -178,7 +178,7 @@
     </pluginRepositories>
 
     <properties>
-        <java.version>13</java.version>
+        <java.version>14</java.version>
         <version.maven>3.6.3</version.maven>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
