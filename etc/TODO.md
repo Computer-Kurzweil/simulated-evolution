@@ -6,4 +6,4 @@
 Fixed #17, Fixed #19, Fixed #20, Fixed #21
 
 # 2.2.2
-Fixed #22
+Fixed #22, Fixed #18
