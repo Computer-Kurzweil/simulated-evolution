@@ -2,7 +2,7 @@
 
 
 function site() {
-  ./mvnw clean install site site:deploy
+  ./mvnw -e -X clean install site site:deploy
 }
 
 function run() {

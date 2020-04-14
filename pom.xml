@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.woehlke.computer.kurzweil</groupId>
     <artifactId>simulatedevolution</artifactId>
-    <version>2.4-SNAPSHOT</version>
+    <version>2.4.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Simulated Evolution</name>
@@ -52,76 +54,226 @@
 
     <repositories>
         <repository>
-            <id>Central</id>
-            <name>Central Repository</name>
-            <url>https://repo1.maven.org/maven2/</url>
-        </repository>
-        <repository>
-            <id>JCenter</id>
+            <id>jcenter</id>
             <name>JCenter Repository</name>
             <url>https://jcenter.bintray.com/</url>
         </repository>
         <repository>
-            <id>Sonatype</id>
+            <id>central</id>
+            <name>Central</name>
+            <url>https://repo1.maven.org/maven2/</url>
+        </repository>
+        <repository>
+            <id>sonatype-releases</id>
             <name>Sonatype Repository</name>
             <url>https://oss.sonatype.org/content/repositories/releases/</url>
         </repository>
         <repository>
-            <id>spring-plugins</id>
+            <id>springio-plugins-release</id>
             <name>Spring Plugins Repository</name>
             <url>https://repo.spring.io/plugins-release/</url>
+        </repository>
+        <repository>
+            <id>springio-libs-release</id>
+            <name>Spring Lib Release Repository</name>
+            <url>https://repo.spring.io/libs-release/</url>
+        </repository>
+        <repository>
+            <id>spring-libs-milestone</id>
+            <name>Spring Lib M Repository</name>
+            <url>https://repo.spring.io/libs-milestone/</url>
+        </repository>
+        <repository>
+            <id>atlassian-public</id>
+            <name>Atlassian Repository</name>
+            <url>https://maven.atlassian.com/content/repositories/atlassian-public/</url>
+        </repository>
+        <repository>
+            <id>jboss-releases</id>
+            <name>JBoss Releases Repository</name>
+            <url>https://repository.jboss.org/nexus/content/repositories/releases/</url>
+        </repository>
+        <repository>
+            <id>jboss-ea</id>
+            <name>JBossEA Repository</name>
+            <url>https://repository.jboss.org/nexus/content/repositories/ea/</url>
+        </repository>
+        <repository>
+            <id>wso2-public</id>
+            <name>WSO2 Public Repository</name>
+            <url>https://maven.wso2.org/nexus/content/repositories/public/</url>
+        </repository>
+        <repository>
+            <id>hortonworks-releases</id>
+            <name>Hortonworks Repository</name>
+            <url>https://repo.hortonworks.com/content/repositories/releases/</url>
+        </repository>
+        <repository>
+            <id>adobe-public</id>
+            <name>AdobePublic Repository</name>
+            <url>https://repo.adobe.com/nexus/content/repositories/public/</url>
         </repository>
     </repositories>
     <pluginRepositories>
         <pluginRepository>
-            <id>Central</id>
-            <name>Central Repository</name>
-            <url>https://repo1.maven.org/maven2/</url>
-        </pluginRepository>
-        <pluginRepository>
-            <id>JCenter</id>
+            <id>jcenter</id>
             <name>JCenter Repository</name>
             <url>https://jcenter.bintray.com/</url>
         </pluginRepository>
         <pluginRepository>
-            <id>Sonatype</id>
+            <id>central</id>
+            <name>Central</name>
+            <url>https://repo1.maven.org/maven2/</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>sonatype-releases</id>
             <name>Sonatype Repository</name>
             <url>https://oss.sonatype.org/content/repositories/releases/</url>
         </pluginRepository>
         <pluginRepository>
-            <id>spring-plugins</id>
+            <id>springio-plugins-release</id>
             <name>Spring Plugins Repository</name>
             <url>https://repo.spring.io/plugins-release/</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>springio-libs-release</id>
+            <name>Spring Lib Release Repository</name>
+            <url>https://repo.spring.io/libs-release/</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>spring-libs-milestone</id>
+            <name>Spring Lib M Repository</name>
+            <url>https://repo.spring.io/libs-milestone/</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>atlassian-public</id>
+            <name>Atlassian Repository</name>
+            <url>https://maven.atlassian.com/content/repositories/atlassian-public/</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>jboss-releases</id>
+            <name>JBoss Releases Repository</name>
+            <url>https://repository.jboss.org/nexus/content/repositories/releases/</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>jboss-ea</id>
+            <name>JBossEA Repository</name>
+            <url>https://repository.jboss.org/nexus/content/repositories/ea/</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>wso2-public</id>
+            <name>WSO2 Public Repository</name>
+            <url>https://maven.wso2.org/nexus/content/repositories/public/</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>hortonworks-releases</id>
+            <name>Hortonworks Repository</name>
+            <url>https://repo.hortonworks.com/content/repositories/releases/</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>adobe-public</id>
+            <name>AdobePublic Repository</name>
+            <url>https://repo.adobe.com/nexus/content/repositories/public/</url>
         </pluginRepository>
     </pluginRepositories>
 
     <properties>
-        <java.version>13</java.version>
+        <java.version>1.8</java.version>
+        <version.maven>3.6.3</version.maven>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <!-- SCM and Releasing with Maven -->
+        <maven.scm.version>1.11.2</maven.scm.version>
+        <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
+        <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
+
+        <!-- Maven plugins -->
+        <maven-antrun-plugin.version>1.8</maven-antrun-plugin.version>
+        <maven-assembly-plugin.version>3.1.1</maven-assembly-plugin.version>
+        <maven-clean-plugin.version>3.1.0</maven-clean-plugin.version>
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <maven-dependency-plugin.version>3.1.2</maven-dependency-plugin.version>
+        <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
+        <maven-enforcer-plugin.version>3.0.0-M3</maven-enforcer-plugin.version>
+        <maven-failsafe-plugin.version>2.22.2</maven-failsafe-plugin.version>
+        <maven-help-plugin.version>3.2.0</maven-help-plugin.version>
+        <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
+        <maven-invoker-plugin.version>3.2.1</maven-invoker-plugin.version>
+
+        <maven-shade-plugin.version>3.2.2</maven-shade-plugin.version>
+        <exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>
+        <maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
+
+        <maven-javadoc-plugin.version>3.1.1</maven-javadoc-plugin.version>
+        <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
+        <maven-shade-plugin.version>3.2.2</maven-shade-plugin.version>
+        <maven-source-plugin.version>3.1.0</maven-source-plugin.version>
+        <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+        <versions-maven-plugin.version>2.7</versions-maven-plugin.version>
+        <xml-maven-plugin.version>1.0.2</xml-maven-plugin.version>
+        <dependency-management-plugin.version>1.0.9.RELEASE</dependency-management-plugin.version>
+        <git-commit-id-plugin.version>3.0.1</git-commit-id-plugin.version>
+        <maven-changes-plugin.version>2.12.1</maven-changes-plugin.version>
+
+        <!-- Maven Reports and Site -->
+        <maven-project-info-reports-plugin.version>3.0.0</maven-project-info-reports-plugin.version>
+        <maven-checkstyle-plugin.version>3.1.1</maven-checkstyle-plugin.version>
+        <maven-jxr-plugin.version>3.0.0</maven-jxr-plugin.version>
+        <maven-pmd-plugin.version>3.11.0</maven-pmd-plugin.version>
+        <spotbugs-maven-plugin.version>4.0.0</spotbugs-maven-plugin.version>
+        <doxia-module-markdown.version>1.3</doxia-module-markdown.version>
+        <maven-pmd-plugin.version>3.13.0</maven-pmd-plugin.version>
+        <maven-surefire-report-plugin.version>3.0.0-M4</maven-surefire-report-plugin.version>
+        <maven-site-plugin.version>3.9.0</maven-site-plugin.version>
+        <doxia-module.version>1.9.1</doxia-module.version>
+
+        <!-- Unit and Integration Testing -->
+        <junit-jupiter.version>5.5.2</junit-jupiter.version>
+        <xmlunit2.version>2.6.4</xmlunit2.version>
+        <htmlunit.version>2.36.0</htmlunit.version>
+        <hamcrest.version>2.1</hamcrest.version>
+        <lombok.version>1.18.12</lombok.version>
+        <jsoup.version>1.8.3</jsoup.version>
+
+        <skipTests>true</skipTests>
+
+        <!-- Application Libs -->
+        <org.apache.commons-lang3.version>3.9</org.apache.commons-lang3.version>
+        <jackson.databind.version>2.10.3</jackson.databind.version>
+        <org.yaml.snakeyaml.version>1.17</org.yaml.snakeyaml.version>
+        <javax.validation.api.version>2.0.1.Final</javax.validation.api.version>
+        <com.google.guava.version>28.0-jre</com.google.guava.version>
+        <junit4.version>4.13</junit4.version>
+        <junit5.version>5.6.0</junit5.version>
+        <log4j2.version>2.13.0</log4j2.version>
+        <lombok.version>1.18.12</lombok.version>
+        <lombok-maven-plugin.version>1.18.12.0</lombok-maven-plugin.version>
+
+        <!--
+        <java.version>1.8</java.version>
         <version.maven>3.6.3</version.maven>
         <maven.scm.version>1.11.2</maven.scm.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <junit4Version>4.13</junit4Version>
-        <junit5Version>5.6.0</junit5Version>
-        <log4j2Version>2.13.0</log4j2Version>
-        <lombokVersion>1.18.12</lombokVersion>
-        <orgApacheCommonsLang3VersionVersion>3.9</orgApacheCommonsLang3VersionVersion>
-        <jacksonDatabindVersion>2.10.3</jacksonDatabindVersion>
-        <orgYamlSnakeyamlVersion>1.17</orgYamlSnakeyamlVersion>
-        <javaxValidationApiVersion>2.0.1.Final</javaxValidationApiVersion>
-        <comGoogleGuavaVersion>28.0-jre</comGoogleGuavaVersion>
+        <junit4.version>4.13</junit4.version>
+        <junit5.version>5.6.0</junit5.version>
+        <log4j2.version>2.13.0</log4j2.version>
+        <lombok.version>1.18.12</lombok.version>
+        <org.apache.commons-lang3.version>3.9</org.apache.commons-lang3.version>
+        <jackson.databind.version>2.10.3</jackson.databind.version>
+        <org.yaml.snakeyaml.version>1.17</org.yaml.snakeyaml.version>
+        <javax.validation.api.version>2.0.1.Final</javax.validation.api.version>
+        <com.google.guava.version>28.0-jre</com.google.guava.version>
         <maven-dependency-plugin.version>3.1.2</maven-dependency-plugin.version>
         <maven-compiler-plugin.version>3.6.2</maven-compiler-plugin.version>
         <maven-source-plugin.version>3.2.0</maven-source-plugin.version>
-        <maven-shade-plugin.version>3.2.2</maven-shade-plugin.version>
-        <exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>
-        <maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
         <maven-javadoc-plugin.version>3.0.0-M1</maven-javadoc-plugin.version>
         <maven-release-plugin.version>3.0.0-M1</maven-release-plugin.version>
-        <lombok-maven-plugin.version>1.18.12.0</lombok-maven-plugin.version>
         <maven-invoker-plugin.version>3.2.1</maven-invoker-plugin.version>
         <maven-enforcer-plugin.version>3.0.0-M3</maven-enforcer-plugin.version>
-        <!-- Maven Reports and Site -->
+        - - Maven Reports and Site - -
         <maven-project-info-reports-plugin.version>3.0.0</maven-project-info-reports-plugin.version>
         <maven-checkstyle-plugin.version>3.1.1</maven-checkstyle-plugin.version>
         <maven-jxr-plugin.version>3.0.0</maven-jxr-plugin.version>
@@ -133,6 +285,7 @@
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
         <maven-site-plugin.version>3.9.0</maven-site-plugin.version>
         <skipTests>true</skipTests>
+        -->
     </properties>
 
     <dependencyManagement>
@@ -176,107 +329,107 @@
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
-                <version>${lombokVersion}</version>
+                <version>${lombok.version}</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-slf4j-impl</artifactId>
-                <version>${log4j2Version}</version>
+                <version>${log4j2.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-api</artifactId>
-                <version>${log4j2Version}</version>
+                <version>${log4j2.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-jcl</artifactId>
-                <version>${log4j2Version}</version>
+                <version>${log4j2.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-core</artifactId>
-                <version>${log4j2Version}</version>
+                <version>${log4j2.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j</artifactId>
-                <version>${log4j2Version}</version>
+                <version>${log4j2.version}</version>
                 <type>pom</type>
             </dependency>
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
-                <version>${junit4Version}</version>
+                <version>${junit4.version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter</artifactId>
-                <version>${junit5Version}</version>
+                <version>${junit5.version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.junit.vintage</groupId>
                 <artifactId>junit-vintage-engine</artifactId>
-                <version>${junit5Version}</version>
+                <version>${junit5.version}</version>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.dataformat</groupId>
                 <artifactId>jackson-dataformat-yaml</artifactId>
-                <version>${jacksonDatabindVersion}</version>
+                <version>${jackson.databind.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.dataformat</groupId>
                 <artifactId>jackson-dataformat-properties</artifactId>
-                <version>${jacksonDatabindVersion}</version>
+                <version>${jackson.databind.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.dataformat</groupId>
                 <artifactId>jackson-dataformat-xml</artifactId>
-                <version>${jacksonDatabindVersion}</version>
+                <version>${jackson.databind.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.dataformat</groupId>
                 <artifactId>jackson-dataformat-ion</artifactId>
-                <version>${jacksonDatabindVersion}</version>
+                <version>${jackson.databind.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-annotations</artifactId>
-                <version>${jacksonDatabindVersion}</version>
+                <version>${jackson.databind.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-databind</artifactId>
-                <version>${jacksonDatabindVersion}</version>
+                <version>${jackson.databind.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-core</artifactId>
-                <version>${jacksonDatabindVersion}</version>
+                <version>${jackson.databind.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
-                <version>${orgApacheCommonsLang3VersionVersion}</version>
+                <version>${org.apache.commons-lang3.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.yaml</groupId>
                 <artifactId>snakeyaml</artifactId>
-                <version>${orgYamlSnakeyamlVersion}</version>
+                <version>${org.yaml.snakeyaml.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
-                <version>${comGoogleGuavaVersion}</version>
+                <version>${com.google.guava.version}</version>
             </dependency>
             <dependency>
                 <groupId>javax.validation</groupId>
                 <artifactId>validation-api</artifactId>
-                <version>${javaxValidationApiVersion}</version>
+                <version>${javax.validation.api.version}</version>
             </dependency>
 
             <dependency>
@@ -726,7 +879,6 @@
                     </execution>
                 </executions>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-dependency-plugin</artifactId>
@@ -812,6 +964,26 @@
                         </configuration>
                     </execution>
                     <execution>
+                        <id>get-dependency-classes</id>
+                        <phase>site</phase>
+                        <goals>
+                            <goal>resolve</goal>
+                            <goal>resolve-plugins</goal>
+                            <goal>collect</goal>
+                            <goal>copy-dependencies</goal>
+                            <goal>unpack-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <type>jar</type>
+                            <!--
+                            <excludeGroupIds></excludeGroupIds>
+                            <excludeArtifactIds></excludeArtifactIds>
+                            -->
+                            <failOnMissingClassifierArtifact>false</failOnMissingClassifierArtifact>
+                            <outputDirectory>${project.build.directory}/dependency-classes/</outputDirectory>
+                        </configuration>
+                    </execution>
+                    <execution>
                         <id>get-dependency-sources</id>
                         <phase>site</phase>
                         <goals>
@@ -824,8 +996,8 @@
                         </goals>
                         <configuration>
                             <classifier>sources</classifier>
-                            <excludeGroupIds>org.webjars</excludeGroupIds>
-                            <excludeArtifactIds>weld-probe-core</excludeArtifactIds>
+                            <excludeGroupIds>org.webjars,antlr,org.beanshell,org.apache.velocity</excludeGroupIds>
+                            <excludeArtifactIds>weld-probe-core,antlr,bsh,velocity-tools</excludeArtifactIds>
                             <failOnMissingClassifierArtifact>false</failOnMissingClassifierArtifact>
                             <outputDirectory>${project.build.directory}/dependency-sources/</outputDirectory>
                         </configuration>
@@ -845,7 +1017,7 @@
                         <path>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
-                            <version>${lombokVersion}</version>
+                            <version>${lombok.version}</version>
                         </path>
                     </annotationProcessorPaths>
                 </configuration>
