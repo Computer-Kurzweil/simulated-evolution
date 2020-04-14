@@ -1,7 +1,9 @@
 package org.woehlke.computer.kurzweil.simulation.evolution;
 
-import org.junit.Assert;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Unit test for simple AppMainDesktop.
@@ -14,6 +16,6 @@ public class AppTest {
     @Test
     public void testApp()
     {
-        Assert.assertTrue(true);
+        assertTrue(true);
     }
 }

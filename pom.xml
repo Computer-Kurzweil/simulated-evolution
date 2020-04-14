@@ -287,13 +287,6 @@
                 <version>${maven.scm.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.maven.scm</groupId>
-                <artifactId>maven-scm-providers-standard</artifactId>
-                <version>${maven.scm.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
@@ -320,27 +313,20 @@
                 <version>${log4j2.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.logging.log4j</groupId>
-                <artifactId>log4j</artifactId>
-                <version>${log4j2.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>${junit4.version}</version>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter</artifactId>
+                <version>${junit5.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.junit.vintage</groupId>
+                        <artifactId>junit-vintage-engine</artifactId>
+                    </exclusion>
+                </exclusions>
                 <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
-                <artifactId>junit-jupiter</artifactId>
-                <version>${junit5.version}</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.junit.vintage</groupId>
-                <artifactId>junit-vintage-engine</artifactId>
+                <artifactId>junit-jupiter-engine</artifactId>
                 <version>${junit5.version}</version>
                 <scope>test</scope>
             </dependency>
@@ -565,23 +551,7 @@
         </dependency>
         <dependency>
             <groupId>org.apache.maven.scm</groupId>
-            <artifactId>maven-scm-provider-svnexe</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.maven.scm</groupId>
-            <artifactId>maven-scm-provider-svn-commons</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.maven.scm</groupId>
             <artifactId>maven-scm-provider-gitexe</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.maven.scm</groupId>
-            <artifactId>maven-scm-provider-git-commons</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.maven.scm</groupId>
-            <artifactId>maven-scm-manager-plexus</artifactId>
         </dependency>
         <dependency>
             <groupId>org.apache.maven.scm</groupId>
@@ -608,21 +578,24 @@
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
         </dependency>
+
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter</artifactId>
+            <artifactId>junit-jupiter-engine</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.junit.vintage</groupId>
-            <artifactId>junit-vintage-engine</artifactId>
-            <scope>test</scope>
-        </dependency>
+
         <dependency>
             <groupId>com.fasterxml.jackson.dataformat</groupId>
             <artifactId>jackson-dataformat-yaml</artifactId>
@@ -999,7 +972,9 @@
                             <goal>resolve-plugins</goal>
                             <goal>collect</goal>
                             <goal>copy-dependencies</goal>
+                            <!--
                             <goal>unpack-dependencies</goal>
+                            -->
                             <goal>build-classpath</goal>
                         </goals>
                         <configuration>
@@ -1011,13 +986,11 @@
                             <outputDirectory>${project.build.directory}/dependency-classes/</outputDirectory>
                             <ignoredDependencies>
                                 <ignoredDependency>org.apache.maven.plugins:maven-surefire-plugin</ignoredDependency>
-                                <!--
                                 <ignoredDependency>org.apache.maven.scm:maven-scm</ignoredDependency>
                                 <ignoredDependency>org.apache.maven.scm:maven-scm-providers-git</ignoredDependency>
                                 <ignoredDependency>org.apache.maven.scm:maven-scm-providers-standard</ignoredDependency>
                                 <ignoredDependency>org.apache.maven.scm:maven-scm-providers</ignoredDependency>
                                 <ignoredDependency>org.apache.maven.scm:maven-scm-managers</ignoredDependency>
-                                -->
                             </ignoredDependencies>
                             <ignoredUsedUndeclaredDependencies>
                                 <ignoredUsedUndeclaredDependency>org.apache.maven.plugins:maven-surefire-plugin</ignoredUsedUndeclaredDependency>
@@ -1285,10 +1258,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-changes-plugin</artifactId>
+                <!--
                 <configuration>
                     <githubAPIScheme>https</githubAPIScheme>
                     <githubAPIPort>443</githubAPIPort>
                 </configuration>
+                -->
                 <reportSets>
                     <reportSet>
                         <id>id-github-report</id>
