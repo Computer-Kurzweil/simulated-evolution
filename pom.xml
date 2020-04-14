@@ -132,7 +132,7 @@
         <maven-changes-plugin.version>2.12.1</maven-changes-plugin.version>
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
         <maven-site-plugin.version>3.9.0</maven-site-plugin.version>
-        <skipTests>false</skipTests>
+        <skipTests>true</skipTests>
     </properties>
 
     <dependencyManagement>
@@ -391,8 +391,8 @@
             </dependency>
             <dependency>
                 <groupId>org.apache.maven.skins</groupId>
-                <artifactId>maven-fluido-skin</artifactId>
-                <version>1.8</version>
+                <artifactId>maven-default-skin</artifactId>
+                <version>1.3</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -606,8 +606,7 @@
         </dependency>
         <dependency>
             <groupId>org.apache.maven.skins</groupId>
-            <artifactId>maven-fluido-skin</artifactId>
-            <version>1.8</version>
+            <artifactId>maven-default-skin</artifactId>
         </dependency>
     </dependencies>
 

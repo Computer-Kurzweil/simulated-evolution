@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
 
-
 function site() {
-  ./mvnw clean dependency:list install site site:deploy
+  ./mvnw clean install site site:deploy
 }
 
 function run() {
