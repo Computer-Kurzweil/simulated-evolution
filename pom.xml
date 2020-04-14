@@ -252,41 +252,6 @@
         <lombok.version>1.18.12</lombok.version>
         <lombok-maven-plugin.version>1.18.12.0</lombok-maven-plugin.version>
 
-        <!--
-        <java.version>1.8</java.version>
-        <version.maven>3.6.3</version.maven>
-        <maven.scm.version>1.11.2</maven.scm.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <junit4.version>4.13</junit4.version>
-        <junit5.version>5.6.0</junit5.version>
-        <log4j2.version>2.13.0</log4j2.version>
-        <lombok.version>1.18.12</lombok.version>
-        <org.apache.commons-lang3.version>3.9</org.apache.commons-lang3.version>
-        <jackson.databind.version>2.10.3</jackson.databind.version>
-        <org.yaml.snakeyaml.version>1.17</org.yaml.snakeyaml.version>
-        <javax.validation.api.version>2.0.1.Final</javax.validation.api.version>
-        <com.google.guava.version>28.0-jre</com.google.guava.version>
-        <maven-dependency-plugin.version>3.1.2</maven-dependency-plugin.version>
-        <maven-compiler-plugin.version>3.6.2</maven-compiler-plugin.version>
-        <maven-source-plugin.version>3.2.0</maven-source-plugin.version>
-        <maven-javadoc-plugin.version>3.0.0-M1</maven-javadoc-plugin.version>
-        <maven-release-plugin.version>3.0.0-M1</maven-release-plugin.version>
-        <maven-invoker-plugin.version>3.2.1</maven-invoker-plugin.version>
-        <maven-enforcer-plugin.version>3.0.0-M3</maven-enforcer-plugin.version>
-        - - Maven Reports and Site - -
-        <maven-project-info-reports-plugin.version>3.0.0</maven-project-info-reports-plugin.version>
-        <maven-checkstyle-plugin.version>3.1.1</maven-checkstyle-plugin.version>
-        <maven-jxr-plugin.version>3.0.0</maven-jxr-plugin.version>
-        <maven-pmd-plugin.version>3.11.0</maven-pmd-plugin.version>
-        <spotbugs-maven-plugin.version>4.0.0</spotbugs-maven-plugin.version>
-        <maven-pmd-plugin.version>3.13.0</maven-pmd-plugin.version>
-        <maven-surefire-report-plugin.version>3.0.0-M4</maven-surefire-report-plugin.version>
-        <maven-changes-plugin.version>2.12.1</maven-changes-plugin.version>
-        <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
-        <maven-site-plugin.version>3.9.0</maven-site-plugin.version>
-        <skipTests>true</skipTests>
-        -->
     </properties>
 
     <dependencyManagement>
@@ -326,6 +291,7 @@
                 <artifactId>maven-scm-providers-standard</artifactId>
                 <version>${maven.scm.version}</version>
                 <type>pom</type>
+                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>org.projectlombok</groupId>
@@ -358,6 +324,7 @@
                 <artifactId>log4j</artifactId>
                 <version>${log4j2.version}</version>
                 <type>pom</type>
+                <scope>import</scope>
             </dependency>
             <dependency>
                 <groupId>junit</groupId>
@@ -590,7 +557,6 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
     <dependencies>
         <dependency>
             <groupId>org.apache.maven.plugins</groupId>
@@ -622,11 +588,6 @@
             <artifactId>maven-scm-client</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.apache.maven.scm</groupId>
-            <artifactId>maven-scm-providers-standard</artifactId>
-            <type>pom</type>
-        </dependency>
-        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
@@ -646,11 +607,6 @@
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.logging.log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <type>pom</type>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -1051,6 +1007,8 @@
                             <overWriteSnapshots>true</overWriteSnapshots>
                             <outputFile>${project.build.outputDirectory}/classpath.txt</outputFile>
                             <failOnWarning>false</failOnWarning>
+                            <failOnMissingClassifierArtifact>false</failOnMissingClassifierArtifact>
+                            <outputDirectory>${project.build.directory}/dependency-classes/</outputDirectory>
                             <ignoredDependencies>
                                 <ignoredDependency>org.apache.maven.plugins:maven-surefire-plugin</ignoredDependency>
                                 <!--
@@ -1102,6 +1060,7 @@
                             <excludeGroupIds>org.webjars,org.jclouds,org.jboss.as,xml-resolver,commons-configuration,org.codehaus.plexus,commons-digester,junit,log4j,io.openliberty.features</excludeGroupIds>
                             <excludeArtifactIds>weld-probe-core,commons-configuration,jdk.tools,maven-antrun-plugin</excludeArtifactIds>
                             <failOnMissingClassifierArtifact>false</failOnMissingClassifierArtifact>
+                            <failOnWarning>false</failOnWarning>
                             <reportSets>
                                 <reportSet>
                                     <reports>
@@ -1109,28 +1068,6 @@
                                     </reports>
                                 </reportSet>
                             </reportSets>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>get-dependency-classes</id>
-                        <phase>site</phase>
-                        <goals>
-                            <goal>resolve</goal>
-                            <goal>resolve-plugins</goal>
-                            <goal>collect</goal>
-                            <goal>copy-dependencies</goal>
-                            <goal>unpack-dependencies</goal>
-                        </goals>
-                        <configuration>
-                            <excludes>
-                                <exclude>org.apache.maven.scm:maven-scm-providers-standard</exclude>
-                                <exclude>org.apache.logging.log4j:log4j</exclude>
-                            </excludes>
-                            <overWriteReleases>true</overWriteReleases>
-                            <overWriteSnapshots>true</overWriteSnapshots>
-                            <failOnWarning>false</failOnWarning>
-                            <failOnMissingClassifierArtifact>false</failOnMissingClassifierArtifact>
-                            <outputDirectory>${project.build.directory}/dependency-classes/</outputDirectory>
                         </configuration>
                     </execution>
                     <execution>
@@ -1147,6 +1084,8 @@
                         <configuration>
                             <classifier>sources</classifier>
                             <failOnWarning>false</failOnWarning>
+                            <overWriteReleases>true</overWriteReleases>
+                            <overWriteSnapshots>true</overWriteSnapshots>
                             <excludeGroupIds>org.webjars,antlr,org.beanshell,org.apache.velocity</excludeGroupIds>
                             <excludeArtifactIds>weld-probe-core,antlr,bsh,velocity-tools</excludeArtifactIds>
                             <failOnMissingClassifierArtifact>false</failOnMissingClassifierArtifact>
