@@ -178,7 +178,7 @@
     </pluginRepositories>
 
     <properties>
-        <java.version>14</java.version>
+        <java.version>13</java.version>
         <version.maven>3.6.3</version.maven>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -1056,7 +1056,6 @@
                         </goals>
                         <configuration>
                             <classifier>sources</classifier>
-                            <failOnWarning>false</failOnWarning>
                             <overWriteReleases>true</overWriteReleases>
                             <overWriteSnapshots>true</overWriteSnapshots>
                             <excludeGroupIds>org.webjars,antlr,org.beanshell,org.apache.velocity</excludeGroupIds>
