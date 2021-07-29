@@ -14,6 +14,8 @@ import java.awt.*;
 @ToString(callSuper = true)
 public class GardenOfEdenPanel extends JPanel implements SimulatedEvolution {
 
+    private static final long serialVersionUID = 242L;
+
     @ToString.Exclude
     private final SimulatedEvolutionContext tabCtx;
     private final String gardenOfEdenPanelBorderLabel;

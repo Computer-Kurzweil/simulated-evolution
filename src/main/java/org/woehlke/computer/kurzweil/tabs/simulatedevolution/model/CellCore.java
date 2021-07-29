@@ -4,6 +4,7 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Random;
 import java.util.ArrayList;
@@ -20,7 +21,9 @@ import java.util.ArrayList;
 @Log4j2
 @ToString(exclude = {"random"})
 @EqualsAndHashCode(exclude = {"random"})
-public class CellCore {
+public class CellCore implements Serializable {
+
+    private static final long serialVersionUID = 242L;
 
     /**
      * The DNA Values of the Genome.

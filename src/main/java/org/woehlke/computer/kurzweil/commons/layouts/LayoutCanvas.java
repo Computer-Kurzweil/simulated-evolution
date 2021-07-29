@@ -5,6 +5,8 @@ import java.awt.*;
 
 public class LayoutCanvas extends FlowLayoutCenter {
 
+    private static final long serialVersionUID = 242L;
+
     /**
      * Creates a layout manager that will lay out components along the
      * given axis.

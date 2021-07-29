@@ -24,6 +24,8 @@ import static org.woehlke.computer.kurzweil.tabs.simulatedevolution.model.LifeCy
 @EqualsAndHashCode(callSuper=true,exclude = {"tabCtx","border","layout","layoutSubPanel"})
 public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl implements SimulatedEvolution, SubTab, Updateable {
 
+    private static final long serialVersionUID = 242L;
+
     private final PopulationStatisticsElement youngCellsElement;
     private final PopulationStatisticsElement youngAndFatCellsElement;
     private final PopulationStatisticsElement fullAgeCellsElement;

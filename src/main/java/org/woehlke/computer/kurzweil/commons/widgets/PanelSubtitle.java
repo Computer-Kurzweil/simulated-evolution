@@ -15,6 +15,8 @@ import javax.swing.*;
 @EqualsAndHashCode(callSuper=true)
 public class PanelSubtitle extends JPanel implements GuiComponent {
 
+    private static final long serialVersionUID = 242L;
+
     public PanelSubtitle(String text) {
         this.setLayout(new FlowLayoutCenter());
         this.add(new JLabel(text));

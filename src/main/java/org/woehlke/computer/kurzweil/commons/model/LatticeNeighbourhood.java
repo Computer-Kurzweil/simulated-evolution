@@ -5,11 +5,15 @@ import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 
+import java.io.Serializable;
+
 @Log4j2
 @Getter
 @ToString
 @EqualsAndHashCode
-public class LatticeNeighbourhood {
+public class LatticeNeighbourhood implements Serializable {
+
+    private static final long serialVersionUID = 242L;
 
     private final LatticeNeighbourhoodType neighbourhoodType;
     private final int maxX;

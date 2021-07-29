@@ -16,6 +16,8 @@ import org.woehlke.computer.kurzweil.tabs.simulatedevolution.SimulatedEvolutionM
 @ToString(callSuper = true)
 public class FoodPerDayPanel extends SubTabImpl implements SimulatedEvolution, Updateable, SubTab {
 
+    private static final long serialVersionUID = 242L;
+
     @ToString.Exclude
     private final SimulatedEvolutionContext tabCtx;
     private final String foodPerDayBorderLabel;

@@ -16,6 +16,8 @@ import org.woehlke.computer.kurzweil.commons.tabs.TabController;
 @Log4j2
 public class SimulatedEvolutionController extends Thread implements Runnable, TabController, SimulatedEvolution {
 
+    private static final long serialVersionUID = 242L;
+
     /**
      * Data Model for the Simulation
      */

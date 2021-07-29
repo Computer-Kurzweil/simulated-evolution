@@ -14,6 +14,8 @@ import java.awt.event.KeyEvent;
 @ToString
 public abstract class SubTabImpl extends JPanel implements HasTabTitle {
 
+    private static final long serialVersionUID = 242L;
+
     private final String title;
     private final String subTitle;
     private final String toolTipText;

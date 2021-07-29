@@ -3,6 +3,8 @@ package org.woehlke.computer.kurzweil.commons.model;
 import lombok.*;
 import lombok.extern.log4j.Log4j2;
 
+import java.io.Serializable;
+
 /**
  * A Point is used to define the Position of Cell or as a Vector for defining Dimensions.
  * <p>
@@ -23,7 +25,9 @@ import lombok.extern.log4j.Log4j2;
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
-public class LatticePoint {
+public class LatticePoint implements Serializable {
+
+    private static final long serialVersionUID = 242L;
 
   /**
    * Horizontal X-Coordinate. Also used as Width;

@@ -11,6 +11,8 @@ import org.woehlke.computer.kurzweil.tabs.simulatedevolution.SimulatedEvolution;
 @AllArgsConstructor
 public class SimulatedEvolutionParameter implements SimulatedEvolution {
 
+    private static final long serialVersionUID = 242L;
+
     private int foodPerDay;
     private int foodPerDayGardenOfEden;
     private boolean gardenOfEdenEnabled;

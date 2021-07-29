@@ -12,6 +12,8 @@ import javax.swing.border.CompoundBorder;
 @Getter
 public class PanelWithTitleBorder extends JPanel {
 
+    private static final long serialVersionUID = 242L;
+
     private final FlowLayoutCenter panelStartStopButtonsLayout;
     private final CompoundBorder panelStartStopButtonsBorder;
 

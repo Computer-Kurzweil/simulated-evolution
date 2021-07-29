@@ -13,6 +13,8 @@ import javax.swing.*;
 @ToString(callSuper = true)
 public class GardenOfEdenCheckBox extends JCheckBox implements SimulatedEvolution {
 
+    private static final long serialVersionUID = 242L;
+
     @ToString.Exclude
     private final SimulatedEvolutionContext tabCtx;
     private final String gardenOfEdenEnabledString;

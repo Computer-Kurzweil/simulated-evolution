@@ -1,4 +1,6 @@
 package org.woehlke.computer.kurzweil.tabs.simulatedevolution;
 
-public interface SimulatedEvolution {
+import java.io.Serializable;
+
+public interface SimulatedEvolution extends Serializable {
 }

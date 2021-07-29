@@ -20,6 +20,8 @@ import java.util.Random;
 @EqualsAndHashCode(exclude = {"random"})
 public class SimulatedEvolutionWorldLattice {
 
+    private static final long serialVersionUID = 242L;
+
     /**
      * Grid of World where every Place can have food.
      */

@@ -4,6 +4,8 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 
+import java.io.Serializable;
+
 /**
  * State of the Cell which monitors age and getting enough food.
  * After an minimum age and at a minimum af eaten food,
@@ -19,7 +21,9 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @ToString
 @EqualsAndHashCode
-public class LifeCycle {
+public class LifeCycle implements Serializable {
+
+    private static final long serialVersionUID = 242L;
 
     /**
      * Status of the LifeCycle is fat, age and hunger.

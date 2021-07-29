@@ -19,6 +19,8 @@ import static java.lang.Thread.State.NEW;
 @EqualsAndHashCode(callSuper = false, exclude={"ctx","controller","tab"})
 public class SimulatedEvolutionContext extends ForkJoinTask<Void> implements TabContext, SimulatedEvolution {
 
+    private static final long serialVersionUID = 242L;
+
     private final ComputerKurzweilContext ctx;
     private final SimulatedEvolutionTab tab;
     private final SimulatedEvolutionCanvas canvas;

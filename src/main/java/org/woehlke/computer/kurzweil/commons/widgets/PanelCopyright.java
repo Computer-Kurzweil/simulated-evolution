@@ -15,6 +15,8 @@ import javax.swing.*;
 @EqualsAndHashCode(callSuper=true)
 public class PanelCopyright extends JPanel implements GuiComponent {
 
+    private static final long serialVersionUID = 242L;
+
     public PanelCopyright(ComputerKurzweilContext ctx) {
         this.setLayout(new FlowLayoutCenter());
         String copyright = ctx.getProperties().getAllinone().getView().getCopyright();
