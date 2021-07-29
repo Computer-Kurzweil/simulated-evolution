@@ -243,7 +243,7 @@
         <!-- Application Libs -->
         <org.apache.commons-lang3.version>3.9</org.apache.commons-lang3.version>
         <jackson.databind.version>2.10.3</jackson.databind.version>
-        <org.yaml.snakeyaml.version>1.17</org.yaml.snakeyaml.version>
+        <org.yaml.snakeyaml.version>1.26</org.yaml.snakeyaml.version>
         <javax.validation.api.version>2.0.1.Final</javax.validation.api.version>
         <com.google.guava.version>28.0-jre</com.google.guava.version>
         <junit4.version>4.13</junit4.version>
