@@ -19,7 +19,7 @@ If a cell doesn't eat enough, it will first stand still and after a while it die
 ```
 git clone https://github.com/Computer-Kurzweil/simulated-evolution.git
 cd simulated-evolution
-mvnw
+./mvnw
 ```
 
 ## Screenshot
