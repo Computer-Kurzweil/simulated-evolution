@@ -239,13 +239,13 @@
 
         <!-- Application Libs -->
         <org.apache.commons-lang3.version>3.12.0</org.apache.commons-lang3.version>
-        <jackson.databind.version>2.12.4</jackson.databind.version>
-        <org.yaml.snakeyaml.version>1.29</org.yaml.snakeyaml.version>
-        <javax.validation.api.version>2.0.1.Final</javax.validation.api.version>
-        <com.google.guava.version>30.1.1-jre</com.google.guava.version>
+        <jackson.databind.version>2.14.1</jackson.databind.version>
+        <org.yaml.snakeyaml.version>1.33</org.yaml.snakeyaml.version>
+        <javax.validation.api.version>3.0.2</javax.validation.api.version>
+        <com.google.guava.version>31.1-jre</com.google.guava.version>
         <junit4.version>4.13</junit4.version>
-        <junit5.version>5.7.2</junit5.version>
-        <log4j2.version>2.14.1</log4j2.version>
+        <junit5.version>5.9.1</junit5.version>
+        <log4j2.version>2.19.0</log4j2.version>
         <lombok.version>1.18.24</lombok.version>
         <lombok-maven-plugin.version>1.18.20.0</lombok-maven-plugin.version>
 
@@ -378,8 +378,8 @@
                 <version>${com.google.guava.version}</version>
             </dependency>
             <dependency>
-                <groupId>javax.validation</groupId>
-                <artifactId>validation-api</artifactId>
+                <groupId>jakarta.validation</groupId>
+                <artifactId>jakarta.validation-api</artifactId>
                 <version>${javax.validation.api.version}</version>
             </dependency>
 
@@ -628,8 +628,8 @@
             <artifactId>guava</artifactId>
         </dependency>
         <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
         </dependency>
 
         <dependency>

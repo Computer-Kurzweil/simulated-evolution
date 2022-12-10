@@ -6,9 +6,10 @@ import lombok.*;
 import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.tabs.TabType;
 
-import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import java.io.InputStream;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
@@ -19,989 +20,890 @@ import java.util.jar.JarFile;
 @NoArgsConstructor
 @AllArgsConstructor
 @Valid
+@Getter
+@Setter
 ////@Validated
 public class ComputerKurzweilProperties {
 
     @Valid
-    @Getter
-    @Setter
     public Allinone allinone = new Allinone();
+
     @Valid
-    @Getter
-    @Setter
     public Mandelbrot mandelbrot = new Mandelbrot();
+
     @Valid
-    @Getter
-    @Setter
     public SimulatedEvolution simulatedevolution = new SimulatedEvolution();
+
     @Valid
-    @Getter
-    @Setter
     public Cca cca = new Cca();
+
     @Valid
-    @Getter
-    @Setter
     public WienerProcess randomwalk = new WienerProcess();
+
     @Valid
-    @Getter
-    @Setter
     public Dla dla = new Dla();
+
     @Valid
-    @Getter
-    @Setter
     public Kochsnowflake kochsnowflake = new Kochsnowflake();
+
     @Valid
-    @Getter
-    @Setter
     public Samegame samegame = new Samegame();
+
     @Valid
-    @Getter
-    @Setter
     public Sierpinskitriangle sierpinskitriangle = new Sierpinskitriangle();
+
     @Valid
-    @Getter
-    @Setter
     public Tetris tetris = new Tetris();
+
     @Valid
-    @Getter
-    @Setter
     public Turmite turmite = new Turmite();
+
     @Valid
-    @Getter
-    @Setter
     public Wator wator = new Wator();
+
     @Valid
-    @Getter
-    @Setter
     public Gameoflive gameoflive = new Gameoflive();
 
     ////@Validated
     @ToString
+    @Getter
+    @Setter
     public static class Allinone {
 
         @Valid
-        @Getter
-        @Setter
         public Lattice lattice = new Lattice();
+
         @Valid
-        @Getter
-        @Setter
         public View view = new View();
 
         ////@Validated
+        @Getter
+        @Setter
         @ToString
         public static class Lattice {
+
             @NotNull
-            @Getter
-            @Setter
             private Integer width;
+
             @NotNull
-            @Getter
-            @Setter
             private Integer height;
         }
 
         ////@Validated
         @ToString
+        @Getter
+        @Setter
         public static class View {
+
             @NotBlank
-            @Getter
-            @Setter
             private String title;
+
             @NotBlank
-            @Getter
-            @Setter
             private String subtitle;
+
             @NotBlank
-            @Getter
-            @Setter
             private String copyright;
+
             @NotNull
-            @Getter
-            @Setter
             private Integer borderPaddingX;
+
             @NotNull
-            @Getter
-            @Setter
             private Integer borderPaddingY;
+
             @NotNull
-            @Getter
-            @Setter
             private Integer titleHeight;
+
             @NotBlank
-            @Getter
-            @Setter
             private String startStopp;
+
             @NotBlank
-            @Getter
-            @Setter
             private String start;
+
             @NotBlank
-            @Getter
-            @Setter
             private String stop;
+
             @NotBlank
-            @Getter
-            @Setter
             private String info;
         }
     }
 
     ////@Validated
     @ToString
+    @Getter
+    @Setter
     public static class Mandelbrot {
 
         @Valid
-        @Getter
-        @Setter
         public View view = new View();
+
         @Valid
-        @Getter
-        @Setter
         public Control control = new Control();
 
         ////@Validated
         @ToString
+        @Getter
+        @Setter
         public static class View {
+
             @NotBlank
-            @Getter
-            @Setter
             private String title;
+
             @NotBlank
-            @Getter
-            @Setter
             private String subtitle;
+
             @NotBlank
-            @Getter
-            @Setter
             private String buttonsZoom;
+
             @NotBlank
-            @Getter
-            @Setter
             private String buttonsZoomOut;
+
             @NotBlank
-            @Getter
-            @Setter
             private String buttonsSwitch;
+
             @NotBlank
-            @Getter
-            @Setter
             private String buttonsZoomLabel;
+
             @NotBlank
-            @Getter
-            @Setter
             private String buttonsLabel;
         }
 
         ////@Validated
         @ToString
+        @Getter
+        @Setter
         public static class Control {
+
             @NotNull
-            @Getter
-            @Setter
             private Integer threadSleepTime;
         }
     }
 
     ////@Validated
     @ToString
+    @Getter
+    @Setter
     public static class SimulatedEvolution {
 
         @Valid
-        @Getter
-        @Setter
         public View view = new View();
+
         @Valid
-        @Getter
-        @Setter
         public Control control = new Control();
+
         @Valid
-        @Getter
-        @Setter
         public CellConf cellConf = new CellConf();
+
         @Valid
-        @Getter
-        @Setter
         public Population population = new Population();
+
         @Valid
-        @Getter
-        @Setter
         public Food food = new Food();
+
         @Valid
-        @Getter
-        @Setter
         public GardenOfEden gardenOfEden = new GardenOfEden();
 
         ////@Validated
         @ToString
+        @Getter
+        @Setter
         public static class View {
+
             @NotBlank
-            @Getter
-            @Setter
             private String title;
+
             @NotBlank
-            @Getter
-            @Setter
             private String subtitle;
         }
 
         ////@Validated
         @ToString
+        @Getter
+        @Setter
         public static class Control {
+
             @NotNull
-            @Getter
-            @Setter
             private Integer threadSleepTime;
+
             @NotNull
-            @Getter
-            @Setter
             private Integer exitStatus;
+
             @NotNull
-            @Getter
-            @Setter
             private Integer queueMaxLength;
         }
 
         ////@Validated
         @ToString
+        @Getter
+        @Setter
         public static class CellConf {
+
             @NotNull
-            @Getter
-            @Setter
             private Integer fatMax;
+
             @NotNull
-            @Getter
-            @Setter
             private Integer fatHungerMax;
+
             @NotNull
-            @Getter
-            @Setter
             private Integer fatMinimumForSex;
+
             @NotNull
-            @Getter
-            @Setter
             private Integer fatAtBirth;
+
             @NotNull
-            @Getter
-            @Setter
             private Integer fatPerFood;
+
             @NotNull
-            @Getter
-            @Setter
             private Integer ageOfAdulthood;
+
             @NotNull
-            @Getter
-            @Setter
             private Integer ageOld;
+
             @NotNull
-            @Getter
-            @Setter
             private Integer ageMax;
         }
 
         ////@Validated
         @ToString
+        @Getter
+        @Setter
         public static class Population {
+
             @NotNull
-            @Getter
-            @Setter
             private Integer initialPopulation;
+
             @NotBlank
-            @Getter
-            @Setter
             private String panelPopulationStatistics;
+
             @NotBlank
-            @Getter
-            @Setter
             private String youngCellsLabel;
+
             @NotBlank
-            @Getter
-            @Setter
             private String youngAndFatCellsLabel;
+
             @NotBlank
-            @Getter
-            @Setter
             private String fullAgeCellsLabel;
+
             @NotBlank
-            @Getter
-            @Setter
             private String hungryCellsLabel;
+
             @NotBlank
-            @Getter
-            @Setter
             private String oldCellsLabel;
+
             @NotBlank
-            @Getter
-            @Setter
             private String populationLabel;
+
             @NotBlank
-            @Getter
-            @Setter
             private String generationOldestLabel;
+
             @NotBlank
-            @Getter
-            @Setter
             private String generationYoungestLabel;
         }
 
         ////@Validated
         @ToString
+        @Getter
+        @Setter
         public static class Food {
+
             @NotNull
-            @Getter
-            @Setter
             private Integer foodPerDay;
+
             @NotNull
-            @Getter
-            @Setter
             private Integer foodPerDayFieldColumns;
+
             @NotBlank
-            @Getter
-            @Setter
             private String foodPerDayLabel;
+
             @NotBlank
-            @Getter
-            @Setter
             private String foodPerDayBorderLabel;
+
             @NotBlank
-            @Getter
-            @Setter
             private String buttonFoodPerDayIncrease;
+
             @NotBlank
-            @Getter
-            @Setter
             private String buttonFoodPerDayDecrease;
+
             @NotBlank
-            @Getter
-            @Setter
             private String panelFood;
         }
 
         ////@Validated
         @ToString
+        @Getter
+        @Setter
         public static class GardenOfEden {
+
             @NotBlank
-            @Getter
-            @Setter
             private String panelGardenOfEden;
+
             @NotNull
-            @Getter
-            @Setter
             private Boolean gardenOfEdenEnabled;
+
             @NotBlank
-            @Getter
-            @Setter
             private String gardenOfEdenEnabledString;
+
             @NotBlank
-            @Getter
-            @Setter
             private String gardenOfEdenEnabledToggleButton;
+
             @NotNull
-            @Getter
-            @Setter
             private Integer foodPerDay;
+
             @NotNull
-            @Getter
-            @Setter
             private Integer gardenOfEdenLatticeDivisor;
+
             @NotNull
-            @Getter
-            @Setter
             private Integer gardenOfEdenLatticeDivisorPadding;
         }
     }
 
     ////@Validated
     @ToString
+    @Getter
+    @Setter
     public static class Cca {
 
         @Valid
-        @Getter
-        @Setter
         public View view = new View();
+
         @Valid
-        @Getter
-        @Setter
         public Control control = new Control();
 
         //@Validated
         @ToString
+        @Getter
+        @Setter
         public static class View {
 
             @NotBlank
-            @Getter
-            @Setter
             private String title;
+
             @NotBlank
-            @Getter
-            @Setter
             private String subtitle;
 
             @Valid
-            @Getter
-            @Setter
             public Neighborhood neighborhood = new Neighborhood();
 
             //@Validated
             @ToString
+            @Getter
+            @Setter
             public static class Neighborhood {
+
                 @NotBlank
-                @Getter
-                @Setter
                 private String title;
+
                 @NotBlank
-                @Getter
-                @Setter
                 private String typeVonNeumann;
+
                 @NotBlank
-                @Getter
-                @Setter
                 private String typeMoore;
+
                 @NotBlank
-                @Getter
-                @Setter
                 private String typeWoehlke;
             }
         }
 
         ////@Validated
         @ToString
+        @Getter
+        @Setter
         public static class Control {
+
             @NotNull
-            @Getter
-            @Setter
             private Integer threadSleepTime;
         }
     }
 
     ////@Validated
     @ToString
+    @Getter
+    @Setter
     public static class WienerProcess {
 
         @Valid
-        @Getter
-        @Setter
         public View view = new View();
+
         @Valid
-        @Getter
-        @Setter
         public Control control = new Control();
 
         //@Validated
         @ToString
+        @Getter
+        @Setter
         public static class View {
 
             @NotBlank
-            @Getter
-            @Setter
             private String title;
+
             @NotBlank
-            @Getter
-            @Setter
             private String subtitle;
         }
 
         ////@Validated
         @ToString
+        @Getter
+        @Setter
         public static class Control {
+
             @NotNull
-            @Getter
-            @Setter
             private Integer threadSleepTime;
         }
     }
 
     //@Validated
     @ToString
+    @Getter
+    @Setter
     public static class Dla {
 
         @Valid
-        @Getter
-        @Setter
         public View view = new View();
+
         @Valid
-        @Getter
-        @Setter
         public Control control = new Control();
 
         //@Validated
         @ToString
+        @Getter
+        @Setter
         public static class View {
+
             @NotBlank
-            @Getter
-            @Setter
             private String title;
+
             @NotBlank
-            @Getter
-            @Setter
             private String subtitle;
         }
 
         //@Validated
         @ToString
+        @Getter
+        @Setter
         public static class Control {
+
             @NotNull
-            @Getter
-            @Setter
             private Integer threadSleepTime;
+
             @NotNull
-            @Getter
-            @Setter
             private Integer numberOfParticles;
         }
     }
 
     @ToString
+    @Getter
+    @Setter
     public static class Kochsnowflake {
 
         @Valid
-        @Getter
-        @Setter
         public View view = new View();
+
         @Valid
-        @Getter
-        @Setter
         public Control control = new Control();
 
         //@Validated
         @ToString
+        @Getter
+        @Setter
         public static class View {
+
             @NotBlank
-            @Getter
-            @Setter
             private String title;
+
             @NotBlank
-            @Getter
-            @Setter
             private String subtitle;
 
             @Valid
-            @Getter
-            @Setter
             public Neighborhood neighborhood = new Neighborhood();
 
             //@Validated
             @ToString
+            @Getter
+            @Setter
             public static class Neighborhood {
+
                 @NotBlank
-                @Getter
-                @Setter
                 private String title;
+
                 @NotBlank
-                @Getter
-                @Setter
                 private String typeVonNeumann;
+
                 @NotBlank
-                @Getter
-                @Setter
                 private String typeMoore;
+
                 @NotBlank
-                @Getter
-                @Setter
                 private String typeWoehlke;
             }
         }
 
         //@Validated
         @ToString
+        @Getter
+        @Setter
         public static class Control {
+
             @NotNull
-            @Getter
-            @Setter
             private Integer threadSleepTime;
+
             @NotNull
-            @Getter
-            @Setter
             private Integer numberOfParticles;
         }
     }
 
     @ToString
+    @Getter
+    @Setter
     public static class Samegame {
 
         @Valid
-        @Getter
-        @Setter
         public View view = new View();
+
         @Valid
-        @Getter
-        @Setter
         public Control control = new Control();
 
         //@Validated
         @ToString
+        @Getter
+        @Setter
         public static class View {
+
             @NotBlank
-            @Getter
-            @Setter
             private String title;
+
             @NotBlank
-            @Getter
-            @Setter
             private String subtitle;
 
             @Valid
-            @Getter
-            @Setter
             public Neighborhood neighborhood = new Neighborhood();
 
             //@Validated
             @ToString
+            @Getter
+            @Setter
             public static class Neighborhood {
+
                 @NotBlank
-                @Getter
-                @Setter
                 private String title;
+
                 @NotBlank
-                @Getter
-                @Setter
                 private String typeVonNeumann;
+
                 @NotBlank
-                @Getter
-                @Setter
                 private String typeMoore;
+
                 @NotBlank
-                @Getter
-                @Setter
                 private String typeWoehlke;
             }
         }
 
         //@Validated
         @ToString
+        @Getter
+        @Setter
         public static class Control {
+
             @NotNull
-            @Getter
-            @Setter
             private Integer threadSleepTime;
+
             @NotNull
-            @Getter
-            @Setter
             private Integer numberOfParticles;
         }
     }
 
     @ToString
+    @Getter
+    @Setter
     public static class Sierpinskitriangle {
 
         @Valid
-        @Getter
-        @Setter
         public View view = new View();
+
         @Valid
-        @Getter
-        @Setter
         public Control control = new Control();
 
         //@Validated
         @ToString
+        @Getter
+        @Setter
         public static class View {
+
             @NotBlank
-            @Getter
-            @Setter
             private String title;
+
             @NotBlank
-            @Getter
-            @Setter
             private String subtitle;
 
             @Valid
-            @Getter
-            @Setter
             public Neighborhood neighborhood = new Neighborhood();
 
             //@Validated
+            @Getter
+            @Setter
             @ToString
             public static class Neighborhood {
+
                 @NotBlank
-                @Getter
-                @Setter
                 private String title;
+
                 @NotBlank
-                @Getter
-                @Setter
                 private String typeVonNeumann;
+
                 @NotBlank
-                @Getter
-                @Setter
                 private String typeMoore;
+
                 @NotBlank
-                @Getter
-                @Setter
                 private String typeWoehlke;
             }
         }
 
         //@Validated
         @ToString
+        @Getter
+        @Setter
         public static class Control {
+
             @NotNull
-            @Getter
-            @Setter
             private Integer threadSleepTime;
+
             @NotNull
-            @Getter
-            @Setter
             private Integer numberOfParticles;
         }
     }
 
+
+    @Getter
+    @Setter
     @ToString
     public static class Tetris {
 
         @Valid
-        @Getter
-        @Setter
         public View view = new View();
+
         @Valid
-        @Getter
-        @Setter
         public Control control = new Control();
 
         //@Validated
+        @Getter
+        @Setter
         @ToString
         public static class View {
+
             @NotBlank
-            @Getter
-            @Setter
             private String title;
+
             @NotBlank
-            @Getter
-            @Setter
             private String subtitle;
 
             @Valid
-            @Getter
-            @Setter
             public Neighborhood neighborhood = new Neighborhood();
 
             //@Validated
+            @Getter
+            @Setter
             @ToString
             public static class Neighborhood {
                 @NotBlank
-                @Getter
-                @Setter
                 private String title;
+
                 @NotBlank
-                @Getter
-                @Setter
                 private String typeVonNeumann;
+
                 @NotBlank
-                @Getter
-                @Setter
                 private String typeMoore;
+
                 @NotBlank
-                @Getter
-                @Setter
                 private String typeWoehlke;
             }
         }
 
         //@Validated
+        @Getter
+        @Setter
         @ToString
         public static class Control {
+
             @NotNull
-            @Getter
-            @Setter
             private Integer threadSleepTime;
+
             @NotNull
-            @Getter
-            @Setter
             private Integer numberOfParticles;
         }
     }
 
+    @Getter
+    @Setter
     @ToString
     public static class Turmite {
 
         @Valid
-        @Getter
-        @Setter
         public View view = new View();
+
         @Valid
-        @Getter
-        @Setter
         public Control control = new Control();
 
         //@Validated
+        @Getter
+        @Setter
         @ToString
         public static class View {
+
             @NotBlank
-            @Getter
-            @Setter
             private String title;
+
             @NotBlank
-            @Getter
-            @Setter
             private String subtitle;
 
             @Valid
-            @Getter
-            @Setter
             public Neighborhood neighborhood = new Neighborhood();
 
             //@Validated
             @ToString
+            @Getter
+            @Setter
             public static class Neighborhood {
+
                 @NotBlank
-                @Getter
-                @Setter
                 private String title;
+
                 @NotBlank
-                @Getter
-                @Setter
                 private String typeVonNeumann;
+
                 @NotBlank
-                @Getter
-                @Setter
                 private String typeMoore;
+
                 @NotBlank
-                @Getter
-                @Setter
                 private String typeWoehlke;
             }
         }
 
         //@Validated
+        @Getter
+        @Setter
         @ToString
         public static class Control {
+
             @NotNull
-            @Getter
-            @Setter
             private Integer threadSleepTime;
+
             @NotNull
-            @Getter
-            @Setter
             private Integer numberOfParticles;
         }
     }
 
+    @Getter
+    @Setter
     @ToString
     public static class Wator {
 
         @Valid
-        @Getter
-        @Setter
         public View view = new View();
+
         @Valid
-        @Getter
-        @Setter
         public Control control = new Control();
 
         //@Validated
+        @Getter
+        @Setter
         @ToString
         public static class View {
+
             @NotBlank
-            @Getter
-            @Setter
             private String title;
+
             @NotBlank
-            @Getter
-            @Setter
             private String subtitle;
 
             @Valid
-            @Getter
-            @Setter
             public Neighborhood neighborhood = new Neighborhood();
 
             //@Validated
+            @Getter
+            @Setter
             @ToString
             public static class Neighborhood {
                 @NotBlank
-                @Getter
-                @Setter
                 private String title;
+
                 @NotBlank
-                @Getter
-                @Setter
                 private String typeVonNeumann;
+
                 @NotBlank
-                @Getter
-                @Setter
                 private String typeMoore;
+
                 @NotBlank
-                @Getter
-                @Setter
                 private String typeWoehlke;
             }
         }
 
         //@Validated
+        @Getter
+        @Setter
         @ToString
         public static class Control {
+
             @NotNull
-            @Getter
-            @Setter
             private Integer threadSleepTime;
+
             @NotNull
-            @Getter
-            @Setter
             private Integer numberOfParticles;
         }
     }
 
+    @Getter
+    @Setter
     @ToString
     public static class Gameoflive{
 
         @Valid
-        @Getter
-        @Setter
         public View view = new View();
+
         @Valid
-        @Getter
-        @Setter
         public Control control = new Control();
 
         //@Validated
+        @Getter
+        @Setter
         @ToString
         public static class View {
+
             @NotBlank
-            @Getter
-            @Setter
             private String title;
+
             @NotBlank
-            @Getter
-            @Setter
             private String subtitle;
 
             @Valid
-            @Getter
-            @Setter
-            public ComputerKurzweilProperties.Wator.View.Neighborhood neighborhood = new Wator.View.Neighborhood();
+            public Neighborhood neighborhood = new Neighborhood();
 
             //@Validated
+            @Getter
+            @Setter
             @ToString
             public static class Neighborhood {
+
                 @NotBlank
-                @Getter
-                @Setter
                 private String title;
+
                 @NotBlank
-                @Getter
-                @Setter
                 private String typeVonNeumann;
+
                 @NotBlank
-                @Getter
-                @Setter
                 private String typeMoore;
+
                 @NotBlank
-                @Getter
-                @Setter
                 private String typeWoehlke;
             }
         }
 
         //@Validated
+        @Getter
+        @Setter
         @ToString
         public static class Control {
+
             @NotNull
-            @Getter
-            @Setter
             private Integer threadSleepTime;
+
             @NotNull
-            @Getter
-            @Setter
             private Integer numberOfParticles;
         }
     }
