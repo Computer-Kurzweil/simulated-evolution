@@ -184,129 +184,143 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <!-- SCM and Releasing with Maven -->
-        <maven.scm.version>2.0.0-M3</maven.scm.version>
-        <maven-release-plugin.version>3.0.0-M7</maven-release-plugin.version>
+        <version.maven.scm>1.13.0</version.maven.scm>
+        <version.maven-release-plugin>3.0.0-M7</version.maven-release-plugin>
 
         <!-- Maven plugins -->
         <maven-antrun-plugin.version>3.1.0</maven-antrun-plugin.version>
         <maven-assembly-plugin.version>3.4.2</maven-assembly-plugin.version>
-        <maven-clean-plugin.version>3.2.0</maven-clean-plugin.version>
-        <maven-compiler-plugin.version>3.10.1</maven-compiler-plugin.version>
-        <maven-dependency-plugin.version>3.4.0</maven-dependency-plugin.version>
-        <maven-deploy-plugin.version>3.0.0</maven-deploy-plugin.version>
-        <maven-failsafe-plugin.version>3.0.0-M7</maven-failsafe-plugin.version>
-        <maven-help-plugin.version>3.3.0</maven-help-plugin.version>
-        <maven-install-plugin.version>3.1.0</maven-install-plugin.version>
-        <maven-invoker-plugin.version>3.3.0</maven-invoker-plugin.version>
-
         <maven-shade-plugin.version>3.4.1</maven-shade-plugin.version>
         <exec-maven-plugin.version>3.1.0</exec-maven-plugin.version>
         <maven-jar-plugin.version>3.3.0</maven-jar-plugin.version>
+        <maven-help-plugin.version>3.3.0</maven-help-plugin.version>
 
-        <maven-javadoc-plugin.version>3.4.1</maven-javadoc-plugin.version>
-        <maven-resources-plugin.version>3.3.0</maven-resources-plugin.version>
-        <maven-shade-plugin.version>3.4.1</maven-shade-plugin.version>
-        <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
-        <maven-surefire-plugin.version>3.0.0-M7</maven-surefire-plugin.version>
-        <versions-maven-plugin.version>2.13.01</versions-maven-plugin.version>
-        <dependency-management-plugin.version>1.1.0</dependency-management-plugin.version>
-        <git-commit-id-plugin.version>5.0.0</git-commit-id-plugin.version>
-        <maven-changes-plugin.version>2.12.1</maven-changes-plugin.version>
+        <!-- UML -->
+        <version.plantuml-maven-plugin>1.5.2</version.plantuml-maven-plugin>
+        <version.plantuml-maven-plugin.plantuml>1.2022.7</version.plantuml-maven-plugin.plantuml>
 
         <!-- Maven Reports and Site -->
-        <maven-project-info-reports-plugin.version>3.4.1</maven-project-info-reports-plugin.version>
-        <maven-checkstyle-plugin.version>3.2.0</maven-checkstyle-plugin.version>
-        <maven-jxr-plugin.version>3.3.0</maven-jxr-plugin.version>
-        <maven-pmd-plugin.version>3.19.0</maven-pmd-plugin.version>
-        <spotbugs-maven-plugin.version>4.7.3.0</spotbugs-maven-plugin.version>
-        <doxia-module-markdown.version>2.0.0-M4</doxia-module-markdown.version>
-        <maven-pmd-plugin.version>3.13.0</maven-pmd-plugin.version>
-        <maven-surefire-report-plugin.version>3.0.0-M7</maven-surefire-report-plugin.version>
-        <maven-site-plugin.version>4.0.0-M4</maven-site-plugin.version>
-        <doxia-module.version>2.0.0-M4</doxia-module.version>
-        <maven-default-skin.version>1.3</maven-default-skin.version>
+        <version.maven-invoker-plugin>3.3.0</version.maven-invoker-plugin>
+        <version.maven-clean-plugin>3.2.0</version.maven-clean-plugin>
+        <version.maven-dependency-plugin>3.3.0</version.maven-dependency-plugin>
+        <version.maven-compiler-plugin>3.10.1</version.maven-compiler-plugin>
+        <version.maven-install-plugin>3.0.1</version.maven-install-plugin>
+        <version.maven-help-plugin>3.3.0</version.maven-help-plugin>
+        <version.maven-deploy-plugin>3.0.0</version.maven-deploy-plugin>
+        <version.maven-javadoc-plugin>3.4.1</version.maven-javadoc-plugin>
+        <version.maven-source-plugin>3.2.1</version.maven-source-plugin>
+        <version.maven-surefire-plugin>3.0.0-M7</version.maven-surefire-plugin>
+        <version.maven-failsafe-plugin>3.0.0-M7</version.maven-failsafe-plugin>
+        <version.maven-site-plugin>3.12.0</version.maven-site-plugin>
+        <version.maven-project-info-reports-plugin>3.3.0</version.maven-project-info-reports-plugin>
+        <version.maven-checkstyle-plugin>3.1.2</version.maven-checkstyle-plugin>
+        <version.maven-checkstyle-plugin.checkstyle>10.4</version.maven-checkstyle-plugin.checkstyle>
+        <version.maven-jxr-plugin>3.2.0</version.maven-jxr-plugin>
+        <version.maven-pmd-plugin>3.17.0</version.maven-pmd-plugin>
+        <version.maven-pmd-plugin.pmd>6.49.0</version.maven-pmd-plugin.pmd>
+        <version.spotbugs-maven-plugin>4.7.0.0</version.spotbugs-maven-plugin>
+        <version.maven-surefire-report-plugin>3.0.0-M7</version.maven-surefire-report-plugin>
+        <version.asciidoctor-maven-plugin>2.2.2</version.asciidoctor-maven-plugin>
+        <version.doxia-module-markdown>1.11.1</version.doxia-module-markdown>
+        <version.maven-enforcer-plugin>3.1.0</version.maven-enforcer-plugin>
+
+        <version.doxia-module>2.0.0-M4</version.doxia-module>
+        <version.maven-default-skin>1.3</version.maven-default-skin>
 
         <!-- Unit and Integration Testing -->
-        <junit-jupiter.version>5.7.2</junit-jupiter.version>
-        <xmlunit2.version>2.6.4</xmlunit2.version>
-        <htmlunit.version>2.36.0</htmlunit.version>
-        <hamcrest.version>2.1</hamcrest.version>
-        <lombok.version>1.18.24</lombok.version>
-        <jsoup.version>1.14.1</jsoup.version>
+        <version.junit-jupiter>5.7.2</version.junit-jupiter>
+        <version.xmlunit2>2.6.4</version.xmlunit2>
+        <version.htmlunit>2.36.0</version.htmlunit>
+        <version.hamcrest>2.1</version.hamcrest>
+        <version.jsoup>1.14.1</version.jsoup>
 
         <skipTests>true</skipTests>
 
         <!-- Application Libs -->
-        <org.apache.commons-lang3.version>3.12.0</org.apache.commons-lang3.version>
-        <jackson.databind.version>2.14.1</jackson.databind.version>
-        <org.yaml.snakeyaml.version>1.33</org.yaml.snakeyaml.version>
-        <javax.validation.api.version>3.0.2</javax.validation.api.version>
-        <com.google.guava.version>31.1-jre</com.google.guava.version>
-        <junit4.version>4.13</junit4.version>
-        <junit5.version>5.9.1</junit5.version>
-        <log4j2.version>2.19.0</log4j2.version>
-        <lombok.version>1.18.24</lombok.version>
-        <lombok-maven-plugin.version>1.18.20.0</lombok-maven-plugin.version>
+        <version.org.apache.commons-lang3>>3.12.0</version.org.apache.commons-lang3>
+        <version.jackson.databind>2.14.1</version.jackson.databind>
+        <version.org.yaml.snakeyaml>1.33</version.org.yaml.snakeyaml>
+        <version.javax.validation.api>3.0.2</version.javax.validation.api>
+        <version.com.google.guava>31.1-jre</version.com.google.guava>
+        <version.junit4>4.13</version.junit4>
+        <version.junit5>5.9.1</version.junit5>
+        <version.log4j2>2.19.0</version.log4j2>
+        <version.lombok>1.18.24</version.lombok>
+        <version.lombok-maven-plugin>1.18.20.0</version.lombok-maven-plugin>
 
     </properties>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${version.lombok}</version>
+                <scope>provided</scope>
+                <optional>false</optional>
+            </dependency>
+            <dependency>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
+                <version>${version.junit-jupiter}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>4.3</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
                 <groupId>org.apache.maven.scm</groupId>
                 <artifactId>maven-scm-provider-svnexe</artifactId>
-                <version>${maven.scm.version}</version>
+                <version>${version.maven.scm}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.maven.scm</groupId>
                 <artifactId>maven-scm-provider-svn-commons</artifactId>
-                <version>${maven.scm.version}</version>
+                <version>${version.maven.scm}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.maven.scm</groupId>
                 <artifactId>maven-scm-provider-gitexe</artifactId>
-                <version>${maven.scm.version}</version>
+                <version>${version.maven.scm}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.maven.scm</groupId>
                 <artifactId>maven-scm-provider-git-commons</artifactId>
-                <version>${maven.scm.version}</version>
+                <version>${version.maven.scm}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.maven.scm</groupId>
                 <artifactId>maven-scm-manager-plexus</artifactId>
-                <version>${maven.scm.version}</version>
+                <version>${version.maven.scm}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.maven.scm</groupId>
                 <artifactId>maven-scm-client</artifactId>
-                <version>${maven.scm.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
-                <scope>provided</scope>
+                <version>${version.maven.scm}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-slf4j-impl</artifactId>
-                <version>${log4j2.version}</version>
+                <version>${version.log4j2}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-api</artifactId>
-                <version>${log4j2.version}</version>
+                <version>${version.log4j2}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-jcl</artifactId>
-                <version>${log4j2.version}</version>
+                <version>${version.log4j2}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-core</artifactId>
-                <version>${log4j2.version}</version>
+                <version>${version.log4j2}</version>
             </dependency>
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
@@ -329,207 +343,227 @@
             <dependency>
                 <groupId>com.fasterxml.jackson.dataformat</groupId>
                 <artifactId>jackson-dataformat-yaml</artifactId>
-                <version>${jackson.databind.version}</version>
+                <version>${version.jackson.databind}</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.dataformat</groupId>
                 <artifactId>jackson-dataformat-properties</artifactId>
-                <version>${jackson.databind.version}</version>
+                <version>${version.jackson.databind}</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.dataformat</groupId>
                 <artifactId>jackson-dataformat-xml</artifactId>
-                <version>${jackson.databind.version}</version>
+                <version>${version.jackson.databind}</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.dataformat</groupId>
                 <artifactId>jackson-dataformat-ion</artifactId>
-                <version>${jackson.databind.version}</version>
+                <version>${version.jackson.databind}</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-annotations</artifactId>
-                <version>${jackson.databind.version}</version>
+                <version>${version.jackson.databind}</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-databind</artifactId>
-                <version>${jackson.databind.version}</version>
+                <version>${version.jackson.databind}</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-core</artifactId>
-                <version>${jackson.databind.version}</version>
+                <version>${version.jackson.databind}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
-                <version>${org.apache.commons-lang3.version}</version>
+                <version>${version.org.apache.commons-lang3}</version>
             </dependency>
             <dependency>
                 <groupId>org.yaml</groupId>
                 <artifactId>snakeyaml</artifactId>
-                <version>${org.yaml.snakeyaml.version}</version>
+                <version>${version.org.yaml.snakeyaml}</version>
             </dependency>
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
-                <version>${com.google.guava.version}</version>
+                <version>${version.com.google.guava}</version>
             </dependency>
             <dependency>
                 <groupId>jakarta.validation</groupId>
                 <artifactId>jakarta.validation-api</artifactId>
-                <version>${javax.validation.api.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>${maven-dependency-plugin.version}</version>
-                <type>maven-plugin</type>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven-compiler-plugin.version}</version>
-                <type>maven-plugin</type>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>${maven-source-plugin.version}</version>
-                <type>maven-plugin</type>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>${maven-shade-plugin.version}</version>
-                <type>maven-plugin</type>
-            </dependency>
-            <dependency>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>${exec-maven-plugin.version}</version>
-                <type>maven-plugin</type>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>${maven-jar-plugin.version}</version>
-                <type>maven-plugin</type>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-scm-plugin</artifactId>
-                <version>${maven.scm.version}</version>
-                <type>maven-plugin</type>
-            </dependency>
-
-
-            <dependency>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-site-plugin</artifactId>
-                <version>${maven-site-plugin.version}</version>
-                <type>maven-plugin</type>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-project-info-reports-plugin</artifactId>
-                <version>${maven-project-info-reports-plugin.version}</version>
-                <type>maven-plugin</type>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jxr-plugin</artifactId>
-                <version>${maven-jxr-plugin.version}</version>
-                <type>maven-plugin</type>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>${maven-checkstyle-plugin.version}</version>
-                <type>maven-plugin</type>
-            </dependency>
-            <dependency>
-                <groupId>com.github.spotbugs</groupId>
-                <artifactId>spotbugs-maven-plugin</artifactId>
-                <version>${spotbugs-maven-plugin.version}</version>
-                <type>maven-plugin</type>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-pmd-plugin</artifactId>
-                <version>${maven-pmd-plugin.version}</version>
-                <type>maven-plugin</type>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>${maven-surefire-plugin.version}</version>
-                <type>maven-plugin</type>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-report-plugin</artifactId>
-                <version>${maven-surefire-report-plugin.version}</version>
-                <type>maven-plugin</type>
-            </dependency>
-            <dependency>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-changes-plugin</artifactId>
-                <version>${maven-changes-plugin.version}</version>
-                <type>maven-plugin</type>
+                <version>${version.javax.validation.api}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-invoker-plugin</artifactId>
-                <version>${maven-invoker-plugin.version}</version>
+                <version>${version.maven-invoker-plugin}</version>
                 <type>maven-plugin</type>
+                <scope>provided</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>commons-collections</groupId>
+                        <artifactId>commons-collections</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>${version.maven-dependency-plugin}</version>
+                <type>maven-plugin</type>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${version.maven-compiler-plugin}</version>
+                <type>maven-plugin</type>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${version.maven-source-plugin}</version>
+                <type>maven-plugin</type>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>${version.maven-shade-plugin}</version>
+                <type>maven-plugin</type>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>${version.exec-maven-plugin}</version>
+                <type>maven-plugin</type>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>${version.maven-jar-plugin}</version>
+                <type>maven-plugin</type>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-scm-plugin</artifactId>
+                <version>${version.maven.scm}</version>
+                <type>maven-plugin</type>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>${version.maven-site-plugin}</version>
+                <type>maven-plugin</type>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>${version.maven-project-info-reports-plugin}</version>
+                <type>maven-plugin</type>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jxr-plugin</artifactId>
+                <version>${version.maven-jxr-plugin}</version>
+                <type>maven-plugin</type>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>${version.maven-checkstyle-plugin}</version>
+                <type>maven-plugin</type>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>com.github.spotbugs</groupId>
+                <artifactId>spotbugs-maven-plugin</artifactId>
+                <version>${version.spotbugs-maven-plugin}</version>
+                <type>maven-plugin</type>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>${version.maven-pmd-plugin}</version>
+                <type>maven-plugin</type>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${version.maven-surefire-plugin}</version>
+                <type>maven-plugin</type>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-report-plugin</artifactId>
+                <version>${version.maven-surefire-report-plugin}</version>
+                <type>maven-plugin</type>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-invoker-plugin</artifactId>
+                <version>${version.maven-invoker-plugin}</version>
+                <type>maven-plugin</type>
+                <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>org.apache.maven.skins</groupId>
                 <artifactId>maven-default-skin</artifactId>
-                <version>${maven-default-skin.version}</version>
+                <version>${version.maven-default-skin}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.maven.doxia</groupId>
                 <artifactId>doxia-module-markdown</artifactId>
-                <version>${doxia-module.version}</version>
+                <version>${version.doxia-module}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.maven.doxia</groupId>
                 <artifactId>doxia-module-itext</artifactId>
-                <version>${doxia-module.version}</version>
+                <version>${version.doxia-module}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.maven.doxia</groupId>
                 <artifactId>doxia-module-latex</artifactId>
-                <version>${doxia-module.version}</version>
+                <version>${version.doxia-module}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.maven.doxia</groupId>
                 <artifactId>doxia-module-rtf</artifactId>
-                <version>${doxia-module.version}</version>
+                <version>${version.doxia-module}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.maven.doxia</groupId>
                 <artifactId>doxia-module-xdoc</artifactId>
-                <version>${doxia-module.version}</version>
+                <version>${version.doxia-module}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.maven.doxia</groupId>
                 <artifactId>doxia-skin-model</artifactId>
-                <version>${doxia-module.version}</version>
+                <version>${version.doxia-module}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.maven.doxia</groupId>
                 <artifactId>doxia-site-renderer</artifactId>
-                <version>${doxia-module.version}</version>
+                <version>${version.doxia-module}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.maven.doxia</groupId>
                 <artifactId>doxia-test-docs</artifactId>
-                <version>${doxia-module.version}</version>
+                <version>${version.doxia-module}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -726,152 +760,142 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-dependency-plugin</artifactId>
-                    <version>${maven-dependency-plugin.version}</version>
+                    <version>${version.maven-dependency-plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>${maven-compiler-plugin.version}</version>
+                    <version>${version.maven-compiler-plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>${maven-surefire-plugin.version}</version>
+                    <version>${version.maven-surefire-plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-failsafe-plugin</artifactId>
-                    <version>${maven-failsafe-plugin.version}</version>
+                    <version>${version.maven-failsafe-plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-clean-plugin</artifactId>
-                    <version>${maven-clean-plugin.version}</version>
+                    <version>${version.maven-clean-plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-install-plugin</artifactId>
-                    <version>${maven-install-plugin.version}</version>
+                    <version>${version.maven-install-plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-help-plugin</artifactId>
-                    <version>${maven-help-plugin.version}</version>
+                    <version>${version.maven-help-plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-shade-plugin</artifactId>
-                    <version>${maven-shade-plugin.version}</version>
+                    <version>${version.maven-shade-plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>exec-maven-plugin</artifactId>
-                    <version>${exec-maven-plugin.version}</version>
+                    <version>${version.exec-maven-plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
-                    <version>${maven-jar-plugin.version}</version>
+                    <version>${version.maven-jar-plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>${maven-javadoc-plugin.version}</version>
+                    <version>${version.maven-javadoc-plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-source-plugin</artifactId>
-                    <version>${maven-source-plugin.version}</version>
+                    <version>${version.maven-source-plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-scm-plugin</artifactId>
-                    <version>${maven.scm.version}</version>
+                    <version>${version.maven.scm}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-release-plugin</artifactId>
-                    <version>${maven-release-plugin.version}</version>
+                    <version>${version.maven-release-plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.projectlombok</groupId>
                     <artifactId>lombok-maven-plugin</artifactId>
-                    <version>${lombok-maven-plugin.version}</version>
+                    <version>${version.lombok-maven-plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-invoker-plugin</artifactId>
-                    <version>${maven-invoker-plugin.version}</version>
+                    <version>${version.maven-invoker-plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-project-info-reports-plugin</artifactId>
-                    <version>${maven-project-info-reports-plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-changes-plugin</artifactId>
-                    <version>${maven-changes-plugin.version}</version>
+                    <version>${version.maven-project-info-reports-plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jxr-plugin</artifactId>
-                    <version>${maven-jxr-plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>io.github.git-commit-id</groupId>
-                    <artifactId>git-commit-id-maven-plugin</artifactId>
-                    <version>${git-commit-id-plugin.version}</version>
+                    <version>${version.maven-jxr-plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-checkstyle-plugin</artifactId>
-                    <version>${maven-checkstyle-plugin.version}</version>
+                    <version>${version.maven-checkstyle-plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>com.github.spotbugs</groupId>
                     <artifactId>spotbugs-maven-plugin</artifactId>
-                    <version>${spotbugs-maven-plugin.version}</version>
+                    <version>${version.spotbugs-maven-plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-pmd-plugin</artifactId>
-                    <version>${maven-pmd-plugin.version}</version>
+                    <version>${version.maven-pmd-plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-report-plugin</artifactId>
-                    <version>${maven-surefire-report-plugin.version}</version>
+                    <version>${version.maven-surefire-report-plugin}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-site-plugin</artifactId>
-                    <version>${maven-site-plugin.version}</version>
+                    <version>${version.maven-site-plugin}</version>
                     <dependencies>
                         <dependency>
                             <groupId>org.apache.maven.doxia</groupId>
                             <artifactId>doxia-module-markdown</artifactId>
-                            <version>${doxia-module.version}</version>
+                            <version>${version.doxia-module}</version>
                         </dependency>
                         <dependency>
                             <groupId>org.apache.maven.doxia</groupId>
                             <artifactId>doxia-module-xdoc</artifactId>
-                            <version>${doxia-module.version}</version>
+                            <version>${version.doxia-module}</version>
                         </dependency>
                         <dependency>
                             <groupId>org.apache.maven.doxia</groupId>
                             <artifactId>doxia-skin-model</artifactId>
-                            <version>${doxia-module.version}</version>
+                            <version>${version.doxia-module}</version>
                         </dependency>
                         <dependency>
                             <groupId>org.apache.maven.doxia</groupId>
                             <artifactId>doxia-site-renderer</artifactId>
-                            <version>${doxia-module.version}</version>
+                            <version>${version.doxia-module}</version>
                         </dependency>
                         <dependency>
                             <groupId>org.apache.maven.doxia</groupId>
                             <artifactId>doxia-test-docs</artifactId>
-                            <version>${doxia-module.version}</version>
+                            <version>${version.doxia-module}</version>
                         </dependency>
                     </dependencies>
                 </plugin>
