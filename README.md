@@ -33,8 +33,9 @@ cd simulated-evolution
 ![UML Class Model](src/main/resources/img/Class_Model.jpg)
 
 
-## Github Repository
-[https://github.com/Computer-Kurzweil/simulated-evolution](https://github.com/Computer-Kurzweil/simulated-evolution)
+## Repositories
+* [Github Repository](https://github.com/Computer-Kurzweil/simulated-evolution)
+* [Maven Project Reports](https://java.woehlke.org/simulated-evolution/readme2.html)
 
 ## Blog Article
 [http://thomas-woehlke.blogspot.de/2016/01/simulated-evolution-artificial-life-and.html](http://thomas-woehlke.blogspot.de/2016/01/simulated-evolution-artificial-life-and.html)
