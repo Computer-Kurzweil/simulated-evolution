@@ -7,3 +7,9 @@ Fixed #17, Fixed #19, Fixed #20, Fixed #21
 
 # 2.2.2
 Fixed #22, Fixed #18
+
+# 3.0.0
+fixed #10 update to java 17
+fixed #9 setup maven project reports site
+fixed #4 change buttons to checkbuttons
+fixed #3 release by maven 
