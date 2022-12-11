@@ -1,4 +1,4 @@
 os: linux
 dist: bionic
 language: java
-jdk: openjdk13
+jdk: openjdk17
