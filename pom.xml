@@ -27,8 +27,18 @@
     <distributionManagement>
         <site>
             <id>simulatedevolution.local</id>
-            <url>file://${user.home}/public_html/p/simulated-evolution</url>
+            <url>file://${user.home}/public_html/java/simulated-evolution/</url>
         </site>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>tw-thinkpad-snapshots</name>
+            <url>file://${user.home}/public_html/java/simulated-evolution/</url>
+        </snapshotRepository>
+        <repository>
+            <id>central</id>
+            <name>tw-thinkpad-releases</name>
+            <url>file://${user.home}/public_html/java/simulated-evolution/</url>
+        </repository>
     </distributionManagement>
 
     <organization>
@@ -38,9 +48,11 @@
 
     <developers>
         <developer>
-            <name>Thomas Wöhlke</name>
-            <email>thomas@woehlke.org</email>
+            <id>thomaswoehlke</id>
+            <name>Thomas Woehlke</name>
+            <email>thomas.woehlke@gmail.com</email>
             <url>https://github.com/thomaswoehlke</url>
+            <timezone>Europe/Paris</timezone>
         </developer>
     </developers>
 
