@@ -21,12 +21,12 @@ If a cell doesn't eat enough, it will first stand still and after a while it die
 
 ## Screenshot
 
-![Early Screen](../resources/img/screen1.png)
+![Early Screen](img/screen1.png)
 
-![Later Screen](../resources/img/screen2.png)
+![Later Screen](img/screen2.png)
 
 ## UML Class Model
-![UML Class Model](../resources/img/Class_Model.jpg)
+![UML Class Model](img/Class_Model.jpg)
 
 ## Github Repository
 [https://github.com/Computer-Kurzweil/simulated-evolution](https://github.com/Computer-Kurzweil/simulated-evolution)
