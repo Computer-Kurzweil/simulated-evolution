@@ -795,7 +795,7 @@
 
     <build>
         <finalName>${project.artifactId}</finalName>
-        <defaultGoal>clean dependency:list install exec:java site site:deploy</defaultGoal>
+        <defaultGoal>clean dependency:resolve dependency:resolve-plugins dependency:sources install site site:deploy exec:java</defaultGoal>
         <pluginManagement>
             <plugins>
                 <plugin>
