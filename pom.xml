@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.woehlke.computer.kurzweil</groupId>
@@ -16,8 +17,8 @@
         <url>https://github.com/Computer-Kurzweil/simulated-evolution.git</url>
         <connection>scm:git:git@github.com:Computer-Kurzweil/simulated-evolution.git</connection>
         <developerConnection>scm:git:git@github.com:Computer-Kurzweil/simulated-evolution.git</developerConnection>
-      <tag>HEAD</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
 
     <issueManagement>
         <url>https://github.com/Computer-Kurzweil/simulated-evolution/issues/</url>
@@ -497,6 +498,17 @@
                 <version>${version.maven-pmd-plugin}</version>
                 <type>maven-plugin</type>
                 <scope>provided</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.beust</groupId>
+                        <artifactId>jcommander</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>com.beust</groupId>
+                <artifactId>jcommander</artifactId>
+                <version>1.82</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -762,6 +774,10 @@
             <type>maven-plugin</type>
         </dependency>
         <dependency>
+            <groupId>com.beust</groupId>
+            <artifactId>jcommander</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-surefire-plugin</artifactId>
             <type>maven-plugin</type>
@@ -954,7 +970,7 @@
     </build>
 
     <reporting>
-	<plugins>
+        <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-project-info-reports-plugin</artifactId>
