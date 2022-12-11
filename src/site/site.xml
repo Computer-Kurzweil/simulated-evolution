@@ -23,10 +23,10 @@
             <item name="GitHub project" href="https://github.com/Computer-Kurzweil/simulated-evolution/" />
         </links>
         <breadcrumbs>
-            <item name="Simulated Evolution" href="/" />
+            <item name="Simulated Evolution" href="readme2.html" />
         </breadcrumbs>
         <menu name="Main" inherit="top">
-            <item name="Home" href="/" />
+            <item name="Home" href="readme2.html" />
             <item name="GitHub project" href="https://github.com/Computer-Kurzweil/simulated-evolution" />
             <item name="Blog" href="https://thomas-woehlke.blogspot.de/2016/01/simulated-evolution-artificial-life-and.html" />
             <item name="License" href="license.html" />
