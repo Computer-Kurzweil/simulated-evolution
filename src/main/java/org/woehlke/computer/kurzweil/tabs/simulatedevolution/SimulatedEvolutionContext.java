@@ -12,7 +12,11 @@ import org.woehlke.computer.kurzweil.tabs.simulatedevolution.model.WorldPoint;
 import java.util.concurrent.ForkJoinTask;
 
 import static java.lang.Thread.State.NEW;
-
+/**
+ * &copy; 2006 - 2008 Thomas Woehlke.
+ * http://java.woehlke.org/simulated-evolution/
+ * @author Thomas Woehlke
+ */
 @Log4j2
 @Getter
 @ToString(callSuper = false, exclude={"ctx","controller","tab"})

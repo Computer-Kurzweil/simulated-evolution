@@ -14,6 +14,11 @@ import java.io.InputStream;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
+/**
+ * &copy; 2006 - 2008 Thomas Woehlke.
+ * http://java.woehlke.org/simulated-evolution/
+ * @author Thomas Woehlke
+ */
 @Log4j2
 @ToString
 @EqualsAndHashCode

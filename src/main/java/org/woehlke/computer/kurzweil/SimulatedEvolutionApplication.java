@@ -10,7 +10,7 @@ import org.woehlke.computer.kurzweil.tabs.simulatedevolution.SimulatedEvolutionT
  * @see SimulatedEvolutionTab
  *
  * &copy; 2006 - 2008 Thomas Woehlke.
- * http://thomas-woehlke.de/p/simulated-evolution/
+ * http://java.woehlke.org/simulated-evolution/
  * @author Thomas Woehlke
  */
 @Log4j2

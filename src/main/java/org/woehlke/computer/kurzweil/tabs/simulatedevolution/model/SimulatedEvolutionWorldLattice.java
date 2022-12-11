@@ -10,7 +10,7 @@ import java.util.Random;
  * Map of World where every Place can have food needed by the Bacteria Cells for eating.
  *
  * &copy; 2006 - 2013 Thomas Woehlke.
- * http://thomas-woehlke.de/p/simulated-evolution/
+ * http://java.woehlke.org/simulated-evolution/
  * @author Thomas Woehlke
  * Date: 24.08.13
  * Time: 12:37

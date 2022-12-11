@@ -5,6 +5,11 @@ import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.tabs.simulatedevolution.SimulatedEvolution;
 import org.woehlke.computer.kurzweil.tabs.simulatedevolution.model.LifeCycleStatus;
 
+/**
+ * &copy; 2006 - 2008 Thomas Woehlke.
+ * http://java.woehlke.org/simulated-evolution/
+ * @author Thomas Woehlke
+ */
 @Log4j2
 @ToString
 @Getter

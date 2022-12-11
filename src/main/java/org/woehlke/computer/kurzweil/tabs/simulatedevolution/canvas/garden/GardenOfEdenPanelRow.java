@@ -11,6 +11,11 @@ import org.woehlke.computer.kurzweil.tabs.simulatedevolution.SimulatedEvolution;
 import org.woehlke.computer.kurzweil.tabs.simulatedevolution.SimulatedEvolutionContext;
 import org.woehlke.computer.kurzweil.tabs.simulatedevolution.SimulatedEvolutionModel;
 
+/**
+ * &copy; 2006 - 2008 Thomas Woehlke.
+ * http://java.woehlke.org/simulated-evolution/
+ * @author Thomas Woehlke
+ */
 @Log4j2
 @Getter
 @ToString(callSuper = true)

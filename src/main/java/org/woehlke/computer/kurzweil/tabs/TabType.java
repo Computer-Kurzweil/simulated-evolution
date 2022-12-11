@@ -4,6 +4,11 @@ import lombok.Getter;
 
 import java.awt.event.KeyEvent;
 
+/**
+ * &copy; 2006 - 2008 Thomas Woehlke.
+ * http://java.woehlke.org/simulated-evolution/
+ * @author Thomas Woehlke
+ */
 @Getter
 public enum TabType {
 

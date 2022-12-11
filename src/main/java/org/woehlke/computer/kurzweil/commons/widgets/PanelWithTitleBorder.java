@@ -8,6 +8,11 @@ import org.woehlke.computer.kurzweil.commons.layouts.FlowLayoutCenter;
 import javax.swing.*;
 import javax.swing.border.CompoundBorder;
 
+/**
+ * &copy; 2006 - 2008 Thomas Woehlke.
+ * http://java.woehlke.org/simulated-evolution/
+ * @author Thomas Woehlke
+ */
 @Log4j2
 @Getter
 public class PanelWithTitleBorder extends JPanel {

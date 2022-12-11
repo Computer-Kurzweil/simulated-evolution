@@ -7,6 +7,12 @@ import lombok.extern.log4j.Log4j2;
 
 import javax.swing.*;
 
+
+/**
+ * &copy; 2006 - 2008 Thomas Woehlke.
+ * http://java.woehlke.org/simulated-evolution/
+ * @author Thomas Woehlke
+ */
 @Log4j2
 @Getter
 @ToString

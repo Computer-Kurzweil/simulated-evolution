@@ -10,7 +10,7 @@ import java.io.Serializable;
  * A Point is used to define the Position of Cell or as a Vector for defining Dimensions.
  *
  * &copy; 2006 - 2008 Thomas Woehlke.
- * http://thomas-woehlke.de/p/simulated-evolution/
+ * http://java.woehlke.org/simulated-evolution/
  * @author Thomas Woehlke
  * Date: 04.02.2006
  * Time: 23:47:05

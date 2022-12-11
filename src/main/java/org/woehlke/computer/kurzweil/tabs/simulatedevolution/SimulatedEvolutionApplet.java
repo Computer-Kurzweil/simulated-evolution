@@ -12,12 +12,13 @@ import java.awt.*;
 import java.awt.image.ImageObserver;
 import java.io.Serializable;
 
+
 /**
  * The Container for running the Simulation.
  * It containes a World Data Model, a Controller Thread and a WorldCanvas View.
  *
  * (C) 2013 Thomas Woehlke.
- * http://thomas-woehlke.de/p/simulated-evolution/
+ * http://java.woehlke.org/simulated-evolution/
  * @author Thomas Woehlke
  * Date: 04.02.2006
  * Time: 18:33:14

@@ -15,7 +15,7 @@ import static java.awt.Color.*;
  * @see LifeCycle
  *
  * &copy; 2006 - 2008 Thomas Woehlke.
- * http://thomas-woehlke.de/p/simulated-evolution/
+ * http://java.woehlke.org/simulated-evolution/
  * @author Thomas Woehlke
  * Date: 25.08.13
  * Time: 12:40

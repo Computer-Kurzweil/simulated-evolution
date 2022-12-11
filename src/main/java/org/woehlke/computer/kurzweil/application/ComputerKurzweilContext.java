@@ -14,6 +14,11 @@ import javax.swing.border.CompoundBorder;
 import java.util.Date;
 import java.util.Random;
 
+/**
+ * &copy; 2006 - 2008 Thomas Woehlke.
+ * http://java.woehlke.org/simulated-evolution/
+ * @author Thomas Woehlke
+ */
 @Log4j2
 @Getter
 @ToString(exclude={"random","frame"},callSuper=true)

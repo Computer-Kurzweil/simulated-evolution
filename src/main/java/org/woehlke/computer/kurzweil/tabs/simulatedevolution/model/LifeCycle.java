@@ -13,7 +13,7 @@ import java.io.Serializable;
  * If there is not enough food, the cell will not move and later it will die.
  *
  * &copy; 2006 - 2008 Thomas Woehlke.
- * http://thomas-woehlke.de/p/simulated-evolution/
+ * http://java.woehlke.org/simulated-evolution/
  * @author Thomas Woehlke
  * Date: 04.02.2006
  * Time: 23:12:31

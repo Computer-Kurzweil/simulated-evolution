@@ -8,7 +8,7 @@ import org.woehlke.computer.kurzweil.commons.tabs.TabController;
  * The ControllerThread controls the Interactions between Model and View (MVC-Pattern).
  *
  * &copy; 2006 - 2013 Thomas Woehlke.
- * http://thomas-woehlke.de/p/simulated-evolution/
+ * http://java.woehlke.org/simulated-evolution/
  * @author Thomas Woehlke
  * Date: 05.02.2006
  * Time: 00:36:20

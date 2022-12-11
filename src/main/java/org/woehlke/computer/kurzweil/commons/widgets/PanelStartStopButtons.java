@@ -8,6 +8,11 @@ import org.woehlke.computer.kurzweil.tabs.Tab;
 
 import javax.swing.*;
 
+/**
+ * &copy; 2006 - 2008 Thomas Woehlke.
+ * http://java.woehlke.org/simulated-evolution/
+ * @author Thomas Woehlke
+ */
 @Log4j2
 @ToString(exclude={"startButton","stopButton"})
 public class PanelStartStopButtons extends SubTabImpl implements Startable, SubTab {
