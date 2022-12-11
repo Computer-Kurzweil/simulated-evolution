@@ -32,12 +32,12 @@
         <snapshotRepository>
             <id>snapshots</id>
             <name>tw-thinkpad-snapshots</name>
-            <url>file://${user.home}/public_html/java/simulated-evolution/</url>
+            <url>file://${user.home}/public_html/java/libs-release-local/</url>
         </snapshotRepository>
         <repository>
             <id>central</id>
             <name>tw-thinkpad-releases</name>
-            <url>file://${user.home}/public_html/java/simulated-evolution/</url>
+            <url>file://${user.home}/public_html/java/libs-release-local/</url>
         </repository>
     </distributionManagement>
 
