@@ -1028,7 +1028,7 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>org.woehlke.computer.kurzweil.SimulatedEvolutionApplication</mainClass>
+                    <mainClass>org.woehlke.computer.kurzweil.simulated.evolution.SimulatedEvolutionApplication</mainClass>
                 </configuration>
             </plugin>
             <plugin>

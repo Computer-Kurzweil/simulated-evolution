@@ -11,31 +11,31 @@
         </RollingFileAppender>
     </Appenders>
     <Loggers>
-        <Logger name="org.woehlke.computer.kurzweil.tabs.cca" level="info" includeLocation="true">
+        <Logger name="org.woehlke.computer.kurzweil.simulated.evolution.tabs.cca" level="info" includeLocation="true">
             <AppenderRef ref="Console"/>
         </Logger>
-        <Logger name="org.woehlke.computer.kurzweil.tabs.dla" level="warn" includeLocation="true">
+        <Logger name="org.woehlke.computer.kurzweil.simulated.evolution.tabs.dla" level="warn" includeLocation="true">
             <AppenderRef ref="Console"/>
         </Logger>
-        <Logger name="org.woehlke.computer.kurzweil.tabs.simulatedevolution" level="info" includeLocation="true">
+        <Logger name="org.woehlke.computer.kurzweil.simulated.evolution.tabs.simulatedevolution" level="info" includeLocation="true">
             <AppenderRef ref="Console"/>
         </Logger>
-        <Logger name="org.woehlke.computer.kurzweil.tabs.mandelbrot" level="warn" includeLocation="true">
+        <Logger name="org.woehlke.computer.kurzweil.simulated.evolution.tabs.mandelbrot" level="warn" includeLocation="true">
             <AppenderRef ref="Console"/>
         </Logger>
-        <Logger name="org.woehlke.computer.kurzweil.tabs.randomwalk" level="warn" includeLocation="true">
+        <Logger name="org.woehlke.computer.kurzweil.simulated.evolution.tabs.randomwalk" level="warn" includeLocation="true">
             <AppenderRef ref="Console"/>
         </Logger>
-        <Logger name="org.woehlke.computer.kurzweil.application" level="info" includeLocation="true">
+        <Logger name="org.woehlke.computer.kurzweil.simulated.evolution.application" level="info" includeLocation="true">
             <AppenderRef ref="Console"/>
         </Logger>
-        <Logger name="org.woehlke.computer.kurzweil.commons" level="info" includeLocation="true">
+        <Logger name="org.woehlke.computer.kurzweil.simulated.evolution.commons" level="info" includeLocation="true">
             <AppenderRef ref="Console"/>
         </Logger>
-        <Logger name="org.woehlke.computer.kurzweil.commons.model" level="info" includeLocation="true">
+        <Logger name="org.woehlke.computer.kurzweil.simulated.evolution.commons.model" level="info" includeLocation="true">
             <AppenderRef ref="Console"/>
         </Logger>
-        <Logger name="org.woehlke.computer.kurzweil.commons.widgets" level="info" includeLocation="true">
+        <Logger name="org.woehlke.computer.kurzweil.simulated.evolution.commons.widgets" level="info" includeLocation="true">
             <AppenderRef ref="Console"/>
         </Logger>
         <Root level="info">
