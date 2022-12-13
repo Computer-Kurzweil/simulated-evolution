@@ -1,4 +1,4 @@
-package org.woehlke.computer.kurzweil.simulated.evolution.application;
+package org.woehlke.computer.kurzweil.simulated.evolution.config;
 
 import lombok.Getter;
 import lombok.ToString;

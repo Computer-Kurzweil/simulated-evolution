@@ -1,6 +1,6 @@
 package org.woehlke.computer.kurzweil.simulated.evolution.commons.has;
 
-import org.woehlke.computer.kurzweil.simulated.evolution.application.ComputerKurzweilContext;
+import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweilContext;
 
 /**
  * &copy; 2006 - 2008 Thomas Woehlke.

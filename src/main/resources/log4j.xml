@@ -26,7 +26,7 @@
         <Logger name="org.woehlke.computer.kurzweil.simulated.evolution.tabs.randomwalk" level="warn" includeLocation="true">
             <AppenderRef ref="Console"/>
         </Logger>
-        <Logger name="org.woehlke.computer.kurzweil.simulated.evolution.application" level="info" includeLocation="true">
+        <Logger name="org.woehlke.computer.kurzweil.simulated.evolution.config" level="info" includeLocation="true">
             <AppenderRef ref="Console"/>
         </Logger>
         <Logger name="org.woehlke.computer.kurzweil.simulated.evolution.commons" level="info" includeLocation="true">

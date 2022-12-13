@@ -2,8 +2,8 @@ package org.woehlke.computer.kurzweil.simulated.evolution.view;
 
 import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
-import org.woehlke.computer.kurzweil.simulated.evolution.application.ComputerKurzweilContext;
-import org.woehlke.computer.kurzweil.simulated.evolution.application.ComputerKurzweilProperties;
+import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweilContext;
+import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweilProperties;
 import org.woehlke.computer.kurzweil.simulated.evolution.control.SimulatedEvolutionContext;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.tabs.Tab;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.world.SimulatedEvolutionParameter;

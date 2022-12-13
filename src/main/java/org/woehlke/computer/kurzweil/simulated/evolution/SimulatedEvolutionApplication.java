@@ -1,7 +1,7 @@
 package org.woehlke.computer.kurzweil.simulated.evolution;
 
 import lombok.extern.log4j.Log4j2;
-import org.woehlke.computer.kurzweil.simulated.evolution.application.ComputerKurzweilProperties;
+import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweilProperties;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolutionTab;
 
 /**

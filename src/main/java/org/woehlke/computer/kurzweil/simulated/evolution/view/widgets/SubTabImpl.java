@@ -2,7 +2,7 @@ package org.woehlke.computer.kurzweil.simulated.evolution.view.widgets;
 
 import lombok.Getter;
 import lombok.ToString;
-import org.woehlke.computer.kurzweil.simulated.evolution.application.ComputerKurzweilProperties;
+import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweilProperties;
 import org.woehlke.computer.kurzweil.simulated.evolution.commons.has.HasTabTitle;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.layouts.FlowLayoutCenter;
 
