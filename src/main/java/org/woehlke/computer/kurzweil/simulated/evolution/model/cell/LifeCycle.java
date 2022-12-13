@@ -8,13 +8,17 @@ import java.io.Serializable;
 
 /**
  * State of the Cell which monitors age and getting enough food.
- * After an minimum age and at a minimum af eaten food,
+ * After a minimum age and at a minimum af eaten food,
  * the cell becomes able to reproduce by cell division.
- * If there is not enough food, the cell will not move and later it will die.
+ * If there is not enough food, the cell will not move, later it will die.
  *
  * &copy; 2006 - 2008 Thomas Woehlke.
- * http://java.woehlke.org/simulated-evolution/
  * @author Thomas Woehlke
+ *
+ * @see <a href="https://thomas-woehlke.blogspot.com/2016/01/mandelbrot-set-drawn-by-turing-machine.html">Blog Article</a>
+ * @see <a href="https://github.com/Computer-Kurzweil/simulated-evolution">Github Repository</a>
+ * @see <a href="https://java.woehlke.org/simulated-evolution/">Maven Project Repository</a>
+ *
  * Date: 04.02.2006
  * Time: 23:12:31
  */

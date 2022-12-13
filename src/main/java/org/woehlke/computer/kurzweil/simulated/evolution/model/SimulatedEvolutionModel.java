@@ -20,12 +20,16 @@ import java.util.Random;
  * The World contains Water, Cells and Food.
  * It is the Data Model of the Simulation in a MVC Pattern.
  *
+ * &copy; 2006 - 2008 Thomas Woehlke.
+ * @author Thomas Woehlke
+ *
  * @see Cell
  * @see SimulatedEvolutionWorldLattice
  *
- * &copy; 2006 - 2008 Thomas Woehlke.
- * http://java.woehlke.org/simulated-evolution/
- * @author Thomas Woehlke
+ * @see <a href="https://thomas-woehlke.blogspot.com/2016/01/mandelbrot-set-drawn-by-turing-machine.html">Blog Article</a>
+ * @see <a href="https://github.com/Computer-Kurzweil/simulated-evolution">Github Repository</a>
+ * @see <a href="https://java.woehlke.org/simulated-evolution/">Maven Project Repository</a>
+ *
  * User: thomas
  * Date: 04.02.2006
  * Time: 19:06:20

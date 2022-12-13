@@ -16,8 +16,12 @@ import java.util.List;
  * View for the World Data Model for Displaying Food and Bacteria Cells.
  *
  * &copy; 2006 - 2008 Thomas Woehlke.
- * http://java.woehlke.org/simulated-evolution/
  * @author Thomas Woehlke
+ *
+ * @see <a href="https://thomas-woehlke.blogspot.com/2016/01/mandelbrot-set-drawn-by-turing-machine.html">Blog Article</a>
+ * @see <a href="https://github.com/Computer-Kurzweil/simulated-evolution">Github Repository</a>
+ * @see <a href="https://java.woehlke.org/simulated-evolution/">Maven Project Repository</a>
+ *
  * Date: 05.02.2006
  * Time: 00:51:51
  */
