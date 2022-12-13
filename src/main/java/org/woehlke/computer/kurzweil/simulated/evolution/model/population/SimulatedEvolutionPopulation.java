@@ -2,7 +2,6 @@ package org.woehlke.computer.kurzweil.simulated.evolution.model.population;
 
 import lombok.*;
 import lombok.extern.log4j.Log4j2;
-import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolution;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeCycleStatus;
 
 /**
@@ -17,7 +16,7 @@ import org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeCycleSta
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
-public class SimulatedEvolutionPopulation implements SimulatedEvolution {
+public class SimulatedEvolutionPopulation {
 
    private static final long serialVersionUID = 242L;
 

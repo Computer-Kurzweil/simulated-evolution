@@ -3,11 +3,8 @@ package org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.garden;
 import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
-import org.woehlke.computer.kurzweil.simulated.evolution.commons.Updateable;
-import org.woehlke.computer.kurzweil.simulated.evolution.view.widgets.SubTab;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.widgets.SubTabImpl;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.tabs.TabPanel;
-import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolution;
 import org.woehlke.computer.kurzweil.simulated.evolution.control.SimulatedEvolutionContext;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.SimulatedEvolutionModel;
 
@@ -19,7 +16,7 @@ import org.woehlke.computer.kurzweil.simulated.evolution.model.SimulatedEvolutio
 @Log4j2
 @Getter
 @ToString(callSuper = true)
-public class GardenOfEdenPanelRow extends SubTabImpl implements SimulatedEvolution, Updateable, SubTab {
+public class GardenOfEdenPanelRow extends SubTabImpl {
 
     private static final long serialVersionUID = 242L;
 

@@ -5,11 +5,8 @@ import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweilProperties;
-import org.woehlke.computer.kurzweil.simulated.evolution.commons.Updateable;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.layouts.FlowLayoutCenter;
-import org.woehlke.computer.kurzweil.simulated.evolution.view.widgets.SubTab;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.widgets.SubTabImpl;
-import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolution;
 import org.woehlke.computer.kurzweil.simulated.evolution.control.SimulatedEvolutionContext;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.population.SimulatedEvolutionPopulation;
 
@@ -27,7 +24,7 @@ import static org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeC
 @Getter
 @ToString(callSuper = true,exclude = {"tabCtx","border","layout","layoutSubPanel"})
 @EqualsAndHashCode(callSuper=true,exclude = {"tabCtx","border","layout","layoutSubPanel"})
-public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl implements SimulatedEvolution, SubTab, Updateable {
+public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl {
 
     private static final long serialVersionUID = 242L;
 

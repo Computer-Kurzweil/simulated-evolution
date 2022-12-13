@@ -5,12 +5,12 @@ import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweilContext;
 import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweilProperties;
 import org.woehlke.computer.kurzweil.simulated.evolution.control.SimulatedEvolutionContext;
-import org.woehlke.computer.kurzweil.simulated.evolution.view.tabs.Tab;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.world.SimulatedEvolutionParameter;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
@@ -30,11 +30,9 @@ import java.awt.event.WindowListener;
  */
 @Log4j2
 @Getter
-public class SimulatedEvolutionTab extends JFrame implements
-        MenuContainer,
-        WindowListener,
-    SimulatedEvolution,
-        Tab {
+public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
+    WindowListener,
+    ActionListener {
 
     static final long serialVersionUID = 242L;
 
@@ -116,7 +114,6 @@ public class SimulatedEvolutionTab extends JFrame implements
 
     public void update(){}
 
-    @Override
     public void actionPerformed(ActionEvent actionEvent) {
 
     }

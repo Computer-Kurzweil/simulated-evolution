@@ -6,6 +6,8 @@ import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 
 import javax.swing.*;
+import java.awt.event.ActionListener;
+import java.io.Serializable;
 
 
 /**
@@ -17,6 +19,6 @@ import javax.swing.*;
 @Getter
 @ToString
 @EqualsAndHashCode(callSuper=false)
-public abstract class TabPanel extends JPanel implements Tab {
+public abstract class TabPanel extends JPanel implements ActionListener, Serializable {
     private static final long serialVersionUID = 242L;
 }

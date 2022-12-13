@@ -2,13 +2,14 @@ package org.woehlke.computer.kurzweil.simulated.evolution.view.layouts;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.Serializable;
 
 /**
  * &copy; 2006 - 2008 Thomas Woehlke.
  * http://java.woehlke.org/simulated-evolution/
  * @author Thomas Woehlke
  */
-public class LayoutCanvas extends FlowLayoutCenter {
+public class LayoutCanvas extends FlowLayoutCenter implements Serializable {
 
     private static final long serialVersionUID = 242L;
 

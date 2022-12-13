@@ -3,12 +3,12 @@ package org.woehlke.computer.kurzweil.simulated.evolution.view.widgets;
 import lombok.Getter;
 import lombok.ToString;
 import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweilProperties;
-import org.woehlke.computer.kurzweil.simulated.evolution.commons.has.HasTabTitle;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.layouts.FlowLayoutCenter;
 
 import javax.swing.*;
 import javax.swing.border.CompoundBorder;
 import java.awt.event.KeyEvent;
+import java.io.Serializable;
 
 /**
  * &copy; 2006 - 2008 Thomas Woehlke.
@@ -17,7 +17,7 @@ import java.awt.event.KeyEvent;
  */
 @Getter
 @ToString
-public abstract class SubTabImpl extends JPanel implements HasTabTitle {
+public abstract class SubTabImpl extends JPanel implements Serializable {
 
     private static final long serialVersionUID = 242L;
 
@@ -30,7 +30,14 @@ public abstract class SubTabImpl extends JPanel implements HasTabTitle {
     private final CompoundBorder border;
     private final FlowLayoutCenter layout;
 
-    public SubTabImpl(String title, String subTitle, String toolTipText, Icon icon, int keyEvent, ComputerKurzweilProperties properties) {
+    public SubTabImpl(
+        String title,
+        String subTitle,
+        String toolTipText,
+        Icon icon,
+        int keyEvent,
+        ComputerKurzweilProperties properties
+    ) {
         this.title = title;
         this.subTitle = subTitle;
         this.toolTipText = toolTipText;

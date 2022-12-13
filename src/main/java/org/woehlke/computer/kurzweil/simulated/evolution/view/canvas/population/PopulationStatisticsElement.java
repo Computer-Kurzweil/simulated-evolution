@@ -3,7 +3,6 @@ package org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.population
 import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
-import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolution;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeCycleStatus;
 
 import javax.swing.*;
@@ -16,7 +15,7 @@ import javax.swing.*;
 @Log4j2
 @Getter
 @ToString(callSuper = true)
-public class PopulationStatisticsElement extends JPanel implements SimulatedEvolution {
+public class PopulationStatisticsElement extends JPanel {
 
     private static final long serialVersionUID = 242L;
 

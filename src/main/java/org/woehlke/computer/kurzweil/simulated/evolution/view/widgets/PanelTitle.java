@@ -5,10 +5,10 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweilContext;
-import org.woehlke.computer.kurzweil.simulated.evolution.commons.gui.GuiComponent;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.layouts.FlowLayoutCenter;
 
 import javax.swing.*;
+import java.io.Serializable;
 
 /**
  * &copy; 2006 - 2008 Thomas Woehlke.
@@ -18,7 +18,7 @@ import javax.swing.*;
 @Log4j2
 @ToString
 @EqualsAndHashCode(callSuper=true)
-public class PanelTitle extends JPanel implements GuiComponent {
+public class PanelTitle extends JPanel implements Serializable {
 
     private static final long serialVersionUID = 242L;
 
@@ -27,7 +27,6 @@ public class PanelTitle extends JPanel implements GuiComponent {
         this.add(new JLabel(text));
     }
 
-    //@Override
     public void showMe() {
         this.setVisible(true);
     }

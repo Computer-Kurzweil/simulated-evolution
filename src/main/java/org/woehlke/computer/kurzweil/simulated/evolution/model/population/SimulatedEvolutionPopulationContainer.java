@@ -4,7 +4,6 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
-import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolution;
 import org.woehlke.computer.kurzweil.simulated.evolution.control.SimulatedEvolutionContext;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.cell.Cell;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.world.WorldPoint;
@@ -24,7 +23,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 @Getter
 @ToString(callSuper = true, exclude={"tabCtx","statistics","cells"})
 @EqualsAndHashCode(exclude={"tabCtx","statistics","cells"})
-public class SimulatedEvolutionPopulationContainer implements SimulatedEvolution {
+public class SimulatedEvolutionPopulationContainer {
 
     private static final long serialVersionUID = 242L;
 

@@ -6,9 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweilContext;
-import org.woehlke.computer.kurzweil.simulated.evolution.commons.tabs.TabContext;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.world.WorldPoint;
-import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolution;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.SimulatedEvolutionCanvas;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.SimulatedEvolutionModel;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolutionTab;
@@ -25,7 +23,7 @@ import static java.lang.Thread.State.NEW;
 @Getter
 @ToString(callSuper = false, exclude={"ctx","controller","tab"})
 @EqualsAndHashCode(callSuper = false, exclude={"ctx","controller","tab"})
-public class SimulatedEvolutionContext extends ForkJoinTask<Void> implements TabContext, SimulatedEvolution {
+public class SimulatedEvolutionContext extends ForkJoinTask<Void> {
 
     private static final long serialVersionUID = 242L;
 
@@ -52,14 +50,12 @@ public class SimulatedEvolutionContext extends ForkJoinTask<Void> implements Tab
        this.controller = new SimulatedEvolutionController();
     }
 
-    @Override
     public void stopController() {
         this.controller.exit();
         this.controller = null;
         this.controller = new SimulatedEvolutionController();
     }
 
-    @Override
     public void startController() {
         if(this.controller == null){
             this.controller = new SimulatedEvolutionController();

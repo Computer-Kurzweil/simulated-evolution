@@ -5,7 +5,6 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
-import org.woehlke.computer.kurzweil.simulated.evolution.commons.tabs.TabModel;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.cell.Cell;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.world.SimulatedEvolutionParameter;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.lattice.SimulatedEvolutionWorldLattice;
@@ -34,7 +33,7 @@ import java.util.Random;
 @Log4j2
 @ToString(exclude = {"random"})
 @EqualsAndHashCode(exclude = {"random"})
-public class SimulatedEvolutionModel implements Serializable, TabModel {
+public class SimulatedEvolutionModel implements Serializable {
 
     static final long serialVersionUID = 242L;
 

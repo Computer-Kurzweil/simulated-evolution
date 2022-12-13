@@ -1,7 +1,6 @@
 package org.woehlke.computer.kurzweil.simulated.evolution.model.world;
 
 import lombok.*;
-import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolution;
 
 /**
  * &copy; 2006 - 2008 Thomas Woehlke.
@@ -14,7 +13,7 @@ import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolution
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-public class SimulatedEvolutionParameter implements SimulatedEvolution {
+public class SimulatedEvolutionParameter {
 
     private static final long serialVersionUID = 242L;
 

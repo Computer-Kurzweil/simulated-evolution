@@ -3,7 +3,6 @@ package org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.garden;
 import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
-import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolution;
 import org.woehlke.computer.kurzweil.simulated.evolution.control.SimulatedEvolutionContext;
 
 import javax.swing.*;
@@ -17,7 +16,7 @@ import java.awt.*;
 @Log4j2
 @Getter
 @ToString(callSuper = true)
-public class GardenOfEdenPanel extends JPanel implements SimulatedEvolution {
+public class GardenOfEdenPanel extends JPanel {
 
     private static final long serialVersionUID = 242L;
 

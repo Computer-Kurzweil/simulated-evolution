@@ -7,6 +7,7 @@ import org.woehlke.computer.kurzweil.simulated.evolution.view.layouts.FlowLayout
 
 import javax.swing.*;
 import javax.swing.border.CompoundBorder;
+import java.io.Serializable;
 
 /**
  * &copy; 2006 - 2008 Thomas Woehlke.
@@ -15,7 +16,7 @@ import javax.swing.border.CompoundBorder;
  */
 @Log4j2
 @Getter
-public class PanelWithTitleBorder extends JPanel {
+public class PanelWithTitleBorder extends JPanel implements Serializable {
 
     private static final long serialVersionUID = 242L;
 

@@ -3,10 +3,10 @@ package org.woehlke.computer.kurzweil.simulated.evolution.view.widgets;
 import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
-import org.woehlke.computer.kurzweil.simulated.evolution.commons.Startable;
-import org.woehlke.computer.kurzweil.simulated.evolution.view.tabs.Tab;
+import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolutionTab;
 
 import javax.swing.*;
+import java.io.Serializable;
 
 /**
  * &copy; 2006 - 2008 Thomas Woehlke.
@@ -15,7 +15,7 @@ import javax.swing.*;
  */
 @Log4j2
 @ToString(exclude={"startButton","stopButton"})
-public class PanelStartStopButtons extends SubTabImpl implements Startable, SubTab {
+public class PanelStartStopButtons extends SubTabImpl implements Serializable {
 
     private static final long serialVersionUID = 242L;
 
@@ -26,7 +26,7 @@ public class PanelStartStopButtons extends SubTabImpl implements Startable, SubT
     @Getter
     private final JButton stopButton;
 
-    public PanelStartStopButtons(Tab tab){
+    public PanelStartStopButtons(SimulatedEvolutionTab tab){
         super(tab.getCtx().getProperties().getAllinone().getView().getStartStopp(),tab.getCtx().getProperties());
         labelStart = tab.getCtx().getProperties().getAllinone().getView().getStart();
         labelStop = tab.getCtx().getProperties().getAllinone().getView().getStop();
@@ -40,7 +40,6 @@ public class PanelStartStopButtons extends SubTabImpl implements Startable, SubT
         this.stopButton.addActionListener(tab);
     }
 
-    @Override
     public void start() {
         log.info("start");
         this.startButton.setEnabled(false);
@@ -48,7 +47,6 @@ public class PanelStartStopButtons extends SubTabImpl implements Startable, SubT
         log.info("started");
     }
 
-    @Override
     public void stop() {
         log.info("stop");
         this.startButton.setEnabled(true);
