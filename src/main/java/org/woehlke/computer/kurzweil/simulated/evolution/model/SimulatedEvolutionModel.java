@@ -8,7 +8,7 @@ import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweilProperties;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.cell.Cell;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.population.SimulatedEvolutionPopulationCensus;
-import org.woehlke.computer.kurzweil.simulated.evolution.model.population.SimulatedEvolutionPopulationContainer;
+import org.woehlke.computer.kurzweil.simulated.evolution.model.population.SimulatedEvolutionPopulationCensusContainer;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.world.SimulatedEvolutionParameter;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.lattice.SimulatedEvolutionWorldLattice;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.world.WorldPoint;
@@ -70,7 +70,7 @@ public class SimulatedEvolutionModel implements Serializable {
     private SimulatedEvolutionWorldLattice simulatedEvolutionWorldLattice;
 
     @Getter
-    private SimulatedEvolutionPopulationContainer simulatedEvolutionPopulationContainer;
+    private SimulatedEvolutionPopulationCensusContainer simulatedEvolutionPopulationCensusContainer;
 
     @Getter
     private SimulatedEvolutionParameter simulatedEvolutionParameter;
@@ -83,10 +83,12 @@ public class SimulatedEvolutionModel implements Serializable {
         this.random = new Random(seed);
         this.worldDimensions = worldDimensions;
         this.computerKurzweilProperties = computerKurzweilProperties;
-        this.simulatedEvolutionWorldLattice = new SimulatedEvolutionWorldLattice(this.worldDimensions,random);
-        createPopulation();
+        this.simulatedEvolutionWorldLattice = new SimulatedEvolutionWorldLattice(this.worldDimensions,this.random);
+        this.simulatedEvolutionPopulationCensusContainer = new SimulatedEvolutionPopulationCensusContainer(
+            computerKurzweilProperties
+        );
         this.simulatedEvolutionParameter = new SimulatedEvolutionParameter();
-        this.simulatedEvolutionPopulationContainer = new SimulatedEvolutionPopulationContainer(this);
+        this.createPopulation();
     }
 
     /**
@@ -109,7 +111,7 @@ public class SimulatedEvolutionModel implements Serializable {
             cells.add(cell);
             populationCensus.countStatusOfOneCell(cell.getLifeCycleStatus());
         }
-        this.simulatedEvolutionPopulationContainer.push(populationCensus);
+        this.simulatedEvolutionPopulationCensusContainer.push(populationCensus);
     }
 
     /**
@@ -143,7 +145,7 @@ public class SimulatedEvolutionModel implements Serializable {
         for (Cell cell:cells) {
             populationCensus.countStatusOfOneCell(cell.getLifeCycleStatus());
         }
-        this.simulatedEvolutionPopulationContainer.push(populationCensus);
+        this.simulatedEvolutionPopulationCensusContainer.push(populationCensus);
     }
 
     public List<Cell> getAllCells(){

@@ -21,7 +21,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 @Log4j2
 @ToString(callSuper = true, exclude={"statistics"})
 @EqualsAndHashCode(exclude={"statistics"})
-public class SimulatedEvolutionPopulationContainer implements Serializable {
+public class SimulatedEvolutionPopulationCensusContainer implements Serializable {
 
     private static final long serialVersionUID = 242L;
 
@@ -32,10 +32,9 @@ public class SimulatedEvolutionPopulationContainer implements Serializable {
 
     private final int queueMaxLength;
 
-    public SimulatedEvolutionPopulationContainer(
-        SimulatedEvolutionModel simulatedEvolutionModel
+    public SimulatedEvolutionPopulationCensusContainer(
+        ComputerKurzweilProperties p
     ) {
-        ComputerKurzweilProperties p = simulatedEvolutionModel.getComputerKurzweilProperties();
         this.queueMaxLength = p.getSimulatedevolution().getControl().getQueueMaxLength();
         this.worldIteration = 0L;
     }
