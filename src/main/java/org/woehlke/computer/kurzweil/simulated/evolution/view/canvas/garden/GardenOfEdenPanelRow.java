@@ -4,9 +4,11 @@ import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolutionTab;
-import org.woehlke.computer.kurzweil.simulated.evolution.view.widgets.SubTabImpl;
+import org.woehlke.computer.kurzweil.simulated.evolution.view.tabs.SubTabImpl;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.tabs.TabPanel;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.SimulatedEvolutionModel;
+
+import java.io.Serializable;
 
 /**
  * &copy; 2006 - 2008 Thomas Woehlke.
@@ -19,9 +21,10 @@ import org.woehlke.computer.kurzweil.simulated.evolution.model.SimulatedEvolutio
 @Log4j2
 @Getter
 @ToString(callSuper = true)
-public class GardenOfEdenPanelRow extends SubTabImpl {
+@Deprecated
+public class GardenOfEdenPanelRow extends SubTabImpl implements Serializable {
 
-    private static final long serialVersionUID = 242L;
+    static final long serialVersionUID = 242L;
 
     @ToString.Exclude
     private final SimulatedEvolutionTab tab;

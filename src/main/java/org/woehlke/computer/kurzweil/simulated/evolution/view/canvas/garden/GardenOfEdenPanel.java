@@ -7,6 +7,7 @@ import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolution
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.Serializable;
 
 /**
  * &copy; 2006 - 2008 Thomas Woehlke.
@@ -19,9 +20,10 @@ import java.awt.*;
 @Log4j2
 @Getter
 @ToString(callSuper = true)
-public class GardenOfEdenPanel extends JPanel {
+@Deprecated
+public class GardenOfEdenPanel extends JPanel implements Serializable {
 
-    private static final long serialVersionUID = 242L;
+    static final long serialVersionUID = 242L;
 
     @ToString.Exclude
     private final SimulatedEvolutionTab tab;

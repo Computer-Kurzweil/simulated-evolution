@@ -1,4 +1,4 @@
-package org.woehlke.computer.kurzweil.simulated.evolution.view.widgets;
+package org.woehlke.computer.kurzweil.simulated.evolution.view.tabs;
 
 import lombok.Getter;
 import lombok.ToString;
@@ -20,6 +20,7 @@ import java.io.Serializable;
  */
 @Getter
 @ToString
+//TODO rename to AbstractPanel, see also to TabPanel
 public abstract class SubTabImpl extends JPanel implements Serializable {
 
     static final long serialVersionUID = 242L;
@@ -27,12 +28,17 @@ public abstract class SubTabImpl extends JPanel implements Serializable {
     private final String title;
     private final String subTitle;
     private final String toolTipText;
+
+    // TODO: remove or use it
+    @Deprecated
     private final Icon icon;
     private final int keyEvent;
     private final ComputerKurzweilProperties properties;
     private final CompoundBorder border;
     private final FlowLayoutCenter layout;
 
+    // TODO: remove
+    @Deprecated
     public SubTabImpl(
         String title,
         String subTitle,

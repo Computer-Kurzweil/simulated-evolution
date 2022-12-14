@@ -6,6 +6,7 @@ import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeCycleStatus;
 
 import javax.swing.*;
+import java.io.Serializable;
 
 /**
  * &copy; 2006 - 2008 Thomas Woehlke.
@@ -18,34 +19,35 @@ import javax.swing.*;
 @Log4j2
 @Getter
 @ToString(callSuper = true)
-public class PopulationStatisticsElement extends JPanel {
+public class PopulationStatisticsElement extends JPanel implements Serializable {
 
-    private static final long serialVersionUID = 242L;
+    static final long serialVersionUID = 242L;
 
-    private final JLabel label;
-    private final JTextField statistics;
+    private final JLabel statisticsElementLabel;
+    private final JTextField statisticsElementTextField;
     private final LifeCycleStatus lifeCycleStatus;
     private final int cols = 4;
-    private final String defaultTextField = "0";
+    private final String statisticsElementTextFieldDefault = "0";
 
-    public PopulationStatisticsElement(String label, LifeCycleStatus lifeCycleStatus) {
-        this.label = new JLabel(label);
+    public PopulationStatisticsElement(String statisticsElementLabel, LifeCycleStatus lifeCycleStatus) {
+        this.statisticsElementLabel = new JLabel(statisticsElementLabel);
         this.lifeCycleStatus = lifeCycleStatus;
-        this.statistics = new JTextField(defaultTextField,cols);
-        this.statistics.setHorizontalAlignment(       JTextField.RIGHT);
-        this.add(this.label);
-        this.add(this.statistics);
-        statistics.setBackground(this.lifeCycleStatus.getColorBackground());
-        statistics.setForeground(this.lifeCycleStatus.getColorForeground());
+        this.statisticsElementTextField = new JTextField(statisticsElementTextFieldDefault,cols);
+        this.statisticsElementTextField.setHorizontalAlignment(JTextField.RIGHT);
+        statisticsElementTextField.setBackground(this.lifeCycleStatus.getColorBackground());
+        statisticsElementTextField.setForeground(this.lifeCycleStatus.getColorForeground());
+        this.add(this.statisticsElementLabel);
+        this.add(this.statisticsElementTextField);
     }
 
     public void setText(int value){
         String text = String.valueOf(value);
-        this.statistics.setText(text);
+        this.statisticsElementTextField.setText(text);
     }
 
+    //  @Deprecated TODO remove
     public void setText(long value){
         String text = String.valueOf(value);
-        this.statistics.setText(text);
+        this.statisticsElementTextField.setText(text);
     }
 }

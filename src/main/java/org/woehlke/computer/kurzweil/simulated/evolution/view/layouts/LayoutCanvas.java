@@ -14,7 +14,7 @@ import java.io.Serializable;
  */
 public class LayoutCanvas extends FlowLayoutCenter implements Serializable {
 
-    private static final long serialVersionUID = 242L;
+    static final long serialVersionUID = 242L;
 
     /**
      * Creates a layout manager that will lay out components along the

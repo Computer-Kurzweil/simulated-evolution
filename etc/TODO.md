@@ -12,3 +12,6 @@ Fixed #22, Fixed #18
 fixed #30 update to java 17
 fixed #31 setup maven project reports site
 
+# 3.0.x
+* remove JApplet and integrate SimulatedEvolutionApplet into SimulatedEvolutionTab extends JFrame
+

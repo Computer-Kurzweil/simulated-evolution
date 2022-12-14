@@ -8,11 +8,12 @@ import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweilProperties;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolutionTab;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.layouts.FlowLayoutCenter;
-import org.woehlke.computer.kurzweil.simulated.evolution.view.widgets.SubTabImpl;
+import org.woehlke.computer.kurzweil.simulated.evolution.view.tabs.SubTabImpl;
 
 import javax.swing.*;
 import javax.swing.border.CompoundBorder;
 import java.awt.*;
+import java.io.Serializable;
 
 import static org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeCycleStatus.POPULATION;
 
@@ -29,9 +30,10 @@ import static org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeC
 @Getter
 @ToString(callSuper = true,exclude = {"tab","border","layout","layoutSubPanel"})
 @EqualsAndHashCode(callSuper=true,exclude = {"tab","border","layout","layoutSubPanel"})
-public class PopulationStatisticsElementsPanelCounted extends SubTabImpl {
+@Deprecated
+public class PopulationStatisticsElementsPanelCounted extends SubTabImpl implements Serializable {
 
-    private static final long serialVersionUID = 242L;
+    static final long serialVersionUID = 242L;
 
     private final PopulationStatisticsElement populationElement;
     private final PopulationStatisticsElement generationOldestElement;
@@ -48,6 +50,7 @@ public class PopulationStatisticsElementsPanelCounted extends SubTabImpl {
     private final FlowLayoutCenter layout;
     private final FlowLayout layoutSubPanel;
 
+    @Deprecated
     public PopulationStatisticsElementsPanelCounted(SimulatedEvolutionTab tab) {
         super(
             tab.getComputerKurzweilProperties().getSimulatedevolution().getPopulation().getPanelPopulationStatistics(),
@@ -81,6 +84,8 @@ public class PopulationStatisticsElementsPanelCounted extends SubTabImpl {
         update();
     }
 
+
+    @Deprecated
     public void update() {
         /*
         population = this.tabCtx.getTabModel().getPopulationContainer().getCurrentGeneration();
@@ -90,6 +95,7 @@ public class PopulationStatisticsElementsPanelCounted extends SubTabImpl {
         */
     }
 
+    @Deprecated
     private CompoundBorder getDoubleBorder(){
         int left = this.getProperties().getAllinone().getView().getBorderPaddingX();
         int right = this.getProperties().getAllinone().getView().getBorderPaddingX();

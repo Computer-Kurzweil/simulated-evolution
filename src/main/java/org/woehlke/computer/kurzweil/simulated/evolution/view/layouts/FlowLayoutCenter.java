@@ -13,7 +13,7 @@ import java.io.Serializable;
  */
 public class FlowLayoutCenter extends FlowLayout implements Serializable {
 
-    private static final long serialVersionUID = 242L;
+    static final long serialVersionUID = 242L;
 
     public FlowLayoutCenter() {
         setAlignment(FlowLayout.CENTER);
