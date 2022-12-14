@@ -62,27 +62,31 @@ public class SimulatedEvolutionModel implements Serializable {
     /**
      * Definition of the World's Size in Pixel Width and Height.
      */
-    private WorldPoint worldDimensions;
+    @Getter
+    private final WorldPoint worldDimensions;
 
     /**
      * Map of the World monitoring growth and eating food.
      */
-    private SimulatedEvolutionWorldLattice simulatedEvolutionWorldLattice;
+    private final SimulatedEvolutionWorldLattice simulatedEvolutionWorldLattice;
 
     @Getter
-    private SimulatedEvolutionPopulationCensusContainer simulatedEvolutionPopulationCensusContainer;
+    private final SimulatedEvolutionPopulationCensusContainer simulatedEvolutionPopulationCensusContainer;
 
     @Getter
-    private SimulatedEvolutionParameter simulatedEvolutionParameter;
+    private final SimulatedEvolutionParameter simulatedEvolutionParameter;
 
     @Getter
     private final ComputerKurzweilProperties computerKurzweilProperties;
 
-    public SimulatedEvolutionModel(WorldPoint worldDimensions, ComputerKurzweilProperties computerKurzweilProperties) {
+    public SimulatedEvolutionModel(ComputerKurzweilProperties computerKurzweilProperties) {
+        this.computerKurzweilProperties = computerKurzweilProperties;
+        int scale = this.computerKurzweilProperties.getSimulatedevolution().getView().getScale();
+        int width = scale * this.computerKurzweilProperties.getSimulatedevolution().getView().getWidth();
+        int height = scale * this.computerKurzweilProperties.getSimulatedevolution().getView().getWidth();
+        this.worldDimensions = new WorldPoint(width,height);
         long seed = new Date().getTime();
         this.random = new Random(seed);
-        this.worldDimensions = worldDimensions;
-        this.computerKurzweilProperties = computerKurzweilProperties;
         this.simulatedEvolutionWorldLattice = new SimulatedEvolutionWorldLattice(
             this.worldDimensions, this.random
         );

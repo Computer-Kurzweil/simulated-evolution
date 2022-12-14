@@ -7,6 +7,8 @@ import org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeCycleSta
 import java.io.Serializable;
 
 /**
+ * Holds Data how many Cells per LifeCycleStatus and how many Cells in the whole Population for this Generation.
+ *
  * &copy; 2006 - 2008 Thomas Woehlke.
  * @author Thomas Woehlke
  *

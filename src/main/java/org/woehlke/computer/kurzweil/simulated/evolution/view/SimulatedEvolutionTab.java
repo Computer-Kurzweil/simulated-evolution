@@ -52,7 +52,7 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
 
     private final static int START_POSITION_ON_SCREEN_Y = 100;
 
-    private SimulatedEvolutionApplet simulatedEvolutionApplet;
+    private final SimulatedEvolutionApplet simulatedEvolutionApplet;
 
     private final SimulatedEvolutionParameter simulatedEvolutionParameter;
 
@@ -85,10 +85,12 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
     }
 
     private void setMyBounds(){
-        int x = START_POSITION_ON_SCREEN_X;
-        int y = START_POSITION_ON_SCREEN_Y;
-        int width = simulatedEvolutionApplet.getCanvasDimensions().getX();
-        int height = simulatedEvolutionApplet.getCanvasDimensions().getY() + HEIGHT_OF_TITLE + HEIGHT_OF_STATISTICS;
+        int x = START_POSITION_ON_SCREEN_X; //TODO
+        int y = START_POSITION_ON_SCREEN_Y; //TODO
+        int width = this.simulatedEvolutionApplet.getSimulatedEvolutionModel().getWorldDimensions().getX();
+        int height = this.simulatedEvolutionApplet.getSimulatedEvolutionModel().getWorldDimensions().getY()
+            + HEIGHT_OF_TITLE
+            + HEIGHT_OF_STATISTICS;
         setBounds(x, y, width, height);
     }
 

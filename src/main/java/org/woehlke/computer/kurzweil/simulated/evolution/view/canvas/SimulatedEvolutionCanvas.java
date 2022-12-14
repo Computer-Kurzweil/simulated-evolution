@@ -33,18 +33,15 @@ public class SimulatedEvolutionCanvas extends JComponent {
     /**
      * Reference to the Data Model.
      */
-    @Setter
-    private SimulatedEvolutionModel tabModel;
-
-    private WorldPoint worldDimensions;
+    private final SimulatedEvolutionModel tabModel;
 
     private final Color WATER = Color.BLACK;
     private final Color FOOD = Color.GREEN;
 
-    public SimulatedEvolutionCanvas(WorldPoint worldDimensions) {
-        this.worldDimensions = worldDimensions;
+    public SimulatedEvolutionCanvas(SimulatedEvolutionModel tabModel) {
+        this.tabModel = tabModel;
         this.setBackground(WATER);
-        this.setSize(this.worldDimensions.getX(), this.worldDimensions.getY());
+        this.setSize(this.tabModel.getWorldDimensions().getX(), this.tabModel.getWorldDimensions().getY());
     }
 
     /**
@@ -53,8 +50,8 @@ public class SimulatedEvolutionCanvas extends JComponent {
      */
     public void paint(Graphics g) {
         super.paintComponent(g);
-        int width = worldDimensions.getX();
-        int height = worldDimensions.getY();
+        int width = this.tabModel.getWorldDimensions().getX();
+        int height = this.tabModel.getWorldDimensions().getY();
         //paint water
         g.setColor(WATER);
         g.fillRect(0,0,width,height);
@@ -69,7 +66,7 @@ public class SimulatedEvolutionCanvas extends JComponent {
         }
         //paint all Cells
         for (Cell p:tabModel.getAllCells()) {
-            WorldPoint[] square = p.getPosition().getNeighbourhood(worldDimensions);
+            WorldPoint[] square = p.getPosition().getNeighbourhood(this.tabModel.getWorldDimensions());
             g.setColor(p.getLifeCycleStatus().getColor());
             for(WorldPoint pixel:square){
                 g.drawLine(pixel.getX(),pixel.getY(),pixel.getX(),pixel.getY());

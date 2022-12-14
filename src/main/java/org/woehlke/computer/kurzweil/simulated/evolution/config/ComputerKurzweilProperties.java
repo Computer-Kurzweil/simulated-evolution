@@ -221,6 +221,18 @@ public class ComputerKurzweilProperties {
 
             @NotBlank
             private String subtitle;
+
+            @NotBlank
+            private String copyright;
+
+            @NotNull
+            private Integer width;
+
+            @NotNull
+            private Integer height;
+
+            @NotNull
+            private Integer scale;
         }
 
         ////@Validated

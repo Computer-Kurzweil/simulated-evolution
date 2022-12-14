@@ -7,7 +7,6 @@ import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweilProperties;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.SimulatedEvolutionCanvas;
 import org.woehlke.computer.kurzweil.simulated.evolution.control.SimulatedEvolutionController;
-import org.woehlke.computer.kurzweil.simulated.evolution.model.world.WorldPoint;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.SimulatedEvolutionModel;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.population.PopulationStatisticsElementsPanelLifeCycle;
 
@@ -16,6 +15,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.image.ImageObserver;
 import java.io.Serializable;
+
+import static javax.swing.SwingConstants.CENTER;
 
 
 /**
@@ -32,7 +33,6 @@ import java.io.Serializable;
  * Date: 04.02.2006
  * Time: 18:33:14
  */
-@SuppressWarnings({"deprecation"})
 @Log4j2
 @Getter
 @ToString
@@ -45,57 +45,56 @@ public class SimulatedEvolutionApplet extends JApplet implements
 
     private static final long serialVersionUID = 242L;
 
-    private Label title = new Label(
-        "      Artificial Life Simulation of Bacteria Motion depending on DNA - (C) 2022 Thomas Woehlke"
-    );
+    /**
+     * Subtitle for DesktopApp and Title for Applet.
+     */
+    private final JLabel titleLabel;
 
     /**
      * ControllerThread for Interachtions between Model and View (MVC-Pattern).
      */
-    private SimulatedEvolutionController simulatedEvolutionController;
+    private final SimulatedEvolutionController simulatedEvolutionController;
 
     /**
      * The View for the World. Food and Cells are painted to the Canvas.
      */
-    private SimulatedEvolutionCanvas canvas;
+    private final SimulatedEvolutionCanvas canvas;
 
     /**
      * Data Model for the Simulation. The World contains the Bacteria Cells and the Food.
      */
-    private SimulatedEvolutionModel simulatedEvolutionModel;
+    private final SimulatedEvolutionModel simulatedEvolutionModel;
 
-    private final ComputerKurzweilProperties computerKurzweilProperties;
+    /**
+     * Display how many Cells per LifeCycleStatus and how many Cells in the whole Population for this Generation.
+     */
+    private final PopulationStatisticsElementsPanelLifeCycle panelLifeCycle;
 
-    private final SimulatedEvolutionTab simulatedEvolutionTab;
-
-    private PopulationStatisticsElementsPanelLifeCycle panelLifeCycle;
+    private final SimulatedEvolutionTab tab;
 
     public void init() {
-        int scale = 2;
-        int width = 320 * scale;
-        int height = 234 * scale;
-        WorldPoint worldDimensions = new WorldPoint(width,height);
-        this.simulatedEvolutionModel = new SimulatedEvolutionModel(worldDimensions, this.computerKurzweilProperties);
-        this.canvas = new SimulatedEvolutionCanvas(worldDimensions);
-        this.canvas.setTabModel(simulatedEvolutionModel);
-        String panelPopulationStatistics = computerKurzweilProperties.getSimulatedevolution()
-            .getPopulation().getPanelPopulationStatistics();
-        this.panelLifeCycle = new PopulationStatisticsElementsPanelLifeCycle(
-            panelPopulationStatistics, simulatedEvolutionModel
-        );
         this.setLayout(new BorderLayout());
-        this.add(title, BorderLayout.NORTH);
-        this.add(canvas, BorderLayout.CENTER);
-        this.add(panelLifeCycle, BorderLayout.SOUTH);
-        this.simulatedEvolutionController = new SimulatedEvolutionController(
-            simulatedEvolutionModel, canvas, panelLifeCycle, simulatedEvolutionTab
-        );
+        this.add(this.titleLabel, BorderLayout.NORTH);
+        this.add(this.canvas, BorderLayout.CENTER);
+        this.add(this.panelLifeCycle, BorderLayout.SOUTH);
     }
 
     public SimulatedEvolutionApplet(SimulatedEvolutionTab simulatedEvolutionTab) {
         super();
-        this.simulatedEvolutionTab = simulatedEvolutionTab;
-        this.computerKurzweilProperties = simulatedEvolutionTab.getComputerKurzweilProperties();
+        this.tab = simulatedEvolutionTab;
+        ComputerKurzweilProperties computerKurzweilProperties = this.tab.getComputerKurzweilProperties();
+        this.simulatedEvolutionModel = new SimulatedEvolutionModel(
+            computerKurzweilProperties
+        );
+        this.canvas = new SimulatedEvolutionCanvas(this.simulatedEvolutionModel);
+        this.panelLifeCycle = new PopulationStatisticsElementsPanelLifeCycle(this.tab);
+        this.simulatedEvolutionController = new SimulatedEvolutionController(
+            this.simulatedEvolutionModel, this.canvas, this.panelLifeCycle, this.tab
+        );
+        String subTitle =  computerKurzweilProperties.getSimulatedevolution().getView().getSubtitle();
+        String copyright =  computerKurzweilProperties.getSimulatedevolution().getView().getCopyright();
+        String title = subTitle +" - "+ copyright;
+        this.titleLabel = new JLabel(title, CENTER);
     }
 
     public void destroy() {
@@ -106,9 +105,5 @@ public class SimulatedEvolutionApplet extends JApplet implements
 
     public void start() {
         simulatedEvolutionController.start();
-    }
-
-    public WorldPoint getCanvasDimensions() {
-        return canvas.getWorldDimensions();
     }
 }

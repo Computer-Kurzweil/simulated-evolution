@@ -19,6 +19,8 @@ import java.io.Serializable;
 import static org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeCycleStatus.*;
 
 /**
+ * Display how many Cells per LifeCycleStatus and how many Cells in the whole Population for this Generation.
+ *
  * &copy; 2006 - 2008 Thomas Woehlke.
  * @author Thomas Woehlke
  *
@@ -99,7 +101,8 @@ public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl imple
 
     public void update() {
         SimulatedEvolutionPopulationCensus population = this.tab.getSimulatedEvolutionApplet()
-            .getSimulatedEvolutionModel().getSimulatedEvolutionPopulationCensusContainer().getCurrentGeneration();
+            .getSimulatedEvolutionModel().getSimulatedEvolutionPopulationCensusContainer()
+            .peek();
         youngCellsElement.setText(population.getYoungCells());
         youngAndFatCellsElement.setText(population.getYoungAndFatCells());
         fullAgeCellsElement.setText(population.getFullAgeCells());
