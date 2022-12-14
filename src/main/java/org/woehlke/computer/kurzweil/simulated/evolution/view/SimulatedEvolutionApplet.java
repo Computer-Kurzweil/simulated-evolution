@@ -66,6 +66,8 @@ public class SimulatedEvolutionApplet extends JApplet implements
 
     private final ComputerKurzweilProperties computerKurzweilProperties;
 
+    private PopulationStatisticsElementsPanelLifeCycle panelLifeCycle;
+
     public void init() {
         int scale = 2;
         int width = 320 * scale;
@@ -74,11 +76,9 @@ public class SimulatedEvolutionApplet extends JApplet implements
         this.simulatedEvolutionModel = new SimulatedEvolutionModel(worldDimensions, this.computerKurzweilProperties);
         this.canvas = new SimulatedEvolutionCanvas(worldDimensions);
         this.canvas.setTabModel(simulatedEvolutionModel);
-
         String panelPopulationStatistics = computerKurzweilProperties.getSimulatedevolution()
             .getPopulation().getPanelPopulationStatistics();
-
-        PopulationStatisticsElementsPanelLifeCycle panelLifeCycle = new PopulationStatisticsElementsPanelLifeCycle(
+        this.panelLifeCycle = new PopulationStatisticsElementsPanelLifeCycle(
             panelPopulationStatistics, simulatedEvolutionModel
         );
         this.setLayout(new BorderLayout());
@@ -88,7 +88,9 @@ public class SimulatedEvolutionApplet extends JApplet implements
         simulatedEvolutionController = new SimulatedEvolutionController();
         simulatedEvolutionController.setCanvas(canvas);
         simulatedEvolutionController.setSimulatedEvolutionModel(simulatedEvolutionModel);
+        simulatedEvolutionController.setPanelLifeCycle(panelLifeCycle);
         simulatedEvolutionController.start();
+
     }
 
     public SimulatedEvolutionApplet(ComputerKurzweilProperties computerKurzweilProperties) {

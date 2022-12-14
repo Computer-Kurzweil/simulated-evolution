@@ -4,6 +4,7 @@ import lombok.Setter;
 import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.SimulatedEvolutionCanvas;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.SimulatedEvolutionModel;
+import org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.population.PopulationStatisticsElementsPanelLifeCycle;
 
 import java.io.Serializable;
 
@@ -37,6 +38,8 @@ public class SimulatedEvolutionController extends Thread implements Runnable, Se
     @Setter
     private SimulatedEvolutionCanvas canvas;
 
+    @Setter
+    private PopulationStatisticsElementsPanelLifeCycle panelLifeCycle;
     /**
      * Time to Wait in ms.
      */
@@ -59,6 +62,8 @@ public class SimulatedEvolutionController extends Thread implements Runnable, Se
             }
             simulatedEvolutionModel.letLivePopulation();
             canvas.repaint();
+            panelLifeCycle.update();
+            panelLifeCycle.repaint();
             try {
                 sleep(TIME_TO_WAIT);
             }

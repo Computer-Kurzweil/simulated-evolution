@@ -100,14 +100,13 @@ public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl imple
     }
 
     public void update() {
-        /*
-        population = this.tabCtx.getTabModel().getPopulationContainer().getCurrentGeneration();
+        SimulatedEvolutionPopulationCensus population =
+            this.simulatedEvolutionModel.getSimulatedEvolutionPopulationCensusContainer().getCurrentGeneration();
         youngCellsElement.setText(population.getYoungCells());
         youngAndFatCellsElement.setText(population.getYoungAndFatCells());
         fullAgeCellsElement.setText(population.getFullAgeCells());
         hungryCellsElement.setText(population.getHungryCells());
         oldCellsElement.setText(population.getOldCells());
-        */
     }
 
     private CompoundBorder getDoubleBorder(String label){
