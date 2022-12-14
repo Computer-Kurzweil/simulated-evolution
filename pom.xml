@@ -1161,7 +1161,6 @@
             </activation>
             <properties>
                 <skipTests>true</skipTests>
-                <skipIntegrationTests>true</skipIntegrationTests>
             </properties>
             <build>
                 <finalName>${project.artifactId}</finalName>
@@ -1176,7 +1175,6 @@
             </activation>
             <properties>
                 <skipTests>false</skipTests>
-                <skipIntegrationTests>false</skipIntegrationTests>
             </properties>
             <build>
                 <finalName>${project.artifactId}</finalName>
@@ -1191,11 +1189,25 @@
             </activation>
             <properties>
                 <skipTests>false</skipTests>
-                <skipIntegrationTests>false</skipIntegrationTests>
             </properties>
             <build>
                 <finalName>${project.artifactId}</finalName>
                 <defaultGoal>clean dependency:resolve dependency:resolve-plugins dependency:sources install site site:deploy</defaultGoal>
+            </build>
+        </profile>
+
+        <profile>
+            <id>release</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <skipTests>false</skipTests>
+                <skipIntegrationTests>false</skipIntegrationTests>
+            </properties>
+            <build>
+                <finalName>${project.artifactId}</finalName>
+                <defaultGoal>release:prepare release:perform</defaultGoal>
             </build>
         </profile>
 
@@ -1205,8 +1217,7 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
-                <skip.unit.tests>true</skip.unit.tests>
-                <skip.integration.tests>true</skip.integration.tests>
+                <skipTests>true</skipTests>
             </properties>
             <dependencyManagement>
                 <dependencies>
