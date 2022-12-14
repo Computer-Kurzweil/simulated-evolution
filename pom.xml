@@ -4,7 +4,7 @@
 
     <groupId>org.woehlke.computer.kurzweil</groupId>
     <artifactId>simulatedevolution</artifactId>
-    <version>3.0.3</version>
+    <version>3.0.4-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Simulated Evolution</name>
@@ -16,7 +16,7 @@
         <url>https://github.com/Computer-Kurzweil/simulated-evolution.git</url>
         <connection>scm:git:git@github.com:Computer-Kurzweil/simulated-evolution.git</connection>
         <developerConnection>scm:git:git@github.com:Computer-Kurzweil/simulated-evolution.git</developerConnection>
-        <tag>simulatedevolution-3.0.3</tag>
+        <tag>simulatedevolution-3.0.2</tag>
     </scm>
 
     <issueManagement>
