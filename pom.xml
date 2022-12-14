@@ -32,7 +32,7 @@
         <snapshotRepository>
             <id>snapshots</id>
             <name>tw-thinkpad-snapshots</name>
-            <url>file://${user.home}/public_html/java/libs-release-local/</url>
+            <url>file://${user.home}/public_html/java/libs-snapshots-local/</url>
         </snapshotRepository>
         <repository>
             <id>central</id>
