@@ -39,10 +39,18 @@ public class PopulationStatisticsElement extends JPanel {
     }
 
     public void setText(int value){
-        this.statistics.setText(""+value);
+        String text = String.valueOf(value);
+        while(text.length()<4){
+            text = " "+text;
+        }
+        this.statistics.setText(text);
     }
 
     public void setText(long value){
-        this.statistics.setText(""+value);
+        String text = String.valueOf(value);
+        while(text.length()<4){
+            text = " "+text;
+        }
+        this.statistics.setText(text);
     }
 }
