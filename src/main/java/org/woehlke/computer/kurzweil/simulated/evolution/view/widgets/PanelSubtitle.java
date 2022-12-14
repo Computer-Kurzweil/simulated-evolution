@@ -3,7 +3,7 @@ package org.woehlke.computer.kurzweil.simulated.evolution.view.widgets;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
-import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweilContext;
+//import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweilContext;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.layouts.FlowLayoutCenter;
 
 import javax.swing.*;
@@ -30,11 +30,11 @@ public class PanelSubtitle extends JPanel implements Serializable {
         this.add(new JLabel(text));
     }
 
-   // @Override
     public void showMe() {
         this.setVisible(true);
     }
 
+    /*
     public static PanelSubtitle getPanelSubtitleForApplication(ComputerKurzweilContext ctx) {
         String text = ctx.getProperties().getAllinone().getView().getSubtitle();
         return new PanelSubtitle(text);
@@ -90,4 +90,5 @@ public class PanelSubtitle extends JPanel implements Serializable {
         String text = ctx.getProperties().getWator().getView().getSubtitle();
         return new PanelSubtitle(text);
     }
+    */
 }
