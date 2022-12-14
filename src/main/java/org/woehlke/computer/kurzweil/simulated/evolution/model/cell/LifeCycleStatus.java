@@ -45,6 +45,7 @@ public enum LifeCycleStatus {
         this.colorFont = colorFont;
     }
 
+    public Color getColor() { return colorBackground; }
     public Color getColorForeground() {
         return colorFont;
     }
