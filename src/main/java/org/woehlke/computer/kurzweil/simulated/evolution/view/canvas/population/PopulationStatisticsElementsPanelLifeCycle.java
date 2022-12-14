@@ -5,13 +5,16 @@ import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweilProperties;
+import org.woehlke.computer.kurzweil.simulated.evolution.model.SimulatedEvolutionModel;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.layouts.FlowLayoutCenter;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.widgets.SubTabImpl;
 import org.woehlke.computer.kurzweil.simulated.evolution.control.SimulatedEvolutionContext;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.population.SimulatedEvolutionPopulationCensus;
 
+import javax.swing.*;
 import javax.swing.border.CompoundBorder;
 import java.awt.*;
+import java.io.Serializable;
 
 import static org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeCycleStatus.*;
 
@@ -27,7 +30,7 @@ import static org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeC
 @Getter
 @ToString(callSuper = true,exclude = {"tabCtx","border","layout","layoutSubPanel"})
 @EqualsAndHashCode(callSuper=true,exclude = {"tabCtx","border","layout","layoutSubPanel"})
-public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl {
+public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl implements Serializable {
 
     private static final long serialVersionUID = 242L;
 
@@ -46,26 +49,37 @@ public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl {
     private final String hungryCellsLabel;
     private final String oldCellsLabel;
 
-    private final SimulatedEvolutionContext tabCtx;
     private final CompoundBorder border;
     private final FlowLayoutCenter layout;
     private final FlowLayout layoutSubPanel;
 
-    private SimulatedEvolutionPopulationCensus population;
+    /**
+     * Data Model for the Simulation. The World contains the Bacteria Cells and the Food.
+     */
+    private SimulatedEvolutionModel simulatedEvolutionModel;
 
     public PopulationStatisticsElementsPanelLifeCycle(
-      SimulatedEvolutionContext tabCtx
+        String panelPopulationStatistics,
+        SimulatedEvolutionModel simulatedEvolutionModel
     ) {
-        super(tabCtx.getCtx().getProperties().getSimulatedevolution().getPopulation().getPanelPopulationStatistics(),tabCtx.getCtx().getProperties());
-        this.tabCtx = tabCtx;
-        layoutSubPanel = new FlowLayout();
-        this.setLayout(layoutSubPanel);
-        borderLabel = this.tabCtx.getCtx().getProperties().getSimulatedevolution().getPopulation().getPanelPopulationStatistics();
-        layout = new FlowLayoutCenter();
-        border = tabCtx.getCtx().getBottomButtonsPanelBorder(borderLabel);
-        this.setLayout(layout);
-        this.setBorder(border);
-        ComputerKurzweilProperties.SimulatedEvolution.Population cfg = this.tabCtx.getCtx().getProperties().getSimulatedevolution().getPopulation();
+        super(
+            panelPopulationStatistics,
+            simulatedEvolutionModel.getComputerKurzweilProperties()
+            //tabCtx.getCtx().getProperties().getSimulatedevolution().getPopulation().getPanelPopulationStatistics(),
+            //tabCtx.getCtx().getProperties()
+        );
+        //this.tabCtx = tabCtx;
+        this.simulatedEvolutionModel = simulatedEvolutionModel;
+        this.layoutSubPanel = new FlowLayout();
+        this.setLayout(this.layoutSubPanel);
+        this.borderLabel = this.simulatedEvolutionModel.getComputerKurzweilProperties()
+            .getSimulatedevolution().getPopulation().getPanelPopulationStatistics();
+        this.layout = new FlowLayoutCenter();
+        this.border = this.getDoubleBorder(this.borderLabel);
+        this.setLayout(this.layout);
+        this.setBorder(this.border);
+        ComputerKurzweilProperties.SimulatedEvolution.Population cfg =
+            this.simulatedEvolutionModel.getComputerKurzweilProperties().getSimulatedevolution().getPopulation();
         initialPopulation = cfg.getInitialPopulation();
         youngCellsLabel = cfg.getYoungCellsLabel();
         youngAndFatCellsLabel = cfg.getYoungAndFatCellsLabel();
@@ -96,4 +110,14 @@ public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl {
         */
     }
 
+    private CompoundBorder getDoubleBorder(String label){
+        int left = this.getProperties().getAllinone().getView().getBorderPaddingX();
+        int right = this.getProperties().getAllinone().getView().getBorderPaddingX();
+        int top = this.getProperties().getAllinone().getView().getBorderPaddingY();
+        int bottom = this.getProperties().getAllinone().getView().getBorderPaddingY();
+        return BorderFactory.createCompoundBorder(
+            BorderFactory.createEmptyBorder(left,right,top,bottom),
+            BorderFactory.createEmptyBorder(left,right,top,bottom)
+        );
+    }
 }

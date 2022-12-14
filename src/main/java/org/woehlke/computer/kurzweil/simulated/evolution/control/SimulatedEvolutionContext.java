@@ -44,10 +44,10 @@ public class SimulatedEvolutionContext extends ForkJoinTask<Void> {
     ) {
        this.tab = tab;
        this.ctx = ctx;
-        int scale = 2;
-        int width = 320 * scale;
-        int height = 234 * scale;
-        WorldPoint worldDimensions = new WorldPoint(width,height);
+       int scale = 2;
+       int width = 320 * scale;
+       int height = 234 * scale;
+       WorldPoint worldDimensions = new WorldPoint(width,height);
        this.canvas = new SimulatedEvolutionCanvas(  worldDimensions );
        this.tabModel = this.canvas.getTabModel();
        this.controller = new SimulatedEvolutionController();

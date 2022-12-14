@@ -48,6 +48,8 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
 
     private final static int HEIGHT_OF_TITLE = 30;
 
+    private final static int HEIGHT_OF_STATISTICS = 60;
+
     private final static int START_POSITION_ON_SCREEN_X = 100;
 
     private final static int START_POSITION_ON_SCREEN_Y = 100;
@@ -60,17 +62,17 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
 
     private final SimulatedEvolutionContext tabCtx;
 
-    private final ComputerKurzweilProperties properties;
+    private final ComputerKurzweilProperties computerKurzweilProperties;
 
-    public SimulatedEvolutionTab(ComputerKurzweilProperties properties) {
+    public SimulatedEvolutionTab(ComputerKurzweilProperties computerKurzweilProperties) {
         super(TITLE);
-        this.properties = properties;
+        this.computerKurzweilProperties = computerKurzweilProperties;
         simulatedEvolutionParameter = new SimulatedEvolutionParameter();
-        simulatedEvolutionApplet = new SimulatedEvolutionApplet(properties);
+        simulatedEvolutionApplet = new SimulatedEvolutionApplet(computerKurzweilProperties);
         simulatedEvolutionApplet.init();
         add(APPLET_POSITION, simulatedEvolutionApplet);
-        this.ctx = new ComputerKurzweilContext(properties);
-        this.tabCtx = new SimulatedEvolutionContext(this,ctx);
+        this.ctx = new ComputerKurzweilContext(computerKurzweilProperties);
+        this.tabCtx = new SimulatedEvolutionContext(this, ctx);
         addWindowListener(this);
         pack();
         showMe();
@@ -90,7 +92,7 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
         int x = START_POSITION_ON_SCREEN_X;
         int y = START_POSITION_ON_SCREEN_Y;
         int width = simulatedEvolutionApplet.getCanvasDimensions().getX();
-        int height = simulatedEvolutionApplet.getCanvasDimensions().getY() + HEIGHT_OF_TITLE;
+        int height = simulatedEvolutionApplet.getCanvasDimensions().getY() + HEIGHT_OF_TITLE + HEIGHT_OF_STATISTICS;
         setBounds(x, y, width, height);
     }
 

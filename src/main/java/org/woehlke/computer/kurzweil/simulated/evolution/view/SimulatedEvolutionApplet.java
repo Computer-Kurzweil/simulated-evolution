@@ -9,6 +9,7 @@ import org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.SimulatedEv
 import org.woehlke.computer.kurzweil.simulated.evolution.control.SimulatedEvolutionController;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.world.WorldPoint;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.SimulatedEvolutionModel;
+import org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.population.PopulationStatisticsElementsPanelLifeCycle;
 
 import javax.accessibility.Accessible;
 import javax.swing.*;
@@ -69,14 +70,22 @@ public class SimulatedEvolutionApplet extends JApplet implements
         int scale = 2;
         int width = 320 * scale;
         int height = 234 * scale;
+        WorldPoint worldDimensions = new WorldPoint(width,height);
+        this.simulatedEvolutionModel = new SimulatedEvolutionModel(worldDimensions, this.computerKurzweilProperties);
+        this.canvas = new SimulatedEvolutionCanvas(worldDimensions);
+        this.canvas.setTabModel(simulatedEvolutionModel);
+
+        String panelPopulationStatistics = computerKurzweilProperties.getSimulatedevolution()
+            .getPopulation().getPanelPopulationStatistics();
+
+        PopulationStatisticsElementsPanelLifeCycle panelLifeCycle = new PopulationStatisticsElementsPanelLifeCycle(
+            panelPopulationStatistics, simulatedEvolutionModel
+        );
         this.setLayout(new BorderLayout());
         this.add(title, BorderLayout.NORTH);
-        simulatedEvolutionController = new SimulatedEvolutionController();
-        WorldPoint worldDimensions = new WorldPoint(width,height);
-        simulatedEvolutionModel = new SimulatedEvolutionModel(worldDimensions, this.computerKurzweilProperties);
-        canvas = new SimulatedEvolutionCanvas(worldDimensions);
-        canvas.setTabModel(simulatedEvolutionModel);
         this.add(canvas, BorderLayout.CENTER);
+        this.add(panelLifeCycle, BorderLayout.SOUTH);
+        simulatedEvolutionController = new SimulatedEvolutionController();
         simulatedEvolutionController.setCanvas(canvas);
         simulatedEvolutionController.setSimulatedEvolutionModel(simulatedEvolutionModel);
         simulatedEvolutionController.start();

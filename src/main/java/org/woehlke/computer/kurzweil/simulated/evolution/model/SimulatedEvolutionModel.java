@@ -83,7 +83,9 @@ public class SimulatedEvolutionModel implements Serializable {
         this.random = new Random(seed);
         this.worldDimensions = worldDimensions;
         this.computerKurzweilProperties = computerKurzweilProperties;
-        this.simulatedEvolutionWorldLattice = new SimulatedEvolutionWorldLattice(this.worldDimensions,this.random);
+        this.simulatedEvolutionWorldLattice = new SimulatedEvolutionWorldLattice(
+            this.worldDimensions, this.random
+        );
         this.simulatedEvolutionPopulationCensusContainer = new SimulatedEvolutionPopulationCensusContainer(
             computerKurzweilProperties
         );
