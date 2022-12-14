@@ -32,6 +32,7 @@ public class PopulationStatisticsElement extends JPanel {
         this.label = new JLabel(label);
         this.lifeCycleStatus = lifeCycleStatus;
         this.statistics = new JTextField(defaultTextField,cols);
+        this.statistics.setHorizontalAlignment(       JTextField.RIGHT);
         this.add(this.label);
         this.add(this.statistics);
         statistics.setBackground(this.lifeCycleStatus.getColorBackground());
@@ -40,17 +41,11 @@ public class PopulationStatisticsElement extends JPanel {
 
     public void setText(int value){
         String text = String.valueOf(value);
-        while(text.length()<4){
-            text = " "+text;
-        }
         this.statistics.setText(text);
     }
 
     public void setText(long value){
         String text = String.valueOf(value);
-        while(text.length()<4){
-            text = " "+text;
-        }
         this.statistics.setText(text);
     }
 }
