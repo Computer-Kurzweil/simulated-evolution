@@ -24,7 +24,7 @@ import java.util.Stack;
 @EqualsAndHashCode(exclude={"statistics"})
 public class SimulatedEvolutionPopulationCensusContainer implements Serializable {
 
-    private static final long serialVersionUID = 242L;
+    static final long serialVersionUID = 242L;
 
     private final int queueMaxLength;
 

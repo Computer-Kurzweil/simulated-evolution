@@ -31,7 +31,7 @@ import java.io.Serializable;
 @EqualsAndHashCode
 public class LatticePoint implements Serializable {
 
-    private static final long serialVersionUID = 242L;
+   static final long serialVersionUID = 242L;
 
   /**
    * Horizontal X-Coordinate. Also used as Width;

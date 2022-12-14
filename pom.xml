@@ -189,7 +189,7 @@
     </pluginRepositories>
 
     <properties>
-        <java.version>17</java.version>
+        <java.version>19</java.version>
         <version.java>${java.version}</version.java>
         <version.maven>3.6.3</version.maven>
 

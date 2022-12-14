@@ -2,6 +2,8 @@ package org.woehlke.computer.kurzweil.simulated.evolution.model.lattice;
 
 import lombok.Getter;
 
+import java.io.Serializable;
+
 /**
  * &copy; 2006 - 2008 Thomas Woehlke.
  * @author Thomas Woehlke
@@ -11,7 +13,7 @@ import lombok.Getter;
  * @see <a href="https://java.woehlke.org/simulated-evolution/">Maven Project Repository</a>
  */
 @Getter
-public enum LatticePointNeighbourhoodPosition {
+public enum LatticePointNeighbourhoodPosition implements Serializable {
 
     CENTER(0,0),
     NORTH(0,-1),

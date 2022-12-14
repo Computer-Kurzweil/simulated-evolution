@@ -3,6 +3,8 @@ package org.woehlke.computer.kurzweil.simulated.evolution.model.cell;
 import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.world.WorldPoint;
 
+import java.io.Serializable;
+
 /**
  * Orientation defines the new position after next move.
  *
@@ -17,7 +19,7 @@ import org.woehlke.computer.kurzweil.simulated.evolution.model.world.WorldPoint;
  * Time: 19:50:51
  */
 @Log4j2
-public enum Orientation {
+public enum Orientation implements Serializable {
 
     FORWARD(0, 2),
     HARD_RIGHT(2, 1),
@@ -26,14 +28,14 @@ public enum Orientation {
     SOFT_LEFT(-2, -1),
     HARD_LEFT(-2, 1);
 
-    private WorldPoint move;
+    private final WorldPoint move;
+
+    Orientation(final int x,final int y){
+        move = new WorldPoint(x,y);
+    }
 
     public WorldPoint getMove() {
         return move;
-    }
-
-    private Orientation(int x, int y){
-        move = new WorldPoint(x,y);
     }
 
 }

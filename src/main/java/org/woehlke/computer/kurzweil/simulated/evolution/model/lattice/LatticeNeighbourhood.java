@@ -21,7 +21,7 @@ import java.io.Serializable;
 @EqualsAndHashCode
 public class LatticeNeighbourhood implements Serializable {
 
-    private static final long serialVersionUID = 242L;
+    static final long serialVersionUID = 242L;
 
     private final LatticeNeighbourhoodType neighbourhoodType;
     private final int maxX;

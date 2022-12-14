@@ -28,7 +28,7 @@ import java.util.Random;
 @EqualsAndHashCode(exclude = {"random"})
 public class Cell implements Serializable {
 
-    private static final long serialVersionUID = 242L;
+    static final long serialVersionUID = 242L;
 
     /**
      * Contains the DNA for Random based Moving

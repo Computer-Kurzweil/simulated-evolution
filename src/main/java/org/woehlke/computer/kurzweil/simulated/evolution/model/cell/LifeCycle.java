@@ -29,7 +29,7 @@ import static org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeC
 @EqualsAndHashCode
 public class LifeCycle implements Serializable {
 
-    private static final long serialVersionUID = 242L;
+    static final long serialVersionUID = 242L;
 
     /**
      * Status of the LifeCycle is fat, age and hunger.

@@ -5,6 +5,7 @@ import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 
 import java.awt.*;
+import java.io.Serializable;
 
 import static java.awt.Color.*;
 
@@ -27,7 +28,7 @@ import static java.awt.Color.*;
 @Log4j2
 @Getter
 @ToString
-public enum LifeCycleStatus {
+public enum LifeCycleStatus implements Serializable {
 
     YOUNG(BLUE, WHITE),
     YOUNG_AND_FAT(YELLOW, BLACK),
@@ -37,10 +38,10 @@ public enum LifeCycleStatus {
     DEAD(BLACK, WHITE),
     POPULATION(WHITE, BLACK);
 
-    private Color colorBackground;
-    private Color colorFont;
+    private final Color colorBackground;
+    private final Color colorFont;
 
-    LifeCycleStatus(Color colorBackground, Color colorFont){
+    LifeCycleStatus(final Color colorBackground, final Color colorFont){
         this.colorBackground=colorBackground;
         this.colorFont = colorFont;
     }

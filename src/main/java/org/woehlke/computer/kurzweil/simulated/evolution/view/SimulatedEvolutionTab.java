@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.io.Serializable;
 
 /**
  * This Frame wraps the SimulatedEvolutionApplet which is the Container for this Simulution.
@@ -32,9 +33,8 @@ import java.awt.event.WindowListener;
  */
 @Log4j2
 @Getter
-public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
-    WindowListener,
-    ActionListener {
+public class SimulatedEvolutionTab extends JFrame
+    implements MenuContainer, WindowListener, ActionListener, Serializable {
 
     static final long serialVersionUID = 242L;
 

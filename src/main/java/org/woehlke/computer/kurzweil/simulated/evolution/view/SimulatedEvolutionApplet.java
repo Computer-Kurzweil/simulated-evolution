@@ -40,10 +40,10 @@ import static javax.swing.SwingConstants.CENTER;
 public class SimulatedEvolutionApplet extends JApplet implements
     ImageObserver,
     MenuContainer,
-    Serializable,
-    Accessible {
+    Accessible,
+    Serializable {
 
-    private static final long serialVersionUID = 242L;
+    static final long serialVersionUID = 242L;
 
     /**
      * Subtitle Label for DesktopApp and Title Label for Applet.
