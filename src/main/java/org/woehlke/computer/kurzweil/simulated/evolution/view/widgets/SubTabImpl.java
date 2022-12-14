@@ -22,7 +22,7 @@ import java.io.Serializable;
 @ToString
 public abstract class SubTabImpl extends JPanel implements Serializable {
 
-    private static final long serialVersionUID = 242L;
+    static final long serialVersionUID = 242L;
 
     private final String title;
     private final String subTitle;
