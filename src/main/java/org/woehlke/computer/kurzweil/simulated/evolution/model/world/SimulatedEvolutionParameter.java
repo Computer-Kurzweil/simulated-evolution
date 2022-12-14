@@ -2,6 +2,8 @@ package org.woehlke.computer.kurzweil.simulated.evolution.model.world;
 
 import lombok.*;
 
+import java.io.Serializable;
+
 /**
  * &copy; 2006 - 2008 Thomas Woehlke.
  * @author Thomas Woehlke
@@ -16,7 +18,7 @@ import lombok.*;
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
-public class SimulatedEvolutionParameter {
+public class SimulatedEvolutionParameter implements Serializable {
 
     private static final long serialVersionUID = 242L;
 

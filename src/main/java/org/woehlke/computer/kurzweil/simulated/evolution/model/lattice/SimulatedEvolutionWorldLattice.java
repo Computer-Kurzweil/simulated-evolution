@@ -6,6 +6,7 @@ import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeCycle;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.world.WorldPoint;
 
+import java.io.Serializable;
 import java.util.Random;
 
 /**
@@ -24,7 +25,7 @@ import java.util.Random;
 @Log4j2
 @ToString(exclude = {"random"})
 @EqualsAndHashCode(exclude = {"random"})
-public class SimulatedEvolutionWorldLattice {
+public class SimulatedEvolutionWorldLattice implements Serializable {
 
     private static final long serialVersionUID = 242L;
 

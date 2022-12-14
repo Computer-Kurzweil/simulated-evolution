@@ -1,0 +1,95 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+abstract class AbstractList
+abstract AbstractCollection
+interface List
+interface Collection
+
+List <|-- AbstractList
+Collection <|-- AbstractCollection
+
+Collection <|- List
+AbstractCollection <|- AbstractList
+AbstractList <|-- ArrayList
+
+class ArrayList {
+Object[] elementData
+size()
+}
+
+enum TimeUnit {
+DAYS
+HOURS
+MINUTES
+}
+
+package org.woehlke.computer.kurzweil.simulated.evolution.config {
+    class ComputerKurzweilProperties {}
+    class ComputerKurzweilContext {}
+}
+
+package org.woehlke.computer.kurzweil.simulated.evolution.controller {
+    class SimulatedEvolutionContext {}
+    class SimulatedEvolutionController {}
+}
+
+package org.woehlke.computer.kurzweil.simulated.evolution.model {
+    package org.woehlke.computer.kurzweil.simulated.evolution.model.cell {
+        class Cell {}
+        class CellCore {}
+        class LifeCycle {}
+        enum LifeCycleStatus {
+            YOUNG
+            YOUNG_AND_FAT
+            FULL_AGE
+            HUNGRY
+            OLD
+            DEAD
+            POPULATION
+        }
+        enum Orientation {
+            FORWARD
+            HARD_RIGHT
+            SOFT_RIGHT
+            BACKWARDS
+            SOFT_LEFT
+            HARD_LEFT
+        }
+    }
+    package org.woehlke.computer.kurzweil.simulated.evolution.model.lattice{
+        class LatticeNeighbourhood{}
+        enum LatticeNeighbourhoodType{}
+        class LatticePoint{}
+        enum LatticePointNeighbourhoodPosition {
+            CENTER
+            NORTH
+            EAST
+            SOUTH
+            WEST
+            NORTH_EAST
+            SOUTH_EAST
+            SOUTH_WEST
+            NORTH_WEST
+        }
+        class SimulatedEvolutionWorldLattice{}
+    }
+    package org.woehlke.computer.kurzweil.simulated.evolution.model.population{
+        class SimulatedEvolutionPopulation{}
+        class SimulatedEvolutionPopulationContainer{}
+    }
+    package org.woehlke.computer.kurzweil.simulated.evolution.model.world {
+        class Bounds{}
+        class SimulatedEvolutionParameter{}
+        class WorldPoint{}
+    }
+    class SimulatedEvolutionModel {}
+}
+
+package org.woehlke.computer.kurzweil.simulated.evolution.view {
+    class SimulatedEvolutionTab {}
+    class SimulatedEvolutionApplet {}
+}
+
+
+@enduml

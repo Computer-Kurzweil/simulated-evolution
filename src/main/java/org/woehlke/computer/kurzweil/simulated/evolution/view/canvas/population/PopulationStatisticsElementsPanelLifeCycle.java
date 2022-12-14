@@ -8,7 +8,7 @@ import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweil
 import org.woehlke.computer.kurzweil.simulated.evolution.view.layouts.FlowLayoutCenter;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.widgets.SubTabImpl;
 import org.woehlke.computer.kurzweil.simulated.evolution.control.SimulatedEvolutionContext;
-import org.woehlke.computer.kurzweil.simulated.evolution.model.population.SimulatedEvolutionPopulation;
+import org.woehlke.computer.kurzweil.simulated.evolution.model.population.SimulatedEvolutionPopulationCensus;
 
 import javax.swing.border.CompoundBorder;
 import java.awt.*;
@@ -51,7 +51,7 @@ public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl {
     private final FlowLayoutCenter layout;
     private final FlowLayout layoutSubPanel;
 
-    private SimulatedEvolutionPopulation population;
+    private SimulatedEvolutionPopulationCensus population;
 
     public PopulationStatisticsElementsPanelLifeCycle(
       SimulatedEvolutionContext tabCtx

@@ -4,6 +4,8 @@ import lombok.*;
 import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeCycleStatus;
 
+import java.io.Serializable;
+
 /**
  * &copy; 2006 - 2008 Thomas Woehlke.
  * @author Thomas Woehlke
@@ -19,7 +21,7 @@ import org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeCycleSta
 @EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
-public class SimulatedEvolutionPopulation {
+public class SimulatedEvolutionPopulationCensus implements Serializable {
 
    private static final long serialVersionUID = 242L;
 
@@ -34,7 +36,7 @@ public class SimulatedEvolutionPopulation {
    private long generationOldest;
    private long worldIteration;
 
-    /**
+  /**
    * TODO write doc.
    */
   public void countStatusOfOneCell(LifeCycleStatus status) {

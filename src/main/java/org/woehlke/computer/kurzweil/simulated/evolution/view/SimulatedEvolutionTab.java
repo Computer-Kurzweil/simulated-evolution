@@ -66,7 +66,7 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
         super(TITLE);
         this.properties = properties;
         simulatedEvolutionParameter = new SimulatedEvolutionParameter();
-        simulatedEvolutionApplet = new SimulatedEvolutionApplet();
+        simulatedEvolutionApplet = new SimulatedEvolutionApplet(properties);
         simulatedEvolutionApplet.init();
         add(APPLET_POSITION, simulatedEvolutionApplet);
         this.ctx = new ComputerKurzweilContext(properties);

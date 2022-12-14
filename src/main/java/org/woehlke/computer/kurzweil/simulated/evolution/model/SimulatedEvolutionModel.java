@@ -5,7 +5,10 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
+import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweilProperties;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.cell.Cell;
+import org.woehlke.computer.kurzweil.simulated.evolution.model.population.SimulatedEvolutionPopulationCensus;
+import org.woehlke.computer.kurzweil.simulated.evolution.model.population.SimulatedEvolutionPopulationContainer;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.world.SimulatedEvolutionParameter;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.lattice.SimulatedEvolutionWorldLattice;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.world.WorldPoint;
@@ -66,26 +69,31 @@ public class SimulatedEvolutionModel implements Serializable {
      */
     private SimulatedEvolutionWorldLattice simulatedEvolutionWorldLattice;
 
-    //@Getter
-    //private SimulatedEvolutionPopulationContainer simulatedEvolutionPopulationContainer;
+    @Getter
+    private SimulatedEvolutionPopulationContainer simulatedEvolutionPopulationContainer;
 
     @Getter
     private SimulatedEvolutionParameter simulatedEvolutionParameter;
 
-    public SimulatedEvolutionModel(WorldPoint worldDimensions) {
+    @Getter
+    private final ComputerKurzweilProperties computerKurzweilProperties;
+
+    public SimulatedEvolutionModel(WorldPoint worldDimensions, ComputerKurzweilProperties computerKurzweilProperties) {
         long seed = new Date().getTime();
-        random = new Random(seed);
+        this.random = new Random(seed);
         this.worldDimensions = worldDimensions;
-        simulatedEvolutionWorldLattice = new SimulatedEvolutionWorldLattice(this.worldDimensions,random);
+        this.computerKurzweilProperties = computerKurzweilProperties;
+        this.simulatedEvolutionWorldLattice = new SimulatedEvolutionWorldLattice(this.worldDimensions,random);
         createPopulation();
-        simulatedEvolutionParameter = new SimulatedEvolutionParameter();
-        //simulatedEvolutionPopulationContainer = new SimulatedEvolutionPopulationContainer(tabCtx);
+        this.simulatedEvolutionParameter = new SimulatedEvolutionParameter();
+        this.simulatedEvolutionPopulationContainer = new SimulatedEvolutionPopulationContainer(this);
     }
 
     /**
      * Create the initial Population of Bacteria Cells and give them their position in the World.
      */
     private void createPopulation() {
+        SimulatedEvolutionPopulationCensus populationCensus = new SimulatedEvolutionPopulationCensus();
         cells = new ArrayList<Cell>();
         for (int i = 0; i < INITIAL_POPULATION; i++) {
             int x = random.nextInt(worldDimensions.getX());
@@ -99,7 +107,9 @@ public class SimulatedEvolutionModel implements Serializable {
             WorldPoint pos = new WorldPoint(x, y);
             Cell cell = new Cell(worldDimensions, pos, random);
             cells.add(cell);
+            populationCensus.countStatusOfOneCell(cell.getLifeCycleStatus());
         }
+        this.simulatedEvolutionPopulationContainer.push(populationCensus);
     }
 
     /**
@@ -107,6 +117,7 @@ public class SimulatedEvolutionModel implements Serializable {
      * Every Cell moves, eats, dies of hunger, and it has sex: splitting into two children with changed DNA.
      */
     public void letLivePopulation() {
+        SimulatedEvolutionPopulationCensus populationCensus = new SimulatedEvolutionPopulationCensus();
         simulatedEvolutionWorldLattice.letFoodGrow();
         WorldPoint pos;
         List<Cell> children = new ArrayList<Cell>();
@@ -129,6 +140,10 @@ public class SimulatedEvolutionModel implements Serializable {
             cells.remove(dead);
         }
         cells.addAll(children);
+        for (Cell cell:cells) {
+            populationCensus.countStatusOfOneCell(cell.getLifeCycleStatus());
+        }
+        this.simulatedEvolutionPopulationContainer.push(populationCensus);
     }
 
     public List<Cell> getAllCells(){

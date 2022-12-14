@@ -3,6 +3,7 @@ package org.woehlke.computer.kurzweil.simulated.evolution.view.canvas;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.log4j.Log4j2;
+import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweilProperties;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.cell.Cell;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.world.WorldPoint;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.SimulatedEvolutionModel;

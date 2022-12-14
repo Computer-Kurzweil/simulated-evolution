@@ -4,6 +4,7 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
+import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweilProperties;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.SimulatedEvolutionCanvas;
 import org.woehlke.computer.kurzweil.simulated.evolution.control.SimulatedEvolutionController;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.world.WorldPoint;
@@ -62,6 +63,8 @@ public class SimulatedEvolutionApplet extends JApplet implements
      */
     private SimulatedEvolutionModel simulatedEvolutionModel;
 
+    private final ComputerKurzweilProperties computerKurzweilProperties;
+
     public void init() {
         int scale = 2;
         int width = 320 * scale;
@@ -70,13 +73,18 @@ public class SimulatedEvolutionApplet extends JApplet implements
         this.add(title, BorderLayout.NORTH);
         simulatedEvolutionController = new SimulatedEvolutionController();
         WorldPoint worldDimensions = new WorldPoint(width,height);
-        simulatedEvolutionModel = new SimulatedEvolutionModel(worldDimensions);
+        simulatedEvolutionModel = new SimulatedEvolutionModel(worldDimensions, this.computerKurzweilProperties);
         canvas = new SimulatedEvolutionCanvas(worldDimensions);
         canvas.setTabModel(simulatedEvolutionModel);
         this.add(canvas, BorderLayout.CENTER);
         simulatedEvolutionController.setCanvas(canvas);
         simulatedEvolutionController.setSimulatedEvolutionModel(simulatedEvolutionModel);
         simulatedEvolutionController.start();
+    }
+
+    public SimulatedEvolutionApplet(ComputerKurzweilProperties computerKurzweilProperties) {
+        super();
+        this.computerKurzweilProperties = computerKurzweilProperties;
     }
 
     public void destroy() {
