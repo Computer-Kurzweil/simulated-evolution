@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweilProperties;
-import org.woehlke.computer.kurzweil.simulated.evolution.model.SimulatedEvolutionModel;
 
 import java.io.Serializable;
 import java.util.concurrent.ConcurrentLinkedQueue;
