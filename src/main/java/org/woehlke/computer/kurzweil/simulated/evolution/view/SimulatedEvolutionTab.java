@@ -62,14 +62,6 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
 
     private final ComputerKurzweilProperties properties;
 
-    private void setMyBounds(){
-        int x = START_POSITION_ON_SCREEN_X;
-        int y = START_POSITION_ON_SCREEN_Y;
-        int width = simulatedEvolutionApplet.getCanvasDimensions().getX();
-        int height = simulatedEvolutionApplet.getCanvasDimensions().getY() + HEIGHT_OF_TITLE;
-        setBounds(x, y, width, height);
-    }
-
     public SimulatedEvolutionTab(ComputerKurzweilProperties properties) {
         super(TITLE);
         this.properties = properties;
@@ -79,16 +71,26 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
         add(APPLET_POSITION, simulatedEvolutionApplet);
         this.ctx = new ComputerKurzweilContext(properties);
         this.tabCtx = new SimulatedEvolutionContext(this,ctx);
-        pack();
-        setVisible(true);
-        toFront();
         addWindowListener(this);
+        pack();
     }
 
-    public void windowOpened(WindowEvent e) {
+    public void showMe(){
         setMyBounds();
         setVisible(true);
         toFront();
+    }
+
+    public void windowOpened(WindowEvent e) {
+        showMe();
+    }
+
+    private void setMyBounds(){
+        int x = START_POSITION_ON_SCREEN_X;
+        int y = START_POSITION_ON_SCREEN_Y;
+        int width = simulatedEvolutionApplet.getCanvasDimensions().getX();
+        int height = simulatedEvolutionApplet.getCanvasDimensions().getY() + HEIGHT_OF_TITLE;
+        setBounds(x, y, width, height);
     }
 
     public void windowClosing(WindowEvent e) {
@@ -104,9 +106,7 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
     }
 
     public void windowDeiconified(WindowEvent e) {
-        setMyBounds();
-        setVisible(true);
-        toFront();
+        showMe();
     }
 
     public void windowActivated(WindowEvent e) {
