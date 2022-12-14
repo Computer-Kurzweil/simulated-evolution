@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * @see <a href="https://java.woehlke.org/simulated-evolution/">Maven Project Repository</a>
  */
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class AppTest {
+public class ApplicationTest {
 
     /**
      * Rigourous Test :-)
