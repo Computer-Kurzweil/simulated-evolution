@@ -52,9 +52,10 @@ public class SimulatedEvolutionPopulationCensusContainer implements Serializable
 
     public SimulatedEvolutionPopulationCensus getCurrentGeneration() {
         if(this.statistics.isEmpty()) {
-            return new SimulatedEvolutionPopulationCensus();
-        } else {
-            return this.statistics.peek();
+            SimulatedEvolutionPopulationCensus populationCensus = new SimulatedEvolutionPopulationCensus();
+            populationCensus.setWorldIteration(worldIteration);
+            statistics.push(populationCensus);
         }
+        return this.statistics.peek();
     }
 }

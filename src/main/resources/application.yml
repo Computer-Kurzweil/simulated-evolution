@@ -45,11 +45,11 @@ simulatedevolution:
     initialPopulation: 20
     panelPopulationStatistics: 'Statistics'
     youngCellsLabel: 'young'
-    youngAndFatCellsLabel: 'young and Fat'
-    fullAgeCellsLabel: 'full Age'
+    youngAndFatCellsLabel: 'fat'
+    fullAgeCellsLabel: 'adult'
     hungryCellsLabel: 'hungry'
     oldCellsLabel: 'old'
-    populationLabel: 'population'
+    populationLabel: 'all'
     generationOldestLabel: 'oldest Generation'
     generationYoungestLabel: 'youngest Generation'
   food:

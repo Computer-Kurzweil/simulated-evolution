@@ -25,7 +25,7 @@ public class PopulationStatisticsElement extends JPanel {
     private final JLabel label;
     private final JTextField statistics;
     private final LifeCycleStatus lifeCycleStatus;
-    private final int cols = 3;
+    private final int cols = 4;
     private final String defaultTextField = "0";
 
     public PopulationStatisticsElement(String label, LifeCycleStatus lifeCycleStatus) {

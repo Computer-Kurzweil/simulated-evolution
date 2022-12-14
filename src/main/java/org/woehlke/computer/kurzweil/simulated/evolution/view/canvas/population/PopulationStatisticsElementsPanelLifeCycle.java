@@ -38,6 +38,7 @@ public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl imple
     private final PopulationStatisticsElement fullAgeCellsElement;
     private final PopulationStatisticsElement hungryCellsElement;
     private final PopulationStatisticsElement oldCellsElement;
+    private final PopulationStatisticsElement wholeGeneration;
 
     private final String borderLabel;
 
@@ -47,6 +48,7 @@ public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl imple
     private final String fullAgeCellsLabel;
     private final String hungryCellsLabel;
     private final String oldCellsLabel;
+    private final String wholeGenerationLabel;
 
     private final CompoundBorder border;
     private final FlowLayoutCenter layout;
@@ -85,16 +87,19 @@ public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl imple
         fullAgeCellsLabel = cfg.getFullAgeCellsLabel();
         hungryCellsLabel = cfg.getHungryCellsLabel();
         oldCellsLabel = cfg.getOldCellsLabel();
+        wholeGenerationLabel = cfg.getPopulationLabel();
         youngCellsElement = new PopulationStatisticsElement(youngCellsLabel,YOUNG);
         youngAndFatCellsElement = new PopulationStatisticsElement(youngAndFatCellsLabel,YOUNG_AND_FAT);
         fullAgeCellsElement = new PopulationStatisticsElement(fullAgeCellsLabel,FULL_AGE);
         hungryCellsElement = new PopulationStatisticsElement(hungryCellsLabel,HUNGRY);
         oldCellsElement = new PopulationStatisticsElement(oldCellsLabel,OLD);
+        wholeGeneration = new PopulationStatisticsElement(wholeGenerationLabel,POPULATION);
         this.add(youngCellsElement);
         this.add(youngAndFatCellsElement);
         this.add(fullAgeCellsElement);
         this.add(hungryCellsElement);
         this.add(oldCellsElement);
+        this.add(wholeGeneration);
         update();
     }
 
@@ -106,6 +111,7 @@ public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl imple
         fullAgeCellsElement.setText(population.getFullAgeCells());
         hungryCellsElement.setText(population.getHungryCells());
         oldCellsElement.setText(population.getOldCells());
+        wholeGeneration.setText(population.getPopulation());
     }
 
     private CompoundBorder getDoubleBorder(String label){

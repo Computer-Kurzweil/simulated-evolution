@@ -63,13 +63,12 @@ public class SimulatedEvolutionController extends Thread implements Runnable, Se
     }
 
     public void run() {
-        boolean thereWereChanges;
         boolean doMyJob;
         do {
             synchronized (mySemaphore) {
                 doMyJob = mySemaphore.booleanValue();
             }
-            thereWereChanges = simulatedEvolutionModel.letLivePopulation();
+            simulatedEvolutionModel.letLivePopulation();
             canvas.repaint();
             panelLifeCycle.update();
             panelLifeCycle.repaint();

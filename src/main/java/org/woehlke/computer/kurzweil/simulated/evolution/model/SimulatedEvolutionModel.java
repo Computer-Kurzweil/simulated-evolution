@@ -120,8 +120,7 @@ public class SimulatedEvolutionModel implements Serializable {
      * One Step of Time in the World in which the Population of Bacteria Cell perform Life:
      * Every Cell moves, eats, dies of hunger, and it has sex: splitting into two children with changed DNA.
      */
-    public boolean letLivePopulation() {
-        boolean thereWereChanges = false;
+    public void letLivePopulation() {
         SimulatedEvolutionPopulationCensus populationCensus = new SimulatedEvolutionPopulationCensus();
         simulatedEvolutionWorldLattice.letFoodGrow();
         WorldPoint pos;
@@ -131,7 +130,6 @@ public class SimulatedEvolutionModel implements Serializable {
             cell.move();
             if(cell.died()){
                 died.add(cell);
-                thereWereChanges = true;
             } else {
                 pos = cell.getPosition();
                 int food = simulatedEvolutionWorldLattice.eat(pos);
@@ -139,10 +137,6 @@ public class SimulatedEvolutionModel implements Serializable {
                 if (cell.isPregnant()) {
                     Cell child = cell.performReproductionByCellDivision();
                     children.add(child);
-                    thereWereChanges = true;
-                }
-                if(cell.isYoungAndFat()){
-                    thereWereChanges = true;
                 }
             }
         }
@@ -154,7 +148,6 @@ public class SimulatedEvolutionModel implements Serializable {
             populationCensus.countStatusOfOneCell(cell.getLifeCycleStatus());
         }
         this.simulatedEvolutionPopulationCensusContainer.push(populationCensus);
-        return thereWereChanges;
     }
 
     public List<Cell> getAllCells(){
