@@ -24,7 +24,7 @@ import java.io.Serializable;
 @Log4j2
 public class SimulatedEvolutionController extends Thread implements Runnable, Serializable {
 
-    private static final long serialVersionUID = 242L;
+    static final long serialVersionUID = 242L;
 
     /**
      * Data Model for the Simulation
@@ -36,12 +36,12 @@ public class SimulatedEvolutionController extends Thread implements Runnable, Se
      */
     private final SimulatedEvolutionCanvas canvas;
     private final PopulationStatisticsElementsPanelLifeCycle panelLifeCycle;
-    private final SimulatedEvolutionTab simulatedEvolutionTab;
+    private final SimulatedEvolutionTab tab;
 
     /**
      * Time to Wait in ms.
      */
-    private final int TIME_TO_WAIT = 100;
+    private final int timeToWait;
 
     /**
      * Control for Threading
@@ -57,7 +57,9 @@ public class SimulatedEvolutionController extends Thread implements Runnable, Se
         this.simulatedEvolutionModel = simulatedEvolutionModel;
         this.canvas = canvas;
         this.panelLifeCycle = panelLifeCycle;
-        this.simulatedEvolutionTab = simulatedEvolutionTab;
+        this.tab = simulatedEvolutionTab;
+        this.timeToWait = this.tab.getComputerKurzweilProperties().getSimulatedevolution()
+            .getControl().getThreadSleepTime();
         mySemaphore = Boolean.TRUE;
     }
 
@@ -67,13 +69,13 @@ public class SimulatedEvolutionController extends Thread implements Runnable, Se
             synchronized (mySemaphore) {
                 doMyJob = mySemaphore.booleanValue();
             }
-            simulatedEvolutionModel.letLivePopulation();
+            doMyJob = simulatedEvolutionModel.letLivePopulation();
             canvas.repaint();
             panelLifeCycle.update();
             panelLifeCycle.repaint();
-            simulatedEvolutionTab.repaint();
+            tab.repaint();
             try {
-                sleep(TIME_TO_WAIT);
+                sleep(timeToWait);
             }
             catch (InterruptedException e) {
                 e.printStackTrace();
