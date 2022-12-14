@@ -3,7 +3,6 @@ package org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.food;
 import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
-import org.woehlke.computer.kurzweil.simulated.evolution.control.SimulatedEvolutionContext;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolutionTab;
 
 import javax.swing.*;
