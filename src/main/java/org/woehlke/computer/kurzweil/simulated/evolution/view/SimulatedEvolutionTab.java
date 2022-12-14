@@ -73,6 +73,7 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
         this.tabCtx = new SimulatedEvolutionContext(this,ctx);
         addWindowListener(this);
         pack();
+        showMe();
     }
 
     public void showMe(){
