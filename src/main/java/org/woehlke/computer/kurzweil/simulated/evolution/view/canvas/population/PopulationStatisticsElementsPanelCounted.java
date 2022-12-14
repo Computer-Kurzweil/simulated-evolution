@@ -27,8 +27,8 @@ import static org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeC
  */
 @Log4j2
 @Getter
-@ToString(callSuper = true,exclude = {"tabCtx","border","layout","layoutSubPanel"})
-@EqualsAndHashCode(callSuper=true,exclude = {"tabCtx","border","layout","layoutSubPanel"})
+@ToString(callSuper = true,exclude = {"tab","border","layout","layoutSubPanel"})
+@EqualsAndHashCode(callSuper=true,exclude = {"tab","border","layout","layoutSubPanel"})
 public class PopulationStatisticsElementsPanelCounted extends SubTabImpl {
 
     private static final long serialVersionUID = 242L;

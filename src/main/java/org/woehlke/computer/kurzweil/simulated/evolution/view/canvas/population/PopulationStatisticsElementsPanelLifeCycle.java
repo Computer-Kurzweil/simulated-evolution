@@ -6,6 +6,7 @@ import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweilProperties;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.SimulatedEvolutionModel;
+import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolutionTab;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.layouts.FlowLayoutCenter;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.widgets.SubTabImpl;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.census.SimulatedEvolutionPopulationCensus;
@@ -27,8 +28,8 @@ import static org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeC
  */
 @Log4j2
 @Getter
-@ToString(callSuper = true,exclude = {"tabCtx","border","layout","layoutSubPanel"})
-@EqualsAndHashCode(callSuper=true,exclude = {"tabCtx","border","layout","layoutSubPanel"})
+@ToString(callSuper = true,exclude = {"tab","border","layout","layoutSubPanel"})
+@EqualsAndHashCode(callSuper=true,exclude = {"tab","border","layout","layoutSubPanel"})
 public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl implements Serializable {
 
     private static final long serialVersionUID = 242L;
@@ -54,33 +55,26 @@ public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl imple
     private final FlowLayoutCenter layout;
     private final FlowLayout layoutSubPanel;
 
-    /**
-     * Data Model for the Simulation. The World contains the Bacteria Cells and the Food.
-     */
-    private SimulatedEvolutionModel simulatedEvolutionModel;
+    private final SimulatedEvolutionTab tab;
 
     public PopulationStatisticsElementsPanelLifeCycle(
-        String panelPopulationStatistics,
-        SimulatedEvolutionModel simulatedEvolutionModel
+        SimulatedEvolutionTab tab
     ) {
         super(
-            panelPopulationStatistics,
-            simulatedEvolutionModel.getComputerKurzweilProperties()
-            //tabCtx.getCtx().getProperties().getSimulatedevolution().getPopulation().getPanelPopulationStatistics(),
-            //tabCtx.getCtx().getProperties()
+            tab.getComputerKurzweilProperties().getSimulatedevolution().getPopulation().getPanelPopulationStatistics(),
+            tab.getComputerKurzweilProperties()
         );
-        //this.tabCtx = tabCtx;
-        this.simulatedEvolutionModel = simulatedEvolutionModel;
+        this.tab = tab;
         this.layoutSubPanel = new FlowLayout();
         this.setLayout(this.layoutSubPanel);
-        this.borderLabel = this.simulatedEvolutionModel.getComputerKurzweilProperties()
+        this.borderLabel = this.tab.getComputerKurzweilProperties()
             .getSimulatedevolution().getPopulation().getPanelPopulationStatistics();
         this.layout = new FlowLayoutCenter();
         this.border = this.getDoubleBorder(this.borderLabel);
         this.setLayout(this.layout);
         this.setBorder(this.border);
         ComputerKurzweilProperties.SimulatedEvolution.Population cfg =
-            this.simulatedEvolutionModel.getComputerKurzweilProperties().getSimulatedevolution().getPopulation();
+            this.tab.getComputerKurzweilProperties().getSimulatedevolution().getPopulation();
         initialPopulation = cfg.getInitialPopulation();
         youngCellsLabel = cfg.getYoungCellsLabel();
         youngAndFatCellsLabel = cfg.getYoungAndFatCellsLabel();
@@ -104,8 +98,8 @@ public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl imple
     }
 
     public void update() {
-        SimulatedEvolutionPopulationCensus population =
-            this.simulatedEvolutionModel.getSimulatedEvolutionPopulationCensusContainer().getCurrentGeneration();
+        SimulatedEvolutionPopulationCensus population = this.tab.getSimulatedEvolutionApplet()
+            .getSimulatedEvolutionModel().getSimulatedEvolutionPopulationCensusContainer().getCurrentGeneration();
         youngCellsElement.setText(population.getYoungCells());
         youngAndFatCellsElement.setText(population.getYoungAndFatCells());
         fullAgeCellsElement.setText(population.getFullAgeCells());
