@@ -33,15 +33,15 @@ public enum LifeCycleStatus {
     YOUNG_AND_FAT(YELLOW, BLACK),
     FULL_AGE(RED, BLACK),
     HUNGRY(LIGHT_GRAY, WHITE),
-    OLD(DARK_GRAY, BLACK),
-    DEAD(BLACK, BLACK),
+    OLD(DARK_GRAY, WHITE),
+    DEAD(BLACK, WHITE),
     POPULATION(WHITE, BLACK);
 
-    private Color color;
+    private Color colorBackground;
     private Color colorFont;
 
-    LifeCycleStatus(Color color, Color colorFont){
-        this.color=color;
+    LifeCycleStatus(Color colorBackground, Color colorFont){
+        this.colorBackground=colorBackground;
         this.colorFont = colorFont;
     }
 
@@ -49,6 +49,6 @@ public enum LifeCycleStatus {
         return colorFont;
     }
     public Color getColorBackground() {
-        return color;
+        return colorBackground;
     }
 }
