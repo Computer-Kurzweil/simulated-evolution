@@ -254,7 +254,6 @@
         <version.org.yaml.snakeyaml>1.33</version.org.yaml.snakeyaml>
         <version.javax.validation.api>3.0.2</version.javax.validation.api>
         <version.com.google.guava>31.1-jre</version.com.google.guava>
-        <version.junit4>4.13</version.junit4>
         <version.junit5>5.9.1</version.junit5>
         <version.log4j2>2.19.0</version.log4j2>
         <version.lombok>1.18.24</version.lombok>
