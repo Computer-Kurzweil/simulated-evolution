@@ -57,8 +57,10 @@ public class SimulatedEvolutionCanvas extends JComponent {
         super.paintComponent(g);
         int width = worldDimensions.getX();
         int height = worldDimensions.getY();
+        //paint water
         g.setColor(WATER);
         g.fillRect(0,0,width,height);
+        //paint food
         g.setColor(FOOD);
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
@@ -67,8 +69,8 @@ public class SimulatedEvolutionCanvas extends JComponent {
                 }
             }
         }
-        List<Cell> population = tabModel.getAllCells();
-        for (Cell p:population) {
+        //paint all Cells
+        for (Cell p:tabModel.getAllCells()) {
             WorldPoint[] square = p.getPosition().getNeighbourhood(worldDimensions);
             g.setColor(p.getLifeCycleStatus().getColor());
             for(WorldPoint pixel:square){
