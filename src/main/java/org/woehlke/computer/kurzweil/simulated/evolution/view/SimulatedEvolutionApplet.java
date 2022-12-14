@@ -46,9 +46,14 @@ public class SimulatedEvolutionApplet extends JApplet implements
     private static final long serialVersionUID = 242L;
 
     /**
-     * Subtitle for DesktopApp and Title for Applet.
+     * Subtitle Label for DesktopApp and Title Label for Applet.
      */
-    private final JLabel titleLabel;
+    private final JLabel subTitleLabel;
+
+    /**
+     * Copyright Label
+     */
+    private final JLabel copyrightLabel;
 
     /**
      * ControllerThread for Interachtions between Model and View (MVC-Pattern).
@@ -74,7 +79,7 @@ public class SimulatedEvolutionApplet extends JApplet implements
 
     public void init() {
         this.setLayout(new BorderLayout());
-        this.add(this.titleLabel, BorderLayout.NORTH);
+        this.add(this.subTitleLabel, BorderLayout.NORTH);
         this.add(this.canvas, BorderLayout.CENTER);
         this.add(this.panelLifeCycle, BorderLayout.SOUTH);
     }
@@ -87,14 +92,17 @@ public class SimulatedEvolutionApplet extends JApplet implements
             computerKurzweilProperties
         );
         this.canvas = new SimulatedEvolutionCanvas(this.simulatedEvolutionModel);
-        this.panelLifeCycle = new PopulationStatisticsElementsPanelLifeCycle(this.tab);
+        this.panelLifeCycle = new PopulationStatisticsElementsPanelLifeCycle(
+            this.tab,
+            this.simulatedEvolutionModel.getSimulatedEvolutionPopulationCensusContainer()
+        );
         this.simulatedEvolutionController = new SimulatedEvolutionController(
             this.simulatedEvolutionModel, this.canvas, this.panelLifeCycle, this.tab
         );
         String subTitle =  computerKurzweilProperties.getSimulatedevolution().getView().getSubtitle();
         String copyright =  computerKurzweilProperties.getSimulatedevolution().getView().getCopyright();
-        String title = subTitle +" - "+ copyright;
-        this.titleLabel = new JLabel(title, CENTER);
+        this.subTitleLabel = new JLabel(subTitle, CENTER);
+        this.copyrightLabel = new JLabel(copyright, CENTER);
     }
 
     public void destroy() {

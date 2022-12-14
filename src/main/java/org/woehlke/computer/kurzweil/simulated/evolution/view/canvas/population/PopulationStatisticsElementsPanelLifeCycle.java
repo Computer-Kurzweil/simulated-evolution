@@ -6,6 +6,7 @@ import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweilProperties;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.SimulatedEvolutionModel;
+import org.woehlke.computer.kurzweil.simulated.evolution.model.census.SimulatedEvolutionPopulationCensusContainer;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolutionTab;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.layouts.FlowLayoutCenter;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.widgets.SubTabImpl;
@@ -59,14 +60,18 @@ public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl imple
 
     private final SimulatedEvolutionTab tab;
 
+    private final SimulatedEvolutionPopulationCensusContainer simulatedEvolutionPopulationCensusContainer;
+
     public PopulationStatisticsElementsPanelLifeCycle(
-        SimulatedEvolutionTab tab
+        SimulatedEvolutionTab tab,
+        SimulatedEvolutionPopulationCensusContainer simulatedEvolutionPopulationCensusContainer
     ) {
         super(
             tab.getComputerKurzweilProperties().getSimulatedevolution().getPopulation().getPanelPopulationStatistics(),
             tab.getComputerKurzweilProperties()
         );
         this.tab = tab;
+        this.simulatedEvolutionPopulationCensusContainer = simulatedEvolutionPopulationCensusContainer;
         this.layoutSubPanel = new FlowLayout();
         this.setLayout(this.layoutSubPanel);
         this.borderLabel = this.tab.getComputerKurzweilProperties()
@@ -100,9 +105,7 @@ public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl imple
     }
 
     public void update() {
-        SimulatedEvolutionPopulationCensus population = this.tab.getSimulatedEvolutionApplet()
-            .getSimulatedEvolutionModel().getSimulatedEvolutionPopulationCensusContainer()
-            .peek();
+        SimulatedEvolutionPopulationCensus population = this.simulatedEvolutionPopulationCensusContainer.peek();
         youngCellsElement.setText(population.getYoungCells());
         youngAndFatCellsElement.setText(population.getYoungAndFatCells());
         fullAgeCellsElement.setText(population.getFullAgeCells());
