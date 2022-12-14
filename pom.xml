@@ -812,7 +812,6 @@
 
     <build>
         <finalName>${project.artifactId}</finalName>
-        <defaultGoal>clean dependency:resolve dependency:resolve-plugins dependency:sources install site site:deploy exec:java</defaultGoal>
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -1173,7 +1172,7 @@
         <profile>
             <id>build</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <skipTests>false</skipTests>
@@ -1188,7 +1187,7 @@
         <profile>
             <id>site</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <skipTests>false</skipTests>
@@ -1202,6 +1201,9 @@
 
         <profile>
             <id>uml</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
             <properties>
                 <skip.unit.tests>true</skip.unit.tests>
                 <skip.integration.tests>true</skip.integration.tests>

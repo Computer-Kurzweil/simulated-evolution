@@ -1,7 +1,10 @@
 package org.woehlke.computer.kurzweil.simulation.evolution;
 
 
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -15,14 +18,25 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * @see <a href="https://github.com/Computer-Kurzweil/simulated-evolution">Github Repository</a>
  * @see <a href="https://java.woehlke.org/simulated-evolution/">Maven Project Repository</a>
  */
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class AppTest {
 
     /**
      * Rigourous Test :-)
      */
     @Test
+    @Order(1)
     public void testApp()
     {
-        assertTrue(true);
+        boolean result = true;
+        assertTrue(result);
+    }
+
+    @Test
+    @Order(2)
+    public void testAnotherOne()
+    {
+        boolean result = true;
+        assertTrue(result);
     }
 }
