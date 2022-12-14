@@ -40,21 +40,6 @@ public class SimulatedEvolutionPopulationCensusContainer implements Serializable
         this.worldIteration = 0L;
     }
 
-    private void resetStatistics(){
-        if (statistics.size() > queueMaxLength) {
-            Stack<SimulatedEvolutionPopulationCensus> statisticsNew = new Stack<>();
-            ListIterator<SimulatedEvolutionPopulationCensus> listIterator = statistics.listIterator();
-            int i = 0;
-            while(listIterator.hasNext() && i < queueMaxLength){
-                i++;
-                SimulatedEvolutionPopulationCensus o = listIterator.next();
-                statisticsNew.push(o);
-            }
-            statistics.clear();
-            statistics = statisticsNew;
-        }
-    }
-
     public void push(SimulatedEvolutionPopulationCensus populationCensus) {
         this.worldIteration++;
         populationCensus.setWorldIteration(worldIteration);
