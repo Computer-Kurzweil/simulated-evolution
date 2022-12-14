@@ -71,10 +71,8 @@ public class SimulatedEvolutionController extends Thread implements Runnable, Se
             }
             thereWereChanges = simulatedEvolutionModel.letLivePopulation();
             canvas.repaint();
-            if(thereWereChanges) {
-                panelLifeCycle.update();
-                panelLifeCycle.repaint();
-            }
+            panelLifeCycle.update();
+            panelLifeCycle.repaint();
             simulatedEvolutionTab.repaint();
             try {
                 sleep(TIME_TO_WAIT);

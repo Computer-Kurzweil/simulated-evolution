@@ -7,7 +7,8 @@ import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweilProperties;
 
 import java.io.Serializable;
-import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.ListIterator;
+import java.util.Stack;
 
 /**
  * &copy; 2006 - 2008 Thomas Woehlke.
@@ -25,9 +26,10 @@ public class SimulatedEvolutionPopulationCensusContainer implements Serializable
     private static final long serialVersionUID = 242L;
 
     @Getter
-    private long worldIteration;
+    private volatile long worldIteration;
 
-    private final ConcurrentLinkedQueue<SimulatedEvolutionPopulationCensus> statistics = new ConcurrentLinkedQueue<>();
+    private volatile Stack<SimulatedEvolutionPopulationCensus> statistics =
+        new Stack<>();
 
     private final int queueMaxLength;
 
@@ -38,21 +40,36 @@ public class SimulatedEvolutionPopulationCensusContainer implements Serializable
         this.worldIteration = 0L;
     }
 
-    public void push(SimulatedEvolutionPopulationCensus populationCensus) {
-        worldIteration++;
-        populationCensus.setWorldIteration(worldIteration);
-        statistics.add(populationCensus);
+    private void resetStatistics(){
         if (statistics.size() > queueMaxLength) {
-            statistics.poll();
+            Stack<SimulatedEvolutionPopulationCensus> statisticsNew = new Stack<>();
+            ListIterator<SimulatedEvolutionPopulationCensus> listIterator = statistics.listIterator();
+            int i = 0;
+            while(listIterator.hasNext() && i < queueMaxLength){
+                i++;
+                SimulatedEvolutionPopulationCensus o = listIterator.next();
+                statisticsNew.push(o);
+            }
+            statistics.clear();
+            statistics = statisticsNew;
+        }
+    }
+
+    public void push(SimulatedEvolutionPopulationCensus populationCensus) {
+        this.worldIteration++;
+        populationCensus.setWorldIteration(worldIteration);
+        statistics.push(populationCensus);
+        if (statistics.size() > queueMaxLength) {
+            statistics.removeElementAt(0);
         }
         log.info(worldIteration + " : " + populationCensus);
     }
 
     public SimulatedEvolutionPopulationCensus getCurrentGeneration() {
-        if(this.worldIteration>0L) {
-            return this.statistics.peek();
-        } else {
+        if(this.statistics.isEmpty()) {
             return new SimulatedEvolutionPopulationCensus();
+        } else {
+            return this.statistics.peek();
         }
     }
 }
