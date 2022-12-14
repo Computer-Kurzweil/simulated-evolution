@@ -1156,6 +1156,51 @@
 
     <profiles>
         <profile>
+            <id>run</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <skipTests>true</skipTests>
+                <skipIntegrationTests>true</skipIntegrationTests>
+            </properties>
+            <build>
+                <finalName>${project.artifactId}</finalName>
+                <defaultGoal>clean package exec:java</defaultGoal>
+            </build>
+        </profile>
+
+        <profile>
+            <id>build</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <skipTests>false</skipTests>
+                <skipIntegrationTests>false</skipIntegrationTests>
+            </properties>
+            <build>
+                <finalName>${project.artifactId}</finalName>
+                <defaultGoal>clean dependency:resolve dependency:resolve-plugins dependency:sources install site site:deploy exec:java</defaultGoal>
+            </build>
+        </profile>
+
+        <profile>
+            <id>site</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <skipTests>false</skipTests>
+                <skipIntegrationTests>false</skipIntegrationTests>
+            </properties>
+            <build>
+                <finalName>${project.artifactId}</finalName>
+                <defaultGoal>clean dependency:resolve dependency:resolve-plugins dependency:sources install site site:deploy</defaultGoal>
+            </build>
+        </profile>
+
+        <profile>
             <id>uml</id>
             <properties>
                 <skip.unit.tests>true</skip.unit.tests>
@@ -1196,6 +1241,7 @@
                 </dependency>
             </dependencies>
             <build>
+                <finalName>${project.artifactId}</finalName>
                 <defaultGoal>clean com.github.funthomas424242:plantuml-maven-plugin:generate</defaultGoal>
                 <plugins>
                     <plugin>
