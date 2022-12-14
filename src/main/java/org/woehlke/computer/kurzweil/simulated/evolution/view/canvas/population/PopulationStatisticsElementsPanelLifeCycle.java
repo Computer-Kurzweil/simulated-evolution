@@ -34,7 +34,7 @@ import static org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeC
 @EqualsAndHashCode(callSuper=true,exclude = {"tab","border","layout","layoutSubPanel"})
 public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl implements Serializable {
 
-    private static final long serialVersionUID = 242L;
+    static final long serialVersionUID = 242L;
 
     private final PopulationStatisticsElement youngCellsElement;
     private final PopulationStatisticsElement youngAndFatCellsElement;

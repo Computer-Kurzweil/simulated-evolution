@@ -14,4 +14,5 @@ fixed #31 setup maven project reports site
 
 # 3.0.x
 * remove JApplet and integrate SimulatedEvolutionApplet into SimulatedEvolutionTab extends JFrame
+* Feature: stop controller if population = 0
 
