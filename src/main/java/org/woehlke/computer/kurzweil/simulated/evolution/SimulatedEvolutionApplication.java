@@ -19,9 +19,16 @@ import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolution
 @Log4j2
 public class SimulatedEvolutionApplication {
 
+    private final SimulatedEvolutionTab simulatedEvolutionTab;
+
     private SimulatedEvolutionApplication(String configFileName, String jarFilePath) {
         ComputerKurzweilProperties properties = ComputerKurzweilProperties.propertiesFactory(configFileName, jarFilePath);
-        SimulatedEvolutionTab simulatedEvolutionTab = new SimulatedEvolutionTab(properties);
+        this.simulatedEvolutionTab = new SimulatedEvolutionTab(properties);
+
+    }
+
+    public void start(){
+        simulatedEvolutionTab.start();
     }
 
     /**
@@ -32,5 +39,6 @@ public class SimulatedEvolutionApplication {
         String configFileName = "application.yml";
         String jarFilePath = "target/simulatedevolution.jar";
         SimulatedEvolutionApplication application = new SimulatedEvolutionApplication(configFileName,jarFilePath);
+        application.start();
     }
 }

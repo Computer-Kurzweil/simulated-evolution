@@ -21,6 +21,7 @@ import java.util.Random;
  * @see <a href="https://github.com/Computer-Kurzweil/simulated-evolution">Github Repository</a>
  * @see <a href="https://java.woehlke.org/simulated-evolution/">Maven Project Repository</a>
  */
+@Deprecated
 @Log4j2
 @Getter
 @ToString(exclude={"random","frame"},callSuper=true)

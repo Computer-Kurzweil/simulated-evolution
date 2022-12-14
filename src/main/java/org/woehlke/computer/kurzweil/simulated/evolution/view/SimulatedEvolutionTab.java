@@ -58,21 +58,15 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
 
     private final SimulatedEvolutionParameter simulatedEvolutionParameter;
 
-    private final ComputerKurzweilContext ctx;
-
-    private final SimulatedEvolutionContext tabCtx;
-
     private final ComputerKurzweilProperties computerKurzweilProperties;
 
     public SimulatedEvolutionTab(ComputerKurzweilProperties computerKurzweilProperties) {
         super(TITLE);
         this.computerKurzweilProperties = computerKurzweilProperties;
-        simulatedEvolutionParameter = new SimulatedEvolutionParameter();
-        simulatedEvolutionApplet = new SimulatedEvolutionApplet(computerKurzweilProperties);
-        simulatedEvolutionApplet.init();
-        add(APPLET_POSITION, simulatedEvolutionApplet);
-        this.ctx = new ComputerKurzweilContext(computerKurzweilProperties);
-        this.tabCtx = new SimulatedEvolutionContext(this, ctx);
+        this.simulatedEvolutionParameter = new SimulatedEvolutionParameter();
+        this.simulatedEvolutionApplet = new SimulatedEvolutionApplet(this);
+        this.simulatedEvolutionApplet.init();
+        this.add(APPLET_POSITION, simulatedEvolutionApplet);
         addWindowListener(this);
         pack();
         showMe();
@@ -82,6 +76,10 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
         setMyBounds();
         setVisible(true);
         toFront();
+    }
+
+    public void start(){
+        this.simulatedEvolutionApplet.start();
     }
 
     public void windowOpened(WindowEvent e) {

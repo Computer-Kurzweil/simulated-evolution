@@ -7,8 +7,8 @@ import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweilProperties;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.cell.Cell;
-import org.woehlke.computer.kurzweil.simulated.evolution.model.population.SimulatedEvolutionPopulationCensus;
-import org.woehlke.computer.kurzweil.simulated.evolution.model.population.SimulatedEvolutionPopulationCensusContainer;
+import org.woehlke.computer.kurzweil.simulated.evolution.model.census.SimulatedEvolutionPopulationCensus;
+import org.woehlke.computer.kurzweil.simulated.evolution.model.census.SimulatedEvolutionPopulationCensusContainer;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.world.SimulatedEvolutionParameter;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.lattice.SimulatedEvolutionWorldLattice;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.world.WorldPoint;
@@ -139,6 +139,9 @@ public class SimulatedEvolutionModel implements Serializable {
                 if (cell.isPregnant()) {
                     Cell child = cell.performReproductionByCellDivision();
                     children.add(child);
+                    thereWereChanges = true;
+                }
+                if(cell.isYoungAndFat()){
                     thereWereChanges = true;
                 }
             }

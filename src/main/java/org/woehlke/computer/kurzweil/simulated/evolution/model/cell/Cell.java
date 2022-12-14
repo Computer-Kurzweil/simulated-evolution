@@ -139,6 +139,10 @@ public class Cell implements Serializable {
         return lifeCycle.isPregnant();
     }
 
+    public boolean isYoungAndFat() {
+        return lifeCycle.isYoungAndFat();
+    }
+
     /**
      * Eat the available Food in this Position
      * @param food the available Food in this Position

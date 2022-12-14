@@ -2,6 +2,7 @@ package org.woehlke.computer.kurzweil.simulated.evolution.control;
 
 import lombok.Setter;
 import lombok.extern.log4j.Log4j2;
+import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolutionTab;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.SimulatedEvolutionCanvas;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.SimulatedEvolutionModel;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.population.PopulationStatisticsElementsPanelLifeCycle;
@@ -29,17 +30,15 @@ public class SimulatedEvolutionController extends Thread implements Runnable, Se
     /**
      * Data Model for the Simulation
      */
-    @Setter
-    private SimulatedEvolutionModel simulatedEvolutionModel;
+    private final SimulatedEvolutionModel simulatedEvolutionModel;
 
     /**
      * Canvas, where to paint in the GUI.
      */
-    @Setter
-    private SimulatedEvolutionCanvas canvas;
+    private final SimulatedEvolutionCanvas canvas;
+    private final PopulationStatisticsElementsPanelLifeCycle panelLifeCycle;
+    private final SimulatedEvolutionTab simulatedEvolutionTab;
 
-    @Setter
-    private PopulationStatisticsElementsPanelLifeCycle panelLifeCycle;
     /**
      * Time to Wait in ms.
      */
@@ -50,7 +49,16 @@ public class SimulatedEvolutionController extends Thread implements Runnable, Se
      */
     private Boolean mySemaphore;
 
-    public SimulatedEvolutionController() {
+    public SimulatedEvolutionController(
+        SimulatedEvolutionModel simulatedEvolutionModel,
+        SimulatedEvolutionCanvas canvas,
+        PopulationStatisticsElementsPanelLifeCycle panelLifeCycle,
+        SimulatedEvolutionTab simulatedEvolutionTab
+    ) {
+        this.simulatedEvolutionModel = simulatedEvolutionModel;
+        this.canvas = canvas;
+        this.panelLifeCycle = panelLifeCycle;
+        this.simulatedEvolutionTab = simulatedEvolutionTab;
         mySemaphore = Boolean.TRUE;
     }
 
@@ -67,6 +75,7 @@ public class SimulatedEvolutionController extends Thread implements Runnable, Se
                 panelLifeCycle.update();
                 panelLifeCycle.repaint();
             }
+            simulatedEvolutionTab.repaint();
             try {
                 sleep(TIME_TO_WAIT);
             }

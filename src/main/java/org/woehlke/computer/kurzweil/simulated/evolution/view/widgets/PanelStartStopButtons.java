@@ -30,9 +30,12 @@ public class PanelStartStopButtons extends SubTabImpl implements Serializable {
     private final JButton stopButton;
 
     public PanelStartStopButtons(SimulatedEvolutionTab tab){
-        super(tab.getCtx().getProperties().getAllinone().getView().getStartStopp(),tab.getCtx().getProperties());
-        labelStart = tab.getCtx().getProperties().getAllinone().getView().getStart();
-        labelStop = tab.getCtx().getProperties().getAllinone().getView().getStop();
+        super(
+            tab.getComputerKurzweilProperties().getAllinone().getView().getStartStopp(),
+            tab.getComputerKurzweilProperties()
+        );
+        labelStart = tab.getComputerKurzweilProperties().getAllinone().getView().getStart();
+        labelStop = tab.getComputerKurzweilProperties().getAllinone().getView().getStop();
         this.startButton = new JButton(labelStart);
         this.stopButton = new JButton(labelStop);
         this.startButton.setEnabled(true);

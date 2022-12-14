@@ -66,6 +66,8 @@ public class SimulatedEvolutionApplet extends JApplet implements
 
     private final ComputerKurzweilProperties computerKurzweilProperties;
 
+    private final SimulatedEvolutionTab simulatedEvolutionTab;
+
     private PopulationStatisticsElementsPanelLifeCycle panelLifeCycle;
 
     public void init() {
@@ -85,23 +87,25 @@ public class SimulatedEvolutionApplet extends JApplet implements
         this.add(title, BorderLayout.NORTH);
         this.add(canvas, BorderLayout.CENTER);
         this.add(panelLifeCycle, BorderLayout.SOUTH);
-        simulatedEvolutionController = new SimulatedEvolutionController();
-        simulatedEvolutionController.setCanvas(canvas);
-        simulatedEvolutionController.setSimulatedEvolutionModel(simulatedEvolutionModel);
-        simulatedEvolutionController.setPanelLifeCycle(panelLifeCycle);
-        simulatedEvolutionController.start();
-
+        this.simulatedEvolutionController = new SimulatedEvolutionController(
+            simulatedEvolutionModel, canvas, panelLifeCycle, simulatedEvolutionTab
+        );
     }
 
-    public SimulatedEvolutionApplet(ComputerKurzweilProperties computerKurzweilProperties) {
+    public SimulatedEvolutionApplet(SimulatedEvolutionTab simulatedEvolutionTab) {
         super();
-        this.computerKurzweilProperties = computerKurzweilProperties;
+        this.simulatedEvolutionTab = simulatedEvolutionTab;
+        this.computerKurzweilProperties = simulatedEvolutionTab.getComputerKurzweilProperties();
     }
 
     public void destroy() {
     }
 
     public void stop() {
+    }
+
+    public void start() {
+        simulatedEvolutionController.start();
     }
 
     public WorldPoint getCanvasDimensions() {

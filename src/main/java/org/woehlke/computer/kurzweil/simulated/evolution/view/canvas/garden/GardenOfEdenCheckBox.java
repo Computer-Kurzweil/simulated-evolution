@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.control.SimulatedEvolutionContext;
+import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolutionTab;
 
 import javax.swing.*;
 
@@ -23,18 +24,19 @@ public class GardenOfEdenCheckBox extends JCheckBox {
     private static final long serialVersionUID = 242L;
 
     @ToString.Exclude
-    private final SimulatedEvolutionContext tabCtx;
+    private final SimulatedEvolutionTab tab;
     private final String gardenOfEdenEnabledString;
     private final boolean gardenOfEdenEnabledSelected;
 
-    public GardenOfEdenCheckBox(SimulatedEvolutionContext tabCtx) {
+    public GardenOfEdenCheckBox(SimulatedEvolutionTab tab) {
         super(
-            tabCtx.getCtx().getProperties().getSimulatedevolution().getGardenOfEden().getGardenOfEdenEnabledString(),
-            tabCtx.getCtx().getProperties().getSimulatedevolution().getGardenOfEden().getGardenOfEdenEnabled()
+            tab.getComputerKurzweilProperties().getSimulatedevolution().getGardenOfEden().getGardenOfEdenEnabledString(),
+            tab.getComputerKurzweilProperties().getSimulatedevolution().getGardenOfEden().getGardenOfEdenEnabled()
         );
-
-        this.gardenOfEdenEnabledSelected = tabCtx.getCtx().getProperties().getSimulatedevolution().getGardenOfEden().getGardenOfEdenEnabled();
-        this.gardenOfEdenEnabledString = tabCtx.getCtx().getProperties().getSimulatedevolution().getGardenOfEden().getGardenOfEdenEnabledString();
-        this.tabCtx = tabCtx;
+        this.gardenOfEdenEnabledSelected =
+            tab.getComputerKurzweilProperties().getSimulatedevolution().getGardenOfEden().getGardenOfEdenEnabled();
+        this.gardenOfEdenEnabledString =
+            tab.getComputerKurzweilProperties().getSimulatedevolution().getGardenOfEden().getGardenOfEdenEnabledString();
+        this.tab = tab;
     }
 }

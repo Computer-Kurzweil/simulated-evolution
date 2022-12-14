@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.control.SimulatedEvolutionContext;
+import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolutionTab;
 
 import javax.swing.*;
 
@@ -23,12 +24,15 @@ public class FoodPerDayIncreaseButton extends JButton {
     private static final long serialVersionUID = 242L;
 
     @ToString.Exclude
-    private final SimulatedEvolutionContext tabCtx;
+    private final SimulatedEvolutionTab tab;
     private final String labelFoodPerDayIncrease;
 
-    public FoodPerDayIncreaseButton(SimulatedEvolutionContext tabCtx) {
-        super(tabCtx.getCtx().getProperties().getSimulatedevolution().getFood().getButtonFoodPerDayIncrease());
-        this.tabCtx = tabCtx;
-        this.labelFoodPerDayIncrease = this.tabCtx.getCtx().getProperties().getSimulatedevolution().getFood().getButtonFoodPerDayIncrease();
+    public FoodPerDayIncreaseButton(SimulatedEvolutionTab tab) {
+        super(
+            tab.getComputerKurzweilProperties().getSimulatedevolution().getFood().getButtonFoodPerDayIncrease()
+        );
+        this.tab = tab;
+        this.labelFoodPerDayIncrease =
+            tab.getComputerKurzweilProperties().getSimulatedevolution().getFood().getButtonFoodPerDayIncrease();
     }
 }

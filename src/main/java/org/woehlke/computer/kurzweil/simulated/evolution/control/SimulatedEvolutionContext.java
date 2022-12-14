@@ -14,6 +14,7 @@ import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolution
 import java.util.concurrent.ForkJoinTask;
 
 import static java.lang.Thread.State.NEW;
+
 /**
  * &copy; 2006 - 2008 Thomas Woehlke.
  * @author Thomas Woehlke
@@ -22,6 +23,7 @@ import static java.lang.Thread.State.NEW;
  * @see <a href="https://github.com/Computer-Kurzweil/simulated-evolution">Github Repository</a>
  * @see <a href="https://java.woehlke.org/simulated-evolution/">Maven Project Repository</a>
  */
+@Deprecated
 @Log4j2
 @Getter
 @ToString(callSuper = false, exclude={"ctx","controller","tab"})
@@ -50,18 +52,33 @@ public class SimulatedEvolutionContext extends ForkJoinTask<Void> {
        WorldPoint worldDimensions = new WorldPoint(width,height);
        this.canvas = new SimulatedEvolutionCanvas(  worldDimensions );
        this.tabModel = this.canvas.getTabModel();
-       this.controller = new SimulatedEvolutionController();
+       this.controller = new SimulatedEvolutionController(
+           this.tab.getSimulatedEvolutionApplet().getSimulatedEvolutionModel(),
+           this.canvas,
+           this.tab.getSimulatedEvolutionApplet().getPanelLifeCycle(),
+           this.tab
+       );
     }
 
     public void stopController() {
         this.controller.exit();
         this.controller = null;
-        this.controller = new SimulatedEvolutionController();
+        this.controller = new SimulatedEvolutionController(
+            this.tab.getSimulatedEvolutionApplet().getSimulatedEvolutionModel(),
+            this.canvas,
+            this.tab.getSimulatedEvolutionApplet().getPanelLifeCycle(),
+            this.tab
+        );
     }
 
     public void startController() {
         if(this.controller == null){
-            this.controller = new SimulatedEvolutionController();
+            this.controller = new SimulatedEvolutionController(
+                this.tab.getSimulatedEvolutionApplet().getSimulatedEvolutionModel(),
+                this.canvas,
+                this.tab.getSimulatedEvolutionApplet().getPanelLifeCycle(),
+                this.tab
+            );
         } else {
             if(this.controller.getState() != NEW){
                 this.stopController();

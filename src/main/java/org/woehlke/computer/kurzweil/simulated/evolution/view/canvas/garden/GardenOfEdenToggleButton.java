@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.control.SimulatedEvolutionContext;
+import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolutionTab;
 
 import javax.swing.*;
 
@@ -23,12 +24,17 @@ public class GardenOfEdenToggleButton extends JToggleButton {
     private static final long serialVersionUID = 242L;
 
     @ToString.Exclude
-    private final SimulatedEvolutionContext tabCtx;
+    private final SimulatedEvolutionTab tab;
     private final String buttonToggleGardenOfEdenString;
 
-    public GardenOfEdenToggleButton(SimulatedEvolutionContext tabCtx) {
-        super(tabCtx.getCtx().getProperties().getSimulatedevolution().getGardenOfEden().getGardenOfEdenEnabledToggleButton());
-        this.tabCtx = tabCtx;
-        this.buttonToggleGardenOfEdenString = this.tabCtx.getCtx().getProperties().getSimulatedevolution().getGardenOfEden().getGardenOfEdenEnabledToggleButton();
+    public GardenOfEdenToggleButton(SimulatedEvolutionTab tab) {
+        super(
+            tab.getComputerKurzweilProperties().getSimulatedevolution()
+                .getGardenOfEden().getGardenOfEdenEnabledToggleButton()
+        );
+        this.tab = tab;
+        this.buttonToggleGardenOfEdenString =
+            tab.getComputerKurzweilProperties().getSimulatedevolution()
+                .getGardenOfEden().getGardenOfEdenEnabledToggleButton();
     }
 }

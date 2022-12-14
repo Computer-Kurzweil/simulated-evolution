@@ -3,9 +3,9 @@ package org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.garden;
 import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
+import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolutionTab;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.widgets.SubTabImpl;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.tabs.TabPanel;
-import org.woehlke.computer.kurzweil.simulated.evolution.control.SimulatedEvolutionContext;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.SimulatedEvolutionModel;
 
 /**
@@ -24,19 +24,19 @@ public class GardenOfEdenPanelRow extends SubTabImpl {
     private static final long serialVersionUID = 242L;
 
     @ToString.Exclude
-    private final SimulatedEvolutionContext tabCtx;
+    private final SimulatedEvolutionTab tab;
     @ToString.Exclude
     private final SimulatedEvolutionModel tabModel;
     private final GardenOfEdenCheckBox gardenOfEdenEnabled;
     private final GardenOfEdenToggleButton buttonToggleGardenOfEden;
     //private final GardenOfEdenPanel gardenOfEdenPanel;
 
-    public GardenOfEdenPanelRow(SimulatedEvolutionContext tabCtx) {
-        super("Garden of Eden",tabCtx.getCtx().getProperties());
-        this.tabCtx = tabCtx;
-        this.tabModel = this.tabCtx.getTabModel();
-        this.gardenOfEdenEnabled = new GardenOfEdenCheckBox(this.tabCtx);
-        this.buttonToggleGardenOfEden = new GardenOfEdenToggleButton(this.tabCtx);
+    public GardenOfEdenPanelRow(SimulatedEvolutionTab tab) {
+        super("Garden of Eden",tab.getComputerKurzweilProperties());
+        this.tab = tab;
+        this.tabModel = this.tab.getSimulatedEvolutionApplet().getSimulatedEvolutionModel();
+        this.gardenOfEdenEnabled = new GardenOfEdenCheckBox(this.tab);
+        this.buttonToggleGardenOfEden = new GardenOfEdenToggleButton(this.tab);
         /*
         this.gardenOfEdenPanel = new GardenOfEdenPanel(this.tabCtx);
         this.gardenOfEdenPanel.add(this.gardenOfEdenEnabled);

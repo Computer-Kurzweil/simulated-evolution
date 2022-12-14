@@ -6,11 +6,11 @@ import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweilProperties;
+import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolutionTab;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.layouts.FlowLayoutCenter;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.widgets.SubTabImpl;
-import org.woehlke.computer.kurzweil.simulated.evolution.control.SimulatedEvolutionContext;
-import org.woehlke.computer.kurzweil.simulated.evolution.model.population.SimulatedEvolutionPopulationCensus;
 
+import javax.swing.*;
 import javax.swing.border.CompoundBorder;
 import java.awt.*;
 
@@ -43,26 +43,26 @@ public class PopulationStatisticsElementsPanelCounted extends SubTabImpl {
     private final String generationOldestLabel;
     private final String generationYoungestLabel;
 
-    private final SimulatedEvolutionContext tabCtx;
+    private final SimulatedEvolutionTab tab;
     private final CompoundBorder border;
     private final FlowLayoutCenter layout;
     private final FlowLayout layoutSubPanel;
 
-    private SimulatedEvolutionPopulationCensus population;
-
-    public PopulationStatisticsElementsPanelCounted(
-        SimulatedEvolutionContext tabCtx
-    ) {
-        super(tabCtx.getCtx().getProperties().getSimulatedevolution().getPopulation().getPanelPopulationStatistics(),tabCtx.getCtx().getProperties());
-        this.tabCtx = tabCtx;
+    public PopulationStatisticsElementsPanelCounted(SimulatedEvolutionTab tab) {
+        super(
+            tab.getComputerKurzweilProperties().getSimulatedevolution().getPopulation().getPanelPopulationStatistics(),
+            tab.getComputerKurzweilProperties()
+        );
+        this.tab = tab;
         layoutSubPanel = new FlowLayout();
         this.setLayout(layoutSubPanel);
-        borderLabel = this.tabCtx.getCtx().getProperties().getSimulatedevolution().getPopulation().getPanelPopulationStatistics();
+        borderLabel = tab.getComputerKurzweilProperties().getSimulatedevolution().getPopulation().getPanelPopulationStatistics();
         layout = new FlowLayoutCenter();
-        border = tabCtx.getCtx().getBottomButtonsPanelBorder(borderLabel);
+        border =this.getDoubleBorder();
         this.setLayout(layout);
         this.setBorder(border);
-        ComputerKurzweilProperties.SimulatedEvolution.Population cfg = this.tabCtx.getCtx().getProperties().getSimulatedevolution().getPopulation();
+        ComputerKurzweilProperties.SimulatedEvolution.Population cfg =
+            tab.getComputerKurzweilProperties().getSimulatedevolution().getPopulation();
         initialPopulation = cfg.getInitialPopulation();
         populationLabel = cfg.getPopulationLabel();
         generationOldestLabel = cfg.getGenerationOldestLabel();
@@ -88,5 +88,16 @@ public class PopulationStatisticsElementsPanelCounted extends SubTabImpl {
         generationYoungestElement.setText(population.getGenerationYoungest());
         generationOldestElement.setText(population.getGenerationOldest());
         */
+    }
+
+    private CompoundBorder getDoubleBorder(){
+        int left = this.getProperties().getAllinone().getView().getBorderPaddingX();
+        int right = this.getProperties().getAllinone().getView().getBorderPaddingX();
+        int top = this.getProperties().getAllinone().getView().getBorderPaddingY();
+        int bottom = this.getProperties().getAllinone().getView().getBorderPaddingY();
+        return BorderFactory.createCompoundBorder(
+            BorderFactory.createEmptyBorder(left,right,top,bottom),
+            BorderFactory.createEmptyBorder(left,right,top,bottom)
+        );
     }
 }

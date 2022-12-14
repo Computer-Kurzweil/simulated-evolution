@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.control.SimulatedEvolutionContext;
+import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolutionTab;
 
 import javax.swing.*;
 
@@ -23,12 +24,15 @@ public class FoodPerDayLabel extends JLabel {
     private static final long serialVersionUID = 242L;
 
     @ToString.Exclude
-    private final SimulatedEvolutionContext tabCtx;
+    private final SimulatedEvolutionTab tab;
     private final String foodPerDayLabelString;
 
-    public FoodPerDayLabel(SimulatedEvolutionContext tabCtx) {
-        super(tabCtx.getCtx().getProperties().getSimulatedevolution().getFood().getFoodPerDayLabel());
-        this.tabCtx = tabCtx;
-        this.foodPerDayLabelString = this.tabCtx.getCtx().getProperties().getSimulatedevolution().getFood().getFoodPerDayLabel();
+    public FoodPerDayLabel(SimulatedEvolutionTab tab) {
+        super(
+            tab.getComputerKurzweilProperties().getSimulatedevolution().getFood().getFoodPerDayLabel()
+        );
+        this.tab = tab;
+        this.foodPerDayLabelString =
+            tab.getComputerKurzweilProperties().getSimulatedevolution().getFood().getFoodPerDayLabel();
     }
 }

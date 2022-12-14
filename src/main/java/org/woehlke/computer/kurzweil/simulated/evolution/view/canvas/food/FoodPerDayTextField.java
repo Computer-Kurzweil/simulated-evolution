@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.control.SimulatedEvolutionContext;
+import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolutionTab;
 
 import javax.swing.*;
 
@@ -23,18 +24,18 @@ public class FoodPerDayTextField extends JTextField {
     private static final long serialVersionUID = 242L;
 
     @ToString.Exclude
-    private final SimulatedEvolutionContext tabCtx;
+    private final SimulatedEvolutionTab tab;
     private final String foodPerDayTextFieldString;
     private final int foodPerDayTextFieldCols;
 
-    public FoodPerDayTextField(SimulatedEvolutionContext tabCtx) {
+    public FoodPerDayTextField(SimulatedEvolutionTab tab) {
         super(
-            tabCtx.getCtx().getProperties().getSimulatedevolution().getFood().getFoodPerDay()+"",
-            tabCtx.getCtx().getProperties().getSimulatedevolution().getFood().getFoodPerDayFieldColumns()
+            tab.getComputerKurzweilProperties().getSimulatedevolution().getFood().getFoodPerDay()+"",
+            tab.getComputerKurzweilProperties().getSimulatedevolution().getFood().getFoodPerDayFieldColumns()
         );
-        this.tabCtx = tabCtx;
-        this.foodPerDayTextFieldString = this.tabCtx.getCtx().getProperties().getSimulatedevolution().getFood().getFoodPerDay()+"";
-        this.foodPerDayTextFieldCols = this.tabCtx.getCtx().getProperties().getSimulatedevolution().getFood().getFoodPerDayFieldColumns();
+        this.tab = tab;
+        this.foodPerDayTextFieldString = tab.getComputerKurzweilProperties().getSimulatedevolution().getFood().getFoodPerDay()+"";
+        this.foodPerDayTextFieldCols = tab.getComputerKurzweilProperties().getSimulatedevolution().getFood().getFoodPerDayFieldColumns();
     }
 
     public void setFoodPerDay(int foodPerDay){

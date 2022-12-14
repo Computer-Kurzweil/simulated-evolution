@@ -1,4 +1,4 @@
-package org.woehlke.computer.kurzweil.simulated.evolution.model.population;
+package org.woehlke.computer.kurzweil.simulated.evolution.model.census;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

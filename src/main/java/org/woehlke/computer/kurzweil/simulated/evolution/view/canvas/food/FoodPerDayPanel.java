@@ -3,9 +3,9 @@ package org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.food;
 import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
+import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolutionTab;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.widgets.SubTabImpl;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.tabs.TabPanel;
-import org.woehlke.computer.kurzweil.simulated.evolution.control.SimulatedEvolutionContext;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.SimulatedEvolutionModel;
 
 /**
@@ -24,7 +24,7 @@ public class FoodPerDayPanel extends SubTabImpl {
     private static final long serialVersionUID = 242L;
 
     @ToString.Exclude
-    private final SimulatedEvolutionContext tabCtx;
+    private final SimulatedEvolutionTab tab;
     private final String foodPerDayBorderLabel;
     private final FoodPerDayLabel foodPerDayLabel;
     private final FoodPerDayTextField foodPerDayTextField;
@@ -32,15 +32,19 @@ public class FoodPerDayPanel extends SubTabImpl {
     private final FoodPerDayDecreaseButton foodPerDayDecreaseButton;
     private final SimulatedEvolutionModel tabModel;
 
-    public FoodPerDayPanel(SimulatedEvolutionContext tabCtx) {
-        super(tabCtx.getCtx().getProperties().getSimulatedevolution().getFood().getFoodPerDayLabel(),tabCtx.getCtx().getProperties());
-        this.tabCtx = tabCtx;
-        this.tabModel = this.tabCtx.getTabModel();
-        this.foodPerDayLabel = new FoodPerDayLabel(this.tabCtx);
-        this.foodPerDayTextField = new FoodPerDayTextField(this.tabCtx);
-        this.foodPerDayIncreaseButton = new FoodPerDayIncreaseButton(this.tabCtx);
-        this.foodPerDayDecreaseButton = new FoodPerDayDecreaseButton(this.tabCtx);
-        this.foodPerDayBorderLabel = this.tabCtx.getCtx().getProperties().getSimulatedevolution().getFood().getFoodPerDayLabel();
+    public FoodPerDayPanel(SimulatedEvolutionTab tab) {
+        super(
+            tab.getComputerKurzweilProperties().getSimulatedevolution().getFood().getFoodPerDayLabel(),
+            tab.getComputerKurzweilProperties()
+        );
+        this.tab = tab;
+        this.tabModel = this.tab.getSimulatedEvolutionApplet().getSimulatedEvolutionModel();
+        this.foodPerDayLabel = new FoodPerDayLabel(this.tab);
+        this.foodPerDayTextField = new FoodPerDayTextField(this.tab);
+        this.foodPerDayIncreaseButton = new FoodPerDayIncreaseButton(this.tab);
+        this.foodPerDayDecreaseButton = new FoodPerDayDecreaseButton(this.tab);
+        this.foodPerDayBorderLabel =
+            tab.getComputerKurzweilProperties().getSimulatedevolution().getFood().getFoodPerDayLabel();
         //this.foodPerDayBorder = this.tabCtx.getCtx().getBorder(this.foodPerDayBorderLabel);
         //this.setBorder(this.foodPerDayBorder);
         this.add(this.foodPerDayLabel);

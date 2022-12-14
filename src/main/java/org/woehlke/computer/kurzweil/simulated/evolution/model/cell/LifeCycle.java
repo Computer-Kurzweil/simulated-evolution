@@ -6,6 +6,8 @@ import lombok.extern.log4j.Log4j2;
 
 import java.io.Serializable;
 
+import static org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeCycleStatus.YOUNG_AND_FAT;
+
 /**
  * State of the Cell which monitors age and getting enough food.
  * After a minimum age and at a minimum af eaten food,
@@ -121,6 +123,13 @@ public class LifeCycle implements Serializable {
     /**
      * @return has enough age and fat for having sex.
      */
+    public boolean isYoungAndFat() {
+        return (age < FULL_AGE) && (fat >= FAT_MINIMUM_FOR_SEX);
+    }
+
+    /**
+     * @return has enough age and fat for having sex.
+     */
     public boolean isPregnant() {
         return (age >= FULL_AGE) && (fat >= FAT_MINIMUM_FOR_SEX);
     }
@@ -155,7 +164,7 @@ public class LifeCycle implements Serializable {
             if(fat< FAT_MINIMUM_FOR_SEX){
                 return LifeCycleStatus.YOUNG;
             } else {
-                return LifeCycleStatus.YOUNG_AND_FAT;
+                return YOUNG_AND_FAT;
             }
         } else {
             if (age<OLD_AGE) {
