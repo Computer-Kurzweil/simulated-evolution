@@ -1,10 +1,9 @@
-# Ignore Gradle project-specific cache directory
-.gradle
-
-# Ignore Gradle build output directory
-build
-
-.idea
 *.iml
-
+.idea
+/.idea
+log.txt
 target
+/target
+release.properties
+pom.xml.releaseBackup
+/console.log
