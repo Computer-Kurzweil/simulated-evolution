@@ -21,7 +21,9 @@ public class SimulatedEvolutionApplication {
 
     private final SimulatedEvolutionTab simulatedEvolutionTab;
 
-    private SimulatedEvolutionApplication(String configFileName, String jarFilePath) {
+    private SimulatedEvolutionApplication() {
+        String configFileName = "application.yml";
+        String jarFilePath = "target/simulatedevolution.jar";
         ComputerKurzweilProperties properties = ComputerKurzweilProperties.propertiesFactory(configFileName, jarFilePath);
         this.simulatedEvolutionTab = new SimulatedEvolutionTab(properties);
 
@@ -36,9 +38,7 @@ public class SimulatedEvolutionApplication {
      * @param args CLI Parameter
      */
     public static void main(String[] args) {
-        String configFileName = "application.yml";
-        String jarFilePath = "target/simulatedevolution.jar";
-        SimulatedEvolutionApplication application = new SimulatedEvolutionApplication(configFileName,jarFilePath);
+        SimulatedEvolutionApplication application = new SimulatedEvolutionApplication();
         application.start();
     }
 }

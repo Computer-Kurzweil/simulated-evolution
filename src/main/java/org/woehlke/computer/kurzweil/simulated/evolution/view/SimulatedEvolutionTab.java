@@ -64,10 +64,6 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
 
     private final static int HEIGHT_OF_STATISTICS = 60;
 
-    private final static int START_POSITION_ON_SCREEN_X = 100;
-
-    private final static int START_POSITION_ON_SCREEN_Y = 100;
-
     private final SimulatedEvolutionParameter simulatedEvolutionParameter;
 
     private final ComputerKurzweilProperties computerKurzweilProperties;
@@ -102,6 +98,10 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
      */
     private final PopulationStatisticsElementsPanelLifeCycle panelLifeCycle;
 
+
+    private volatile Rectangle rectangleBounds;
+    private volatile Dimension dimensionSize;
+
     public SimulatedEvolutionTab(ComputerKurzweilProperties computerKurzweilProperties) {
         super(TITLE);
         this.computerKurzweilProperties = computerKurzweilProperties;
@@ -133,6 +133,31 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
         showMe();
     }
 
+    public void showMeInit() {
+        pack();
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        double width =  this.simulatedEvolutionModel.getWorldDimensions().getX();
+        double height = this.simulatedEvolutionModel.getWorldDimensions().getY() + 60;
+        double startX = (screenSize.getWidth() - width) / 2d;
+        double startY = (screenSize.getHeight() - height) / 2d;
+        int myheight = Double.valueOf(height).intValue();
+        int mywidth = Double.valueOf(width).intValue();
+        int mystartX = Double.valueOf(startX).intValue();
+        int mystartY = Double.valueOf(startY).intValue();
+        this.rectangleBounds = new Rectangle(mystartX, mystartY, mywidth, myheight);
+        this.dimensionSize = new Dimension(mywidth, myheight);
+        this.setBounds(this.rectangleBounds);
+        this.setSize(this.dimensionSize);
+        this.setPreferredSize(this.dimensionSize);
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setVisible(true);
+        toFront();
+    }
+
+    /**
+     * Things to do, to show the Application Window again.
+     */
+
     public void showMe(){
         setMyBounds();
         setVisible(true);
@@ -148,13 +173,17 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
     }
 
     private void setMyBounds(){
-        int x = START_POSITION_ON_SCREEN_X; //TODO
-        int y = START_POSITION_ON_SCREEN_Y; //TODO
+        int height = this.simulatedEvolutionModel.getWorldDimensions().getY();
         int width = this.simulatedEvolutionModel.getWorldDimensions().getX();
-        int height = this.simulatedEvolutionModel.getWorldDimensions().getY()
-            + HEIGHT_OF_TITLE
-            + HEIGHT_OF_STATISTICS;
-        setBounds(x, y, width, height);
+        int TITLE_HEIGHT = HEIGHT_OF_TITLE + HEIGHT_OF_STATISTICS;
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        double startX = (screenSize.getWidth() - height) / 2d;
+        double startY = (screenSize.getHeight() - width) / 2d;
+        int myheight = Double.valueOf(height).intValue() + TITLE_HEIGHT;
+        int mywidth = Double.valueOf(width).intValue();
+        int mystartX = Double.valueOf(startX).intValue();
+        int mystartY = Double.valueOf(startY).intValue();
+        setBounds(mystartX, mystartY, mywidth, myheight);
     }
 
     public void windowClosing(WindowEvent e) {
