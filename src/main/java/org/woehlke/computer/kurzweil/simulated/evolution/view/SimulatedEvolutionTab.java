@@ -136,7 +136,7 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
         this.add(this.panelLifeCycle, BorderLayout.SOUTH);
         addWindowListener(this);
         pack();
-        showMe();
+        showMeInit();
     }
 
     public void showMeInit() {
