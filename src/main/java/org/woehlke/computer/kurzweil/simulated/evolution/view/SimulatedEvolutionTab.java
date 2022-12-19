@@ -7,6 +7,7 @@ import org.woehlke.computer.kurzweil.simulated.evolution.control.SimulatedEvolut
 import org.woehlke.computer.kurzweil.simulated.evolution.model.SimulatedEvolutionModel;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.world.SimulatedEvolutionParameter;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.SimulatedEvolutionCanvas;
+import org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.population.PopulationStatisticsElementsPanelCounted;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.population.PopulationStatisticsElementsPanelLifeCycle;
 
 import javax.accessibility.Accessible;
@@ -98,6 +99,10 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
      */
     private final PopulationStatisticsElementsPanelLifeCycle panelLifeCycle;
 
+    /**
+    * Display the age of the generation and the world.
+    */
+    private final PopulationStatisticsElementsPanelCounted panelCounter;
 
     private volatile Rectangle rectangleBounds;
     private volatile Dimension dimensionSize;
@@ -113,17 +118,18 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
             this,
             this.simulatedEvolutionModel.getSimulatedEvolutionPopulationCensusContainer()
         );
+        this.panelCounter = new PopulationStatisticsElementsPanelCounted(
+            this,
+            this.simulatedEvolutionModel.getSimulatedEvolutionPopulationCensusContainer()
+        );
         this.simulatedEvolutionController = new SimulatedEvolutionController(
-            this.simulatedEvolutionModel, this.canvas, this.panelLifeCycle, this
+            this.simulatedEvolutionModel, this.canvas, this.panelLifeCycle, this.panelCounter, this
         );
         String subTitle =  computerKurzweilProperties.getSimulatedevolution().getView().getSubtitle();
         String copyright =  computerKurzweilProperties.getSimulatedevolution().getView().getCopyright();
         this.subTitleLabel = new JLabel(subTitle, CENTER);
         this.copyrightLabel = new JLabel(copyright, CENTER);
         this.simulatedEvolutionParameter = new SimulatedEvolutionParameter();
-        //this.simulatedEvolutionApplet = new SimulatedEvolutionApplet(this);
-        //this.simulatedEvolutionApplet.init();
-        //this.add(APPLET_POSITION, simulatedEvolutionApplet);
         this.setLayout(new BorderLayout());
         this.add(this.subTitleLabel, BorderLayout.NORTH);
         this.add(this.canvas, BorderLayout.CENTER);

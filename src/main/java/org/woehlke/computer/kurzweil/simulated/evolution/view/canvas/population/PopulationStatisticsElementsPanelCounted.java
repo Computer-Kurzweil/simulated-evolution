@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweilProperties;
+import org.woehlke.computer.kurzweil.simulated.evolution.model.census.SimulatedEvolutionPopulationCensus;
+import org.woehlke.computer.kurzweil.simulated.evolution.model.census.SimulatedEvolutionPopulationCensusContainer;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolutionTab;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.layouts.FlowLayoutCenter;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.tabs.SubTabImpl;
@@ -15,7 +17,7 @@ import javax.swing.border.CompoundBorder;
 import java.awt.*;
 import java.io.Serializable;
 
-import static org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeCycleStatus.POPULATION;
+import static org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeCycleStatus.GENERATION;
 
 
 /**
@@ -28,82 +30,70 @@ import static org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeC
  */
 @Log4j2
 @Getter
-@ToString(callSuper = true,exclude = {"tab","border","layout","layoutSubPanel"})
-@EqualsAndHashCode(callSuper=true,exclude = {"tab","border","layout","layoutSubPanel"})
-@Deprecated
+@ToString(callSuper = true,exclude = {"tab","simulatedEvolutionPopulationCensusContainer"})
+@EqualsAndHashCode(callSuper=true,exclude = {"tab","simulatedEvolutionPopulationCensusContainer"})
 public class PopulationStatisticsElementsPanelCounted extends SubTabImpl implements Serializable {
 
     static final long serialVersionUID = 242L;
 
-    private final PopulationStatisticsElement populationElement;
-    private final PopulationStatisticsElement generationOldestElement;
-    private final PopulationStatisticsElement generationYoungestElement;
-    private final String borderLabel;
-
-    private final int initialPopulation;
-    private final String populationLabel;
-    private final String generationOldestLabel;
-    private final String generationYoungestLabel;
+    private final PopulationStatisticsElement worldIteration;
+    private final PopulationStatisticsElement generationYoungest;
+    private final PopulationStatisticsElement generationOldest;
 
     private final SimulatedEvolutionTab tab;
-    private final CompoundBorder border;
-    private final FlowLayoutCenter layout;
-    private final FlowLayout layoutSubPanel;
+    private final SimulatedEvolutionPopulationCensusContainer simulatedEvolutionPopulationCensusContainer;
 
     @Deprecated
-    public PopulationStatisticsElementsPanelCounted(SimulatedEvolutionTab tab) {
+    public PopulationStatisticsElementsPanelCounted(
+        SimulatedEvolutionTab tab,
+        SimulatedEvolutionPopulationCensusContainer simulatedEvolutionPopulationCensusContainer
+    ) {
         super(
             tab.getComputerKurzweilProperties().getSimulatedevolution().getPopulation().getPanelPopulationStatistics(),
             tab.getComputerKurzweilProperties()
         );
         this.tab = tab;
-        layoutSubPanel = new FlowLayout();
+        this.simulatedEvolutionPopulationCensusContainer = simulatedEvolutionPopulationCensusContainer;
+        FlowLayout layoutSubPanel = new FlowLayout();
         this.setLayout(layoutSubPanel);
-        borderLabel = tab.getComputerKurzweilProperties().getSimulatedevolution().getPopulation().getPanelPopulationStatistics();
-        layout = new FlowLayoutCenter();
-        border =this.getDoubleBorder();
+        String borderLabel = tab.getComputerKurzweilProperties().getSimulatedevolution()
+            .getPopulation().getPanelPopulationStatistics();
+        FlowLayoutCenter layout = new FlowLayoutCenter();
+        CompoundBorder border =this.getDoubleBorder();
         this.setLayout(layout);
         this.setBorder(border);
         ComputerKurzweilProperties.SimulatedEvolution.Population cfg =
             tab.getComputerKurzweilProperties().getSimulatedevolution().getPopulation();
-        initialPopulation = cfg.getInitialPopulation();
-        populationLabel = cfg.getPopulationLabel();
-        generationOldestLabel = cfg.getGenerationOldestLabel();
-        generationYoungestLabel = cfg.getGenerationYoungestLabel();
-        populationElement = new PopulationStatisticsElement(populationLabel,POPULATION);
-        generationYoungestElement = new PopulationStatisticsElement(generationYoungestLabel,POPULATION);
-        generationOldestElement = new PopulationStatisticsElement(generationOldestLabel,POPULATION);
-        PopulationStatisticsElement[] elements = {
-            populationElement,
-            generationYoungestElement,
-            generationOldestElement
-        };
-        for(PopulationStatisticsElement ps : elements){
-            this.add(ps);
-        }
+        String worldIterationLabel = cfg.getPopulationLabel();
+        String generationOldestLabel = cfg.getGenerationOldestLabel();
+        String generationYoungestLabel = cfg.getGenerationYoungestLabel();
+        worldIteration = new PopulationStatisticsElement(worldIterationLabel, GENERATION,8);
+        generationOldest = new PopulationStatisticsElement(generationOldestLabel, GENERATION,8);
+        generationYoungest = new PopulationStatisticsElement(generationYoungestLabel, GENERATION,8);
+        this.add(worldIteration);
+        this.add(generationOldest);
+        this.add(generationYoungest);
         update();
     }
 
 
     @Deprecated
     public void update() {
-        /*
-        population = this.tabCtx.getTabModel().getPopulationContainer().getCurrentGeneration();
-        populationElement.setText(population.getPopulation());
-        generationYoungestElement.setText(population.getGenerationYoungest());
-        generationOldestElement.setText(population.getGenerationOldest());
-        */
+        SimulatedEvolutionPopulationCensus population = this.simulatedEvolutionPopulationCensusContainer.peek();
+        worldIteration.setText(population.getPopulation());
+        generationOldest.setText(population.getGenerationOldest());
+        generationYoungest.setText(population.getGenerationYoungest());
     }
 
     @Deprecated
     private CompoundBorder getDoubleBorder(){
-        int left = this.getProperties().getAllinone().getView().getBorderPaddingX();
-        int right = this.getProperties().getAllinone().getView().getBorderPaddingX();
         int top = this.getProperties().getAllinone().getView().getBorderPaddingY();
+        int left = this.getProperties().getAllinone().getView().getBorderPaddingX();
         int bottom = this.getProperties().getAllinone().getView().getBorderPaddingY();
+        int right = this.getProperties().getAllinone().getView().getBorderPaddingX();
         return BorderFactory.createCompoundBorder(
-            BorderFactory.createEmptyBorder(left,right,top,bottom),
-            BorderFactory.createEmptyBorder(left,right,top,bottom)
+            BorderFactory.createEmptyBorder(top, left, bottom, right),
+            BorderFactory.createEmptyBorder(top, left, bottom, right)
         );
     }
 }
