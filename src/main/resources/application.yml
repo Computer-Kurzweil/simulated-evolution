@@ -54,6 +54,7 @@ simulatedevolution:
     hungryCellsLabel: 'hungry'
     oldCellsLabel: 'old'
     populationLabel: 'all'
+    worldIterationLabel: "world"
     generationOldestLabel: 'oldest Generation'
     generationYoungestLabel: 'youngest Generation'
   food:

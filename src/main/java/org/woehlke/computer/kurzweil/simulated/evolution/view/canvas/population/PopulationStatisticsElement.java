@@ -26,10 +26,23 @@ public class PopulationStatisticsElement extends JPanel implements Serializable 
     private final JLabel statisticsElementLabel;
     private final JTextField statisticsElementTextField;
     private final LifeCycleStatus lifeCycleStatus;
-    private final int cols = 4;
+    private final int cols;
     private final String statisticsElementTextFieldDefault = "0";
 
     public PopulationStatisticsElement(String statisticsElementLabel, LifeCycleStatus lifeCycleStatus) {
+        this.cols = 4;
+        this.statisticsElementLabel = new JLabel(statisticsElementLabel);
+        this.lifeCycleStatus = lifeCycleStatus;
+        this.statisticsElementTextField = new JTextField(statisticsElementTextFieldDefault,cols);
+        this.statisticsElementTextField.setHorizontalAlignment(JTextField.RIGHT);
+        statisticsElementTextField.setBackground(this.lifeCycleStatus.getColorBackground());
+        statisticsElementTextField.setForeground(this.lifeCycleStatus.getColorForeground());
+        this.add(this.statisticsElementLabel);
+        this.add(this.statisticsElementTextField);
+    }
+
+    public PopulationStatisticsElement(String statisticsElementLabel, LifeCycleStatus lifeCycleStatus, int cols) {
+        this.cols = cols;
         this.statisticsElementLabel = new JLabel(statisticsElementLabel);
         this.lifeCycleStatus = lifeCycleStatus;
         this.statisticsElementTextField = new JTextField(statisticsElementTextFieldDefault,cols);
@@ -45,7 +58,6 @@ public class PopulationStatisticsElement extends JPanel implements Serializable 
         this.statisticsElementTextField.setText(text);
     }
 
-    //  @Deprecated TODO remove
     public void setText(long value){
         String text = String.valueOf(value);
         this.statisticsElementTextField.setText(text);

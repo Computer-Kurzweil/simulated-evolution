@@ -42,6 +42,10 @@ public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl imple
     private final PopulationStatisticsElement hungryCellsElement;
     private final PopulationStatisticsElement oldCellsElement;
     private final PopulationStatisticsElement wholeGeneration;
+    private final PopulationStatisticsElement generationOldest;
+    private final PopulationStatisticsElement generationYoungest;
+
+    private final PopulationStatisticsElement worldIteration;
 
     private final String borderLabel;
 
@@ -52,6 +56,10 @@ public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl imple
     private final String hungryCellsLabel;
     private final String oldCellsLabel;
     private final String wholeGenerationLabel;
+
+    private final String worldIterationLabel;
+    private final String generationOldestLabel;
+    private final String generationYoungestLabel;
 
     private final CompoundBorder border;
     private final FlowLayoutCenter layout;
@@ -88,18 +96,29 @@ public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl imple
         hungryCellsLabel = cfg.getHungryCellsLabel();
         oldCellsLabel = cfg.getOldCellsLabel();
         wholeGenerationLabel = cfg.getPopulationLabel();
+        worldIterationLabel = cfg.getWorldIterationLabel();
+        generationOldestLabel = cfg.getGenerationOldestLabel();
+        generationYoungestLabel = cfg.getGenerationYoungestLabel();
         youngCellsElement = new PopulationStatisticsElement(youngCellsLabel,YOUNG);
         youngAndFatCellsElement = new PopulationStatisticsElement(youngAndFatCellsLabel,YOUNG_AND_FAT);
         fullAgeCellsElement = new PopulationStatisticsElement(fullAgeCellsLabel,FULL_AGE);
         hungryCellsElement = new PopulationStatisticsElement(hungryCellsLabel,HUNGRY);
         oldCellsElement = new PopulationStatisticsElement(oldCellsLabel,OLD);
         wholeGeneration = new PopulationStatisticsElement(wholeGenerationLabel,POPULATION);
+
+        worldIteration = new PopulationStatisticsElement(worldIterationLabel, GENERATION,8);
+        generationOldest = new PopulationStatisticsElement(generationOldestLabel, GENERATION,8);
+        generationYoungest = new PopulationStatisticsElement(generationYoungestLabel, GENERATION,8);
+
         this.add(youngCellsElement);
         this.add(youngAndFatCellsElement);
         this.add(fullAgeCellsElement);
         this.add(hungryCellsElement);
         this.add(oldCellsElement);
         this.add(wholeGeneration);
+        this.add(worldIteration);
+        this.add(generationOldest);
+        this.add(generationYoungest);
         update();
     }
 
@@ -111,6 +130,9 @@ public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl imple
         hungryCellsElement.setText(population.getHungryCells());
         oldCellsElement.setText(population.getOldCells());
         wholeGeneration.setText(population.getPopulation());
+        worldIteration.setText(population.getWorldIteration());
+        generationOldest.setText(population.getGenerationOldest());
+        generationYoungest.setText(population.getGenerationYoungest());
     }
 
     private CompoundBorder getDoubleBorder(String label){

@@ -313,6 +313,9 @@ public class ComputerKurzweilProperties {
             private String populationLabel;
 
             @NotBlank
+            private String worldIterationLabel;
+
+            @NotBlank
             private String generationOldestLabel;
 
             @NotBlank
