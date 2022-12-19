@@ -143,7 +143,7 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
         pack();
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         double width =  this.simulatedEvolutionModel.getWorldDimensions().getX();
-        double height = this.simulatedEvolutionModel.getWorldDimensions().getY() + 60;
+        double height = this.simulatedEvolutionModel.getWorldDimensions().getY() + 120;
         double startX = (screenSize.getWidth() - width) / 2d;
         double startY = (screenSize.getHeight() - height) / 2d;
         int myheight = Double.valueOf(height).intValue();
