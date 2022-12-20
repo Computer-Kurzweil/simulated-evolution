@@ -68,12 +68,12 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
     /**
      * Subtitle Label for DesktopApp and Title Label for Applet.
      */
-    private final JLabel subTitleLabel;
+    private final SubTitleLabel subTitleLabel;
 
     /**
      * Copyright Label
      */
-    private final JLabel copyrightLabel;
+    private final CopyrightLabel copyrightLabel;
 
     /**
      * ControllerThread for Interachtions between Model and View (MVC-Pattern).
@@ -124,10 +124,10 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
             this.canvas,
             this
         );
-        String subTitle =  computerKurzweilProperties.getSimulatedevolution().getView().getSubtitle();
-        String copyright =  computerKurzweilProperties.getSimulatedevolution().getView().getCopyright();
-        this.subTitleLabel = new JLabel(subTitle, CENTER);
-        this.copyrightLabel = new JLabel(copyright, CENTER);
+        //String subTitle =  computerKurzweilProperties.getSimulatedevolution().getView().getSubtitle();
+        //String copyright =  computerKurzweilProperties.getSimulatedevolution().getView().getCopyright();
+        this.subTitleLabel = new SubTitleLabel(computerKurzweilProperties);
+        this.copyrightLabel = new CopyrightLabel(computerKurzweilProperties);
         JSeparator line = new JSeparator();
         BoxLayout layout = new BoxLayout(rootPane, BoxLayout.PAGE_AXIS);
         rootPane.setLayout(layout);

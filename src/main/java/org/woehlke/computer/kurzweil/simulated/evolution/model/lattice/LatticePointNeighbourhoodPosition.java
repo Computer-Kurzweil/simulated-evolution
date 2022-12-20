@@ -34,7 +34,7 @@ public enum LatticePointNeighbourhoodPosition implements Serializable {
     }
 
     public static LatticePointNeighbourhoodPosition[] getNeighbourhoodFor(
-        LatticeNeighbourhoodType neighbourhoodType
+        LatticePointNeighbourhoodType neighbourhoodType
     ){
         LatticePointNeighbourhoodPosition[] result;
         switch (neighbourhoodType) {

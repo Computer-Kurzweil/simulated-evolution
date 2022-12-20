@@ -19,11 +19,11 @@ import java.io.Serializable;
 @Getter
 @ToString
 @EqualsAndHashCode
-public class LatticeNeighbourhood implements Serializable {
+public class LatticePointNeighbourhood implements Serializable {
 
     static final long serialVersionUID = 242L;
 
-    private final LatticeNeighbourhoodType neighbourhoodType;
+    private final LatticePointNeighbourhoodType neighbourhoodType;
     private final int maxX;
     private final int maxY;
     private final int x;
@@ -31,9 +31,9 @@ public class LatticeNeighbourhood implements Serializable {
 
     private LatticePoint[] neighbourhood;
 
-    public LatticeNeighbourhood(
+    public LatticePointNeighbourhood(
         int maxX,  int maxY, int x,  int y,
-        LatticeNeighbourhoodType neighbourhoodType
+        LatticePointNeighbourhoodType neighbourhoodType
     ) {
         this.neighbourhoodType = neighbourhoodType;
         this.maxX = maxX;
@@ -61,26 +61,26 @@ public class LatticeNeighbourhood implements Serializable {
     }
 
     public static LatticePoint[] get(int worldX, int worldY, int myX, int myY) {
-        LatticeNeighbourhoodType neighbourhoodType = LatticeNeighbourhoodType.MOORE_NEIGHBORHOOD;
-        LatticeNeighbourhood n = new LatticeNeighbourhood(worldX, worldY, myX, myY, neighbourhoodType);
+        LatticePointNeighbourhoodType neighbourhoodType = LatticePointNeighbourhoodType.MOORE_NEIGHBORHOOD;
+        LatticePointNeighbourhood n = new LatticePointNeighbourhood(worldX, worldY, myX, myY, neighbourhoodType);
         return n.getNeighbourhoodPoints();
     }
 
     public static LatticePoint[] getMoore(int worldX, int worldY, int myX, int myY) {
-        LatticeNeighbourhoodType neighbourhoodType = LatticeNeighbourhoodType.MOORE_NEIGHBORHOOD;
-        LatticeNeighbourhood n = new LatticeNeighbourhood(worldX, worldY, myX, myY, neighbourhoodType);
+        LatticePointNeighbourhoodType neighbourhoodType = LatticePointNeighbourhoodType.MOORE_NEIGHBORHOOD;
+        LatticePointNeighbourhood n = new LatticePointNeighbourhood(worldX, worldY, myX, myY, neighbourhoodType);
         return n.getNeighbourhoodPoints();
     }
 
     public static LatticePoint[] getVonNeumann(int worldX, int worldY, int myX, int myY) {
-        LatticeNeighbourhoodType neighbourhoodType = LatticeNeighbourhoodType.VON_NEUMANN_NEIGHBORHOOD;
-        LatticeNeighbourhood n = new LatticeNeighbourhood(worldX, worldY, myX, myY, neighbourhoodType);
+        LatticePointNeighbourhoodType neighbourhoodType = LatticePointNeighbourhoodType.VON_NEUMANN_NEIGHBORHOOD;
+        LatticePointNeighbourhood n = new LatticePointNeighbourhood(worldX, worldY, myX, myY, neighbourhoodType);
         return n.getNeighbourhoodPoints();
     }
 
     public static LatticePoint[] getWoehlke(int worldX, int worldY, int myX, int myY) {
-        LatticeNeighbourhoodType neighbourhoodType = LatticeNeighbourhoodType.WOEHLKE_NEIGHBORHOOD;
-        LatticeNeighbourhood n = new LatticeNeighbourhood(worldX, worldY, myX, myY, neighbourhoodType);
+        LatticePointNeighbourhoodType neighbourhoodType = LatticePointNeighbourhoodType.WOEHLKE_NEIGHBORHOOD;
+        LatticePointNeighbourhood n = new LatticePointNeighbourhood(worldX, worldY, myX, myY, neighbourhoodType);
         return n.getNeighbourhoodPoints();
     }
 

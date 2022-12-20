@@ -49,10 +49,14 @@ public class LatticePoint implements Serializable {
         this.y = other.getY();
     }
 
+    // TODO: remove
+    @Deprecated
     public int getWidth() {
         return x;
     }
 
+    // TODO: remove
+    @Deprecated
     public int getHeight() {
         return y;
     }
@@ -105,6 +109,8 @@ public class LatticePoint implements Serializable {
         return new LatticePoint(this);
     }
 
+    // TODO: remove
+    @Deprecated
     public static LatticePoint start(LatticePoint worldDimensions) {
         return new LatticePoint(
             (worldDimensions.getX() - 2),
