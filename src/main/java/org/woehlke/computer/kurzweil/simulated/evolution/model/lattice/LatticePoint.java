@@ -2,7 +2,6 @@ package org.woehlke.computer.kurzweil.simulated.evolution.model.lattice;
 
 import lombok.*;
 import lombok.extern.log4j.Log4j2;
-import org.woehlke.computer.kurzweil.simulated.evolution.model.world.WorldPoint;
 
 import java.io.Serializable;
 

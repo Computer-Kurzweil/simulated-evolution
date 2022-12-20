@@ -1,4 +1,4 @@
-package org.woehlke.computer.kurzweil.simulated.evolution.model.world;
+package org.woehlke.computer.kurzweil.simulated.evolution.model.lattice;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

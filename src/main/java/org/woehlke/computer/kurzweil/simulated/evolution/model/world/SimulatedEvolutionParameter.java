@@ -20,7 +20,7 @@ import java.io.Serializable;
 @AllArgsConstructor
 public class SimulatedEvolutionParameter implements Serializable {
 
-    private static final long serialVersionUID = 242L;
+    static final long serialVersionUID = 242L;
 
     private int foodPerDay;
     private int foodPerDayGardenOfEden;

@@ -12,10 +12,8 @@ import org.woehlke.computer.kurzweil.simulated.evolution.model.census.SimulatedE
 import org.woehlke.computer.kurzweil.simulated.evolution.model.lattice.LatticePoint;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.world.SimulatedEvolutionParameter;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.lattice.SimulatedEvolutionWorldLattice;
-import org.woehlke.computer.kurzweil.simulated.evolution.model.world.WorldPoint;
 
 
-import java.awt.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
