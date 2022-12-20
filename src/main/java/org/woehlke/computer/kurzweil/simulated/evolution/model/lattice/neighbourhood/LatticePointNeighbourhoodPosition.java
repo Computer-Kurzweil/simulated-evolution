@@ -1,4 +1,4 @@
-package org.woehlke.computer.kurzweil.simulated.evolution.model.lattice;
+package org.woehlke.computer.kurzweil.simulated.evolution.model.lattice.neighbourhood;
 
 import lombok.Getter;
 

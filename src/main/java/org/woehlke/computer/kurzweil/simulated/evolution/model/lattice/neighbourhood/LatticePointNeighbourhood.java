@@ -1,9 +1,10 @@
-package org.woehlke.computer.kurzweil.simulated.evolution.model.lattice;
+package org.woehlke.computer.kurzweil.simulated.evolution.model.lattice.neighbourhood;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
+import org.woehlke.computer.kurzweil.simulated.evolution.model.lattice.LatticePoint;
 
 import java.io.Serializable;
 

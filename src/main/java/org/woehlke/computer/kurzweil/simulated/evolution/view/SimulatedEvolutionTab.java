@@ -5,7 +5,7 @@ import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweilProperties;
 import org.woehlke.computer.kurzweil.simulated.evolution.control.SimulatedEvolutionController;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.SimulatedEvolutionModel;
-import org.woehlke.computer.kurzweil.simulated.evolution.model.world.SimulatedEvolutionParameter;
+import org.woehlke.computer.kurzweil.simulated.evolution.config.SimulatedEvolutionParameter;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.SimulatedEvolutionCanvas;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.census.PopulationStatisticsElementsPanelCounted;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.census.PopulationStatisticsElementsPanelLifeCycle;
