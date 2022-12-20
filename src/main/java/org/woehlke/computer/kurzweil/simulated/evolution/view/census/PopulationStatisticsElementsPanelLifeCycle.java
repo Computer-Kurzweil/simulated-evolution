@@ -8,9 +8,9 @@ import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweil
 import org.woehlke.computer.kurzweil.simulated.evolution.model.census.SimulatedEvolutionPopulationCensusContainer;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolutionTab;
 import org.woehlke.computer.kurzweil.simulated.evolution.application.layouts.FlowLayoutCenter;
-import org.woehlke.computer.kurzweil.simulated.evolution.application.tabs.SubTabImpl;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.census.SimulatedEvolutionPopulationCensus;
 
+import javax.swing.*;
 import java.awt.*;
 import java.io.Serializable;
 
@@ -30,7 +30,7 @@ import static org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeC
 @Getter
 @ToString(callSuper = true,exclude = {"container"})
 @EqualsAndHashCode(callSuper=true,exclude = {"container"})
-public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl implements Serializable {
+public class PopulationStatisticsElementsPanelLifeCycle extends JPanel implements Serializable {
 
     static final long serialVersionUID = 242L;
 
@@ -41,24 +41,12 @@ public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl imple
     private final PopulationStatisticsElement oldCellsElement;
     private final PopulationStatisticsElement wholeGeneration;
 
-    //private final String borderLabel;
-    //private final CompoundBorder border;
-    //private final FlowLayoutCenter layout;
-    //private final FlowLayout layoutSubPanel;
-    //private final SimulatedEvolutionTab tab;
-
     private final SimulatedEvolutionPopulationCensusContainer container;
 
     public PopulationStatisticsElementsPanelLifeCycle(SimulatedEvolutionTab tab) {
-        super(
-            tab.getProperties().getSimulatedevolution().getPopulation().getPanelPopulationStatistics(),
-            tab.getProperties()
-        );
-        //this.tab = tab;
         this.container = tab.getModel().getCensusContainer();
         FlowLayout layoutSubPanel = new FlowLayout();
         this.setLayout(layoutSubPanel);
-        //this.borderLabel = tab.getProperties().getSimulatedevolution().getPopulation().getPanelPopulationStatistics();
         FlowLayoutCenter layout = new FlowLayoutCenter();
         this.setLayout(layout);
         ComputerKurzweilProperties.SimulatedEvolution.Population cfg =
@@ -93,5 +81,4 @@ public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl imple
         oldCellsElement.setText(population.getOldCells());
         wholeGeneration.setText(population.getPopulation());
     }
-
 }

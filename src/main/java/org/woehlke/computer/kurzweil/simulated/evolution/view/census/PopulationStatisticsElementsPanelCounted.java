@@ -10,8 +10,8 @@ import org.woehlke.computer.kurzweil.simulated.evolution.model.census.SimulatedE
 import org.woehlke.computer.kurzweil.simulated.evolution.model.census.SimulatedEvolutionPopulationCensusContainer;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolutionTab;
 import org.woehlke.computer.kurzweil.simulated.evolution.application.layouts.FlowLayoutCenter;
-import org.woehlke.computer.kurzweil.simulated.evolution.application.tabs.SubTabImpl;
 
+import javax.swing.*;
 import java.io.Serializable;
 
 import static org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeCycleStatus.POPULATION;
@@ -28,7 +28,7 @@ import static org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeC
 @Getter
 @ToString(callSuper = true,exclude = {"container"})
 @EqualsAndHashCode(callSuper=true,exclude = {"container"})
-public class PopulationStatisticsElementsPanelCounted extends SubTabImpl implements Serializable {
+public class PopulationStatisticsElementsPanelCounted extends JPanel implements Serializable {
 
     static final long serialVersionUID = 242L;
 
@@ -39,10 +39,6 @@ public class PopulationStatisticsElementsPanelCounted extends SubTabImpl impleme
     private final SimulatedEvolutionPopulationCensusContainer container;
 
     public PopulationStatisticsElementsPanelCounted(SimulatedEvolutionTab tab) {
-        super(
-            tab.getProperties().getSimulatedevolution().getPopulation().getPanelPopulationStatistics(),
-            tab.getProperties()
-        );
         this.container = tab.getModel().getCensusContainer();
         FlowLayoutCenter layout = new FlowLayoutCenter();
         this.setLayout(layout);
