@@ -1,4 +1,4 @@
-package org.woehlke.computer.kurzweil.simulated.evolution.view.tabs;
+package org.woehlke.computer.kurzweil.simulated.evolution.application.tabs;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

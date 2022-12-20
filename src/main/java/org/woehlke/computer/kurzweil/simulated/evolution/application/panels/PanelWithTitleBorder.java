@@ -1,4 +1,4 @@
-package org.woehlke.computer.kurzweil.simulated.evolution.view.widgets.panels;
+package org.woehlke.computer.kurzweil.simulated.evolution.application.panels;
 
 import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
