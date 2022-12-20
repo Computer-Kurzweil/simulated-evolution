@@ -78,14 +78,14 @@ public class Cell implements Serializable {
         this.generation = 1L;
     }
 
-    private Cell(int fat, CellCore rna, LatticePoint position, LatticePoint max, Random random, long generation) {
+    private Cell(int fat, long generation, CellCore rna, LatticePoint position, LatticePoint max, Random random) {
+        this.generation = generation;
         this.lifeCycle = new LifeCycle(fat);
         this.max = new LatticePoint(max);
         this.position = new LatticePoint(position);
         this.random = random;
         this.cellCore = rna;
         this.orientation = getRandomOrientation();
-        this.generation = generation;
     }
 
     private Orientation getRandomOrientation() {
@@ -127,8 +127,8 @@ public class Cell implements Serializable {
     public Cell performReproductionByCellDivision() {
         CellCore rna = cellCore.performMitosis();
         lifeCycle.haveSex();
-        this.generation++;
-        Cell child = new Cell(lifeCycle.getFat(), rna, position, max, random, generation);
+        long newGeneration = this.generation + 1L;
+        Cell child = new Cell(lifeCycle.getFat(), newGeneration, rna, position, max, random);
         return child;
     }
 
