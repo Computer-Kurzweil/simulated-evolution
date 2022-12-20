@@ -36,28 +36,16 @@ public class LatticePoint implements Serializable {
     /**
      * Horizontal X-Coordinate. Also used as Width;
      */
-    private int x = 0;
+    private int x;
 
     /**
      * Vertical Y-Coordinate. Also used as Height;
      */
-    private int y = 0;
+    private int y;
 
     public LatticePoint(LatticePoint other) {
         this.x = other.getX();
         this.y = other.getY();
-    }
-
-    // TODO: remove
-    @Deprecated
-    public int getWidth() {
-        return x;
-    }
-
-    // TODO: remove
-    @Deprecated
-    public int getHeight() {
-        return y;
     }
 
     public void absoluteValue() {
@@ -74,13 +62,10 @@ public class LatticePoint implements Serializable {
         this.y += p.getY();
         absoluteValue();
     }
+
     public void add(LatticePoint p) {
         this.x += p.getX();
         this.y += p.getY();
-    }
-
-    public void moveBy(LatticePoint p) {
-        this.add(p);
     }
 
     public void normalize(LatticePoint p) {
@@ -88,33 +73,19 @@ public class LatticePoint implements Serializable {
         this.y %= p.getY();
     }
 
-    public void moveUp() {
-        y--;
-    }
-
-    public void moveRight() {
-        x++;
-    }
-
-    public void moveDown() {
-        y++;
-    }
-
-    public void moveLeft() {
-        x--;
-    }
-
     public LatticePoint copy() {
         return new LatticePoint(this);
     }
 
-    // TODO: remove
-    @Deprecated
-    public static LatticePoint start(LatticePoint worldDimensions) {
-        return new LatticePoint(
-            (worldDimensions.getX() - 2),
-            ((worldDimensions.getY() / 2) + 11)
+    public LatticeDimension toLatticePoint() {
+        return new LatticeDimension(
+            this.getX(),
+            this.getY()
         );
+    }
+
+    public static LatticePoint of(LatticeDimension p) {
+        return new LatticePoint(p.getWidth(), p.getHeight());
     }
 
     /**

@@ -26,7 +26,7 @@ import java.io.Serializable;
 @Deprecated
 public class Bounds implements Serializable {
 
-    private static final long serialVersionUID = 242L;
+    static final long serialVersionUID = 242L;
 
     private final int myStartX;
     private final int myStartY;

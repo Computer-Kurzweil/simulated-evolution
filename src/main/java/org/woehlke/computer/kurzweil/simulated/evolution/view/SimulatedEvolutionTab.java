@@ -6,7 +6,9 @@ import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweil
 import org.woehlke.computer.kurzweil.simulated.evolution.control.SimulatedEvolutionController;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.SimulatedEvolutionModel;
 import org.woehlke.computer.kurzweil.simulated.evolution.application.SimulatedEvolutionParameter;
+import org.woehlke.computer.kurzweil.simulated.evolution.model.food.molecules.LatticeDimension;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.food.molecules.LatticePoint;
+import org.woehlke.computer.kurzweil.simulated.evolution.model.food.molecules.LatticeRectangle;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.SimulatedEvolutionCanvas;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.census.PopulationStatisticsElementsPanelCounted;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.census.PopulationStatisticsElementsPanelLifeCycle;
@@ -101,20 +103,10 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
     private final ComputerKurzweilProperties properties;
 
     /**
-     * TODO: refactor, replace Rectangle with a class based on LatticePoint
-     * @see java.awt.Rectangle
      * @see LatticePoint
      */
     @Deprecated
-    private volatile Rectangle rectangleBounds;
-
-    /**
-     * TODO: refactor, replace Dimension with a class based on LatticePoint
-     * @see java.awt.Dimension
-     * @see LatticePoint
-     */
-    @Deprecated
-    private volatile Dimension dimensionSize;
+    private volatile LatticeRectangle rectangleBounds;
 
     public SimulatedEvolutionTab(ComputerKurzweilProperties properties) {
         super(properties.getSimulatedevolution().getView().getTitle());
@@ -147,27 +139,31 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
         int heightOfTitle = properties.getSimulatedevolution().getView().getHeightOfTitle();
         int heightOfStatistics = properties.getSimulatedevolution().getView().getHeightOfStatistics();
         int titleHeight = heightOfTitle + heightOfStatistics;
-        int width = this.getModel().getWorldDimensions().getWidth();
-        int height  = this.getModel().getWorldDimensions().getHeight() + titleHeight;
+        int width = this.getModel().getWorldDimensions().getX();
+        int height  = this.getModel().getWorldDimensions().getY() + titleHeight;
         double dStartX = (screenSize.getWidth() - width) / 2d;
         double dStartY = (screenSize.getHeight() - height) / 2d;
         int iStartX = Double.valueOf(dStartX).intValue();
         int iStartY = Double.valueOf(dStartY).intValue();
         int iWidth = Double.valueOf(width).intValue();
         int iHeight = Double.valueOf(height).intValue();
-        this.rectangleBounds = new Rectangle(iStartX, iStartY, iWidth, iHeight);
-        this.dimensionSize = new Dimension(iWidth, iHeight);
+        this.rectangleBounds = LatticeRectangle.of(iStartX, iStartY, iWidth, iHeight);
         showMe();
     }
 
     /**
      * Things to do, to show the Application Window again.
      */
-
     public void showMe(){
-        this.setBounds(this.rectangleBounds);
-        this.setSize(this.dimensionSize);
-        this.setPreferredSize(this.dimensionSize);
+        int x = this.rectangleBounds.getStart().getX();
+        int y = this.rectangleBounds.getStart().getY();
+        int width = this.rectangleBounds.getDimension().getWidth();
+        int height = this.rectangleBounds.getDimension().getHeight();
+        Rectangle r = new Rectangle(x,y,width,height);
+        Dimension d = new Dimension(width,height);
+        this.setBounds(r);
+        this.setSize(d);
+        this.setPreferredSize(d);
         setVisible(true);
         toFront();
     }
