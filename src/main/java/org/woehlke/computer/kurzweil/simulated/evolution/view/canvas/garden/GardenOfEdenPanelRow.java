@@ -51,12 +51,12 @@ public class GardenOfEdenPanelRow extends SubTabImpl implements Serializable {
     }
 
     public void setSelected(boolean selected) {
-        this.tabModel.getSimulatedEvolutionParameter().setGardenOfEdenEnabled(selected);
+        this.tabModel.getParameter().setGardenOfEdenEnabled(selected);
         update();
     }
 
     public void toggleGardenOfEden() {
-        this.tabModel.getSimulatedEvolutionParameter().toggleGardenOfEden();
+        this.tabModel.getParameter().toggleGardenOfEden();
         update();
     }
 
@@ -65,7 +65,7 @@ public class GardenOfEdenPanelRow extends SubTabImpl implements Serializable {
     }
 
     public void update() {
-        boolean enabled = tabModel.getSimulatedEvolutionParameter().isGardenOfEdenEnabled();
+        boolean enabled = tabModel.getParameter().isGardenOfEdenEnabled();
         this.buttonToggleGardenOfEden.setSelected(enabled);
         this.gardenOfEdenEnabled.setSelected(enabled);
     }

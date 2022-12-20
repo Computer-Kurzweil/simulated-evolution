@@ -27,8 +27,8 @@ import static org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeC
  */
 @Log4j2
 @Getter
-@ToString(callSuper = true,exclude = {"tab","container"})
-@EqualsAndHashCode(callSuper=true,exclude = {"tab","container"})
+@ToString(callSuper = true,exclude = {"container"})
+@EqualsAndHashCode(callSuper=true,exclude = {"container"})
 public class PopulationStatisticsElementsPanelCounted extends SubTabImpl implements Serializable {
 
     static final long serialVersionUID = 242L;
@@ -37,22 +37,19 @@ public class PopulationStatisticsElementsPanelCounted extends SubTabImpl impleme
     private final PopulationStatisticsElement generationYoungest;
     private final PopulationStatisticsElement generationOldest;
 
-    //private final SimulatedEvolutionTab tab;
     private final SimulatedEvolutionPopulationCensusContainer container;
 
-    @Deprecated
     public PopulationStatisticsElementsPanelCounted(SimulatedEvolutionTab tab) {
         super(
             tab.getProperties().getSimulatedevolution().getPopulation().getPanelPopulationStatistics(),
             tab.getProperties()
         );
-        //this.tab = tab;
-        this.container = tab.getModel().getSimulatedEvolutionPopulationCensusContainer();
+        this.container = tab.getModel().getCensusContainer();
         FlowLayoutCenter layout = new FlowLayoutCenter();
         this.setLayout(layout);
         ComputerKurzweilProperties.SimulatedEvolution.Population cfg =
             tab.getProperties().getSimulatedevolution().getPopulation();
-        String worldIterationLabel = cfg.getPopulationLabel();
+        String worldIterationLabel = cfg.getWorldIterationLabel();
         String generationOldestLabel = cfg.getGenerationOldestLabel();
         String generationYoungestLabel = cfg.getGenerationYoungestLabel();
         worldIteration = new PopulationStatisticsElement(worldIterationLabel, GENERATION,8);
@@ -70,5 +67,4 @@ public class PopulationStatisticsElementsPanelCounted extends SubTabImpl impleme
         generationOldest.setText(census.getGenerationOldest());
         generationYoungest.setText(census.getGenerationYoungest());
     }
-
 }

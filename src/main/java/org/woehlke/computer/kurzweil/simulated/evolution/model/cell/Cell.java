@@ -1,6 +1,7 @@
 package org.woehlke.computer.kurzweil.simulated.evolution.model.cell;
 
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.food.molecules.LatticePoint;
@@ -60,6 +61,9 @@ public class Cell implements Serializable {
      */
     private Random random;
 
+    @Getter
+    private long generation;
+
     public Cell(LatticePoint max, LatticePoint position, Random random) {
         this.max = new LatticePoint(max);
         this.position = new LatticePoint(position);
@@ -71,15 +75,17 @@ public class Cell implements Serializable {
         this.position.killNagative();
         this.orientation = getRandomOrientation();
         this.lifeCycle = new LifeCycle();
+        this.generation = 1L;
     }
 
-    private Cell(int fat, CellCore rna, LatticePoint position, LatticePoint max, Random random) {
-        lifeCycle = new LifeCycle(fat);
+    private Cell(int fat, CellCore rna, LatticePoint position, LatticePoint max, Random random, long generation) {
+        this.lifeCycle = new LifeCycle(fat);
         this.max = new LatticePoint(max);
         this.position = new LatticePoint(position);
         this.random = random;
         this.cellCore = rna;
-        orientation = getRandomOrientation();
+        this.orientation = getRandomOrientation();
+        this.generation = generation;
     }
 
     private Orientation getRandomOrientation() {
@@ -121,7 +127,8 @@ public class Cell implements Serializable {
     public Cell performReproductionByCellDivision() {
         CellCore rna = cellCore.performMitosis();
         lifeCycle.haveSex();
-        Cell child = new Cell(lifeCycle.getFat(), rna, position, max, random);
+        this.generation++;
+        Cell child = new Cell(lifeCycle.getFat(), rna, position, max, random, generation);
         return child;
     }
 

@@ -46,19 +46,9 @@ public class SimulatedEvolutionModel implements Serializable {
     static final long serialVersionUID = 242L;
 
     /**
-     * List of the Simulated Bacteria Cells.
-     */
-    private List<Cell> cells;
-
-    /**
      * Start with 20 Cells.
      */
     private final int INITIAL_POPULATION = 20;
-
-    /**
-     * Random Generator used for Bacteria Motion.
-     */
-    private Random random;
 
     /**
      * Definition of the World's Size in Pixel Width and Height.
@@ -69,32 +59,42 @@ public class SimulatedEvolutionModel implements Serializable {
     /**
      * Map of the World monitoring growth and eating food.
      */
-    private final SimulatedEvolutionWorldLattice simulatedEvolutionWorldLattice;
+    private final SimulatedEvolutionWorldLattice worldLattice;
 
     @Getter
-    private final SimulatedEvolutionPopulationCensusContainer simulatedEvolutionPopulationCensusContainer;
+    private final SimulatedEvolutionPopulationCensusContainer censusContainer;
 
     @Getter
-    private final SimulatedEvolutionParameter simulatedEvolutionParameter;
+    private final SimulatedEvolutionParameter parameter;
 
     @Getter
-    private final ComputerKurzweilProperties computerKurzweilProperties;
+    private final ComputerKurzweilProperties properties;
 
-    public SimulatedEvolutionModel(ComputerKurzweilProperties computerKurzweilProperties) {
-        this.computerKurzweilProperties = computerKurzweilProperties;
-        int scale = this.computerKurzweilProperties.getSimulatedevolution().getView().getScale();
-        int width = scale * this.computerKurzweilProperties.getSimulatedevolution().getView().getWidth();
-        int height = scale * this.computerKurzweilProperties.getSimulatedevolution().getView().getHeight();
+    /**
+     * List of the Simulated Bacteria Cells.
+     */
+    private List<Cell> cells;
+
+    /**
+     * Random Generator used for Bacteria Motion.
+     */
+    private Random random;
+
+    public SimulatedEvolutionModel(ComputerKurzweilProperties properties) {
+        this.properties = properties;
+        int scale = this.properties.getSimulatedevolution().getView().getScale();
+        int width = scale * this.properties.getSimulatedevolution().getView().getWidth();
+        int height = scale * this.properties.getSimulatedevolution().getView().getHeight();
         this.worldDimensions = new LatticePoint(width,height);
         long seed = new Date().getTime();
         this.random = new Random(seed);
-        this.simulatedEvolutionWorldLattice = new SimulatedEvolutionWorldLattice(
+        this.worldLattice = new SimulatedEvolutionWorldLattice(
             this.worldDimensions, this.random
         );
-        this.simulatedEvolutionPopulationCensusContainer = new SimulatedEvolutionPopulationCensusContainer(
-            computerKurzweilProperties
+        this.censusContainer = new SimulatedEvolutionPopulationCensusContainer(
+            properties
         );
-        this.simulatedEvolutionParameter = new SimulatedEvolutionParameter();
+        this.parameter = new SimulatedEvolutionParameter();
         this.createPopulation();
     }
 
@@ -118,7 +118,7 @@ public class SimulatedEvolutionModel implements Serializable {
             cells.add(cell);
             populationCensus.countStatusOfOneCell(cell.getLifeCycleStatus());
         }
-        this.simulatedEvolutionPopulationCensusContainer.push(populationCensus);
+        this.censusContainer.push(populationCensus);
     }
 
     /**
@@ -127,7 +127,7 @@ public class SimulatedEvolutionModel implements Serializable {
      */
     public boolean letLivePopulation() {
         SimulatedEvolutionPopulationCensus populationCensus = new SimulatedEvolutionPopulationCensus();
-        simulatedEvolutionWorldLattice.letFoodGrow();
+        worldLattice.letFoodGrow();
         LatticePoint pos;
         List<Cell> children = new ArrayList<Cell>();
         List<Cell> died = new ArrayList<Cell>();
@@ -137,7 +137,7 @@ public class SimulatedEvolutionModel implements Serializable {
                 died.add(cell);
             } else {
                 pos = cell.getPosition();
-                int food = simulatedEvolutionWorldLattice.eat(pos);
+                int food = worldLattice.eat(pos);
                 cell.eat(food);
                 if (cell.isPregnant()) {
                     Cell child = cell.performReproductionByCellDivision();
@@ -151,8 +151,9 @@ public class SimulatedEvolutionModel implements Serializable {
         cells.addAll(children);
         for (Cell cell:cells) {
             populationCensus.countStatusOfOneCell(cell.getLifeCycleStatus());
+            populationCensus.countGeneration(cell.getGeneration());
         }
-        this.simulatedEvolutionPopulationCensusContainer.push(populationCensus);
+        this.censusContainer.push(populationCensus);
         return ! cells.isEmpty();
     }
 
@@ -161,7 +162,7 @@ public class SimulatedEvolutionModel implements Serializable {
     }
 
     public boolean hasFood(int x, int y) {
-        return simulatedEvolutionWorldLattice.hasFood(x,y);
+        return worldLattice.hasFood(x,y);
     }
 
     public boolean isPopulationAlive() {

@@ -55,7 +55,7 @@ public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl imple
             tab.getProperties()
         );
         //this.tab = tab;
-        this.container = tab.getModel().getSimulatedEvolutionPopulationCensusContainer();
+        this.container = tab.getModel().getCensusContainer();
         FlowLayout layoutSubPanel = new FlowLayout();
         this.setLayout(layoutSubPanel);
         //this.borderLabel = tab.getProperties().getSimulatedevolution().getPopulation().getPanelPopulationStatistics();

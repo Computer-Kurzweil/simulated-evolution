@@ -8,10 +8,10 @@ import java.io.Serializable;
 
 /**
  * Holds Data how many Cells per LifeCycleStatus and how many Cells in the whole Population for this Generation.
- *
+ * <p>
  * &copy; 2006 - 2008 Thomas Woehlke.
- * @author Thomas Woehlke
  *
+ * @author Thomas Woehlke
  * @see <a href="https://thomas-woehlke.blogspot.com/2016/01/mandelbrot-set-drawn-by-turing-machine.html">Blog Article</a>
  * @see <a href="https://github.com/Computer-Kurzweil/simulated-evolution">Github Repository</a>
  * @see <a href="https://java.woehlke.org/simulated-evolution/">Maven Project Repository</a>
@@ -25,44 +25,41 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class SimulatedEvolutionPopulationCensus implements Serializable {
 
-   private static final long serialVersionUID = 242L;
+    private static final long serialVersionUID = 242L;
 
-   private int youngCells;
-   private int youngAndFatCells;
-   private int fullAgeCells;
-   private int hungryCells;
-   private int oldCells;
-   private int deadCells;
-   private int population;
-   private long generationYoungest;
-   private long generationOldest;
-   private long worldIteration;
+    private int youngCells;
+    private int youngAndFatCells;
+    private int fullAgeCells;
+    private int hungryCells;
+    private int oldCells;
+    private int deadCells;
+    private int population;
+    private long generationYoungest;
+    private long generationOldest;
+    private long worldIteration;
 
-  /**
-   * TODO write doc.
-   */
-  public void countStatusOfOneCell(LifeCycleStatus status) {
-    population++;
-    switch (status) {
-      case YOUNG:
-        youngCells++;
-        break;
-      case YOUNG_AND_FAT:
-        youngAndFatCells++;
-        break;
-      case FULL_AGE:
-        fullAgeCells++;
-        break;
-      case HUNGRY:
-        hungryCells++;
-        break;
-      case OLD:
-        oldCells++;
-        break;
-      case DEAD:
-        deadCells++;
-        break;
+    /**
+     * TODO write doc.
+     */
+    public void countStatusOfOneCell(LifeCycleStatus status) {
+        population++;
+        switch (status) {
+            case YOUNG -> youngCells++;
+            case YOUNG_AND_FAT -> youngAndFatCells++;
+            case FULL_AGE -> fullAgeCells++;
+            case HUNGRY -> hungryCells++;
+            case OLD -> oldCells++;
+            case DEAD -> deadCells++;
+        }
     }
-  }
+
+    public void countGeneration(long generation) {
+        if (generation < generationOldest) {
+            generationOldest = generation;
+        }
+        if (generation > generationYoungest) {
+            generationYoungest = generation;
+        }
+    }
 
 }
