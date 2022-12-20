@@ -21,20 +21,28 @@ public class SimulatedEvolutionApplication {
 
     private final SimulatedEvolutionTab simulatedEvolutionTab;
 
+    /**
+     * Setting up the Desktop Application
+     */
     private SimulatedEvolutionApplication() {
         String configFileName = "application.yml";
         String jarFilePath = "target/simulatedevolution.jar";
-        ComputerKurzweilProperties properties = ComputerKurzweilProperties.propertiesFactory(configFileName, jarFilePath);
+        ComputerKurzweilProperties properties = ComputerKurzweilProperties.propertiesFactory(
+            configFileName, jarFilePath
+        );
         this.simulatedEvolutionTab = new SimulatedEvolutionTab(properties);
 
     }
 
+    /**
+     * Starting the Desktop Application
+     */
     public void start(){
         simulatedEvolutionTab.start();
     }
 
     /**
-     * Starting the Desktop Application
+     * Running the Desktop Application
      * @param args CLI Parameter
      */
     public static void main(String[] args) {

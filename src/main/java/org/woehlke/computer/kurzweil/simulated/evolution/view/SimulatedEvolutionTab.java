@@ -59,10 +59,6 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
 
     private final static int SYSTEM_EXIT_STATUS_OK = 0;
 
-    private final static int HEIGHT_OF_TITLE = 30;
-
-    private final static int HEIGHT_OF_STATISTICS = 60;
-
     /**
      * Subtitle Label for DesktopApp and Title Label for Applet.
      */
@@ -148,10 +144,11 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
     public void showMeInit() {
         pack();
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        int titleHeight = HEIGHT_OF_TITLE + HEIGHT_OF_STATISTICS;
+        int heightOfTitle = properties.getSimulatedevolution().getView().getHeightOfTitle();
+        int heightOfStatistics = properties.getSimulatedevolution().getView().getHeightOfStatistics();
+        int titleHeight = heightOfTitle + heightOfStatistics;
         int width = this.getModel().getWorldDimensions().getWidth();
         int height  = this.getModel().getWorldDimensions().getHeight() + titleHeight;
-        //int height  = this.canvas.getHeight() + titleHeight;
         double dStartX = (screenSize.getWidth() - width) / 2d;
         double dStartY = (screenSize.getHeight() - height) / 2d;
         int iStartX = Double.valueOf(dStartX).intValue();
@@ -189,16 +186,20 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
         this.censusPanel.update();
     }
 
+    private void shutdown(){
+        System.exit(SYSTEM_EXIT_STATUS_OK);
+    }
+
     public void windowOpened(WindowEvent e) {
         showMe();
     }
 
     public void windowClosing(WindowEvent e) {
-        System.exit(SYSTEM_EXIT_STATUS_OK);
+        shutdown();
     }
 
     public void windowClosed(WindowEvent e) {
-        System.exit(SYSTEM_EXIT_STATUS_OK);
+        shutdown();
     }
 
     public void windowIconified(WindowEvent e) {
