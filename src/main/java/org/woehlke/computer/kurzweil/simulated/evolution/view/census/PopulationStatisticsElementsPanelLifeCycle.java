@@ -30,8 +30,8 @@ import static org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeC
  */
 @Log4j2
 @Getter
-@ToString(callSuper = true,exclude = {"tab","border","layout","layoutSubPanel"})
-@EqualsAndHashCode(callSuper=true,exclude = {"tab","border","layout","layoutSubPanel"})
+@ToString(callSuper = true,exclude = {"container","border","layout","layoutSubPanel"})
+@EqualsAndHashCode(callSuper=true,exclude = {"container","border","layout","layoutSubPanel"})
 public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl implements Serializable {
 
     static final long serialVersionUID = 242L;
@@ -43,36 +43,34 @@ public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl imple
     private final PopulationStatisticsElement oldCellsElement;
     private final PopulationStatisticsElement wholeGeneration;
 
-    private final String borderLabel;
+    //private final String borderLabel;
+    //private final CompoundBorder border;
+    //private final FlowLayoutCenter layout;
+    //private final FlowLayout layoutSubPanel;
+    //private final SimulatedEvolutionTab tab;
 
-    private final CompoundBorder border;
-    private final FlowLayoutCenter layout;
-    private final FlowLayout layoutSubPanel;
+    private final SimulatedEvolutionPopulationCensusContainer container;
 
-    private final SimulatedEvolutionTab tab;
-
-    private final SimulatedEvolutionPopulationCensusContainer simulatedEvolutionPopulationCensusContainer;
-
-    public PopulationStatisticsElementsPanelLifeCycle(
-        SimulatedEvolutionTab tab,
-        SimulatedEvolutionPopulationCensusContainer simulatedEvolutionPopulationCensusContainer
-    ) {
+    public PopulationStatisticsElementsPanelLifeCycle(SimulatedEvolutionTab tab) {
         super(
-            tab.getComputerKurzweilProperties().getSimulatedevolution().getPopulation().getPanelPopulationStatistics(),
-            tab.getComputerKurzweilProperties()
+            tab.getProperties().getSimulatedevolution().getPopulation().getPanelPopulationStatistics(),
+            tab.getProperties()
         );
-        this.tab = tab;
-        this.simulatedEvolutionPopulationCensusContainer = simulatedEvolutionPopulationCensusContainer;
-        this.layoutSubPanel = new FlowLayout();
-        this.setLayout(this.layoutSubPanel);
-        this.borderLabel = this.tab.getComputerKurzweilProperties()
-            .getSimulatedevolution().getPopulation().getPanelPopulationStatistics();
-        this.layout = new FlowLayoutCenter();
-        this.border = this.getDoubleBorder();
-        this.setLayout(this.layout);
-        this.setBorder(this.border);
+        //this.tab = tab;
+        this.container = tab.getModel().getSimulatedEvolutionPopulationCensusContainer();
+        FlowLayout layoutSubPanel = new FlowLayout();
+        this.setLayout(layoutSubPanel);
+        //this.borderLabel = tab.getProperties().getSimulatedevolution().getPopulation().getPanelPopulationStatistics();
+
+        @Deprecated
+        FlowLayoutCenter layout = new FlowLayoutCenter();
+        @Deprecated
+        CompoundBorder border = this.getDoubleBorder();
+        this.setLayout(layout);
+        this.setBorder(border);
+
         ComputerKurzweilProperties.SimulatedEvolution.Population cfg =
-            this.tab.getComputerKurzweilProperties().getSimulatedevolution().getPopulation();
+            tab.getProperties().getSimulatedevolution().getPopulation();
         String youngCellsLabel = cfg.getYoungCellsLabel();
         String youngAndFatCellsLabel = cfg.getYoungAndFatCellsLabel();
         String fullAgeCellsLabel = cfg.getFullAgeCellsLabel();
@@ -95,7 +93,7 @@ public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl imple
     }
 
     public void update() {
-        SimulatedEvolutionPopulationCensus population = this.simulatedEvolutionPopulationCensusContainer.peek();
+        SimulatedEvolutionPopulationCensus population = this.container.peek();
         youngCellsElement.setText(population.getYoungCells());
         youngAndFatCellsElement.setText(population.getYoungAndFatCells());
         fullAgeCellsElement.setText(population.getFullAgeCells());
@@ -104,6 +102,7 @@ public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl imple
         wholeGeneration.setText(population.getPopulation());
     }
 
+    @Deprecated
     private CompoundBorder getDoubleBorder(){
         int left = this.getProperties().getAllinone().getView().getBorderPaddingX();
         int right = this.getProperties().getAllinone().getView().getBorderPaddingX();

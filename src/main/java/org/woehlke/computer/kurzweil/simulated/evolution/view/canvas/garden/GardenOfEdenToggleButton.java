@@ -30,12 +30,12 @@ public class GardenOfEdenToggleButton extends JToggleButton implements Serializa
 
     public GardenOfEdenToggleButton(SimulatedEvolutionTab tab) {
         super(
-            tab.getComputerKurzweilProperties().getSimulatedevolution()
+            tab.getProperties().getSimulatedevolution()
                 .getGardenOfEden().getGardenOfEdenEnabledToggleButton()
         );
         this.tab = tab;
         this.buttonToggleGardenOfEdenString =
-            tab.getComputerKurzweilProperties().getSimulatedevolution()
+            tab.getProperties().getSimulatedevolution()
                 .getGardenOfEden().getGardenOfEdenEnabledToggleButton();
     }
 }

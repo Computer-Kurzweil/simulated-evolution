@@ -49,21 +49,21 @@ public class PopulationStatisticsElementsPanelCounted extends SubTabImpl impleme
         SimulatedEvolutionPopulationCensusContainer simulatedEvolutionPopulationCensusContainer
     ) {
         super(
-            tab.getComputerKurzweilProperties().getSimulatedevolution().getPopulation().getPanelPopulationStatistics(),
-            tab.getComputerKurzweilProperties()
+            tab.getProperties().getSimulatedevolution().getPopulation().getPanelPopulationStatistics(),
+            tab.getProperties()
         );
         this.tab = tab;
         this.simulatedEvolutionPopulationCensusContainer = simulatedEvolutionPopulationCensusContainer;
         FlowLayout layoutSubPanel = new FlowLayout();
         this.setLayout(layoutSubPanel);
-        String borderLabel = tab.getComputerKurzweilProperties().getSimulatedevolution()
+        String borderLabel = tab.getProperties().getSimulatedevolution()
             .getPopulation().getPanelPopulationStatistics();
         FlowLayoutCenter layout = new FlowLayoutCenter();
         CompoundBorder border =this.getDoubleBorder();
         this.setLayout(layout);
         this.setBorder(border);
         ComputerKurzweilProperties.SimulatedEvolution.Population cfg =
-            tab.getComputerKurzweilProperties().getSimulatedevolution().getPopulation();
+            tab.getProperties().getSimulatedevolution().getPopulation();
         String worldIterationLabel = cfg.getPopulationLabel();
         String generationOldestLabel = cfg.getGenerationOldestLabel();
         String generationYoungestLabel = cfg.getGenerationYoungestLabel();

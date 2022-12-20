@@ -30,10 +30,10 @@ public class FoodPerDayDecreaseButton extends JButton implements Serializable {
 
     public FoodPerDayDecreaseButton(SimulatedEvolutionTab tab) {
         super(
-            tab.getComputerKurzweilProperties().getSimulatedevolution().getFood().getButtonFoodPerDayDecrease()
+            tab.getProperties().getSimulatedevolution().getFood().getButtonFoodPerDayDecrease()
         );
         this.tab = tab;
         this.labelFoodPerDayDecrease =
-            tab.getComputerKurzweilProperties().getSimulatedevolution().getFood().getButtonFoodPerDayDecrease();
+            tab.getProperties().getSimulatedevolution().getFood().getButtonFoodPerDayDecrease();
     }
 }

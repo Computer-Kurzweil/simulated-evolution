@@ -37,17 +37,17 @@ public class FoodPerDayPanel extends SubTabImpl implements Serializable {
 
     public FoodPerDayPanel(SimulatedEvolutionTab tab) {
         super(
-            tab.getComputerKurzweilProperties().getSimulatedevolution().getFood().getFoodPerDayLabel(),
-            tab.getComputerKurzweilProperties()
+            tab.getProperties().getSimulatedevolution().getFood().getFoodPerDayLabel(),
+            tab.getProperties()
         );
         this.tab = tab;
-        this.tabModel = this.tab.getSimulatedEvolutionModel();
+        this.tabModel = this.tab.getModel();
         this.foodPerDayLabel = new FoodPerDayLabel(this.tab);
         this.foodPerDayTextField = new FoodPerDayTextField(this.tab);
         this.foodPerDayIncreaseButton = new FoodPerDayIncreaseButton(this.tab);
         this.foodPerDayDecreaseButton = new FoodPerDayDecreaseButton(this.tab);
         this.foodPerDayBorderLabel =
-            tab.getComputerKurzweilProperties().getSimulatedevolution().getFood().getFoodPerDayLabel();
+            tab.getProperties().getSimulatedevolution().getFood().getFoodPerDayLabel();
         //this.foodPerDayBorder = this.tabCtx.getCtx().getBorder(this.foodPerDayBorderLabel);
         //this.setBorder(this.foodPerDayBorder);
         this.add(this.foodPerDayLabel);

@@ -34,7 +34,7 @@ public class GardenOfEdenPanel extends JPanel implements Serializable {
         super(new FlowLayout());
         this.tab = tab;
         this.gardenOfEdenPanelBorderLabel =
-            tab.getComputerKurzweilProperties().getSimulatedevolution().getGardenOfEden().getPanelGardenOfEden();
+            tab.getProperties().getSimulatedevolution().getGardenOfEden().getPanelGardenOfEden();
         //this.gardenOfEdenPanelBorder = this.tabCtx.getCtx().getBorder(gardenOfEdenPanelBorderLabel);
         //this.setBorder(gardenOfEdenPanelBorder);
     }

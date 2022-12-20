@@ -31,13 +31,13 @@ public class GardenOfEdenCheckBox extends JCheckBox implements Serializable {
 
     public GardenOfEdenCheckBox(SimulatedEvolutionTab tab) {
         super(
-            tab.getComputerKurzweilProperties().getSimulatedevolution().getGardenOfEden().getGardenOfEdenEnabledString(),
-            tab.getComputerKurzweilProperties().getSimulatedevolution().getGardenOfEden().getGardenOfEdenEnabled()
+            tab.getProperties().getSimulatedevolution().getGardenOfEden().getGardenOfEdenEnabledString(),
+            tab.getProperties().getSimulatedevolution().getGardenOfEden().getGardenOfEdenEnabled()
         );
         this.gardenOfEdenEnabledSelected =
-            tab.getComputerKurzweilProperties().getSimulatedevolution().getGardenOfEden().getGardenOfEdenEnabled();
+            tab.getProperties().getSimulatedevolution().getGardenOfEden().getGardenOfEdenEnabled();
         this.gardenOfEdenEnabledString =
-            tab.getComputerKurzweilProperties().getSimulatedevolution().getGardenOfEden().getGardenOfEdenEnabledString();
+            tab.getProperties().getSimulatedevolution().getGardenOfEden().getGardenOfEdenEnabledString();
         this.tab = tab;
     }
 }

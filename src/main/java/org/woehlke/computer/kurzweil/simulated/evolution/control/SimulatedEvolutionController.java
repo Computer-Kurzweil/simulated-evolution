@@ -54,7 +54,7 @@ public class SimulatedEvolutionController extends Thread implements Runnable, Se
         this.simulatedEvolutionModel = simulatedEvolutionModel;
         this.canvas = canvas;
         this.tab = simulatedEvolutionTab;
-        this.timeToWait = this.tab.getComputerKurzweilProperties().getSimulatedevolution()
+        this.timeToWait = this.tab.getProperties().getSimulatedevolution()
             .getControl().getThreadSleepTime();
         doMyJob = Boolean.TRUE;
     }

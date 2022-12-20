@@ -30,10 +30,10 @@ public class FoodPerDayLabel extends JLabel implements Serializable {
 
     public FoodPerDayLabel(SimulatedEvolutionTab tab) {
         super(
-            tab.getComputerKurzweilProperties().getSimulatedevolution().getFood().getFoodPerDayLabel()
+            tab.getProperties().getSimulatedevolution().getFood().getFoodPerDayLabel()
         );
         this.tab = tab;
         this.foodPerDayLabelString =
-            tab.getComputerKurzweilProperties().getSimulatedevolution().getFood().getFoodPerDayLabel();
+            tab.getProperties().getSimulatedevolution().getFood().getFoodPerDayLabel();
     }
 }

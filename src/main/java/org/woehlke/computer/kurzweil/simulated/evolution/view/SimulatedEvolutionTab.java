@@ -9,6 +9,9 @@ import org.woehlke.computer.kurzweil.simulated.evolution.model.world.SimulatedEv
 import org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.SimulatedEvolutionCanvas;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.census.PopulationStatisticsElementsPanelCounted;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.census.PopulationStatisticsElementsPanelLifeCycle;
+import org.woehlke.computer.kurzweil.simulated.evolution.view.widgets.CensusPanel;
+import org.woehlke.computer.kurzweil.simulated.evolution.view.widgets.CopyrightLabel;
+import org.woehlke.computer.kurzweil.simulated.evolution.view.widgets.SubTitleLabel;
 
 import javax.accessibility.Accessible;
 import javax.swing.*;
@@ -19,8 +22,6 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.awt.image.ImageObserver;
 import java.io.Serializable;
-
-import static javax.swing.SwingConstants.CENTER;
 
 /**
  * This Frame is the Container for running the Simulation.
@@ -61,10 +62,6 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
 
     private final static int HEIGHT_OF_STATISTICS = 60;
 
-    private final SimulatedEvolutionParameter simulatedEvolutionParameter;
-
-    private final ComputerKurzweilProperties computerKurzweilProperties;
-
     /**
      * Subtitle Label for DesktopApp and Title Label for Applet.
      */
@@ -78,7 +75,7 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
     /**
      * ControllerThread for Interachtions between Model and View (MVC-Pattern).
      */
-    private final SimulatedEvolutionController simulatedEvolutionController;
+    private final SimulatedEvolutionController controller;
 
     /**
      * The View for the World. Food and Cells are painted to the Canvas.
@@ -88,54 +85,61 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
     /**
      * Data Model for the Simulation. The World contains the Bacteria Cells and the Food.
      */
-    private final SimulatedEvolutionModel simulatedEvolutionModel;
+    private final SimulatedEvolutionModel model;
 
     /**
-     * Display how many Cells per LifeCycleStatus and how many Cells in the whole Population for this Generation.
+     * @see PopulationStatisticsElementsPanelLifeCycle
+     * @see PopulationStatisticsElementsPanelCounted
      */
-    private final PopulationStatisticsElementsPanelLifeCycle panelLifeCycle;
+    private final CensusPanel censusPanel;
 
     /**
-    * Display the age of the generation and the world.
-    */
-    private final PopulationStatisticsElementsPanelCounted panelCounter;
+     *
+     */
+    private final SimulatedEvolutionParameter parameter;
 
+    /**
+     *
+     */
+    private final ComputerKurzweilProperties properties;
+
+    /**
+     * TODO: refactor, replace Rectangle with a class based on LatticePoint
+     * @see java.awt.Rectangle
+     * @see org.woehlke.computer.kurzweil.simulated.evolution.model.lattice.LatticePoint
+     */
+    @Deprecated
     private volatile Rectangle rectangleBounds;
+
+    /**
+     * TODO: refactor, replace Dimension with a class based on LatticePoint
+     * @see java.awt.Dimension
+     * @see org.woehlke.computer.kurzweil.simulated.evolution.model.lattice.LatticePoint
+     */
+    @Deprecated
     private volatile Dimension dimensionSize;
 
-    public SimulatedEvolutionTab(ComputerKurzweilProperties computerKurzweilProperties) {
-        super(computerKurzweilProperties.getSimulatedevolution().getView().getTitle());
-        this.computerKurzweilProperties = computerKurzweilProperties;
-        this.simulatedEvolutionParameter = new SimulatedEvolutionParameter();
-        this.simulatedEvolutionModel = new SimulatedEvolutionModel(
-            computerKurzweilProperties
+    public SimulatedEvolutionTab(ComputerKurzweilProperties properties) {
+        super(properties.getSimulatedevolution().getView().getTitle());
+        this.properties = properties;
+        this.parameter = new SimulatedEvolutionParameter();
+        this.model = new SimulatedEvolutionModel(
+            properties
         );
-        this.canvas = new SimulatedEvolutionCanvas(this.simulatedEvolutionModel);
-        this.panelLifeCycle = new PopulationStatisticsElementsPanelLifeCycle(
-            this,
-            this.simulatedEvolutionModel.getSimulatedEvolutionPopulationCensusContainer()
-        );
-        this.panelCounter = new PopulationStatisticsElementsPanelCounted(
-            this,
-            this.simulatedEvolutionModel.getSimulatedEvolutionPopulationCensusContainer()
-        );
-        this.simulatedEvolutionController = new SimulatedEvolutionController(
-            this.simulatedEvolutionModel,
+        this.canvas = new SimulatedEvolutionCanvas(this.model);
+        this.controller = new SimulatedEvolutionController(
+            this.model,
             this.canvas,
             this
         );
-        //String subTitle =  computerKurzweilProperties.getSimulatedevolution().getView().getSubtitle();
-        //String copyright =  computerKurzweilProperties.getSimulatedevolution().getView().getCopyright();
-        this.subTitleLabel = new SubTitleLabel(computerKurzweilProperties);
-        this.copyrightLabel = new CopyrightLabel(computerKurzweilProperties);
-        JSeparator line = new JSeparator();
-        BoxLayout layout = new BoxLayout(rootPane, BoxLayout.PAGE_AXIS);
-        rootPane.setLayout(layout);
-        rootPane.add(subTitleLabel);
-        rootPane.add(canvas);
-        rootPane.add(panelLifeCycle);
-        rootPane.add(line);
-        rootPane.add(panelCounter);
+        this.subTitleLabel = new SubTitleLabel(properties);
+        this.copyrightLabel = new CopyrightLabel(properties);
+        this.censusPanel = new CensusPanel(this);
+        BorderLayout layout = new BorderLayout();
+        this.setLayout(layout);
+        this.add(subTitleLabel,BorderLayout.NORTH);
+        this.add(canvas,BorderLayout.CENTER);
+        this.add(censusPanel,BorderLayout.SOUTH);
         addWindowListener(this);
         showMeInit();
     }
@@ -170,8 +174,18 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
         toFront();
     }
 
+    /**
+     * @see org.woehlke.computer.kurzweil.simulated.evolution.SimulatedEvolutionApplication
+     */
     public void start() {
-        simulatedEvolutionController.start();
+        controller.start();
+    }
+
+    /**
+     * @see SimulatedEvolutionController
+     */
+    public synchronized void update(){
+        this.censusPanel.update();
     }
 
     public void windowOpened(WindowEvent e) {
@@ -187,7 +201,6 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
     }
 
     public void windowIconified(WindowEvent e) {
-
     }
 
     public void windowDeiconified(WindowEvent e) {
@@ -201,12 +214,6 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
     public void windowDeactivated(WindowEvent e) {
     }
 
-    public synchronized void update(){
-        this.panelLifeCycle.update();
-        this.panelCounter.update();
-    }
-
     public void actionPerformed(ActionEvent actionEvent) {
-
     }
 }

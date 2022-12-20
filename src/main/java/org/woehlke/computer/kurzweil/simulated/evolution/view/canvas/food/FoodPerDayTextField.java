@@ -31,12 +31,12 @@ public class FoodPerDayTextField extends JTextField implements Serializable {
 
     public FoodPerDayTextField(SimulatedEvolutionTab tab) {
         super(
-            tab.getComputerKurzweilProperties().getSimulatedevolution().getFood().getFoodPerDay()+"",
-            tab.getComputerKurzweilProperties().getSimulatedevolution().getFood().getFoodPerDayFieldColumns()
+            tab.getProperties().getSimulatedevolution().getFood().getFoodPerDay()+"",
+            tab.getProperties().getSimulatedevolution().getFood().getFoodPerDayFieldColumns()
         );
         this.tab = tab;
-        this.foodPerDayTextFieldString = tab.getComputerKurzweilProperties().getSimulatedevolution().getFood().getFoodPerDay()+"";
-        this.foodPerDayTextFieldCols = tab.getComputerKurzweilProperties().getSimulatedevolution().getFood().getFoodPerDayFieldColumns();
+        this.foodPerDayTextFieldString = tab.getProperties().getSimulatedevolution().getFood().getFoodPerDay()+"";
+        this.foodPerDayTextFieldCols = tab.getProperties().getSimulatedevolution().getFood().getFoodPerDayFieldColumns();
     }
 
     public void setFoodPerDay(int foodPerDay){

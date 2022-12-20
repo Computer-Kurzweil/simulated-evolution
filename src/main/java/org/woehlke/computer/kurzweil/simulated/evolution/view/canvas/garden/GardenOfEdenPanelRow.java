@@ -35,9 +35,9 @@ public class GardenOfEdenPanelRow extends SubTabImpl implements Serializable {
     //private final GardenOfEdenPanel gardenOfEdenPanel;
 
     public GardenOfEdenPanelRow(SimulatedEvolutionTab tab) {
-        super("Garden of Eden",tab.getComputerKurzweilProperties());
+        super("Garden of Eden",tab.getProperties());
         this.tab = tab;
-        this.tabModel = this.tab.getSimulatedEvolutionModel();
+        this.tabModel = this.tab.getModel();
         this.gardenOfEdenEnabled = new GardenOfEdenCheckBox(this.tab);
         this.buttonToggleGardenOfEden = new GardenOfEdenToggleButton(this.tab);
         /*

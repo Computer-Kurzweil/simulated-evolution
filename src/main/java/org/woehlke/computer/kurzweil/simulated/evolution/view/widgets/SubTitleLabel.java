@@ -1,4 +1,4 @@
-package org.woehlke.computer.kurzweil.simulated.evolution.view;
+package org.woehlke.computer.kurzweil.simulated.evolution.view.widgets;
 
 import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweilProperties;
 
