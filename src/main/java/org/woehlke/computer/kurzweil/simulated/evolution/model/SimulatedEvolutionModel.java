@@ -102,7 +102,9 @@ public class SimulatedEvolutionModel implements Serializable {
      * Create the initial Population of Bacteria Cells and give them their position in the World.
      */
     private void createPopulation() {
-        SimulatedEvolutionPopulationCensus populationCensus = new SimulatedEvolutionPopulationCensus();
+        SimulatedEvolutionPopulationCensus populationCensus = new SimulatedEvolutionPopulationCensus(
+            this.censusContainer.getWorldIteration()
+        );
         cells = new ArrayList<Cell>();
         for (int i = 0; i < INITIAL_POPULATION; i++) {
             int x = random.nextInt(worldDimensions.getX());
@@ -126,7 +128,9 @@ public class SimulatedEvolutionModel implements Serializable {
      * Every Cell moves, eats, dies of hunger, and it has sex: splitting into two children with changed DNA.
      */
     public boolean letLivePopulation() {
-        SimulatedEvolutionPopulationCensus populationCensus = new SimulatedEvolutionPopulationCensus();
+        SimulatedEvolutionPopulationCensus census = new SimulatedEvolutionPopulationCensus(
+            this.censusContainer.getWorldIteration()
+        );
         worldLattice.letFoodGrow();
         LatticePoint pos;
         List<Cell> children = new ArrayList<Cell>();
@@ -150,9 +154,9 @@ public class SimulatedEvolutionModel implements Serializable {
         }
         cells.addAll(children);
         for (Cell cell:cells) {
-            populationCensus.countStatusOfOneCell(cell.getLifeCycleStatus(),cell.getGeneration());
+            census.countStatusOfOneCell(cell.getLifeCycleStatus(), cell.getGeneration());
         }
-        this.censusContainer.push(populationCensus);
+        this.censusContainer.push(census);
         return ! cells.isEmpty();
     }
 
