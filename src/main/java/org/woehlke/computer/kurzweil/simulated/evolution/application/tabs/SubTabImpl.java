@@ -3,7 +3,7 @@ package org.woehlke.computer.kurzweil.simulated.evolution.application.tabs;
 import lombok.Getter;
 import lombok.ToString;
 import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweilProperties;
-import org.woehlke.computer.kurzweil.simulated.evolution.view.layouts.FlowLayoutCenter;
+import org.woehlke.computer.kurzweil.simulated.evolution.application.layouts.FlowLayoutCenter;
 
 import javax.swing.*;
 import javax.swing.border.CompoundBorder;

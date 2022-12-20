@@ -1,4 +1,4 @@
-package org.woehlke.computer.kurzweil.simulated.evolution.model.lattice.molecules;
+package org.woehlke.computer.kurzweil.simulated.evolution.model.food.molecules;
 
 import lombok.EqualsAndHashCode;
 import lombok.ToString;

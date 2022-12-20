@@ -1,10 +1,10 @@
-package org.woehlke.computer.kurzweil.simulated.evolution.model.lattice.neighbourhood;
+package org.woehlke.computer.kurzweil.simulated.evolution.model.food.neighbourhood;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
-import org.woehlke.computer.kurzweil.simulated.evolution.model.lattice.molecules.LatticePoint;
+import org.woehlke.computer.kurzweil.simulated.evolution.model.food.molecules.LatticePoint;
 
 import java.io.Serializable;
 

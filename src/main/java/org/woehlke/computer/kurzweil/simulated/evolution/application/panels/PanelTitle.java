@@ -5,7 +5,7 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 //import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweilContext;
-import org.woehlke.computer.kurzweil.simulated.evolution.view.layouts.FlowLayoutCenter;
+import org.woehlke.computer.kurzweil.simulated.evolution.application.layouts.FlowLayoutCenter;
 
 import javax.swing.*;
 import java.io.Serializable;

@@ -3,7 +3,7 @@ package org.woehlke.computer.kurzweil.simulated.evolution.view.panels;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolutionTab;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.census.PopulationStatisticsElementsPanelCounted;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.census.PopulationStatisticsElementsPanelLifeCycle;
-import org.woehlke.computer.kurzweil.simulated.evolution.view.layouts.BoxLayoutVertical;
+import org.woehlke.computer.kurzweil.simulated.evolution.application.layouts.BoxLayoutVertical;
 
 import javax.swing.*;
 
