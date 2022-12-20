@@ -48,7 +48,7 @@ public class SimulatedEvolutionModel implements Serializable {
     /**
      * Start with 20 Cells.
      */
-    private final int INITIAL_POPULATION = 20;
+    private final int initialPopulation;
 
     /**
      * Definition of the World's Size in Pixel Width and Height.
@@ -82,6 +82,7 @@ public class SimulatedEvolutionModel implements Serializable {
 
     public SimulatedEvolutionModel(ComputerKurzweilProperties properties) {
         this.properties = properties;
+        this.initialPopulation =  this.properties.getSimulatedevolution().getPopulation().getInitialPopulation();
         int scale = this.properties.getSimulatedevolution().getView().getScale();
         int width = scale * this.properties.getSimulatedevolution().getView().getWidth();
         int height = scale * this.properties.getSimulatedevolution().getView().getHeight();
@@ -106,7 +107,7 @@ public class SimulatedEvolutionModel implements Serializable {
             this.censusContainer.getWorldIteration()
         );
         cells = new ArrayList<Cell>();
-        for (int i = 0; i < INITIAL_POPULATION; i++) {
+        for (int i = 0; i < initialPopulation; i++) {
             int x = random.nextInt(worldDimensions.getX());
             int y = random.nextInt(worldDimensions.getY());
             if (x < 0) {
