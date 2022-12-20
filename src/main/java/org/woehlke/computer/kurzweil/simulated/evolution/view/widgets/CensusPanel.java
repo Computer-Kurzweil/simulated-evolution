@@ -33,7 +33,7 @@ public class CensusPanel extends JPanel {
         BoxLayout layout = new BoxLayout(this, BoxLayout.PAGE_AXIS);
         this.setLayout(layout);
         this.add(this.panelLifeCycle);
-        this.add(new JSeparator());
+        //this.add(new JSeparator());
         this.add(this.panelCounter);
     }
 
