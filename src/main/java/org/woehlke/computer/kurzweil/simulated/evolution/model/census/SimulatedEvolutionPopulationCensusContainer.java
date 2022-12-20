@@ -56,9 +56,8 @@ public class SimulatedEvolutionPopulationCensusContainer implements Serializable
 
     public synchronized SimulatedEvolutionPopulationCensus peek() {
         if(null == this.currentPopulationCensus) {
-            SimulatedEvolutionPopulationCensus populationCensus = new SimulatedEvolutionPopulationCensus();
-            populationCensus.setWorldIteration(worldIteration);
-            statistics.push(populationCensus);
+            SimulatedEvolutionPopulationCensus census = new SimulatedEvolutionPopulationCensus(worldIteration);
+            statistics.push(census);
         }
         return this.currentPopulationCensus;
     }

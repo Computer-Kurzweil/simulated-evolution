@@ -21,8 +21,6 @@ import java.io.Serializable;
 @Getter
 @Setter
 @EqualsAndHashCode
-@AllArgsConstructor
-@NoArgsConstructor
 public class SimulatedEvolutionPopulationCensus implements Serializable {
 
     static final long serialVersionUID = 242L;
@@ -49,10 +47,17 @@ public class SimulatedEvolutionPopulationCensus implements Serializable {
             case OLD -> oldCells++;
             case DEAD -> deadCells++;
         }
-        if (generation > generationYoungest) {
-            generationYoungest = generation;
-        } else {
+        if (generation < generationOldest) {
             generationOldest = generation;
         }
+        if(generation > generationYoungest) {
+            generationYoungest = generation;
+        }
+    }
+
+    public SimulatedEvolutionPopulationCensus(long worldIteration) {
+        this.worldIteration = worldIteration;
+        this.generationOldest = worldIteration;
+        this.generationYoungest = 0L;
     }
 }
