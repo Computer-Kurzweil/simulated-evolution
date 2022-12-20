@@ -10,7 +10,7 @@ import org.woehlke.computer.kurzweil.simulated.evolution.model.census.SimulatedE
 import org.woehlke.computer.kurzweil.simulated.evolution.model.census.SimulatedEvolutionPopulationCensusContainer;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolutionTab;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.widgets.layouts.FlowLayoutCenter;
-import org.woehlke.computer.kurzweil.simulated.evolution.view.tabs.SubTabImpl;
+import org.woehlke.computer.kurzweil.simulated.evolution.view.widgets.tabs.SubTabImpl;
 
 import javax.swing.*;
 import javax.swing.border.CompoundBorder;

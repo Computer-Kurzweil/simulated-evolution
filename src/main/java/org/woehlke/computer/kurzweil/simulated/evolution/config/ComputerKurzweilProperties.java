@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import lombok.*;
 import lombok.extern.log4j.Log4j2;
-import org.woehlke.computer.kurzweil.simulated.evolution.view.tabs.TabType;
+import org.woehlke.computer.kurzweil.simulated.evolution.view.widgets.tabs.TabType;
 
 
 import jakarta.validation.Valid;
