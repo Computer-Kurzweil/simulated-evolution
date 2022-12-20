@@ -61,9 +61,7 @@ public class LatticePointNeighbourhood implements Serializable {
     }
 
     public static LatticePoint[] get(int worldX, int worldY, int myX, int myY) {
-        LatticePointNeighbourhoodType neighbourhoodType = LatticePointNeighbourhoodType.MOORE_NEIGHBORHOOD;
-        LatticePointNeighbourhood n = new LatticePointNeighbourhood(worldX, worldY, myX, myY, neighbourhoodType);
-        return n.getNeighbourhoodPoints();
+        return getMoore(worldX, worldY, myX, myY);
     }
 
     public static LatticePoint[] getMoore(int worldX, int worldY, int myX, int myY) {

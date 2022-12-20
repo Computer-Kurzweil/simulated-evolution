@@ -22,6 +22,7 @@ import java.io.Serializable;
 @Log4j2
 @ToString
 @EqualsAndHashCode
+@Deprecated
 public class WorldPoint implements Serializable {
 
     static final long serialVersionUID = 242L;

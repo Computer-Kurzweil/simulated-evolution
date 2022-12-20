@@ -40,7 +40,8 @@ public class SimulatedEvolutionWorldLattice implements Serializable {
 
     /**
      * A Garden of Eden is an Area where much more Food grows within the same time.
-     * As a Result of Evolution you will find sucessful Bacteria Cells with a different DNA and Motion as outside the Garden of Eden.
+     * As a Result of Evolution you will find sucessful Bacteria Cells
+     * with a different DNA and Motion as outside the Garden of Eden.
      */
     private final boolean EABLE_GARDEN_OF_EDEN = true;
 
@@ -104,6 +105,7 @@ public class SimulatedEvolutionWorldLattice implements Serializable {
      * Reduces Food in the Grid by eating and delivers the food energy to the eating Cell.
      *
      * @see LifeCycle
+     * @see LatticePoint
      *
      * @param position where is the food and the eating cell
      * @return the engergy of the food, will be added to cell's fat.

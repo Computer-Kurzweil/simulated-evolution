@@ -23,6 +23,7 @@ import java.io.Serializable;
 @ToString
 @AllArgsConstructor
 @EqualsAndHashCode
+@Deprecated
 public class Bounds implements Serializable {
 
     private static final long serialVersionUID = 242L;
@@ -32,6 +33,7 @@ public class Bounds implements Serializable {
     private final int myWidth;
     private final int myHeight;
 
+    @Deprecated
     public Bounds(double height, double width, Dimension screenSize){
         double startX = (screenSize.getWidth() - width) / 2d;
         double startY = (screenSize.getHeight() - height) / 2d;
@@ -41,6 +43,7 @@ public class Bounds implements Serializable {
         myHeight = Double.valueOf(height).intValue();
     }
 
+    @Deprecated
     public static Bounds getFrameBounds(JRootPane rootPane){
         double width = rootPane.getWidth();
         double height = rootPane.getHeight();
@@ -48,6 +51,7 @@ public class Bounds implements Serializable {
         return new Bounds(height,width,screenSize);
     }
 
+    @Deprecated
     public static Bounds getCanvas(JRootPane rootPane){
         double width = rootPane.getWidth();
         double height = rootPane.getHeight();
