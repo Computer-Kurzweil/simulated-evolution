@@ -9,9 +9,9 @@ import org.woehlke.computer.kurzweil.simulated.evolution.config.SimulatedEvoluti
 import org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.SimulatedEvolutionCanvas;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.census.PopulationStatisticsElementsPanelCounted;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.census.PopulationStatisticsElementsPanelLifeCycle;
-import org.woehlke.computer.kurzweil.simulated.evolution.view.widgets.CensusPanel;
-import org.woehlke.computer.kurzweil.simulated.evolution.view.widgets.CopyrightLabel;
-import org.woehlke.computer.kurzweil.simulated.evolution.view.widgets.SubTitleLabel;
+import org.woehlke.computer.kurzweil.simulated.evolution.view.panels.CensusPanel;
+import org.woehlke.computer.kurzweil.simulated.evolution.view.panels.CopyrightLabel;
+import org.woehlke.computer.kurzweil.simulated.evolution.view.panels.SubTitleLabel;
 
 import javax.accessibility.Accessible;
 import javax.swing.*;
