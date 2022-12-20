@@ -1,7 +1,14 @@
-package org.woehlke.computer.kurzweil.simulated.evolution.view.widgets.layouts;
+package org.woehlke.computer.kurzweil.simulated.evolution.view.tabs;
 
-import java.awt.*;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.ToString;
+import lombok.extern.log4j.Log4j2;
+
+import javax.swing.*;
+import java.awt.event.ActionListener;
 import java.io.Serializable;
+
 
 /**
  * &copy; 2006 - 2008 Thomas Woehlke.
@@ -11,11 +18,11 @@ import java.io.Serializable;
  * @see <a href="https://github.com/Computer-Kurzweil/simulated-evolution">Github Repository</a>
  * @see <a href="https://java.woehlke.org/simulated-evolution/">Maven Project Repository</a>
  */
-public class FlowLayoutLeft extends FlowLayout implements Serializable {
-
+@Log4j2
+@Getter
+@ToString
+@EqualsAndHashCode(callSuper=false)
+@Deprecated
+public abstract class TabPanel extends JPanel implements ActionListener, Serializable {
     static final long serialVersionUID = 242L;
-
-    public FlowLayoutLeft() {
-        setAlignment(FlowLayout.LEFT);
-    }
 }

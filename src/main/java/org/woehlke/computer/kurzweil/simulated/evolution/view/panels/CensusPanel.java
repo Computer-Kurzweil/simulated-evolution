@@ -3,6 +3,7 @@ package org.woehlke.computer.kurzweil.simulated.evolution.view.panels;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolutionTab;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.census.PopulationStatisticsElementsPanelCounted;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.census.PopulationStatisticsElementsPanelLifeCycle;
+import org.woehlke.computer.kurzweil.simulated.evolution.view.layouts.BoxLayoutVertical;
 
 import javax.swing.*;
 
@@ -29,7 +30,7 @@ public class CensusPanel extends JPanel {
         this.panelCounter = new PopulationStatisticsElementsPanelCounted(
             tab
         );
-        BoxLayout layout = new BoxLayout(this, BoxLayout.PAGE_AXIS);
+        BoxLayoutVertical layout = new BoxLayoutVertical(this);
         this.setLayout(layout);
         this.add(this.panelLifeCycle);
         this.add(this.panelCounter);

@@ -1,4 +1,4 @@
-package org.woehlke.computer.kurzweil.simulated.evolution.config;
+package org.woehlke.computer.kurzweil.simulated.evolution.application;
 
 import lombok.*;
 

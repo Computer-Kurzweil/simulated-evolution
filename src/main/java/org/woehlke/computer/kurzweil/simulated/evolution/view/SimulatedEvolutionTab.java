@@ -5,7 +5,8 @@ import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweilProperties;
 import org.woehlke.computer.kurzweil.simulated.evolution.control.SimulatedEvolutionController;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.SimulatedEvolutionModel;
-import org.woehlke.computer.kurzweil.simulated.evolution.config.SimulatedEvolutionParameter;
+import org.woehlke.computer.kurzweil.simulated.evolution.application.SimulatedEvolutionParameter;
+import org.woehlke.computer.kurzweil.simulated.evolution.model.lattice.molecules.LatticePoint;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.SimulatedEvolutionCanvas;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.census.PopulationStatisticsElementsPanelCounted;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.census.PopulationStatisticsElementsPanelLifeCycle;
@@ -106,7 +107,7 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
     /**
      * TODO: refactor, replace Rectangle with a class based on LatticePoint
      * @see java.awt.Rectangle
-     * @see org.woehlke.computer.kurzweil.simulated.evolution.model.lattice.LatticePoint
+     * @see LatticePoint
      */
     @Deprecated
     private volatile Rectangle rectangleBounds;
@@ -114,7 +115,7 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
     /**
      * TODO: refactor, replace Dimension with a class based on LatticePoint
      * @see java.awt.Dimension
-     * @see org.woehlke.computer.kurzweil.simulated.evolution.model.lattice.LatticePoint
+     * @see LatticePoint
      */
     @Deprecated
     private volatile Dimension dimensionSize;

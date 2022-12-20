@@ -1,4 +1,4 @@
-package org.woehlke.computer.kurzweil.simulated.evolution.view.widgets.layouts;
+package org.woehlke.computer.kurzweil.simulated.evolution.view.layouts;
 
 import java.awt.*;
 import java.io.Serializable;

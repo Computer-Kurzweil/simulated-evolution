@@ -1,4 +1,4 @@
-package org.woehlke.computer.kurzweil.simulated.evolution.view.widgets.tabs;
+package org.woehlke.computer.kurzweil.simulated.evolution.view.tabs;
 
 import lombok.Getter;
 

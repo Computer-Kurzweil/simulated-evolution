@@ -9,8 +9,8 @@ import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweil
 import org.woehlke.computer.kurzweil.simulated.evolution.model.census.SimulatedEvolutionPopulationCensus;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.census.SimulatedEvolutionPopulationCensusContainer;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolutionTab;
-import org.woehlke.computer.kurzweil.simulated.evolution.view.widgets.layouts.FlowLayoutCenter;
-import org.woehlke.computer.kurzweil.simulated.evolution.view.widgets.tabs.SubTabImpl;
+import org.woehlke.computer.kurzweil.simulated.evolution.view.layouts.FlowLayoutCenter;
+import org.woehlke.computer.kurzweil.simulated.evolution.view.tabs.SubTabImpl;
 
 import java.io.Serializable;
 

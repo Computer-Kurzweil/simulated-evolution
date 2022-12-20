@@ -1,4 +1,4 @@
-package org.woehlke.computer.kurzweil.simulated.evolution.model.lattice;
+package org.woehlke.computer.kurzweil.simulated.evolution.model.lattice.molecules;
 
 import lombok.*;
 import lombok.extern.log4j.Log4j2;
