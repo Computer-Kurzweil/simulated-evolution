@@ -7,8 +7,8 @@ import org.woehlke.computer.kurzweil.simulated.evolution.control.SimulatedEvolut
 import org.woehlke.computer.kurzweil.simulated.evolution.model.SimulatedEvolutionModel;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.world.SimulatedEvolutionParameter;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.SimulatedEvolutionCanvas;
-import org.woehlke.computer.kurzweil.simulated.evolution.view.population.PopulationStatisticsElementsPanelCounted;
-import org.woehlke.computer.kurzweil.simulated.evolution.view.population.PopulationStatisticsElementsPanelLifeCycle;
+import org.woehlke.computer.kurzweil.simulated.evolution.view.census.PopulationStatisticsElementsPanelCounted;
+import org.woehlke.computer.kurzweil.simulated.evolution.view.census.PopulationStatisticsElementsPanelLifeCycle;
 
 import javax.accessibility.Accessible;
 import javax.swing.*;
