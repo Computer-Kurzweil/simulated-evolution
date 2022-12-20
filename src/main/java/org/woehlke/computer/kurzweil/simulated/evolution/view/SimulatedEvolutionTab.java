@@ -55,7 +55,7 @@ import java.io.Serializable;
 @Log4j2
 @Getter
 public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
-    WindowListener, ActionListener, Serializable, ImageObserver, Accessible {
+    WindowListener, ActionListener, ImageObserver, Accessible, Serializable {
 
     static final long serialVersionUID = 242L;
 

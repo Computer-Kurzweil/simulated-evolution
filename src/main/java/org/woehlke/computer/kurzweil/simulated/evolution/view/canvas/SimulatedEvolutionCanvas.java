@@ -8,6 +8,7 @@ import org.woehlke.computer.kurzweil.simulated.evolution.model.SimulatedEvolutio
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.Serializable;
 
 
 /**
@@ -25,7 +26,7 @@ import java.awt.*;
  */
 @Log4j2
 @Getter
-public class SimulatedEvolutionCanvas extends JComponent {
+public class SimulatedEvolutionCanvas extends JComponent implements Serializable {
 
     static final long serialVersionUID = 242L;
 

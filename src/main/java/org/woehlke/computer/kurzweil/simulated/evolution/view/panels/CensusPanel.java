@@ -6,12 +6,15 @@ import org.woehlke.computer.kurzweil.simulated.evolution.view.census.PopulationS
 import org.woehlke.computer.kurzweil.simulated.evolution.application.layouts.BoxLayoutVertical;
 
 import javax.swing.*;
+import java.io.Serializable;
 
 /**
  * @see PopulationStatisticsElementsPanelLifeCycle
  * @see PopulationStatisticsElementsPanelCounted
  */
-public class CensusPanel extends JPanel {
+public class CensusPanel extends JPanel implements Serializable {
+
+    static final long serialVersionUID = 242L;
 
     /**
      * Display how many Cells per LifeCycleStatus and how many Cells in the whole Population for this Generation.
