@@ -55,11 +55,7 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
 
     static final long serialVersionUID = 242L;
 
-    private final static String TITLE = "Simulated Evolution";
-
-    private final static int EXIT_STATUS = 0;
-
-    private final static String APPLET_POSITION = "Center";
+    private final static int SYSTEM_EXIT_STATUS_OK = 0;
 
     private final static int HEIGHT_OF_TITLE = 30;
 
@@ -108,8 +104,9 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
     private volatile Dimension dimensionSize;
 
     public SimulatedEvolutionTab(ComputerKurzweilProperties computerKurzweilProperties) {
-        super(TITLE);
+        super(computerKurzweilProperties.getSimulatedevolution().getView().getTitle());
         this.computerKurzweilProperties = computerKurzweilProperties;
+        this.simulatedEvolutionParameter = new SimulatedEvolutionParameter();
         this.simulatedEvolutionModel = new SimulatedEvolutionModel(
             computerKurzweilProperties
         );
@@ -123,41 +120,40 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
             this.simulatedEvolutionModel.getSimulatedEvolutionPopulationCensusContainer()
         );
         this.simulatedEvolutionController = new SimulatedEvolutionController(
-            this.simulatedEvolutionModel, this.canvas, this.panelLifeCycle, this.panelCounter, this
+            this.simulatedEvolutionModel,
+            this.canvas,
+            this
         );
         String subTitle =  computerKurzweilProperties.getSimulatedevolution().getView().getSubtitle();
         String copyright =  computerKurzweilProperties.getSimulatedevolution().getView().getCopyright();
         this.subTitleLabel = new JLabel(subTitle, CENTER);
         this.copyrightLabel = new JLabel(copyright, CENTER);
-        this.simulatedEvolutionParameter = new SimulatedEvolutionParameter();
-        this.setLayout(new BorderLayout());
-        this.add(this.subTitleLabel, BorderLayout.NORTH);
-        this.add(this.canvas, BorderLayout.CENTER);
-        this.add(this.panelLifeCycle, BorderLayout.SOUTH);
+        BoxLayout layout = new BoxLayout(rootPane, BoxLayout.PAGE_AXIS);
+        rootPane.setLayout(layout);
+        rootPane.add(subTitleLabel);
+        rootPane.add(canvas);
+        rootPane.add(panelLifeCycle);
+        rootPane.add(new JSeparator());
+        rootPane.add(panelCounter);
         addWindowListener(this);
         pack();
         showMeInit();
     }
 
     public void showMeInit() {
-        pack();
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        double width =  this.simulatedEvolutionModel.getWorldDimensions().getX();
-        double height = this.simulatedEvolutionModel.getWorldDimensions().getY() + 120;
-        double startX = (screenSize.getWidth() - width) / 2d;
-        double startY = (screenSize.getHeight() - height) / 2d;
-        int myheight = Double.valueOf(height).intValue();
-        int mywidth = Double.valueOf(width).intValue();
-        int mystartX = Double.valueOf(startX).intValue();
-        int mystartY = Double.valueOf(startY).intValue();
-        this.rectangleBounds = new Rectangle(mystartX, mystartY, mywidth, myheight);
-        this.dimensionSize = new Dimension(mywidth, myheight);
-        this.setBounds(this.rectangleBounds);
-        this.setSize(this.dimensionSize);
-        this.setPreferredSize(this.dimensionSize);
-        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setVisible(true);
-        toFront();
+        int titleHeight = HEIGHT_OF_TITLE + HEIGHT_OF_STATISTICS;
+        int width = this.simulatedEvolutionModel.getWorldDimensions().getX();
+        int height = this.simulatedEvolutionModel.getWorldDimensions().getY() + titleHeight;
+        double dStartX = (screenSize.getWidth() - width) / 2d;
+        double dStartY = (screenSize.getHeight() - height) / 2d;
+        int iStartX = Double.valueOf(dStartX).intValue();
+        int iStartY = Double.valueOf(dStartY).intValue();
+        int iWidth = Double.valueOf(width).intValue();
+        int iHeight = Double.valueOf(height).intValue();
+        this.rectangleBounds = new Rectangle(iStartX, iStartY, iWidth, iHeight);
+        this.dimensionSize = new Dimension(iWidth, iHeight);
+        showMe();
     }
 
     /**
@@ -165,7 +161,9 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
      */
 
     public void showMe(){
-        setMyBounds();
+        this.setBounds(this.rectangleBounds);
+        this.setSize(this.dimensionSize);
+        this.setPreferredSize(this.dimensionSize);
         setVisible(true);
         toFront();
     }
@@ -178,26 +176,12 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
         showMe();
     }
 
-    private void setMyBounds(){
-        int height = this.simulatedEvolutionModel.getWorldDimensions().getY();
-        int width = this.simulatedEvolutionModel.getWorldDimensions().getX();
-        int TITLE_HEIGHT = HEIGHT_OF_TITLE + HEIGHT_OF_STATISTICS;
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        double startX = (screenSize.getWidth() - height) / 2d;
-        double startY = (screenSize.getHeight() - width) / 2d;
-        int myheight = Double.valueOf(height).intValue() + TITLE_HEIGHT;
-        int mywidth = Double.valueOf(width).intValue();
-        int mystartX = Double.valueOf(startX).intValue();
-        int mystartY = Double.valueOf(startY).intValue();
-        setBounds(mystartX, mystartY, mywidth, myheight);
-    }
-
     public void windowClosing(WindowEvent e) {
-        System.exit(EXIT_STATUS);
+        System.exit(SYSTEM_EXIT_STATUS_OK);
     }
 
     public void windowClosed(WindowEvent e) {
-        System.exit(EXIT_STATUS);
+        System.exit(SYSTEM_EXIT_STATUS_OK);
     }
 
     public void windowIconified(WindowEvent e) {
@@ -215,7 +199,10 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
     public void windowDeactivated(WindowEvent e) {
     }
 
-    public void update(){}
+    public synchronized void update(){
+        this.panelLifeCycle.update();
+        this.panelCounter.update();
+    }
 
     public void actionPerformed(ActionEvent actionEvent) {
 

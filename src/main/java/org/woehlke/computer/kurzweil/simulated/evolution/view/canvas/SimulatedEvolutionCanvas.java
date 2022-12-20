@@ -33,14 +33,18 @@ public class SimulatedEvolutionCanvas extends JComponent {
      * Reference to the Data Model.
      */
     private final SimulatedEvolutionModel tabModel;
+    private final WorldPoint worldDimensions;
 
     private final Color WATER = Color.BLACK;
     private final Color FOOD = Color.GREEN;
 
     public SimulatedEvolutionCanvas(SimulatedEvolutionModel tabModel) {
         this.tabModel = tabModel;
+        this.worldDimensions = this.tabModel.getWorldDimensions();
         this.setBackground(WATER);
-        this.setSize(this.tabModel.getWorldDimensions().getX(), this.tabModel.getWorldDimensions().getY());
+        int x = this.worldDimensions.getX();
+        int y = this.worldDimensions.getY();
+        this.setSize(x,y);
     }
 
     /**
@@ -49,15 +53,15 @@ public class SimulatedEvolutionCanvas extends JComponent {
      */
     public void paint(Graphics g) {
         super.paintComponent(g);
-        int width = this.tabModel.getWorldDimensions().getX();
-        int height = this.tabModel.getWorldDimensions().getY();
+        int xx = this.worldDimensions.getX();
+        int yy = this.worldDimensions.getY();
         //paint water
         g.setColor(WATER);
-        g.fillRect(0,0,width,height);
+        g.fillRect(0,0,xx,yy);
         //paint food
         g.setColor(FOOD);
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
+        for (int y = 0; y < yy; y++) {
+            for (int x = 0; x < xx; x++) {
                 if (tabModel.hasFood(x, y)) {
                     g.drawLine(x,y,x,y);
                 }

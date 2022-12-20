@@ -36,8 +36,6 @@ public class SimulatedEvolutionController extends Thread implements Runnable, Se
      * Canvas, where to paint in the GUI.
      */
     private final SimulatedEvolutionCanvas canvas;
-    private final PopulationStatisticsElementsPanelLifeCycle panelLifeCycle;
-    private final PopulationStatisticsElementsPanelCounted panelCounter;
     private final SimulatedEvolutionTab tab;
 
     /**
@@ -48,51 +46,41 @@ public class SimulatedEvolutionController extends Thread implements Runnable, Se
     /**
      * Control for Threading
      */
-    private Boolean mySemaphore;
+    private boolean doMyJob;
 
     public SimulatedEvolutionController(
         SimulatedEvolutionModel simulatedEvolutionModel,
         SimulatedEvolutionCanvas canvas,
-        PopulationStatisticsElementsPanelLifeCycle panelLifeCycle,
-        PopulationStatisticsElementsPanelCounted panelCounter,
         SimulatedEvolutionTab simulatedEvolutionTab
     ) {
         this.simulatedEvolutionModel = simulatedEvolutionModel;
         this.canvas = canvas;
-        this.panelLifeCycle = panelLifeCycle;
-        this.panelCounter = panelCounter;
         this.tab = simulatedEvolutionTab;
         this.timeToWait = this.tab.getComputerKurzweilProperties().getSimulatedevolution()
             .getControl().getThreadSleepTime();
-        mySemaphore = Boolean.TRUE;
+        doMyJob = Boolean.TRUE;
     }
 
     public void run() {
-        boolean doMyJob;
         do {
-            synchronized (mySemaphore) {
-                doMyJob = mySemaphore.booleanValue();
-            }
-            doMyJob = simulatedEvolutionModel.letLivePopulation();
+            setDoMyJob( simulatedEvolutionModel.letLivePopulation() );
+            tab.update();
             canvas.repaint();
-            panelLifeCycle.update();
-            panelCounter.update();
-            panelLifeCycle.repaint();
-            panelCounter.repaint();
             tab.repaint();
             try {
                 sleep(timeToWait);
-            }
-            catch (InterruptedException e) {
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
         while (doMyJob);
     }
 
-    public void exit() {
-        synchronized (mySemaphore) {
-            mySemaphore = Boolean.FALSE;
-        }
+    public void setDoMyJob( boolean doMyJob ){
+        this.doMyJob = doMyJob;
+    }
+
+    public synchronized void exit() {
+        this.doMyJob = Boolean.FALSE;
     }
 }

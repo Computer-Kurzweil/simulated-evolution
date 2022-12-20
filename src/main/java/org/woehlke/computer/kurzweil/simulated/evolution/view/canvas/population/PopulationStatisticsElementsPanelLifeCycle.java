@@ -68,7 +68,7 @@ public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl imple
         this.borderLabel = this.tab.getComputerKurzweilProperties()
             .getSimulatedevolution().getPopulation().getPanelPopulationStatistics();
         this.layout = new FlowLayoutCenter();
-        this.border = this.getDoubleBorder(this.borderLabel);
+        this.border = this.getDoubleBorder();
         this.setLayout(this.layout);
         this.setBorder(this.border);
         ComputerKurzweilProperties.SimulatedEvolution.Population cfg =
@@ -104,7 +104,7 @@ public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl imple
         wholeGeneration.setText(population.getPopulation());
     }
 
-    private CompoundBorder getDoubleBorder(String label){
+    private CompoundBorder getDoubleBorder(){
         int left = this.getProperties().getAllinone().getView().getBorderPaddingX();
         int right = this.getProperties().getAllinone().getView().getBorderPaddingX();
         int top = this.getProperties().getAllinone().getView().getBorderPaddingY();
