@@ -1,4 +1,4 @@
-package org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.garden;
+package org.woehlke.computer.kurzweil.simulated.evolution.application.tmp.food;
 
 import lombok.Getter;
 import lombok.ToString;
@@ -20,24 +20,26 @@ import java.io.Serializable;
 @Getter
 @ToString(callSuper = true)
 @Deprecated
-public class GardenOfEdenCheckBox extends JCheckBox implements Serializable {
+public class FoodPerDayTextField extends JTextField implements Serializable {
 
     static final long serialVersionUID = 242L;
 
     @ToString.Exclude
     private final SimulatedEvolutionTab tab;
-    private final String gardenOfEdenEnabledString;
-    private final boolean gardenOfEdenEnabledSelected;
+    private final String foodPerDayTextFieldString;
+    private final int foodPerDayTextFieldCols;
 
-    public GardenOfEdenCheckBox(SimulatedEvolutionTab tab) {
+    public FoodPerDayTextField(SimulatedEvolutionTab tab) {
         super(
-            tab.getProperties().getSimulatedevolution().getGardenOfEden().getGardenOfEdenEnabledString(),
-            tab.getProperties().getSimulatedevolution().getGardenOfEden().getGardenOfEdenEnabled()
+            tab.getProperties().getSimulatedevolution().getFood().getFoodPerDay()+"",
+            tab.getProperties().getSimulatedevolution().getFood().getFoodPerDayFieldColumns()
         );
-        this.gardenOfEdenEnabledSelected =
-            tab.getProperties().getSimulatedevolution().getGardenOfEden().getGardenOfEdenEnabled();
-        this.gardenOfEdenEnabledString =
-            tab.getProperties().getSimulatedevolution().getGardenOfEden().getGardenOfEdenEnabledString();
         this.tab = tab;
+        this.foodPerDayTextFieldString = tab.getProperties().getSimulatedevolution().getFood().getFoodPerDay()+"";
+        this.foodPerDayTextFieldCols = tab.getProperties().getSimulatedevolution().getFood().getFoodPerDayFieldColumns();
+    }
+
+    public void setFoodPerDay(int foodPerDay){
+        this.setText(""+foodPerDay);
     }
 }

@@ -1,4 +1,4 @@
-package org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.garden;
+package org.woehlke.computer.kurzweil.simulated.evolution.application.tmp.food;
 
 import lombok.Getter;
 import lombok.ToString;
@@ -6,7 +6,6 @@ import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolutionTab;
 
 import javax.swing.*;
-import java.awt.*;
 import java.io.Serializable;
 
 /**
@@ -21,21 +20,20 @@ import java.io.Serializable;
 @Getter
 @ToString(callSuper = true)
 @Deprecated
-public class GardenOfEdenPanel extends JPanel implements Serializable {
+public class FoodPerDayIncreaseButton extends JButton implements Serializable {
 
     static final long serialVersionUID = 242L;
 
     @ToString.Exclude
     private final SimulatedEvolutionTab tab;
-    private final String gardenOfEdenPanelBorderLabel;
-    //private final CompoundBorder gardenOfEdenPanelBorder;
+    private final String labelFoodPerDayIncrease;
 
-    public GardenOfEdenPanel(SimulatedEvolutionTab tab) {
-        super(new FlowLayout());
+    public FoodPerDayIncreaseButton(SimulatedEvolutionTab tab) {
+        super(
+            tab.getProperties().getSimulatedevolution().getFood().getButtonFoodPerDayIncrease()
+        );
         this.tab = tab;
-        this.gardenOfEdenPanelBorderLabel =
-            tab.getProperties().getSimulatedevolution().getGardenOfEden().getPanelGardenOfEden();
-        //this.gardenOfEdenPanelBorder = this.tabCtx.getCtx().getBorder(gardenOfEdenPanelBorderLabel);
-        //this.setBorder(gardenOfEdenPanelBorder);
+        this.labelFoodPerDayIncrease =
+            tab.getProperties().getSimulatedevolution().getFood().getButtonFoodPerDayIncrease();
     }
 }

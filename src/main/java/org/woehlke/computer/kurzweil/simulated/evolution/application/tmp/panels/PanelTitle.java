@@ -1,4 +1,4 @@
-package org.woehlke.computer.kurzweil.simulated.evolution.application.panels;
+package org.woehlke.computer.kurzweil.simulated.evolution.application.tmp.panels;
 
 
 import lombok.EqualsAndHashCode;

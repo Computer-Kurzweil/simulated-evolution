@@ -1,4 +1,4 @@
-package org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.garden;
+package org.woehlke.computer.kurzweil.simulated.evolution.application.tmp.food;
 
 import lombok.Getter;
 import lombok.ToString;
@@ -20,22 +20,20 @@ import java.io.Serializable;
 @Getter
 @ToString(callSuper = true)
 @Deprecated
-public class GardenOfEdenToggleButton extends JToggleButton implements Serializable {
+public class FoodPerDayLabel extends JLabel implements Serializable {
 
     static final long serialVersionUID = 242L;
 
     @ToString.Exclude
     private final SimulatedEvolutionTab tab;
-    private final String buttonToggleGardenOfEdenString;
+    private final String foodPerDayLabelString;
 
-    public GardenOfEdenToggleButton(SimulatedEvolutionTab tab) {
+    public FoodPerDayLabel(SimulatedEvolutionTab tab) {
         super(
-            tab.getProperties().getSimulatedevolution()
-                .getGardenOfEden().getGardenOfEdenEnabledToggleButton()
+            tab.getProperties().getSimulatedevolution().getFood().getFoodPerDayLabel()
         );
         this.tab = tab;
-        this.buttonToggleGardenOfEdenString =
-            tab.getProperties().getSimulatedevolution()
-                .getGardenOfEden().getGardenOfEdenEnabledToggleButton();
+        this.foodPerDayLabelString =
+            tab.getProperties().getSimulatedevolution().getFood().getFoodPerDayLabel();
     }
 }

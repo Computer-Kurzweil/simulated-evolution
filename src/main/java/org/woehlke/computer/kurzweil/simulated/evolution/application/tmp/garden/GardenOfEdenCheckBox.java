@@ -1,4 +1,4 @@
-package org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.food;
+package org.woehlke.computer.kurzweil.simulated.evolution.application.tmp.garden;
 
 import lombok.Getter;
 import lombok.ToString;
@@ -20,20 +20,24 @@ import java.io.Serializable;
 @Getter
 @ToString(callSuper = true)
 @Deprecated
-public class FoodPerDayIncreaseButton extends JButton implements Serializable {
+public class GardenOfEdenCheckBox extends JCheckBox implements Serializable {
 
     static final long serialVersionUID = 242L;
 
     @ToString.Exclude
     private final SimulatedEvolutionTab tab;
-    private final String labelFoodPerDayIncrease;
+    private final String gardenOfEdenEnabledString;
+    private final boolean gardenOfEdenEnabledSelected;
 
-    public FoodPerDayIncreaseButton(SimulatedEvolutionTab tab) {
+    public GardenOfEdenCheckBox(SimulatedEvolutionTab tab) {
         super(
-            tab.getProperties().getSimulatedevolution().getFood().getButtonFoodPerDayIncrease()
+            tab.getProperties().getSimulatedevolution().getGardenOfEden().getGardenOfEdenEnabledString(),
+            tab.getProperties().getSimulatedevolution().getGardenOfEden().getGardenOfEdenEnabled()
         );
+        this.gardenOfEdenEnabledSelected =
+            tab.getProperties().getSimulatedevolution().getGardenOfEden().getGardenOfEdenEnabled();
+        this.gardenOfEdenEnabledString =
+            tab.getProperties().getSimulatedevolution().getGardenOfEden().getGardenOfEdenEnabledString();
         this.tab = tab;
-        this.labelFoodPerDayIncrease =
-            tab.getProperties().getSimulatedevolution().getFood().getButtonFoodPerDayIncrease();
     }
 }

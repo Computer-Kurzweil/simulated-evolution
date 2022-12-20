@@ -1,4 +1,4 @@
-package org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.food;
+package org.woehlke.computer.kurzweil.simulated.evolution.application.tmp.food;
 
 import lombok.Getter;
 import lombok.ToString;
@@ -20,20 +20,20 @@ import java.io.Serializable;
 @Getter
 @ToString(callSuper = true)
 @Deprecated
-public class FoodPerDayLabel extends JLabel implements Serializable {
+public class FoodPerDayDecreaseButton extends JButton implements Serializable {
 
     static final long serialVersionUID = 242L;
 
     @ToString.Exclude
     private final SimulatedEvolutionTab tab;
-    private final String foodPerDayLabelString;
+    private final String labelFoodPerDayDecrease;
 
-    public FoodPerDayLabel(SimulatedEvolutionTab tab) {
+    public FoodPerDayDecreaseButton(SimulatedEvolutionTab tab) {
         super(
-            tab.getProperties().getSimulatedevolution().getFood().getFoodPerDayLabel()
+            tab.getProperties().getSimulatedevolution().getFood().getButtonFoodPerDayDecrease()
         );
         this.tab = tab;
-        this.foodPerDayLabelString =
-            tab.getProperties().getSimulatedevolution().getFood().getFoodPerDayLabel();
+        this.labelFoodPerDayDecrease =
+            tab.getProperties().getSimulatedevolution().getFood().getButtonFoodPerDayDecrease();
     }
 }
