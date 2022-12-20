@@ -27,13 +27,11 @@ public class CensusPanel extends JPanel {
             tab
         );
         this.panelCounter = new PopulationStatisticsElementsPanelCounted(
-            tab,
-            tab.getModel().getSimulatedEvolutionPopulationCensusContainer()
+            tab
         );
         BoxLayout layout = new BoxLayout(this, BoxLayout.PAGE_AXIS);
         this.setLayout(layout);
         this.add(this.panelLifeCycle);
-        //this.add(new JSeparator());
         this.add(this.panelCounter);
     }
 

@@ -11,8 +11,6 @@ import org.woehlke.computer.kurzweil.simulated.evolution.view.widgets.layouts.Fl
 import org.woehlke.computer.kurzweil.simulated.evolution.view.widgets.tabs.SubTabImpl;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.census.SimulatedEvolutionPopulationCensus;
 
-import javax.swing.*;
-import javax.swing.border.CompoundBorder;
 import java.awt.*;
 import java.io.Serializable;
 
@@ -30,8 +28,8 @@ import static org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeC
  */
 @Log4j2
 @Getter
-@ToString(callSuper = true,exclude = {"container","border","layout","layoutSubPanel"})
-@EqualsAndHashCode(callSuper=true,exclude = {"container","border","layout","layoutSubPanel"})
+@ToString(callSuper = true,exclude = {"container"})
+@EqualsAndHashCode(callSuper=true,exclude = {"container"})
 public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl implements Serializable {
 
     static final long serialVersionUID = 242L;
@@ -61,14 +59,8 @@ public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl imple
         FlowLayout layoutSubPanel = new FlowLayout();
         this.setLayout(layoutSubPanel);
         //this.borderLabel = tab.getProperties().getSimulatedevolution().getPopulation().getPanelPopulationStatistics();
-
-        @Deprecated
         FlowLayoutCenter layout = new FlowLayoutCenter();
-        @Deprecated
-        CompoundBorder border = this.getDoubleBorder();
         this.setLayout(layout);
-        this.setBorder(border);
-
         ComputerKurzweilProperties.SimulatedEvolution.Population cfg =
             tab.getProperties().getSimulatedevolution().getPopulation();
         String youngCellsLabel = cfg.getYoungCellsLabel();
@@ -92,7 +84,7 @@ public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl imple
         update();
     }
 
-    public void update() {
+    public synchronized void update(){
         SimulatedEvolutionPopulationCensus population = this.container.peek();
         youngCellsElement.setText(population.getYoungCells());
         youngAndFatCellsElement.setText(population.getYoungAndFatCells());
@@ -102,15 +94,4 @@ public class PopulationStatisticsElementsPanelLifeCycle extends SubTabImpl imple
         wholeGeneration.setText(population.getPopulation());
     }
 
-    @Deprecated
-    private CompoundBorder getDoubleBorder(){
-        int left = this.getProperties().getAllinone().getView().getBorderPaddingX();
-        int right = this.getProperties().getAllinone().getView().getBorderPaddingX();
-        int top = this.getProperties().getAllinone().getView().getBorderPaddingY();
-        int bottom = this.getProperties().getAllinone().getView().getBorderPaddingY();
-        return BorderFactory.createCompoundBorder(
-            BorderFactory.createEmptyBorder(left,right,top,bottom),
-            BorderFactory.createEmptyBorder(left,right,top,bottom)
-        );
-    }
 }

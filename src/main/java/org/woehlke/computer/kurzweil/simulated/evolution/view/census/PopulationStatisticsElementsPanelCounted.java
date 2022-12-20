@@ -12,9 +12,6 @@ import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolution
 import org.woehlke.computer.kurzweil.simulated.evolution.view.widgets.layouts.FlowLayoutCenter;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.widgets.tabs.SubTabImpl;
 
-import javax.swing.*;
-import javax.swing.border.CompoundBorder;
-import java.awt.*;
 import java.io.Serializable;
 
 import static org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeCycleStatus.GENERATION;
@@ -30,8 +27,8 @@ import static org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeC
  */
 @Log4j2
 @Getter
-@ToString(callSuper = true,exclude = {"tab","simulatedEvolutionPopulationCensusContainer"})
-@EqualsAndHashCode(callSuper=true,exclude = {"tab","simulatedEvolutionPopulationCensusContainer"})
+@ToString(callSuper = true,exclude = {"tab","container"})
+@EqualsAndHashCode(callSuper=true,exclude = {"tab","container"})
 public class PopulationStatisticsElementsPanelCounted extends SubTabImpl implements Serializable {
 
     static final long serialVersionUID = 242L;
@@ -40,28 +37,19 @@ public class PopulationStatisticsElementsPanelCounted extends SubTabImpl impleme
     private final PopulationStatisticsElement generationYoungest;
     private final PopulationStatisticsElement generationOldest;
 
-    private final SimulatedEvolutionTab tab;
-    private final SimulatedEvolutionPopulationCensusContainer simulatedEvolutionPopulationCensusContainer;
+    //private final SimulatedEvolutionTab tab;
+    private final SimulatedEvolutionPopulationCensusContainer container;
 
     @Deprecated
-    public PopulationStatisticsElementsPanelCounted(
-        SimulatedEvolutionTab tab,
-        SimulatedEvolutionPopulationCensusContainer simulatedEvolutionPopulationCensusContainer
-    ) {
+    public PopulationStatisticsElementsPanelCounted(SimulatedEvolutionTab tab) {
         super(
             tab.getProperties().getSimulatedevolution().getPopulation().getPanelPopulationStatistics(),
             tab.getProperties()
         );
-        this.tab = tab;
-        this.simulatedEvolutionPopulationCensusContainer = simulatedEvolutionPopulationCensusContainer;
-        FlowLayout layoutSubPanel = new FlowLayout();
-        this.setLayout(layoutSubPanel);
-        String borderLabel = tab.getProperties().getSimulatedevolution()
-            .getPopulation().getPanelPopulationStatistics();
+        //this.tab = tab;
+        this.container = tab.getModel().getSimulatedEvolutionPopulationCensusContainer();
         FlowLayoutCenter layout = new FlowLayoutCenter();
-        CompoundBorder border =this.getDoubleBorder();
         this.setLayout(layout);
-        this.setBorder(border);
         ComputerKurzweilProperties.SimulatedEvolution.Population cfg =
             tab.getProperties().getSimulatedevolution().getPopulation();
         String worldIterationLabel = cfg.getPopulationLabel();
@@ -76,24 +64,11 @@ public class PopulationStatisticsElementsPanelCounted extends SubTabImpl impleme
         update();
     }
 
-
-    @Deprecated
-    public void update() {
-        SimulatedEvolutionPopulationCensus population = this.simulatedEvolutionPopulationCensusContainer.peek();
-        worldIteration.setText(population.getPopulation());
-        generationOldest.setText(population.getGenerationOldest());
-        generationYoungest.setText(population.getGenerationYoungest());
+    public synchronized void update(){
+        SimulatedEvolutionPopulationCensus census = this.container.peek();
+        worldIteration.setText(census.getWorldIteration());
+        generationOldest.setText(census.getGenerationOldest());
+        generationYoungest.setText(census.getGenerationYoungest());
     }
 
-    @Deprecated
-    private CompoundBorder getDoubleBorder(){
-        int top = this.getProperties().getAllinone().getView().getBorderPaddingY();
-        int left = this.getProperties().getAllinone().getView().getBorderPaddingX();
-        int bottom = this.getProperties().getAllinone().getView().getBorderPaddingY();
-        int right = this.getProperties().getAllinone().getView().getBorderPaddingX();
-        return BorderFactory.createCompoundBorder(
-            BorderFactory.createEmptyBorder(top, left, bottom, right),
-            BorderFactory.createEmptyBorder(top, left, bottom, right)
-        );
-    }
 }
