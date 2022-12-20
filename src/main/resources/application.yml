@@ -32,8 +32,8 @@ simulatedevolution:
     width: 320
     height: 234
     scale: 3
-    heightOfTitle: 30
-    heightOfStatistics: 60
+    heightOfTitle: 40
+    heightOfStatistics: 80
   control:
     threadSleepTime: 100
     exitStatus: 0
@@ -56,7 +56,7 @@ simulatedevolution:
     hungryCellsLabel: 'hungry'
     oldCellsLabel: 'old'
     populationLabel: 'all'
-    worldIterationLabel: "world"
+    worldIterationLabel: "world age"
     generationOldestLabel: 'oldest Generation'
     generationYoungestLabel: 'youngest Generation'
   food:

@@ -48,8 +48,8 @@ public class PopulationStatisticsElementsPanelCounted extends JPanel implements 
         String generationOldestLabel = cfg.getGenerationOldestLabel();
         String generationYoungestLabel = cfg.getGenerationYoungestLabel();
         worldIteration = new PopulationStatisticsElement(worldIterationLabel, POPULATION,8);
-        generationOldest = new PopulationStatisticsElement(generationOldestLabel, POPULATION,8);
-        generationYoungest = new PopulationStatisticsElement(generationYoungestLabel, POPULATION,8);
+        generationOldest = new PopulationStatisticsElement(generationOldestLabel, POPULATION,4);
+        generationYoungest = new PopulationStatisticsElement(generationYoungestLabel, POPULATION,4);
         this.add(worldIteration);
         this.add(generationOldest);
         this.add(generationYoungest);
