@@ -14,8 +14,7 @@ import org.woehlke.computer.kurzweil.simulated.evolution.application.tabs.SubTab
 
 import java.io.Serializable;
 
-import static org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeCycleStatus.GENERATION;
-
+import static org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeCycleStatus.POPULATION;
 
 /**
  * &copy; 2006 - 2008 Thomas Woehlke.
@@ -52,9 +51,9 @@ public class PopulationStatisticsElementsPanelCounted extends SubTabImpl impleme
         String worldIterationLabel = cfg.getWorldIterationLabel();
         String generationOldestLabel = cfg.getGenerationOldestLabel();
         String generationYoungestLabel = cfg.getGenerationYoungestLabel();
-        worldIteration = new PopulationStatisticsElement(worldIterationLabel, GENERATION,8);
-        generationOldest = new PopulationStatisticsElement(generationOldestLabel, GENERATION,8);
-        generationYoungest = new PopulationStatisticsElement(generationYoungestLabel, GENERATION,8);
+        worldIteration = new PopulationStatisticsElement(worldIterationLabel, POPULATION,8);
+        generationOldest = new PopulationStatisticsElement(generationOldestLabel, POPULATION,8);
+        generationYoungest = new PopulationStatisticsElement(generationYoungestLabel, POPULATION,8);
         this.add(worldIteration);
         this.add(generationOldest);
         this.add(generationYoungest);

@@ -25,7 +25,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class SimulatedEvolutionPopulationCensus implements Serializable {
 
-    private static final long serialVersionUID = 242L;
+    static final long serialVersionUID = 242L;
 
     private int youngCells;
     private int youngAndFatCells;
@@ -34,14 +34,12 @@ public class SimulatedEvolutionPopulationCensus implements Serializable {
     private int oldCells;
     private int deadCells;
     private int population;
+
+    private long worldIteration;
     private long generationYoungest;
     private long generationOldest;
-    private long worldIteration;
 
-    /**
-     * TODO write doc.
-     */
-    public void countStatusOfOneCell(LifeCycleStatus status) {
+    public void countStatusOfOneCell(LifeCycleStatus status, long generation) {
         population++;
         switch (status) {
             case YOUNG -> youngCells++;
@@ -51,15 +49,10 @@ public class SimulatedEvolutionPopulationCensus implements Serializable {
             case OLD -> oldCells++;
             case DEAD -> deadCells++;
         }
-    }
-
-    public void countGeneration(long generation) {
-        if (generation < generationOldest) {
-            generationOldest = generation;
-        }
         if (generation > generationYoungest) {
             generationYoungest = generation;
+        } else {
+            generationOldest = generation;
         }
     }
-
 }

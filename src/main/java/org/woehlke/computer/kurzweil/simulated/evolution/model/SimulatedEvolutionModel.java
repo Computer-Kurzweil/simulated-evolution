@@ -116,7 +116,7 @@ public class SimulatedEvolutionModel implements Serializable {
             LatticePoint pos = new LatticePoint(x, y);
             Cell cell = new Cell(worldDimensions, pos, random);
             cells.add(cell);
-            populationCensus.countStatusOfOneCell(cell.getLifeCycleStatus());
+            populationCensus.countStatusOfOneCell(cell.getLifeCycleStatus(), cell.getGeneration());
         }
         this.censusContainer.push(populationCensus);
     }
@@ -150,8 +150,7 @@ public class SimulatedEvolutionModel implements Serializable {
         }
         cells.addAll(children);
         for (Cell cell:cells) {
-            populationCensus.countStatusOfOneCell(cell.getLifeCycleStatus());
-            populationCensus.countGeneration(cell.getGeneration());
+            populationCensus.countStatusOfOneCell(cell.getLifeCycleStatus(),cell.getGeneration());
         }
         this.censusContainer.push(populationCensus);
         return ! cells.isEmpty();

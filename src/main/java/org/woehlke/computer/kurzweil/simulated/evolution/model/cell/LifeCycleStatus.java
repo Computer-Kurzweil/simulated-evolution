@@ -36,8 +36,7 @@ public enum LifeCycleStatus implements Serializable {
     HUNGRY(LIGHT_GRAY, BLACK),
     OLD(DARK_GRAY, WHITE),
     DEAD(BLACK, WHITE),
-    POPULATION(WHITE, BLACK),
-    GENERATION(BLACK, WHITE);
+    POPULATION(WHITE, BLACK);
 
     private final Color colorBackground;
     private final Color colorFont;
