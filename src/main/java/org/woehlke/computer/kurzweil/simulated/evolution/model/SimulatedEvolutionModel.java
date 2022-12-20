@@ -9,10 +9,13 @@ import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweil
 import org.woehlke.computer.kurzweil.simulated.evolution.model.cell.Cell;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.census.SimulatedEvolutionPopulationCensus;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.census.SimulatedEvolutionPopulationCensusContainer;
+import org.woehlke.computer.kurzweil.simulated.evolution.model.lattice.LatticePoint;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.world.SimulatedEvolutionParameter;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.lattice.SimulatedEvolutionWorldLattice;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.world.WorldPoint;
 
+
+import java.awt.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -63,7 +66,7 @@ public class SimulatedEvolutionModel implements Serializable {
      * Definition of the World's Size in Pixel Width and Height.
      */
     @Getter
-    private final WorldPoint worldDimensions;
+    private final LatticePoint worldDimensions;
 
     /**
      * Map of the World monitoring growth and eating food.
@@ -84,7 +87,7 @@ public class SimulatedEvolutionModel implements Serializable {
         int scale = this.computerKurzweilProperties.getSimulatedevolution().getView().getScale();
         int width = scale * this.computerKurzweilProperties.getSimulatedevolution().getView().getWidth();
         int height = scale * this.computerKurzweilProperties.getSimulatedevolution().getView().getHeight();
-        this.worldDimensions = new WorldPoint(width,height);
+        this.worldDimensions = new LatticePoint(width,height);
         long seed = new Date().getTime();
         this.random = new Random(seed);
         this.simulatedEvolutionWorldLattice = new SimulatedEvolutionWorldLattice(
@@ -112,7 +115,7 @@ public class SimulatedEvolutionModel implements Serializable {
             if (y < 0) {
                 y *= -1;
             }
-            WorldPoint pos = new WorldPoint(x, y);
+            LatticePoint pos = new LatticePoint(x, y);
             Cell cell = new Cell(worldDimensions, pos, random);
             cells.add(cell);
             populationCensus.countStatusOfOneCell(cell.getLifeCycleStatus());
@@ -127,7 +130,7 @@ public class SimulatedEvolutionModel implements Serializable {
     public boolean letLivePopulation() {
         SimulatedEvolutionPopulationCensus populationCensus = new SimulatedEvolutionPopulationCensus();
         simulatedEvolutionWorldLattice.letFoodGrow();
-        WorldPoint pos;
+        LatticePoint pos;
         List<Cell> children = new ArrayList<Cell>();
         List<Cell> died = new ArrayList<Cell>();
         for (Cell cell:cells) {

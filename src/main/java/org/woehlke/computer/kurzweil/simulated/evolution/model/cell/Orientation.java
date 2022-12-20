@@ -1,6 +1,7 @@
 package org.woehlke.computer.kurzweil.simulated.evolution.model.cell;
 
 import lombok.extern.log4j.Log4j2;
+import org.woehlke.computer.kurzweil.simulated.evolution.model.lattice.LatticePoint;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.world.WorldPoint;
 
 import java.io.Serializable;
@@ -28,13 +29,13 @@ public enum Orientation implements Serializable {
     SOFT_LEFT(-2, -1),
     HARD_LEFT(-2, 1);
 
-    private final WorldPoint move;
+    private final LatticePoint move;
 
     Orientation(final int x,final int y){
-        move = new WorldPoint(x,y);
+        move = new LatticePoint(x,y);
     }
 
-    public WorldPoint getMove() {
+    public LatticePoint getMove() {
         return move;
     }
 

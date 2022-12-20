@@ -21,6 +21,7 @@ import java.io.Serializable;
 @Getter
 @ToString
 //TODO rename to AbstractPanel, see also to TabPanel
+@Deprecated
 public abstract class SubTabImpl extends JPanel implements Serializable {
 
     static final long serialVersionUID = 242L;

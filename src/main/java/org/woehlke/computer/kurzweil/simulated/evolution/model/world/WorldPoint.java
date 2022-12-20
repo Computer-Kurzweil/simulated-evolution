@@ -3,6 +3,7 @@ package org.woehlke.computer.kurzweil.simulated.evolution.model.world;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
+import org.woehlke.computer.kurzweil.simulated.evolution.model.lattice.LatticePoint;
 
 import java.io.Serializable;
 
@@ -87,7 +88,7 @@ public class WorldPoint implements Serializable {
      * @param max - limit the dimensions of the world around
      * @return The Set of Points belonging to the Neighbourhood of the position given by this Point Object.
      */
-    public WorldPoint[] getNeighbourhood(WorldPoint max){
+    public WorldPoint[] getNeighbourhood(LatticePoint max){
         WorldPoint neighbourhood[] = new WorldPoint[9];
         int maxX = max.getX();
         int maxY = max.getY();

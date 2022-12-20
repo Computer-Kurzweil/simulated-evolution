@@ -21,9 +21,10 @@ import java.io.Serializable;
 @Log4j2
 @ToString
 @EqualsAndHashCode(callSuper=true)
+@Deprecated
 public class PanelSubtitle extends JPanel implements Serializable {
 
-    private static final long serialVersionUID = 242L;
+    static final long serialVersionUID = 242L;
 
     public PanelSubtitle(String text) {
         this.setLayout(new FlowLayoutCenter());

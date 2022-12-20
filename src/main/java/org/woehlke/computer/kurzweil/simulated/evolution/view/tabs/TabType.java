@@ -13,6 +13,7 @@ import java.awt.event.KeyEvent;
  * @see <a href="https://java.woehlke.org/simulated-evolution/">Maven Project Repository</a>
  */
 @Getter
+@Deprecated
 public enum TabType {
 
     CYCLIC_CELLULAR_AUTOMATON(

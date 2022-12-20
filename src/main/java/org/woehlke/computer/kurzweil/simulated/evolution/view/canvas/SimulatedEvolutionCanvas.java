@@ -3,6 +3,7 @@ package org.woehlke.computer.kurzweil.simulated.evolution.view.canvas;
 import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.cell.Cell;
+import org.woehlke.computer.kurzweil.simulated.evolution.model.lattice.LatticePoint;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.world.WorldPoint;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.SimulatedEvolutionModel;
 
@@ -33,7 +34,7 @@ public class SimulatedEvolutionCanvas extends JComponent {
      * Reference to the Data Model.
      */
     private final SimulatedEvolutionModel tabModel;
-    private final WorldPoint worldDimensions;
+    private final LatticePoint worldDimensions;
 
     private final Color WATER = Color.BLACK;
     private final Color FOOD = Color.GREEN;
@@ -45,6 +46,7 @@ public class SimulatedEvolutionCanvas extends JComponent {
         int x = this.worldDimensions.getX();
         int y = this.worldDimensions.getY();
         this.setSize(x,y);
+        this.setVisible(true);
     }
 
     /**
@@ -69,9 +71,9 @@ public class SimulatedEvolutionCanvas extends JComponent {
         }
         //paint all Cells
         for (Cell p:tabModel.getAllCells()) {
-            WorldPoint[] square = p.getPosition().getNeighbourhood(this.tabModel.getWorldDimensions());
+            LatticePoint[] square = p.getPosition().getNeighbourhood(this.tabModel.getWorldDimensions());
             g.setColor(p.getLifeCycleStatus().getColor());
-            for(WorldPoint pixel:square){
+            for(LatticePoint pixel:square){
                 g.drawLine(pixel.getX(),pixel.getY(),pixel.getX(),pixel.getY());
             }
         }

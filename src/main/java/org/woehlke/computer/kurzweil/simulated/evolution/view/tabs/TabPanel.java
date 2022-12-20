@@ -22,6 +22,7 @@ import java.io.Serializable;
 @Getter
 @ToString
 @EqualsAndHashCode(callSuper=false)
+@Deprecated
 public abstract class TabPanel extends JPanel implements ActionListener, Serializable {
     static final long serialVersionUID = 242L;
 }

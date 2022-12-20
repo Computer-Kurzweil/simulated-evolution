@@ -3,6 +3,7 @@ package org.woehlke.computer.kurzweil.simulated.evolution.model.cell;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
+import org.woehlke.computer.kurzweil.simulated.evolution.model.lattice.LatticePoint;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.world.WorldPoint;
 
 import java.io.Serializable;
@@ -38,7 +39,7 @@ public class Cell implements Serializable {
     /**
      * The Cell's state is position, orientation and LifeCycle
      */
-    private WorldPoint position;
+    private LatticePoint position;
 
     /**
      * The Cell's state is position, orientation and LifeCycle
@@ -53,16 +54,16 @@ public class Cell implements Serializable {
     /**
      * The World Dimensions in which this Cell can move.
      */
-    private WorldPoint max;
+    private LatticePoint max;
 
     /**
      * Random Generator is set from outside by Constructor.
      */
     private Random random;
 
-    public Cell(WorldPoint max, WorldPoint position, Random random) {
-        this.max = new WorldPoint(max);
-        this.position = new WorldPoint(position);
+    public Cell(LatticePoint max, LatticePoint position, Random random) {
+        this.max = new LatticePoint(max);
+        this.position = new LatticePoint(position);
         this.random = random;
         this.cellCore = new CellCore(random);
         this.max.killNagative();
@@ -73,10 +74,10 @@ public class Cell implements Serializable {
         this.lifeCycle = new LifeCycle();
     }
 
-    private Cell(int fat, CellCore rna, WorldPoint position, WorldPoint max, Random random) {
+    private Cell(int fat, CellCore rna, LatticePoint position, LatticePoint max, Random random) {
         lifeCycle = new LifeCycle(fat);
-        this.max = new WorldPoint(max);
-        this.position = new WorldPoint(position);
+        this.max = new LatticePoint(max);
+        this.position = new LatticePoint(position);
         this.random = random;
         this.cellCore = rna;
         orientation = getRandomOrientation();
@@ -128,7 +129,7 @@ public class Cell implements Serializable {
     /**
      * @return The new Position after the last move.
      */
-    public WorldPoint getPosition() {
+    public LatticePoint getPosition() {
         return position;
     }
 

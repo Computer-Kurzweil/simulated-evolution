@@ -6,6 +6,7 @@ import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeCycle;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.world.WorldPoint;
 
+import java.awt.*;
 import java.io.Serializable;
 import java.util.Random;
 
@@ -53,9 +54,9 @@ public class SimulatedEvolutionWorldLattice implements Serializable {
     /**
      * Dimension for the Grid inside the WorldMapFood which is the Same as in World Data Model and in the View.
      */
-    private WorldPoint dimensions;
+    private LatticePoint dimensions;
 
-    public SimulatedEvolutionWorldLattice(WorldPoint dimensions, Random random){
+    public SimulatedEvolutionWorldLattice(LatticePoint dimensions, Random random){
         this.dimensions=dimensions;
         worldMapFood = new int[this.dimensions.getX()][this.dimensions.getY()];
         this.random=random;
@@ -109,10 +110,10 @@ public class SimulatedEvolutionWorldLattice implements Serializable {
      * @param position where is the food and the eating cell
      * @return the engergy of the food, will be added to cell's fat.
      */
-    public int eat(WorldPoint position) {
-        WorldPoint neighbourhood[] = position.getNeighbourhood(this.dimensions);
+    public int eat(LatticePoint position) {
+        LatticePoint neighbourhood[] = position.getNeighbourhood(this.dimensions);
         int food=0;
-        for (WorldPoint neighbourhoodPosition:neighbourhood){
+        for (LatticePoint neighbourhoodPosition:neighbourhood){
             food += worldMapFood[neighbourhoodPosition.getX()][neighbourhoodPosition.getY()];
             worldMapFood[neighbourhoodPosition.getX()][neighbourhoodPosition.getY()]=0;
         }

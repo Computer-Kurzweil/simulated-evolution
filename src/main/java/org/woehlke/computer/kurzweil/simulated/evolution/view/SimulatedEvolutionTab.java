@@ -7,8 +7,8 @@ import org.woehlke.computer.kurzweil.simulated.evolution.control.SimulatedEvolut
 import org.woehlke.computer.kurzweil.simulated.evolution.model.SimulatedEvolutionModel;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.world.SimulatedEvolutionParameter;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.SimulatedEvolutionCanvas;
-import org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.population.PopulationStatisticsElementsPanelCounted;
-import org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.population.PopulationStatisticsElementsPanelLifeCycle;
+import org.woehlke.computer.kurzweil.simulated.evolution.view.population.PopulationStatisticsElementsPanelCounted;
+import org.woehlke.computer.kurzweil.simulated.evolution.view.population.PopulationStatisticsElementsPanelLifeCycle;
 
 import javax.accessibility.Accessible;
 import javax.swing.*;
@@ -128,23 +128,25 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
         String copyright =  computerKurzweilProperties.getSimulatedevolution().getView().getCopyright();
         this.subTitleLabel = new JLabel(subTitle, CENTER);
         this.copyrightLabel = new JLabel(copyright, CENTER);
+        JSeparator line = new JSeparator();
         BoxLayout layout = new BoxLayout(rootPane, BoxLayout.PAGE_AXIS);
         rootPane.setLayout(layout);
         rootPane.add(subTitleLabel);
         rootPane.add(canvas);
         rootPane.add(panelLifeCycle);
-        rootPane.add(new JSeparator());
+        rootPane.add(line);
         rootPane.add(panelCounter);
         addWindowListener(this);
-        pack();
         showMeInit();
     }
 
     public void showMeInit() {
+        pack();
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        int titleHeight = HEIGHT_OF_TITLE + HEIGHT_OF_STATISTICS;
-        int width = this.simulatedEvolutionModel.getWorldDimensions().getX();
-        int height = this.simulatedEvolutionModel.getWorldDimensions().getY() + titleHeight;
+        //int titleHeight = HEIGHT_OF_TITLE + HEIGHT_OF_STATISTICS;
+        int width = this.rootPane.getWidth();
+        int height  = this.canvas.getHeight();
+        //int height  = this.canvas.getHeight() + titleHeight;
         double dStartX = (screenSize.getWidth() - width) / 2d;
         double dStartY = (screenSize.getHeight() - height) / 2d;
         int iStartX = Double.valueOf(dStartX).intValue();

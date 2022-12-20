@@ -19,9 +19,10 @@ import java.io.Serializable;
  */
 @Log4j2
 @ToString(exclude={"startButton","stopButton"})
+@Deprecated
 public class PanelStartStopButtons extends SubTabImpl implements Serializable {
 
-    private static final long serialVersionUID = 242L;
+    static final long serialVersionUID = 242L;
 
     private final String labelStart;
     private final String labelStop;

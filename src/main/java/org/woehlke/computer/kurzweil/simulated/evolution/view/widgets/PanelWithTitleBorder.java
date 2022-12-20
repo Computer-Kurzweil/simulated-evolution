@@ -19,9 +19,10 @@ import java.io.Serializable;
  */
 @Log4j2
 @Getter
+@Deprecated
 public class PanelWithTitleBorder extends JPanel implements Serializable {
 
-    private static final long serialVersionUID = 242L;
+    static final long serialVersionUID = 242L;
 
     private final FlowLayoutCenter panelStartStopButtonsLayout;
     private final CompoundBorder panelStartStopButtonsBorder;
