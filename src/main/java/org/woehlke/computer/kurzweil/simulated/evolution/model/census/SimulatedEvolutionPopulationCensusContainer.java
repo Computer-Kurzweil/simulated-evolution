@@ -7,8 +7,6 @@ import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweilProperties;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Stack;
 
 /**
@@ -64,8 +62,12 @@ public class SimulatedEvolutionPopulationCensusContainer implements Serializable
         return this.currentPopulationCensus;
     }
 
-    public SimulatedEvolutionPopulationCensus[] getData(){
+    public synchronized SimulatedEvolutionPopulationCensus[] getData(){
         SimulatedEvolutionPopulationCensus[] data = new SimulatedEvolutionPopulationCensus[statistics.size()];
-        return this.statistics.toArray(data);
+        data = this.statistics.toArray(data);
+        for(SimulatedEvolutionPopulationCensus d:data){
+            System.out.println(d.getPopulation());
+        }
+        return data;
     }
 }

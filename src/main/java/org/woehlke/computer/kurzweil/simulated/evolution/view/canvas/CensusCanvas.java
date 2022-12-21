@@ -67,7 +67,7 @@ public class CensusCanvas extends JComponent implements Serializable {
         int width = this.worldDimensions.getWidth();
         int height = this.worldDimensions.getHeight();
         //paint background
-        g.setColor(PAPER);
+        g.setColor(POPULATION.getColorBackground());
         g.fillRect(x,y,width,height);
         //paint data graph
         int xx = 0;
@@ -75,7 +75,7 @@ public class CensusCanvas extends JComponent implements Serializable {
         for(SimulatedEvolutionPopulationCensus o:this.container.getData()){
             xx++;
             yy = o.getPopulation();
-            g.setColor(POPULATION.getColorBackground());
+            g.setColor(POPULATION.getColor());
             g.drawLine(xx,yy,xx,yy);
         }
         /*
