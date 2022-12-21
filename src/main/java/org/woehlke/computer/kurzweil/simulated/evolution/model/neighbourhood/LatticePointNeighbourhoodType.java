@@ -13,14 +13,25 @@ package org.woehlke.computer.kurzweil.simulated.evolution.model.neighbourhood;
 public enum LatticePointNeighbourhoodType {
 
     /**
+     * | |#| |
+     * |#|*|#|
+     * | |#| |
      * @see <a href="https://en.wikipedia.org/wiki/Von_Neumann_neighborhood">wikipedia: Von_Neumann_neighborhood</a>
      */
     VON_NEUMANN_NEIGHBORHOOD,
 
     /**
+      * |#|#|#|
+      * |#|*|#|
+      * |#|#|#|
      * @see <a href="https://en.wikipedia.org/wiki/Moore_neighborhood">wikipedia: Moore_neighborhood</a>
      */
     MOORE_NEIGHBORHOOD,
 
+    /**
+     * |#| | |
+     * |#|*|#|
+     * |#|#|#|
+     */
     WOEHLKE_NEIGHBORHOOD;
 }
