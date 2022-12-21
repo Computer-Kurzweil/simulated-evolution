@@ -38,7 +38,7 @@ simulatedevolution:
   control:
     threadSleepTime: 100
     exitStatus: 0
-    queueMaxLength: 1000
+    queueMaxLength: 960
   cellConf:
     fatMax: 2000
     fatHungerMax: 1000

@@ -3,13 +3,14 @@ package org.woehlke.computer.kurzweil.simulated.evolution.view.canvas;
 import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.SimulatedEvolutionModel;
+import org.woehlke.computer.kurzweil.simulated.evolution.model.census.SimulatedEvolutionPopulationCensus;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.census.SimulatedEvolutionPopulationCensusContainer;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.geometry.LatticeDimension;
 import javax.swing.*;
 import java.awt.*;
 import java.io.Serializable;
 
-import static org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeCycleStatus.POPULATION;
+import static org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeCycleStatus.*;
 
 
 /**
@@ -36,16 +37,18 @@ public class CensusCanvas extends JComponent implements Serializable {
      */
     private final SimulatedEvolutionPopulationCensusContainer container;
 
-    private final LatticeDimension worldDimensions;
+    private final LatticeDimension canvasdDimensions;
 
     public CensusCanvas(SimulatedEvolutionModel tabModel) {
+        int width = tabModel.getWorldDimensions().getX();
+        int height = tabModel.getProperties().getSimulatedevolution().getView().getHeightOfStatisticsCanvas();
         this.container = tabModel.getCensusContainer();
-        this.worldDimensions = LatticeDimension.of(
-            tabModel.getWorldDimensions().getX(),
-            tabModel.getProperties().getSimulatedevolution().getView().getHeightOfStatisticsCanvas()
-        );
-        this.setBackground(POPULATION.getColorBackground());
-        this.setSize( this.worldDimensions.getWidth(), this.worldDimensions.getHeight() );
+        this.canvasdDimensions = LatticeDimension.of(width,height);
+        Dimension preferredSize = new Dimension(width, height);
+        this.setSize(preferredSize);
+        this.setPreferredSize(preferredSize);
+        Color paper = POPULATION.getColorBackground();
+        this.setBackground(paper);
         this.setVisible(true);
     }
 
@@ -57,25 +60,46 @@ public class CensusCanvas extends JComponent implements Serializable {
         super.paintComponent(g);
         int x = 0;
         int y = 0;
-        int width = this.worldDimensions.getWidth();
-        int height = this.worldDimensions.getHeight();
-        //paint background
-        g.setColor(POPULATION.getColorBackground());
+        int width = this.canvasdDimensions.getWidth();
+        int height = this.canvasdDimensions.getHeight();
+        g.setColor(Color.LIGHT_GRAY);
         g.fillRect(x,y,width,height);
         g.setColor(Color.RED);
-        g.drawLine(0,0, width, height);
-        g.drawLine(0,height, width,0);
-        //paint data graph
-        /*
+        //g.drawLine(0,0, width, height);
+        //g.drawLine(0,height, width,0);
         int xx = 0;
-        int yy = 0;
+        int youngCells;
+        int youngAndFatCells;
+        int fullAgeCells;
+        int hungryCells;
+        int oldCells;
+        int population;
+        int maxPopulation = 0;
+        for(SimulatedEvolutionPopulationCensus o:this.container.getData()){
+            maxPopulation = Math.max(o.getPopulation(), maxPopulation);
+        }
+        double zoom = 100 / maxPopulation;
         for(SimulatedEvolutionPopulationCensus o:this.container.getData()){
             xx++;
-            yy = o.getPopulation();
-            g.setColor(POPULATION.getColor());
-            g.drawLine(xx,yy,xx,yy);
+            population = height - (int)(o.getPopulation() * zoom);
+            youngCells = height - (int)(o.getYoungCells() * zoom);
+            youngAndFatCells = height - (int)(o.getYoungAndFatCells() * zoom);
+            fullAgeCells = height - (int)(o.getFullAgeCells() * zoom);
+            hungryCells = height - (int)(o.getHungryCells() * zoom);
+            oldCells = height - (int)(o.getOldCells() * zoom);
+            g.setColor(POPULATION.getColorBackground());
+            g.drawLine(xx,population,xx,population);
+            g.setColor(YOUNG.getColor());
+            g.drawLine(xx,youngCells,xx,youngCells);
+            g.setColor(YOUNG_AND_FAT.getColor());
+            g.drawLine(xx,youngAndFatCells,xx,youngAndFatCells);
+            g.setColor(FULL_AGE.getColor());
+            g.drawLine(xx,fullAgeCells,xx,fullAgeCells);
+            g.setColor(HUNGRY.getColorBackground());
+            g.drawLine(xx,hungryCells,xx,hungryCells);
+            g.setColor(OLD.getColor());
+            g.drawLine(xx,oldCells,xx,oldCells);
         }
-         */
     }
 
     public void update(Graphics g) {
