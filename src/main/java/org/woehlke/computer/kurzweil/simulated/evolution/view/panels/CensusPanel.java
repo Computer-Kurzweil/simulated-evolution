@@ -27,6 +27,9 @@ public class CensusPanel extends JPanel implements Serializable {
      */
     private final CensusElementsPanelCounted panelCounter;
 
+    /**
+     * Plot Census data.
+     */
     private final CensusCanvas censusCanvas;
 
     public CensusPanel(SimulatedEvolutionTab tab) {
@@ -35,11 +38,11 @@ public class CensusPanel extends JPanel implements Serializable {
         this.censusCanvas = new CensusCanvas(tab.getModel());
         BoxLayoutVertical layout = new BoxLayoutVertical(this);
         this.setLayout(layout);
+        this.add(this.censusCanvas);
+        this.add(new JSeparator());
         this.add(this.panelLifeCycle);
         this.add(new JSeparator());
         this.add(this.panelCounter);
-        this.add(new JSeparator());
-        this.add(this.censusCanvas);
     }
 
     public synchronized void update(){

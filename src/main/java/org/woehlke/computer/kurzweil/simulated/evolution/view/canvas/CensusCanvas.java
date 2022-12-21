@@ -4,8 +4,7 @@ import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.SimulatedEvolutionModel;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.census.SimulatedEvolutionPopulationCensusContainer;
-import org.woehlke.computer.kurzweil.simulated.evolution.model.food.molecules.LatticePoint;
-
+import org.woehlke.computer.kurzweil.simulated.evolution.model.food.molecules.LatticeDimension;
 import javax.swing.*;
 import java.awt.*;
 import java.io.Serializable;
@@ -35,20 +34,22 @@ public class CensusCanvas extends JComponent implements Serializable {
      */
     private final SimulatedEvolutionPopulationCensusContainer container;
 
-    private final LatticePoint worldDimensions;
+    private final LatticeDimension worldDimensions;
 
     private final Color PAPER = Color.WHITE;
 
     public CensusCanvas(SimulatedEvolutionModel tabModel) {
         this.container = tabModel.getCensusContainer();
-        this.worldDimensions = tabModel.getWorldDimensions().copy();
         int heightOfStatisticsCanvas = tabModel.getProperties()
             .getSimulatedevolution().getView().getHeightOfStatisticsCanvas();
-        this.worldDimensions.setY(heightOfStatisticsCanvas);
+        this.worldDimensions = LatticeDimension.of(
+            tabModel.getWorldDimensions().getX(),
+            heightOfStatisticsCanvas
+        );
         this.setBackground(PAPER);
-        int x = this.worldDimensions.getX();
-        int y = this.worldDimensions.getY();
-        this.setSize(x,y);
+        int width = this.worldDimensions.getWidth();
+        int height = this.worldDimensions.getHeight();
+        this.setSize(width,height);
         this.setVisible(true);
     }
 
@@ -58,11 +59,13 @@ public class CensusCanvas extends JComponent implements Serializable {
      */
     public void paint(Graphics g) {
         super.paintComponent(g);
-        int xx = this.worldDimensions.getX();
-        int yy = this.worldDimensions.getY();
-        //paint water
+        int x = 0;
+        int y = 0;
+        int width = this.worldDimensions.getWidth();
+        int height = this.worldDimensions.getHeight();
+        //paint background
         g.setColor(PAPER);
-        g.fillRect(0,0,xx,yy);
+        g.fillRect(x,y,width,height);
         //paint data graph
         /*
         g.setColor(FOOD);
