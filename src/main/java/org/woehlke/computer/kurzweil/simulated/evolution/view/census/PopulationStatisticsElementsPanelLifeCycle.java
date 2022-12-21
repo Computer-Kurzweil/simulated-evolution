@@ -34,12 +34,12 @@ public class PopulationStatisticsElementsPanelLifeCycle extends JPanel implement
 
     static final long serialVersionUID = 242L;
 
-    private final PopulationStatisticsElement youngCellsElement;
-    private final PopulationStatisticsElement youngAndFatCellsElement;
-    private final PopulationStatisticsElement fullAgeCellsElement;
-    private final PopulationStatisticsElement hungryCellsElement;
-    private final PopulationStatisticsElement oldCellsElement;
-    private final PopulationStatisticsElement wholeGeneration;
+    private final CensusElement youngCellsElement;
+    private final CensusElement youngAndFatCellsElement;
+    private final CensusElement fullAgeCellsElement;
+    private final CensusElement hungryCellsElement;
+    private final CensusElement oldCellsElement;
+    private final CensusElement wholeGeneration;
 
     private final SimulatedEvolutionPopulationCensusContainer container;
 
@@ -57,12 +57,12 @@ public class PopulationStatisticsElementsPanelLifeCycle extends JPanel implement
         String hungryCellsLabel = cfg.getHungryCellsLabel();
         String oldCellsLabel = cfg.getOldCellsLabel();
         String wholeGenerationLabel = cfg.getPopulationLabel();
-        youngCellsElement = new PopulationStatisticsElement(youngCellsLabel,YOUNG);
-        youngAndFatCellsElement = new PopulationStatisticsElement(youngAndFatCellsLabel,YOUNG_AND_FAT);
-        fullAgeCellsElement = new PopulationStatisticsElement(fullAgeCellsLabel,FULL_AGE);
-        hungryCellsElement = new PopulationStatisticsElement(hungryCellsLabel,HUNGRY);
-        oldCellsElement = new PopulationStatisticsElement(oldCellsLabel,OLD);
-        wholeGeneration = new PopulationStatisticsElement(wholeGenerationLabel,POPULATION);
+        youngCellsElement = new CensusElement(youngCellsLabel,YOUNG);
+        youngAndFatCellsElement = new CensusElement(youngAndFatCellsLabel,YOUNG_AND_FAT);
+        fullAgeCellsElement = new CensusElement(fullAgeCellsLabel,FULL_AGE);
+        hungryCellsElement = new CensusElement(hungryCellsLabel,HUNGRY);
+        oldCellsElement = new CensusElement(oldCellsLabel,OLD);
+        wholeGeneration = new CensusElement(wholeGenerationLabel,POPULATION);
         this.add(youngCellsElement);
         this.add(youngAndFatCellsElement);
         this.add(fullAgeCellsElement);

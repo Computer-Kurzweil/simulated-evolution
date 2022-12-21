@@ -32,9 +32,9 @@ public class PopulationStatisticsElementsPanelCounted extends JPanel implements 
 
     static final long serialVersionUID = 242L;
 
-    private final PopulationStatisticsElement worldIteration;
-    private final PopulationStatisticsElement generationYoungest;
-    private final PopulationStatisticsElement generationOldest;
+    private final CensusElement worldIteration;
+    private final CensusElement generationYoungest;
+    private final CensusElement generationOldest;
 
     private final SimulatedEvolutionPopulationCensusContainer container;
 
@@ -47,9 +47,9 @@ public class PopulationStatisticsElementsPanelCounted extends JPanel implements 
         String worldIterationLabel = cfg.getWorldIterationLabel();
         String generationOldestLabel = cfg.getGenerationOldestLabel();
         String generationYoungestLabel = cfg.getGenerationYoungestLabel();
-        worldIteration = new PopulationStatisticsElement(worldIterationLabel, POPULATION,8);
-        generationOldest = new PopulationStatisticsElement(generationOldestLabel, POPULATION,4);
-        generationYoungest = new PopulationStatisticsElement(generationYoungestLabel, POPULATION,4);
+        worldIteration = new CensusElement(worldIterationLabel, POPULATION,8);
+        generationOldest = new CensusElement(generationOldestLabel, POPULATION,4);
+        generationYoungest = new CensusElement(generationYoungestLabel, POPULATION,4);
         this.add(worldIteration);
         this.add(generationOldest);
         this.add(generationYoungest);

@@ -19,7 +19,7 @@ import java.io.Serializable;
 @Log4j2
 @Getter
 @ToString(callSuper = true)
-public class PopulationStatisticsElement extends JPanel implements Serializable {
+public class CensusElement extends JPanel implements Serializable {
 
     static final long serialVersionUID = 242L;
 
@@ -29,7 +29,7 @@ public class PopulationStatisticsElement extends JPanel implements Serializable 
     private final int cols;
     private final String statisticsElementTextFieldDefault = "0";
 
-    public PopulationStatisticsElement(String statisticsElementLabel, LifeCycleStatus lifeCycleStatus) {
+    public CensusElement(String statisticsElementLabel, LifeCycleStatus lifeCycleStatus) {
         this.cols = 4;
         this.statisticsElementLabel = new JLabel(statisticsElementLabel);
         this.lifeCycleStatus = lifeCycleStatus;
@@ -41,7 +41,7 @@ public class PopulationStatisticsElement extends JPanel implements Serializable 
         this.add(this.statisticsElementTextField);
     }
 
-    public PopulationStatisticsElement(String statisticsElementLabel, LifeCycleStatus lifeCycleStatus, int cols) {
+    public CensusElement(String statisticsElementLabel, LifeCycleStatus lifeCycleStatus, int cols) {
         this.cols = cols;
         this.statisticsElementLabel = new JLabel(statisticsElementLabel);
         this.lifeCycleStatus = lifeCycleStatus;
