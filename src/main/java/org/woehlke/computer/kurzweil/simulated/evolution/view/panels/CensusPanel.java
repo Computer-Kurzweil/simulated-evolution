@@ -1,5 +1,6 @@
 package org.woehlke.computer.kurzweil.simulated.evolution.view.panels;
 
+import lombok.Getter;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolutionTab;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.CensusCanvas;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.census.CensusElementsPanelCounted;
@@ -13,6 +14,7 @@ import java.io.Serializable;
  * @see CensusElementsPanelLifeCycle
  * @see CensusElementsPanelCounted
  */
+@Getter
 public class CensusPanel extends JPanel implements Serializable {
 
     static final long serialVersionUID = 242L;

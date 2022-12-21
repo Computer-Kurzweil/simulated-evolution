@@ -64,6 +64,7 @@ public class SimulatedEvolutionController extends Thread implements Runnable, Se
             setDoMyJob( simulatedEvolutionModel.letLivePopulation() );
             tab.update();
             canvas.repaint();
+            tab.getCensusPanel().getCensusCanvas().repaint();
             tab.repaint();
             try {
                 sleep(timeToWait);

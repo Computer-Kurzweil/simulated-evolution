@@ -3,11 +3,14 @@ package org.woehlke.computer.kurzweil.simulated.evolution.view.canvas;
 import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.SimulatedEvolutionModel;
+import org.woehlke.computer.kurzweil.simulated.evolution.model.census.SimulatedEvolutionPopulationCensus;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.census.SimulatedEvolutionPopulationCensusContainer;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.geometry.LatticeDimension;
 import javax.swing.*;
 import java.awt.*;
 import java.io.Serializable;
+
+import static org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeCycleStatus.POPULATION;
 
 
 /**
@@ -67,6 +70,14 @@ public class CensusCanvas extends JComponent implements Serializable {
         g.setColor(PAPER);
         g.fillRect(x,y,width,height);
         //paint data graph
+        int xx = 0;
+        int yy = 0;
+        for(SimulatedEvolutionPopulationCensus o:this.container.getData()){
+            xx++;
+            yy = o.getPopulation();
+            g.setColor(POPULATION.getColorBackground());
+            g.drawLine(xx,yy,xx,yy);
+        }
         /*
         g.setColor(FOOD);
         for (int y = 0; y < yy; y++) {
