@@ -3,7 +3,6 @@ package org.woehlke.computer.kurzweil.simulated.evolution.view.canvas;
 import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.SimulatedEvolutionModel;
-import org.woehlke.computer.kurzweil.simulated.evolution.model.census.SimulatedEvolutionPopulationCensus;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.census.SimulatedEvolutionPopulationCensusContainer;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.geometry.LatticeDimension;
 import javax.swing.*;
@@ -39,20 +38,14 @@ public class CensusCanvas extends JComponent implements Serializable {
 
     private final LatticeDimension worldDimensions;
 
-    private final Color PAPER = POPULATION.getColorBackground();
-
     public CensusCanvas(SimulatedEvolutionModel tabModel) {
         this.container = tabModel.getCensusContainer();
-        int heightOfStatisticsCanvas = tabModel.getProperties()
-            .getSimulatedevolution().getView().getHeightOfStatisticsCanvas();
         this.worldDimensions = LatticeDimension.of(
             tabModel.getWorldDimensions().getX(),
-            heightOfStatisticsCanvas
+            tabModel.getProperties().getSimulatedevolution().getView().getHeightOfStatisticsCanvas()
         );
-        this.setBackground(PAPER);
-        int width = this.worldDimensions.getWidth();
-        int height = this.worldDimensions.getHeight();
-        this.setSize(width,height);
+        this.setBackground(POPULATION.getColorBackground());
+        this.setSize( this.worldDimensions.getWidth(), this.worldDimensions.getHeight() );
         this.setVisible(true);
     }
 
@@ -73,6 +66,7 @@ public class CensusCanvas extends JComponent implements Serializable {
         g.drawLine(0,0, width, height);
         g.drawLine(0,height, width,0);
         //paint data graph
+        /*
         int xx = 0;
         int yy = 0;
         for(SimulatedEvolutionPopulationCensus o:this.container.getData()){
@@ -81,6 +75,7 @@ public class CensusCanvas extends JComponent implements Serializable {
             g.setColor(POPULATION.getColor());
             g.drawLine(xx,yy,xx,yy);
         }
+         */
     }
 
     public void update(Graphics g) {
