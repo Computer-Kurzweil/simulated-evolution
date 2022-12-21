@@ -15,6 +15,6 @@ fixed #31 setup maven project reports site
 # 3.0.x
 * fixed #27 remove JApplet and integrate SimulatedEvolutionApplet into SimulatedEvolutionTab extends JFrame
 * fixed #32 Feature: stop controller if population = 0
+* fixed #7 add historical Population Graph
+* #8  add Window for Parameter Input
 * #33 more UML with plantUML for Documentation
-* #7  add historical Population Graph
-* #8  add Window for Parameter Input 
