@@ -61,7 +61,6 @@ public class CensusCanvas extends JComponent implements Serializable {
         this.setSize(preferredSize);
         this.setBackground(this.paper);
         this.setVisible(true);
-        this.repaint();
     }
 
     /**

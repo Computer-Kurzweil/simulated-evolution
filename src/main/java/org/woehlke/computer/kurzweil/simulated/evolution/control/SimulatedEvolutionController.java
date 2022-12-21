@@ -2,6 +2,7 @@ package org.woehlke.computer.kurzweil.simulated.evolution.control;
 
 import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolutionTab;
+import org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.CensusCanvas;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.SimulatedEvolutionCanvas;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.SimulatedEvolutionModel;
 
@@ -34,6 +35,7 @@ public class SimulatedEvolutionController extends Thread implements Runnable, Se
      * Canvas, where to paint in the GUI.
      */
     private final SimulatedEvolutionCanvas canvas;
+    private final CensusCanvas censusCanvas;
     private final SimulatedEvolutionTab tab;
 
     /**
@@ -51,9 +53,10 @@ public class SimulatedEvolutionController extends Thread implements Runnable, Se
         SimulatedEvolutionCanvas canvas,
         SimulatedEvolutionTab simulatedEvolutionTab
     ) {
+        this.tab = simulatedEvolutionTab;
         this.simulatedEvolutionModel = simulatedEvolutionModel;
         this.canvas = canvas;
-        this.tab = simulatedEvolutionTab;
+        this.censusCanvas = tab.getCensusPanel().getCensusCanvas();
         this.timeToWait = this.tab.getProperties().getSimulatedevolution()
             .getControl().getThreadSleepTime();
         doMyJob = Boolean.TRUE;
@@ -64,7 +67,7 @@ public class SimulatedEvolutionController extends Thread implements Runnable, Se
             setDoMyJob( simulatedEvolutionModel.letLivePopulation() );
             tab.update();
             canvas.repaint();
-            tab.getCensusPanel().getCensusCanvas().repaint();
+            censusCanvas.repaint();
             tab.repaint();
             try {
                 sleep(timeToWait);
