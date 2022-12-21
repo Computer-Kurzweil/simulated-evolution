@@ -73,7 +73,7 @@ public class CensusCanvas extends JComponent implements Serializable {
         int fullAgeCells;
         int hungryCells;
         int oldCells;
-        int population;
+        int all;
         int maxPopulation = 0;
         for(SimulatedEvolutionPopulationCensus o:this.container.getData()){
             maxPopulation = Math.max(o.getPopulation(), maxPopulation);
@@ -81,21 +81,21 @@ public class CensusCanvas extends JComponent implements Serializable {
         double zoom = 100 / maxPopulation;
         for(SimulatedEvolutionPopulationCensus o:this.container.getData()){
             xx++;
-            population = height - (int)(o.getPopulation() * zoom);
+            all = height - (int)(o.getPopulation() * zoom);
             youngCells = height - (int)(o.getYoungCells() * zoom);
             youngAndFatCells = height - (int)(o.getYoungAndFatCells() * zoom);
             fullAgeCells = height - (int)(o.getFullAgeCells() * zoom);
             hungryCells = height - (int)(o.getHungryCells() * zoom);
             oldCells = height - (int)(o.getOldCells() * zoom);
-            g.setColor(POPULATION.getColorBackground());
-            g.drawLine(xx,population,xx,population);
+            g.setColor(POPULATION.getColorForeground());
+            g.drawLine(xx,all,xx,all);
             g.setColor(YOUNG.getColor());
             g.drawLine(xx,youngCells,xx,youngCells);
             g.setColor(YOUNG_AND_FAT.getColor());
             g.drawLine(xx,youngAndFatCells,xx,youngAndFatCells);
             g.setColor(FULL_AGE.getColor());
             g.drawLine(xx,fullAgeCells,xx,fullAgeCells);
-            g.setColor(HUNGRY.getColorBackground());
+            g.setColor(HUNGRY.getColor());
             g.drawLine(xx,hungryCells,xx,hungryCells);
             g.setColor(OLD.getColor());
             g.drawLine(xx,oldCells,xx,oldCells);
