@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.SimulatedEvolutionModel;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.census.SimulatedEvolutionPopulationCensusContainer;
-import org.woehlke.computer.kurzweil.simulated.evolution.model.food.geometry.LatticeDimension;
+import org.woehlke.computer.kurzweil.simulated.evolution.model.geometry.LatticeDimension;
 import javax.swing.*;
 import java.awt.*;
 import java.io.Serializable;

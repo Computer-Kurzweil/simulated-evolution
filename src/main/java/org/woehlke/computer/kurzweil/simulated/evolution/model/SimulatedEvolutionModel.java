@@ -9,7 +9,7 @@ import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweil
 import org.woehlke.computer.kurzweil.simulated.evolution.model.cell.Cell;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.census.SimulatedEvolutionPopulationCensus;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.census.SimulatedEvolutionPopulationCensusContainer;
-import org.woehlke.computer.kurzweil.simulated.evolution.model.food.geometry.LatticePoint;
+import org.woehlke.computer.kurzweil.simulated.evolution.model.geometry.LatticePoint;
 import org.woehlke.computer.kurzweil.simulated.evolution.application.SimulatedEvolutionParameter;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.food.SimulatedEvolutionWorldLattice;
 

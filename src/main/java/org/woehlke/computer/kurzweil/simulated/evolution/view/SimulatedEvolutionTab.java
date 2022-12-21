@@ -6,8 +6,8 @@ import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweil
 import org.woehlke.computer.kurzweil.simulated.evolution.control.SimulatedEvolutionController;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.SimulatedEvolutionModel;
 import org.woehlke.computer.kurzweil.simulated.evolution.application.SimulatedEvolutionParameter;
-import org.woehlke.computer.kurzweil.simulated.evolution.model.food.geometry.LatticePoint;
-import org.woehlke.computer.kurzweil.simulated.evolution.model.food.geometry.LatticeRectangle;
+import org.woehlke.computer.kurzweil.simulated.evolution.model.geometry.LatticePoint;
+import org.woehlke.computer.kurzweil.simulated.evolution.model.geometry.LatticeRectangle;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.SimulatedEvolutionCanvas;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.census.CensusElementsPanelCounted;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.census.CensusElementsPanelLifeCycle;

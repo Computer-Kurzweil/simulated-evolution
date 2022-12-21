@@ -1,4 +1,4 @@
-package org.woehlke.computer.kurzweil.simulated.evolution.model.food.geometry;
+package org.woehlke.computer.kurzweil.simulated.evolution.model.geometry;
 
 import lombok.*;
 import lombok.extern.log4j.Log4j2;
