@@ -30,7 +30,7 @@ import static org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeC
 @Getter
 @ToString(callSuper = true,exclude = {"container"})
 @EqualsAndHashCode(callSuper=true,exclude = {"container"})
-public class PopulationStatisticsElementsPanelLifeCycle extends JPanel implements Serializable {
+public class CensusElementsPanelLifeCycle extends JPanel implements Serializable {
 
     static final long serialVersionUID = 242L;
 
@@ -43,7 +43,7 @@ public class PopulationStatisticsElementsPanelLifeCycle extends JPanel implement
 
     private final SimulatedEvolutionPopulationCensusContainer container;
 
-    public PopulationStatisticsElementsPanelLifeCycle(SimulatedEvolutionTab tab) {
+    public CensusElementsPanelLifeCycle(SimulatedEvolutionTab tab) {
         this.container = tab.getModel().getCensusContainer();
         FlowLayout layoutSubPanel = new FlowLayout();
         this.setLayout(layoutSubPanel);

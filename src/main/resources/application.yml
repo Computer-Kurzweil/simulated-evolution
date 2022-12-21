@@ -34,6 +34,7 @@ simulatedevolution:
     scale: 3
     heightOfTitle: 40
     heightOfStatistics: 80
+    heightOfStatisticsCanvas: 120
   control:
     threadSleepTime: 100
     exitStatus: 0

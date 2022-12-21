@@ -1,16 +1,17 @@
 package org.woehlke.computer.kurzweil.simulated.evolution.view.panels;
 
 import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolutionTab;
-import org.woehlke.computer.kurzweil.simulated.evolution.view.census.PopulationStatisticsElementsPanelCounted;
-import org.woehlke.computer.kurzweil.simulated.evolution.view.census.PopulationStatisticsElementsPanelLifeCycle;
+import org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.CensusCanvas;
+import org.woehlke.computer.kurzweil.simulated.evolution.view.census.CensusElementsPanelCounted;
+import org.woehlke.computer.kurzweil.simulated.evolution.view.census.CensusElementsPanelLifeCycle;
 import org.woehlke.computer.kurzweil.simulated.evolution.application.layouts.BoxLayoutVertical;
 
 import javax.swing.*;
 import java.io.Serializable;
 
 /**
- * @see PopulationStatisticsElementsPanelLifeCycle
- * @see PopulationStatisticsElementsPanelCounted
+ * @see CensusElementsPanelLifeCycle
+ * @see CensusElementsPanelCounted
  */
 public class CensusPanel extends JPanel implements Serializable {
 
@@ -19,25 +20,26 @@ public class CensusPanel extends JPanel implements Serializable {
     /**
      * Display how many Cells per LifeCycleStatus and how many Cells in the whole Population for this Generation.
      */
-    private final PopulationStatisticsElementsPanelLifeCycle panelLifeCycle;
+    private final CensusElementsPanelLifeCycle panelLifeCycle;
 
     /**
      * Display the age of the generation and the world.
      */
-    private final PopulationStatisticsElementsPanelCounted panelCounter;
+    private final CensusElementsPanelCounted panelCounter;
+
+    private final CensusCanvas censusCanvas;
 
     public CensusPanel(SimulatedEvolutionTab tab) {
-        this.panelLifeCycle = new PopulationStatisticsElementsPanelLifeCycle(
-            tab
-        );
-        this.panelCounter = new PopulationStatisticsElementsPanelCounted(
-            tab
-        );
+        this.panelLifeCycle = new CensusElementsPanelLifeCycle(tab);
+        this.panelCounter = new CensusElementsPanelCounted(tab);
+        this.censusCanvas = new CensusCanvas(tab.getModel());
         BoxLayoutVertical layout = new BoxLayoutVertical(this);
         this.setLayout(layout);
         this.add(this.panelLifeCycle);
         this.add(new JSeparator());
         this.add(this.panelCounter);
+        this.add(new JSeparator());
+        this.add(this.censusCanvas);
     }
 
     public synchronized void update(){

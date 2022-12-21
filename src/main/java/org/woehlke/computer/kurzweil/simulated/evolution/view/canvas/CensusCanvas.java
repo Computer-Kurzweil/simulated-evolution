@@ -3,7 +3,7 @@ package org.woehlke.computer.kurzweil.simulated.evolution.view.canvas;
 import lombok.Getter;
 import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.SimulatedEvolutionModel;
-import org.woehlke.computer.kurzweil.simulated.evolution.model.cell.Cell;
+import org.woehlke.computer.kurzweil.simulated.evolution.model.census.SimulatedEvolutionPopulationCensusContainer;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.food.molecules.LatticePoint;
 
 import javax.swing.*;
@@ -33,17 +33,19 @@ public class CensusCanvas extends JComponent implements Serializable {
     /**
      * Reference to the Data Model.
      */
-    private final SimulatedEvolutionModel tabModel;
+    private final SimulatedEvolutionPopulationCensusContainer container;
+
     private final LatticePoint worldDimensions;
 
-    private final Color WATER = Color.BLACK;
-    private final Color FOOD = Color.GREEN;
+    private final Color PAPER = Color.WHITE;
 
     public CensusCanvas(SimulatedEvolutionModel tabModel) {
-        this.tabModel = tabModel;
-        this.worldDimensions = this.tabModel.getWorldDimensions();
-        this.worldDimensions.setY(120);
-        this.setBackground(Color.WHITE);
+        this.container = tabModel.getCensusContainer();
+        this.worldDimensions = tabModel.getWorldDimensions().copy();
+        int heightOfStatisticsCanvas = tabModel.getProperties()
+            .getSimulatedevolution().getView().getHeightOfStatisticsCanvas();
+        this.worldDimensions.setY(heightOfStatisticsCanvas);
+        this.setBackground(PAPER);
         int x = this.worldDimensions.getX();
         int y = this.worldDimensions.getY();
         this.setSize(x,y);
@@ -59,9 +61,10 @@ public class CensusCanvas extends JComponent implements Serializable {
         int xx = this.worldDimensions.getX();
         int yy = this.worldDimensions.getY();
         //paint water
-        g.setColor(WATER);
+        g.setColor(PAPER);
         g.fillRect(0,0,xx,yy);
-        //paint food
+        //paint data graph
+        /*
         g.setColor(FOOD);
         for (int y = 0; y < yy; y++) {
             for (int x = 0; x < xx; x++) {
@@ -78,6 +81,7 @@ public class CensusCanvas extends JComponent implements Serializable {
                 g.drawLine(pixel.getX(),pixel.getY(),pixel.getX(),pixel.getY());
             }
         }
+         */
     }
 
     public void update(Graphics g) {

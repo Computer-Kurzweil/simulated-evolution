@@ -229,6 +229,10 @@ public class ComputerKurzweilProperties {
 
             @NotNull
             private Integer heightOfStatistics;
+
+            @NotNull
+            private Integer heightOfStatisticsCanvas;
+
         }
 
         @ToString

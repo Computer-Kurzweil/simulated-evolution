@@ -6,12 +6,11 @@ import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweil
 import org.woehlke.computer.kurzweil.simulated.evolution.control.SimulatedEvolutionController;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.SimulatedEvolutionModel;
 import org.woehlke.computer.kurzweil.simulated.evolution.application.SimulatedEvolutionParameter;
-import org.woehlke.computer.kurzweil.simulated.evolution.model.food.molecules.LatticeDimension;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.food.molecules.LatticePoint;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.food.molecules.LatticeRectangle;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.SimulatedEvolutionCanvas;
-import org.woehlke.computer.kurzweil.simulated.evolution.view.census.PopulationStatisticsElementsPanelCounted;
-import org.woehlke.computer.kurzweil.simulated.evolution.view.census.PopulationStatisticsElementsPanelLifeCycle;
+import org.woehlke.computer.kurzweil.simulated.evolution.view.census.CensusElementsPanelCounted;
+import org.woehlke.computer.kurzweil.simulated.evolution.view.census.CensusElementsPanelLifeCycle;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.panels.CensusPanel;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.panels.CopyrightLabel;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.panels.SubTitleLabel;
@@ -36,7 +35,7 @@ import java.io.Serializable;
  * @see SimulatedEvolutionModel
  * @see SimulatedEvolutionController
  * @see SimulatedEvolutionCanvas
- * @see PopulationStatisticsElementsPanelLifeCycle
+ * @see CensusElementsPanelLifeCycle
  *
  * @see ComputerKurzweilProperties
  * @see SimulatedEvolutionParameter
@@ -87,8 +86,8 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
     private final SimulatedEvolutionModel model;
 
     /**
-     * @see PopulationStatisticsElementsPanelLifeCycle
-     * @see PopulationStatisticsElementsPanelCounted
+     * @see CensusElementsPanelLifeCycle
+     * @see CensusElementsPanelCounted
      */
     private final CensusPanel censusPanel;
 
@@ -138,7 +137,8 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         int heightOfTitle = properties.getSimulatedevolution().getView().getHeightOfTitle();
         int heightOfStatistics = properties.getSimulatedevolution().getView().getHeightOfStatistics();
-        int titleHeight = heightOfTitle + heightOfStatistics;
+        int heightOfStatisticsCanvas = properties.getSimulatedevolution().getView().getHeightOfStatisticsCanvas();
+        int titleHeight = heightOfTitle + heightOfStatistics + heightOfStatisticsCanvas;
         int width = this.getModel().getWorldDimensions().getX();
         int height  = this.getModel().getWorldDimensions().getY() + titleHeight;
         double dStartX = (screenSize.getWidth() - width) / 2d;
