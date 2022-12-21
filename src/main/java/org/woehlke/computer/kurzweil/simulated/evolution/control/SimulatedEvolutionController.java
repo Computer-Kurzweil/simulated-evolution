@@ -35,7 +35,6 @@ public class SimulatedEvolutionController extends Thread implements Runnable, Se
      * Canvas, where to paint in the GUI.
      */
     private final SimulatedEvolutionCanvas canvas;
-    private final CensusCanvas censusCanvas;
     private final SimulatedEvolutionTab tab;
 
     /**
@@ -56,7 +55,6 @@ public class SimulatedEvolutionController extends Thread implements Runnable, Se
         this.tab = simulatedEvolutionTab;
         this.simulatedEvolutionModel = simulatedEvolutionModel;
         this.canvas = canvas;
-        this.censusCanvas = tab.getCensusPanel().getCensusCanvas();
         this.timeToWait = this.tab.getProperties().getSimulatedevolution()
             .getControl().getThreadSleepTime();
         doMyJob = Boolean.TRUE;
@@ -67,7 +65,7 @@ public class SimulatedEvolutionController extends Thread implements Runnable, Se
             setDoMyJob( simulatedEvolutionModel.letLivePopulation() );
             tab.update();
             canvas.repaint();
-            censusCanvas.repaint();
+            tab.getCensusPanel().getCensusCanvas().repaint();
             tab.repaint();
             try {
                 sleep(timeToWait);
