@@ -1,4 +1,4 @@
-package org.woehlke.computer.kurzweil.simulated.evolution.model.food.neighbourhood;
+package org.woehlke.computer.kurzweil.simulated.evolution.model.neighbourhood;
 
 import lombok.Getter;
 

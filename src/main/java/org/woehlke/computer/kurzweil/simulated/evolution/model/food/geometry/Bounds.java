@@ -1,4 +1,4 @@
-package org.woehlke.computer.kurzweil.simulated.evolution.model.food.molecules;
+package org.woehlke.computer.kurzweil.simulated.evolution.model.food.geometry;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

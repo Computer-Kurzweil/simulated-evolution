@@ -1,4 +1,4 @@
-package org.woehlke.computer.kurzweil.simulated.evolution.model.food.neighbourhood;
+package org.woehlke.computer.kurzweil.simulated.evolution.model.neighbourhood;
 
 /**
  * &copy; 2006 - 2008 Thomas Woehlke.
