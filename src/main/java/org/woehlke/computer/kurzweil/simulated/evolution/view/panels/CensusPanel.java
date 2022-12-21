@@ -38,13 +38,14 @@ public class CensusPanel extends JPanel implements Serializable {
         this.panelLifeCycle = new CensusElementsPanelLifeCycle(tab);
         this.panelCounter = new CensusElementsPanelCounted(tab);
         this.censusCanvas = new CensusCanvas(tab.getModel());
-        BoxLayoutVertical layout = new BoxLayoutVertical(this);
+        BoxLayout layout = new BoxLayout(this, BoxLayout.PAGE_AXIS);
         this.setLayout(layout);
         this.add(this.censusCanvas);
-        this.add(new JSeparator());
-        this.add(this.panelLifeCycle);
-        this.add(new JSeparator());
-        this.add(this.panelCounter);
+        //this.add(new JSeparator());
+        //this.add(this.panelLifeCycle);
+        //this.add(new JSeparator());
+        //this.add(this.panelCounter);
+        this.setVisible(true);
     }
 
     public synchronized void update(){
