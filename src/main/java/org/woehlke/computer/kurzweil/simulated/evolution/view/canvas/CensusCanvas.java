@@ -37,6 +37,8 @@ public class CensusCanvas extends JComponent implements Serializable {
      */
     private final SimulatedEvolutionPopulationCensusContainer container;
 
+    private final Color paper;
+
     private final LatticeDimension canvasdDimensions;
 
     public CensusCanvas(SimulatedEvolutionModel tabModel) {
@@ -47,9 +49,19 @@ public class CensusCanvas extends JComponent implements Serializable {
         Dimension preferredSize = new Dimension(width, height);
         this.setSize(preferredSize);
         this.setPreferredSize(preferredSize);
-        Color paper = POPULATION.getColorBackground();
-        this.setBackground(paper);
+        this.paper = POPULATION.getColorBackground();
+        this.setBackground(this.paper);
         this.setVisible(true);
+    }
+
+    public void showMe(){
+        int width = canvasdDimensions.getWidth();
+        int height = canvasdDimensions.getHeight();
+        Dimension preferredSize = new Dimension(width, height);
+        this.setSize(preferredSize);
+        this.setBackground(this.paper);
+        this.setVisible(true);
+        this.repaint();
     }
 
     /**
@@ -65,8 +77,6 @@ public class CensusCanvas extends JComponent implements Serializable {
         g.setColor(Color.LIGHT_GRAY);
         g.fillRect(x,y,width,height);
         g.setColor(Color.RED);
-        //g.drawLine(0,0, width, height);
-        //g.drawLine(0,height, width,0);
         int xx = 0;
         int youngCells;
         int youngAndFatCells;
@@ -78,7 +88,7 @@ public class CensusCanvas extends JComponent implements Serializable {
         for(SimulatedEvolutionPopulationCensus o:this.container.getData()){
             maxPopulation = Math.max(o.getPopulation(), maxPopulation);
         }
-        double zoom = 100 / maxPopulation;
+        double zoom = 100.0d / Integer.valueOf(maxPopulation).doubleValue();
         for(SimulatedEvolutionPopulationCensus o:this.container.getData()){
             xx++;
             all = height - (int)(o.getPopulation() * zoom);

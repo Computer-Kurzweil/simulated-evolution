@@ -166,6 +166,8 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
         this.setPreferredSize(d);
         setVisible(true);
         toFront();
+        this.censusPanel.getCensusCanvas().showMe();
+        this.censusPanel.getCensusCanvas().setVisible(true);
     }
 
     /**
@@ -207,6 +209,7 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
 
     public void windowActivated(WindowEvent e) {
         toFront();
+        this.censusPanel.getCensusCanvas().setVisible(true);
     }
 
     public void windowDeactivated(WindowEvent e) {
