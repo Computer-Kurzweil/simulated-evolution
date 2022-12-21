@@ -5,7 +5,6 @@ import org.woehlke.computer.kurzweil.simulated.evolution.view.SimulatedEvolution
 import org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.CensusCanvas;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.census.CensusElementsPanelCounted;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.census.CensusElementsPanelLifeCycle;
-import org.woehlke.computer.kurzweil.simulated.evolution.application.layouts.BoxLayoutVertical;
 
 import javax.swing.*;
 import java.io.Serializable;
@@ -41,10 +40,10 @@ public class CensusPanel extends JPanel implements Serializable {
         BoxLayout layout = new BoxLayout(this, BoxLayout.PAGE_AXIS);
         this.setLayout(layout);
         this.add(this.censusCanvas);
-        //this.add(new JSeparator());
-        //this.add(this.panelLifeCycle);
-        //this.add(new JSeparator());
-        //this.add(this.panelCounter);
+        this.add(new JSeparator());
+        this.add(this.panelLifeCycle);
+        this.add(new JSeparator());
+        this.add(this.panelCounter);
         this.setVisible(true);
     }
 
