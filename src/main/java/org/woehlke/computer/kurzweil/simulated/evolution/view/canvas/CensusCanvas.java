@@ -78,24 +78,6 @@ public class CensusCanvas extends JComponent implements Serializable {
             g.setColor(POPULATION.getColor());
             g.drawLine(xx,yy,xx,yy);
         }
-        /*
-        g.setColor(FOOD);
-        for (int y = 0; y < yy; y++) {
-            for (int x = 0; x < xx; x++) {
-                if (tabModel.hasFood(x, y)) {
-                    g.drawLine(x,y,x,y);
-                }
-            }
-        }
-        //paint all Cells
-        for (Cell p:tabModel.getAllCells()) {
-            LatticePoint[] square = p.getPosition().getNeighbourhood(this.tabModel.getWorldDimensions());
-            g.setColor(p.getLifeCycleStatus().getColor());
-            for(LatticePoint pixel:square){
-                g.drawLine(pixel.getX(),pixel.getY(),pixel.getX(),pixel.getY());
-            }
-        }
-         */
     }
 
     public void update(Graphics g) {
