@@ -39,7 +39,7 @@ public class CensusCanvas extends JComponent implements Serializable {
 
     private final LatticeDimension worldDimensions;
 
-    private final Color PAPER = Color.WHITE;
+    private final Color PAPER = POPULATION.getColorBackground();
 
     public CensusCanvas(SimulatedEvolutionModel tabModel) {
         this.container = tabModel.getCensusContainer();
@@ -69,6 +69,9 @@ public class CensusCanvas extends JComponent implements Serializable {
         //paint background
         g.setColor(POPULATION.getColorBackground());
         g.fillRect(x,y,width,height);
+        g.setColor(Color.RED);
+        g.drawLine(0,0, width, height);
+        g.drawLine(0,height, width,0);
         //paint data graph
         int xx = 0;
         int yy = 0;

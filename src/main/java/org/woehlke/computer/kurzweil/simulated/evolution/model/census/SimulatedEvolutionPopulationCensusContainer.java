@@ -65,9 +65,6 @@ public class SimulatedEvolutionPopulationCensusContainer implements Serializable
     public synchronized SimulatedEvolutionPopulationCensus[] getData(){
         SimulatedEvolutionPopulationCensus[] data = new SimulatedEvolutionPopulationCensus[statistics.size()];
         data = this.statistics.toArray(data);
-        for(SimulatedEvolutionPopulationCensus d:data){
-            System.out.println(d.getPopulation());
-        }
         return data;
     }
 }
