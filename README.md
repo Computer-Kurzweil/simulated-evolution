@@ -1,8 +1,6 @@
 # Simulated Evolution
 
-
 ![Java CI with Maven](https://github.com/Computer-Kurzweil/simulated-evolution/workflows/Java%20CI%20with%20Maven/badge.svg)
-[![Build Status](https://travis-ci.com/Computer-Kurzweil/simulated-evolution.svg?branch=master)](https://travis-ci.com/Computer-Kurzweil/simulated-evolution)
 
 **Artificial Life Simulation of Bacteria Motion depending on DNA**
 
@@ -35,7 +33,7 @@ cd simulated-evolution
 
 ## Repositories
 * [Github Repository](https://github.com/Computer-Kurzweil/simulated-evolution)
-* [Maven Project Reports](https://java.woehlke.org/simulated-evolution/readme2.html)
+* [Maven Project Reports](https://java.woehlke.org/simulated-evolution)
 
 ## Blog Article
 [http://thomas-woehlke.blogspot.de/2016/01/simulated-evolution-artificial-life-and.html](http://thomas-woehlke.blogspot.de/2016/01/simulated-evolution-artificial-life-and.html)
