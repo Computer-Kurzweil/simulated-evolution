@@ -29,7 +29,7 @@
             <item name="Home" href="index.html" />
             <item name="Copyright" href="LICENSE.code.html" />
             <item name="License" href="LICENSE.html" />
-            <item name="GitHub project" href="https://github.com/Computer-Kurzweil/simulated-evolution" />
+            <item name="GitHub Repository" href="https://github.com/Computer-Kurzweil/simulated-evolution" />
             <item name="Blog" href="https://thomas-woehlke.blogspot.de/2016/01/simulated-evolution-artificial-life-and.html" />
         </menu>
         <menu name="Contribute" inherit="bottom">
