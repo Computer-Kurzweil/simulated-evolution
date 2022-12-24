@@ -1,9 +1,16 @@
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+# usage-without-binary-jar: https://maven.apache.org/wrapper/
+.mvn/wrapper/maven-wrapper.jar
+
 *.iml
 .idea
-/.idea
 log.txt
-target
-/target
-release.properties
-pom.xml.releaseBackup
 /console.log
