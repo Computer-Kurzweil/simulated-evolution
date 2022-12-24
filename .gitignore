@@ -10,7 +10,7 @@ buildNumber.properties
 # usage-without-binary-jar: https://maven.apache.org/wrapper/
 .mvn/wrapper/maven-wrapper.jar
 
-*.iml
 .idea
-log.txt
-/console.log
+*iml
+*.xcf
+*.gif
