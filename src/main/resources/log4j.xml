@@ -11,31 +11,7 @@
         </RollingFileAppender>
     </Appenders>
     <Loggers>
-        <Logger name="org.woehlke.computer.kurzweil.simulated.evolution.tabs.cca" level="info" includeLocation="true">
-            <AppenderRef ref="Console"/>
-        </Logger>
-        <Logger name="org.woehlke.computer.kurzweil.simulated.evolution.tabs.dla" level="warn" includeLocation="true">
-            <AppenderRef ref="Console"/>
-        </Logger>
-        <Logger name="org.woehlke.computer.kurzweil.simulated.evolution.tabs.simulatedevolution" level="info" includeLocation="true">
-            <AppenderRef ref="Console"/>
-        </Logger>
-        <Logger name="org.woehlke.computer.kurzweil.simulated.evolution.tabs.mandelbrot" level="warn" includeLocation="true">
-            <AppenderRef ref="Console"/>
-        </Logger>
-        <Logger name="org.woehlke.computer.kurzweil.simulated.evolution.tabs.randomwalk" level="warn" includeLocation="true">
-            <AppenderRef ref="Console"/>
-        </Logger>
-        <Logger name="org.woehlke.computer.kurzweil.simulated.evolution.config" level="info" includeLocation="true">
-            <AppenderRef ref="Console"/>
-        </Logger>
-        <Logger name="org.woehlke.computer.kurzweil.simulated.evolution.commons" level="info" includeLocation="true">
-            <AppenderRef ref="Console"/>
-        </Logger>
-        <Logger name="org.woehlke.computer.kurzweil.simulated.evolution.commons.model" level="info" includeLocation="true">
-            <AppenderRef ref="Console"/>
-        </Logger>
-        <Logger name="org.woehlke.computer.kurzweil.simulated.evolution.commons.widgets" level="info" includeLocation="true">
+        <Logger name="org.woehlke.computer.kurzweil.simulated.evolution" level="info" includeLocation="true">
             <AppenderRef ref="Console"/>
         </Logger>
         <Root level="info">
