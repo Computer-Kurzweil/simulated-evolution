@@ -28,6 +28,7 @@ cd simulated-evolution
 
 
 ## UML Class Model
+
 ![UML Class Model](src/main/resources/img/Class_Model.jpg)
 
 
@@ -36,4 +37,4 @@ cd simulated-evolution
 * [Maven Project Reports](https://java.woehlke.org/simulated-evolution)
 
 ## Blog Article
-[http://thomas-woehlke.blogspot.de/2016/01/simulated-evolution-artificial-life-and.html](http://thomas-woehlke.blogspot.de/2016/01/simulated-evolution-artificial-life-and.html)
+* [http://thomas-woehlke.blogspot.de/2016/01/simulated-evolution-artificial-life-and.html](http://thomas-woehlke.blogspot.de/2016/01/simulated-evolution-artificial-life-and.html)
