@@ -53,6 +53,13 @@
         </license>
     </licenses>
 
+    <repositories>
+        <repository>
+            <id>libs-release-local-woehlke-org</id>
+            <name>woehlke.org</name>
+            <url>https://java.woehlke.org/libs-release-local/</url>
+        </repository>
+    </repositories>
 
     <build>
         <finalName>${project.artifactId}</finalName>
