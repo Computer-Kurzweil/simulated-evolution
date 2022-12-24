@@ -23,4 +23,4 @@ jobs:
         java-package: jdk
         architecture: x64
     - name: Build with Maven
-      run: ./mvnw -B -DskipTests clean dependency:resolve dependency:resolve-plugins install --file pom.xml
+      run: ./mvnw -B dependency:resolve dependency:resolve-plugins dependency:sources install site site:deploy --file pom.xml
