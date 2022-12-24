@@ -20,7 +20,7 @@
     </poweredBy>
     <body>
         <links>
-            <item name="GitHub project" href="https://github.com/Computer-Kurzweil/simulated-evolution/" />
+            <item name="GitHub project" href="https://github.com/Computer-Kurzweil/simulated-evolution" />
         </links>
         <breadcrumbs>
             <item name="Simulated Evolution" href="index.html" />
