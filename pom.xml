@@ -9,14 +9,14 @@
 
     <name>Simulated Evolution</name>
     <description>Artificial Life Simulation of Bacteria Motion depending on DNA</description>
-    <url>https://github.com/Computer-Kurzweil/simulated-evolution</url>
+    <url>https://java.woehlke.org/simulated-evolution</url>
     <inceptionYear>2013</inceptionYear>
 
     <scm>
-        <url>https://github.com/Computer-Kurzweil/simulated-evolution.git</url>
         <connection>scm:git:git@github.com:Computer-Kurzweil/simulated-evolution.git</connection>
         <developerConnection>scm:git:git@github.com:Computer-Kurzweil/simulated-evolution.git</developerConnection>
-        <tag>simulatedevolution-3.0.2</tag>
+        <url>https://github.com/Computer-Kurzweil/simulated-evolution/tree/${project.scm.tag}</url>
+        <tag>HEAD</tag>
     </scm>
 
     <issueManagement>
