@@ -14,7 +14,7 @@
 
     <name>Simulated Evolution</name>
     <description>Artificial Life Simulation of Bacteria Motion depending on DNA</description>
-    <url>https://java.woehlke.org/simulated-evolution</url>
+    <url>https://java.woehlke.org/kurzweil/simulated-evolution</url>
     <inceptionYear>2013</inceptionYear>
 
     <scm>
@@ -32,7 +32,7 @@
     <distributionManagement>
         <site>
             <id>simulatedevolution.local</id>
-            <url>file://${user.home}/public_html/java/simulated-evolution/</url>
+            <url>file://${user.home}/public_html/java/kurzweil/simulated-evolution/</url>
         </site>
         <snapshotRepository>
             <id>snapshots</id>
