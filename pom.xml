@@ -9,7 +9,7 @@
     </parent>
 
     <artifactId>simulatedevolution</artifactId>
-    <version>3.0.10-SNAPSHOT</version>
+    <version>3.0.10</version>
     <packaging>jar</packaging>
 
     <name>Simulated Evolution</name>
@@ -21,7 +21,7 @@
         <connection>scm:git:git@github.com:Computer-Kurzweil/simulated-evolution.git</connection>
         <developerConnection>scm:git:git@github.com:Computer-Kurzweil/simulated-evolution.git</developerConnection>
         <url>https://github.com/Computer-Kurzweil/simulated-evolution/tree/${project.scm.tag}</url>
-        <tag>HEAD</tag>
+        <tag>simulatedevolution-3.0.10</tag>
     </scm>
 
     <issueManagement>
@@ -58,20 +58,20 @@
             <id>Central</id>
             <name>Central Repository</name>
             <url>https://repo1.maven.org/maven2/</url>
-            <releases></releases>
-            <snapshots></snapshots>
+            <releases />
+            <snapshots />
         </repository>
         <repository>
             <id>repository.woehlke.org-releases</id>
             <name>woehlke.org Releases Repository</name>
             <url>https://repository.woehlke.org/releases/</url>
-            <releases></releases>
+            <releases />
         </repository>
         <repository>
             <id>repository.woehlke.org-snapshots</id>
             <name>woehlke.org Snapshots Repository</name>
             <url>https://repository.woehlke.org/snapshots/</url>
-            <snapshots></snapshots>
+            <snapshots />
         </repository>
     </repositories>
 
