@@ -23,19 +23,28 @@
             <item name="GitHub project" href="https://github.com/Computer-Kurzweil/simulated-evolution" />
         </links>
         <breadcrumbs>
+            <item name="Thomas Woehlke on GitHub" href="https://github.com/thomaswoehlke" />
+            <item name="Computer-Kurzweil Group on GitHub" href="https://github.com/Computer-Kurzweil/" />
+            <item name="Fork this on GitHub" href="https://github.com/Computer-Kurzweil/simulated-evolution/" />
             <item name="Simulated Evolution" href="index.html" />
         </breadcrumbs>
-        <menu name="Main" inherit="top">
+        <menu name="Overview" inherit="top">
             <item name="Home" href="index.html" />
-            <item name="Copyright" href="LICENSE.code.html" />
-            <item name="License" href="LICENSE.html" />
-            <item name="GitHub Repository" href="https://github.com/Computer-Kurzweil/simulated-evolution" />
-            <item name="Blog" href="https://thomas-woehlke.blogspot.de/2016/01/simulated-evolution-artificial-life-and.html" />
-        </menu>
-        <menu name="Contribute" inherit="bottom">
-            <item name="Issues" href="https://github.com/Computer-Kurzweil/simulated-evolution/issues" />
-            <item name="Fork on GitHub" href="https://github.com/Computer-Kurzweil/simulated-evolution" />
+            <item name="Fork this on GitHub" href="https://github.com/Computer-Kurzweil/simulated-evolution" />
+            <item name="Computer-Kurzweil Group on GitHub" href="https://github.com/Computer-Kurzweil/" />
+            <item name="Thomas Woehlke on GitHub" href="https://github.com/thomaswoehlke" />
             <item name="Donate" href="https://www.paypal.me/ThomasWoehlke" />
+        </menu>
+        <menu name="License" inherit="top">
+            <item name="License" href="LICENSE.html" />
+            <item name="Copyright" href="LICENSE.code.html" />
+        </menu>
+        <menu name="Progress" inherit="bottom">
+            <item name="CHANGELOG" href="CHANGELOG.html" />
+            <item name="TODO" href="TODO.html" />
+            <item name="Github: Issues" href="https://github.com/Computer-Kurzweil/simulated-evolution/issues/" />
+            <item name="Github: Milestones" href="https://github.com/Computer-Kurzweil/simulated-evolution/milestones" />
+            <item name="Github: Releases" href="https://github.com/Computer-Kurzweil/simulated-evolution/releases/" />
         </menu>
         <menu name="Maven Reports" ref="reports" inherit="bottom"/>
     </body>
