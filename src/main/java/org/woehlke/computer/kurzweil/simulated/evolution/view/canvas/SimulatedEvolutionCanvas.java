@@ -55,21 +55,14 @@ public class SimulatedEvolutionCanvas extends JComponent implements Serializable
      */
     public void paint(Graphics g) {
         super.paintComponent(g);
-        int xx = this.worldDimensions.getX();
-        int yy = this.worldDimensions.getY();
-        //paint water
-        g.setColor(WATER);
-        g.fillRect(0,0,xx,yy);
-        //paint food
-        g.setColor(FOOD);
-        for (int y = 0; y < yy; y++) {
-            for (int x = 0; x < xx; x++) {
-                if (tabModel.hasFood(x, y)) {
-                    g.drawLine(x,y,x,y);
-                }
-            }
-        }
-        //paint all Cells
+        int width = this.worldDimensions.getX();
+        int height = this.worldDimensions.getY();
+        paintWater(g, width, height);
+        paintFood(g, width, height);
+        paintCells(g);
+    }
+
+    private void paintCells(Graphics g) {
         for (Cell p:tabModel.getAllCells()) {
             LatticePoint[] square = p.getPosition().getNeighbourhood(this.tabModel.getWorldDimensions());
             g.setColor(p.getLifeCycleStatus().getColor());
@@ -77,6 +70,22 @@ public class SimulatedEvolutionCanvas extends JComponent implements Serializable
                 g.drawLine(pixel.getX(),pixel.getY(),pixel.getX(),pixel.getY());
             }
         }
+    }
+
+    private void paintFood(Graphics g, int width, int height) {
+        g.setColor(FOOD);
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                if (tabModel.hasFood(x, y)) {
+                    g.drawLine(x,y,x,y);
+                }
+            }
+        }
+    }
+
+    private void paintWater(Graphics g, int width, int height) {
+        g.setColor(WATER);
+        g.fillRect(0,0, width, height);
     }
 
     public void update(Graphics g) {
