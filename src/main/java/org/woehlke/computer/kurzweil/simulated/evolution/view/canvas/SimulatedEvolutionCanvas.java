@@ -26,23 +26,22 @@ import java.io.Serializable;
  */
 @Log4j2
 @Getter
-public class SimulatedEvolutionCanvas extends JComponent implements Serializable {
+public abstract class SimulatedEvolutionCanvas extends JComponent implements Serializable {
 
     static final long serialVersionUID = 242L;
 
     /**
      * Reference to the Data Model.
      */
-    private final SimulatedEvolutionModel tabModel;
-    private final LatticePoint worldDimensions;
+    protected final SimulatedEvolutionModel tabModel;
+    protected final LatticePoint worldDimensions;
 
-    private final Color WATER = Color.BLACK;
-    private final Color FOOD = Color.GREEN;
+
 
     public SimulatedEvolutionCanvas(SimulatedEvolutionModel tabModel) {
         this.tabModel = tabModel;
         this.worldDimensions = this.tabModel.getWorldDimensions();
-        this.setBackground(WATER);
+        //this.setBackground(WATER);
         int x = this.worldDimensions.getX();
         int y = this.worldDimensions.getY();
         this.setSize(x,y);
@@ -62,31 +61,9 @@ public class SimulatedEvolutionCanvas extends JComponent implements Serializable
         paintCells(g);
     }
 
-    private void paintCells(Graphics g) {
-        for (Cell p:tabModel.getAllCells()) {
-            LatticePoint[] square = p.getPosition().getNeighbourhood(this.tabModel.getWorldDimensions());
-            g.setColor(p.getLifeCycleStatus().getColor());
-            for(LatticePoint pixel:square){
-                g.drawLine(pixel.getX(),pixel.getY(),pixel.getX(),pixel.getY());
-            }
-        }
-    }
-
-    private void paintFood(Graphics g, int width, int height) {
-        g.setColor(FOOD);
-        for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
-                if (tabModel.hasFood(x, y)) {
-                    g.drawLine(x,y,x,y);
-                }
-            }
-        }
-    }
-
-    private void paintWater(Graphics g, int width, int height) {
-        g.setColor(WATER);
-        g.fillRect(0,0, width, height);
-    }
+    protected abstract void paintCells(Graphics g);
+    protected abstract void paintFood(Graphics g, int width, int height);
+    protected abstract void paintWater(Graphics g, int width, int height);
 
     public void update(Graphics g) {
         paint(g);
