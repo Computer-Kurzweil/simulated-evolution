@@ -31,6 +31,8 @@ public class LifeCycle implements Serializable {
 
     static final long serialVersionUID = 242L;
 
+    static GeneticInfo geneticInformation = new ConcreteGeneticInfo1();
+
     /**
      * Status of the LifeCycle is fat, age and hunger.
      */
@@ -46,45 +48,51 @@ public class LifeCycle implements Serializable {
      */
     private int hunger;
 
+    /**
+     * LifeCycle Threshold Parameter
+     */
+    private static int MAX_FAT = geneticInformation.getMAX_FAT();
 
     /**
      * LifeCycle Threshold Parameter
      */
-    private final static int MAX_FAT = 2000;
+    private static int MAX_HUNGER = geneticInformation.getMAX_HUNGER();
 
     /**
      * LifeCycle Threshold Parameter
      */
-    private final static int MAX_HUNGER = 1000;
+    private static int FULL_AGE = geneticInformation.getFULL_AGE();
 
     /**
      * LifeCycle Threshold Parameter
      */
-    private final static int FULL_AGE = 200;
+    private static int FAT_MINIMUM_FOR_SEX = geneticInformation.getFAT_MINIMUM_FOR_SEX();
 
     /**
      * LifeCycle Threshold Parameter
      */
-    private final static int FAT_MINIMUM_FOR_SEX = 800;
+    private static int FAT_AT_BIRTH = geneticInformation.getFAT_AT_BIRTH();
 
     /**
      * LifeCycle Threshold Parameter
      */
-    private final static int FAT_AT_BIRTH = 500;
+    private static int FAT_PER_FOOD = geneticInformation.getFAT_PER_FOOD();
 
     /**
      * LifeCycle Threshold Parameter
      */
-    private final static int FAT_PER_FOOD = 25;
-
-    /**
-     * LifeCycle Threshold Parameter
-     */
-    private final static int OLD_AGE = 800;
+    private static int OLD_AGE = geneticInformation.getOLD_AGE();
 
     /** LifeCycle Threshold Parameter */
-    private final static int MAX_AGE = 1000;
+    private static int MAX_AGE = geneticInformation.getMAX_AGE();
 
+    private static int AGE_INC = geneticInformation.getAGE_INC();
+
+    private static int FAT_DEC = geneticInformation.getFAT_DEC();
+
+    private static int HUNGER_INC = geneticInformation.getHUNGER_INC();
+
+    private static int FAT_DIVISION = geneticInformation.getFAT_DIVISION();
     public LifeCycle() {
         hunger = 0;
         age = 0;
@@ -102,12 +110,12 @@ public class LifeCycle implements Serializable {
      * @return true, if cell has enough energy to move.
      */
     public boolean move() {
-        age++;
+        age += AGE_INC;
         if (fat > 0) {
-            fat--;
+            fat -= FAT_DEC;
             return true;
         } else {
-            hunger++;
+            hunger += HUNGER_INC;
             return false;
         }
     }
@@ -116,7 +124,7 @@ public class LifeCycle implements Serializable {
      * having sex by cell division changes age and fat.
      */
     public void haveSex() {
-        fat /= 2;
+        fat /= FAT_DIVISION;
         age = 0;
     }
 
