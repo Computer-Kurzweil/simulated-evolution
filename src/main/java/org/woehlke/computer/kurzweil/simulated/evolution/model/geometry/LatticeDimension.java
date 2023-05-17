@@ -50,7 +50,7 @@ public class LatticeDimension implements Serializable {
             this.getHeight()
         );
     }
-
+    
     public static LatticeDimension of(LatticePoint p) {
         return new LatticeDimension(p.getX(), p.getY());
     }

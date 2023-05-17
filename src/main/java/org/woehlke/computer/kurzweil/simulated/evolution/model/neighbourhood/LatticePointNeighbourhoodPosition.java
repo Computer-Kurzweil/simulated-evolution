@@ -1,8 +1,11 @@
 package org.woehlke.computer.kurzweil.simulated.evolution.model.neighbourhood;
 
 import lombok.Getter;
+import org.woehlke.computer.kurzweil.simulated.evolution.model.neighbourhood.neighbourhoodposition.Neighbourhoods;
 
 import java.io.Serializable;
+
+import static org.woehlke.computer.kurzweil.simulated.evolution.model.neighbourhood.neighbourhoodposition.Neighbourhoods.NeighbourhoodFactory;
 
 /**
  * &copy; 2006 - 2008 Thomas Woehlke.
@@ -33,44 +36,8 @@ public enum LatticePointNeighbourhoodPosition implements Serializable {
         this.y = y;
     }
 
-    public static LatticePointNeighbourhoodPosition[] getNeighbourhoodFor(
-        LatticePointNeighbourhoodType neighbourhoodType
-    ){
-        LatticePointNeighbourhoodPosition[] result;
-        switch (neighbourhoodType) {
-            case VON_NEUMANN_NEIGHBORHOOD:
-                result = new LatticePointNeighbourhoodPosition[4];
-                result[0]=NORTH;
-                result[1]=EAST;
-                result[2]=SOUTH;
-                result[3]=WEST;
-                break;
-            case MOORE_NEIGHBORHOOD:
-                result = new LatticePointNeighbourhoodPosition[8];
-                result[0]=NORTH_WEST;
-                result[1]=NORTH;
-                result[2]=NORTH_EAST;
-                result[3]=EAST;
-                result[4]=SOUTH_EAST;
-                result[5]=SOUTH;
-                result[6]=SOUTH_WEST;
-                result[7]=WEST;
-                break;
-            case WOEHLKE_NEIGHBORHOOD:
-                result = new LatticePointNeighbourhoodPosition[6];
-                result[0]=NORTH_WEST;
-                result[1]=NORTH;
-                result[2]=NORTH_EAST;
-                result[3]=EAST;
-                result[4]=SOUTH_WEST;
-                result[5]=WEST;
-                break;
-            default:
-                result = new LatticePointNeighbourhoodPosition[1];
-                result[0]=CENTER;
-                break;
-        }
-        return result;
+    public static LatticePointNeighbourhoodPosition[] getNeighbourhoodFor(LatticePointNeighbourhoodType neighbourhoodType){
+        return NeighbourhoodFactory(neighbourhoodType);
     }
 
 }
