@@ -33,14 +33,8 @@ public class LatticePoint implements Serializable {
 
     static final long serialVersionUID = 242L;
 
-    /**
-     * Horizontal X-Coordinate. Also used as Width;
-     */
-    private int x;
 
-    /**
-     * Vertical Y-Coordinate. Also used as Height;
-     */
+    private int x;
     private int y;
 
     public LatticePoint(LatticePoint other) {
@@ -53,14 +47,13 @@ public class LatticePoint implements Serializable {
         y *= Integer.signum(y);
     }
 
-    public void killNagative() {
+    public void makePositive() {
         absoluteValue();
     }
 
-    public void plus(LatticePoint p) {
-        this.x += p.getX();
-        this.y += p.getY();
-        absoluteValue();
+    public void addAndAbsolute(LatticePoint p) {
+        this.x = Math.abs(x + p.getX());
+        this.y = Math.abs(y + p.getY());
     }
 
     public void add(LatticePoint p) {

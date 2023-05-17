@@ -69,10 +69,10 @@ public class Cell implements Serializable {
         this.position = new LatticePoint(position);
         this.random = random;
         this.cellCore = new CellCore(random);
-        this.max.killNagative();
+        this.max.makePositive();
         this.position.setX(random.nextInt() % max.getX());
         this.position.setY(random.nextInt() % max.getY());
-        this.position.killNagative();
+        this.position.makePositive();
         this.orientation = getRandomOrientation();
         this.lifeCycle = new LifeCycle();
         this.generation = 1L;
