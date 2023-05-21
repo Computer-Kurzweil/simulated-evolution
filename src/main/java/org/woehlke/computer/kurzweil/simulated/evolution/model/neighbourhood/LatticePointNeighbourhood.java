@@ -8,6 +8,8 @@ import org.woehlke.computer.kurzweil.simulated.evolution.model.geometry.LatticeP
 
 import java.io.Serializable;
 
+import static org.woehlke.computer.kurzweil.simulated.evolution.model.neighbourhood.LatticePointNeighbourhoodType.*;
+
 /**
  * &copy; 2006 - 2008 Thomas Woehlke.
  * @author Thomas Woehlke
@@ -65,22 +67,20 @@ public class LatticePointNeighbourhood implements Serializable {
         return getMoore(worldX, worldY, myX, myY);
     }
 
-    public static LatticePoint[] getMoore(int worldX, int worldY, int myX, int myY) {
-        LatticePointNeighbourhoodType neighbourhoodType = LatticePointNeighbourhoodType.MOORE_NEIGHBORHOOD;
-        LatticePointNeighbourhood n = new LatticePointNeighbourhood(worldX, worldY, myX, myY, neighbourhoodType);
-        return n.getNeighbourhoodPoints();
+    public static LatticePoint[] getMoore(int worldX, int worldY, int mX, int mY) {
+        return getNeighbour(worldX, worldY, mX, mY, MOORE_NEIGHBORHOOD);
     }
 
-    public static LatticePoint[] getVonNeumann(int worldX, int worldY, int myX, int myY) {
-        LatticePointNeighbourhoodType neighbourhoodType = LatticePointNeighbourhoodType.VON_NEUMANN_NEIGHBORHOOD;
-        LatticePointNeighbourhood n = new LatticePointNeighbourhood(worldX, worldY, myX, myY, neighbourhoodType);
-        return n.getNeighbourhoodPoints();
+    public LatticePoint[] getVonNeumann(int worldX, int worldY, int mX, int mY) {
+        return getNeighbour(worldX, worldY, mX, mY,VON_NEUMANN_NEIGHBORHOOD);
     }
 
-    public static LatticePoint[] getWoehlke(int worldX, int worldY, int myX, int myY) {
-        LatticePointNeighbourhoodType neighbourhoodType = LatticePointNeighbourhoodType.WOEHLKE_NEIGHBORHOOD;
-        LatticePointNeighbourhood n = new LatticePointNeighbourhood(worldX, worldY, myX, myY, neighbourhoodType);
-        return n.getNeighbourhoodPoints();
+    public LatticePoint[] getWoehlke(int worldX, int worldY, int mX, int mY) {
+        return getNeighbour(worldX, worldY, mX,mY, WOEHLKE_NEIGHBORHOOD);
+    }
+
+    private static LatticePoint[] getNeighbour(int worldX, int worldY, int mX, int mY, LatticePointNeighbourhoodType type){
+        return new LatticePointNeighbourhood(worldX, worldY, mX,mY, type).getNeighbourhoodPoints();
     }
 
 }
