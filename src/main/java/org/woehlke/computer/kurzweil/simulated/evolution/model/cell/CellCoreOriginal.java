@@ -4,7 +4,6 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 
-import java.beans.Transient;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Random;
@@ -26,25 +25,19 @@ import java.util.ArrayList;
 @Log4j2
 @ToString(exclude = {"random"})
 @EqualsAndHashCode(exclude = {"random"})
-public class CellCore implements Serializable {
+public class CellCoreOriginal extends CellCore implements Serializable{
 
     static final long serialVersionUID = 242L;
 
     /**
      * The DNA Values of the Genome.
      */
-    private List<Integer> dna;
-
-    private final static int MIN_VALUE = 0;
-    private final static int MAX_VALUE = 16;
-    private final static int MAX_INITIAL_VALUE = 8;
 
     /**
      * Random Generator is set from outside by Constructor.
      */
-    private Random random;
 
-    public CellCore(Random random) {
+    public CellCoreOriginal(Random random) {
         dna = new ArrayList<Integer>();
         this.random = random;
         for (int i = 0; i < Orientation.values().length; i++) {
@@ -53,7 +46,7 @@ public class CellCore implements Serializable {
         }
     }
 
-    private CellCore(Random random, List<Integer> rna) {
+    private CellCoreOriginal(Random random, List<Integer> rna) {
         this.random = random;
         dna = new ArrayList<Integer>();
         dna.addAll(rna);
@@ -67,12 +60,13 @@ public class CellCore implements Serializable {
      *
      * @return the other Child CellCore.
      */
-    public CellCore performMitosis() {
+    @Override
+    public CellCoreOriginal performMitosis() {
         List<Integer> rna = new ArrayList<Integer>();
         for (Integer dnaBase:dna) {
             rna.add(dnaBase);
         }
-        CellCore child = new CellCore(random, rna);
+        CellCoreOriginal child = new CellCoreOriginal(random, rna);
         int baseIndex = random.nextInt() % Orientation.values().length;
         if (baseIndex < MIN_VALUE) {
             baseIndex *= -1;
@@ -83,37 +77,10 @@ public class CellCore implements Serializable {
         return child;
     }
 
-    private void increase(Orientation base) {
-        int value = dna.get(base.ordinal());
-        if (value == MAX_VALUE) {
-            for (int i = 0; i < dna.size(); i++) {
-                Integer val = dna.get(i);
-                val--;
-                dna.set(i, val);
-            }
-        }
-        Integer val = dna.get(base.ordinal());
-        val++;
-        dna.set(base.ordinal(), val);
-    }
-
-    private void decrease(Orientation base) {
-        int value = dna.get(base.ordinal());
-        if (value == -MAX_VALUE) {
-            for (int i = 0; i < dna.size(); i++) {
-                Integer val = dna.get(i);
-                val++;
-                dna.set(i, val);
-            }
-            dna.set(base.ordinal(), 0);
-        } else {
-            dna.set(base.ordinal(), value-1);
-        }
-    }
-
     /**
      * @return gives a new Orientation based on the Combinition of Random and DNA.
      */
+    @Override
     public Orientation getRandomOrientation() {
         Orientation orientation = Orientation.FORWARD;
         int dnaLength = Orientation.values().length;
@@ -153,5 +120,33 @@ public class CellCore implements Serializable {
             orientation = Orientation.values()[newInt];
         }
         return orientation;
+    }
+
+    private void increase(Orientation base) {
+        int value = dna.get(base.ordinal());
+        if (value == MAX_VALUE) {
+            for (int i = 0; i < dna.size(); i++) {
+                Integer val = dna.get(i);
+                val--;
+                dna.set(i, val);
+            }
+        }
+        Integer val = dna.get(base.ordinal());
+        val++;
+        dna.set(base.ordinal(), val);
+    }
+
+    private void decrease(Orientation base) {
+        int value = dna.get(base.ordinal());
+        if (value == -MAX_VALUE) {
+            for (int i = 0; i < dna.size(); i++) {
+                Integer val = dna.get(i);
+                val++;
+                dna.set(i, val);
+            }
+            dna.set(base.ordinal(), 0);
+        } else {
+            dna.set(base.ordinal(), value-1);
+        }
     }
 }
