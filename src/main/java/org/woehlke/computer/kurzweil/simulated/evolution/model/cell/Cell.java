@@ -14,7 +14,7 @@ import java.util.Random;
  * It's state is position, orientation and LifeCycle.
  * The Cell has a CellCore with the DNA Genome for Moving around.
  *
- * @see CellCore
+ * @see CellCoreOriginal
  * @see LifeCycle
  * @see LifeCycleStatus
  *
@@ -34,7 +34,7 @@ public class Cell implements Serializable {
     /**
      * Contains the DNA for Random based Moving
      */
-    private CellCore cellCore;
+    private CellCoreOriginal cellCore;
 
     /**
      * The Cell's state is position, orientation and LifeCycle
@@ -68,7 +68,7 @@ public class Cell implements Serializable {
         this.max = new LatticePoint(max);
         this.position = new LatticePoint(position);
         this.random = random;
-        this.cellCore = new CellCore(random);
+        this.cellCore = CellCore.createCellCore(random);
         this.max.makePositive();
         this.position.setX(random.nextInt() % max.getX());
         this.position.setY(random.nextInt() % max.getY());
@@ -78,7 +78,7 @@ public class Cell implements Serializable {
         this.generation = 1L;
     }
 
-    private Cell(int fat, long generation, CellCore rna, LatticePoint position, LatticePoint max, Random random) {
+    private Cell(int fat, long generation, CellCoreOriginal rna, LatticePoint position, LatticePoint max, Random random) {
         this.generation = generation;
         this.lifeCycle = new LifeCycle(fat);
         this.max = new LatticePoint(max);
@@ -120,12 +120,12 @@ public class Cell implements Serializable {
     /**
      * After performing Reproduction by Cell Division this Cell is one of the two Children this Method returns the other Child.
      *
-     * @see CellCore#performMitosis()
+     * @see CellCoreOriginal#performMitosis()
      *
      * @return the other Child
      */
     public Cell performReproductionByCellDivision() {
-        CellCore rna = cellCore.performMitosis();
+        CellCoreOriginal rna = cellCore.performMitosis();
         lifeCycle.haveSex();
         long newGeneration = this.generation + 1L;
         Cell child = new Cell(lifeCycle.getFat(), newGeneration, rna, position, max, random);
