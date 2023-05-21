@@ -6,6 +6,7 @@ import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeCycle;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.geometry.LatticePoint;
 
+import java.lang.Math;
 import java.io.Serializable;
 import java.util.Random;
 
@@ -62,39 +63,26 @@ public class SimulatedEvolutionWorldLattice implements Serializable {
         this.random=random;
     }
 
+    private void generateFood(int foodLimit, int startX, int startY, int limitX, int limitY) {
+        int food = 0;
+        while (food < foodLimit) {
+            food++;
+            int x = Math.abs(random.nextInt(limitX));
+            int y = Math.abs(random.nextInt(limitY));
+        
+            worldMapFood[startX*2+x][startY*2+y]++;
+        }
+    }
+
     /**
      * Delivers new food to random positions.
      */
     public void letFoodGrow() {
-        int f = 0;
-        while (f < FOOD_PER_DAY) {
-            f++;
-            int x = random.nextInt(this.dimensions.getX());
-            int y = random.nextInt(this.dimensions.getY());
-            if (x < 0) {
-                x *= -1;
-            }
-            if (y < 0) {
-                y *= -1;
-            }
-            worldMapFood[x][y]++;
-        }
-        if(EABLE_GARDEN_OF_EDEN){
-            f = 0;
-            int startx = this.dimensions.getX() / 5;
-            int starty = this.dimensions.getY() / 5;
-            while (f < FOOD_PER_DAY*4) {
-                f++;
-                int x = random.nextInt(startx);
-                int y = random.nextInt(starty);
-                if (x < 0) {
-                    x *= -1;
-                }
-                if (y < 0) {
-                    y *= -1;
-                }
-                worldMapFood[x+startx*2][y+starty*2]++;
-            }
+        int limitX = this.dimensions.getX();
+        int limitY = this.dimensions.getY();
+        generateFood(FOOD_PER_DAY, 0, 0, limitX, limitY);
+        if (EABLE_GARDEN_OF_EDEN) {
+            generateFood(FOOD_PER_DAY*4, limitX / 5, limitY / 5, limitX / 5, limitY / 5);
         }
     }
 
