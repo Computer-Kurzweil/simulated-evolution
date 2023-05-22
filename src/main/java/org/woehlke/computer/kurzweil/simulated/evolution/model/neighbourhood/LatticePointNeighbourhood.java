@@ -8,6 +8,7 @@ import org.woehlke.computer.kurzweil.simulated.evolution.model.geometry.LatticeP
 
 import java.io.Serializable;
 
+import static org.woehlke.computer.kurzweil.simulated.evolution.model.neighbourhood.LatticePointNeighbourhoodPosition.getNeighbourhoodFor;
 import static org.woehlke.computer.kurzweil.simulated.evolution.model.neighbourhood.LatticePointNeighbourhoodType.*;
 
 /**
@@ -53,7 +54,7 @@ public class LatticePointNeighbourhood implements Serializable {
      */
     private LatticePoint[] getNeighbourhoodPoints() {
 
-        LatticePointNeighbourhoodPosition[] positions = LatticePointNeighbourhoodPosition.getNeighbourhoodFor(neighbourhoodType);
+        LatticePointNeighbourhoodPosition[] positions = getNeighbourhoodFor(neighbourhoodType);
         this.neighbourhood = new LatticePoint[positions.length];
         for(int i = 0; i < positions.length; i++){
             this.neighbourhood[i] = new LatticePoint(
@@ -76,7 +77,7 @@ public class LatticePointNeighbourhood implements Serializable {
         return getNeighbour(worldX, worldY, mX, mY,VON_NEUMANN_NEIGHBORHOOD);
     }
 
-    public LatticePoint[] getWoehlke(int worldX, int worldY, int mX, int mY) {
+    public LatticePoint[] getUserDefineType(int worldX, int worldY, int mX, int mY) {
         return getNeighbour(worldX, worldY, mX,mY, USER_DEFINE_NEIGHBORHOOD);
     }
 

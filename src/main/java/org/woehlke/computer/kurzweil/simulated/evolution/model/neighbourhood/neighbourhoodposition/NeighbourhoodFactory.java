@@ -12,7 +12,7 @@ public abstract class NeighbourhoodFactory {
             case VON_NEUMANN_NEIGHBORHOOD -> result = new VonNeumannNeighborhood().getNeighbourhoodPositions();
             case MOORE_NEIGHBORHOOD ->  result = new MooreNeighborhood().getNeighbourhoodPositions();
             case USER_DEFINE_NEIGHBORHOOD -> result = new WoehlkeNeighbourhood().getNeighbourhoodPositions();
-            default -> result =  new Others().getNeighbourhoodPositions();
+            default -> result =  new OtherNeighbourhood().getNeighbourhoodPositions();
         }
         return result;
     }
