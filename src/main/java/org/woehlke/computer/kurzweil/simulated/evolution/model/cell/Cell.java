@@ -34,7 +34,7 @@ public class Cell implements Serializable {
     /**
      * Contains the DNA for Random based Moving
      */
-    private CellCoreOriginal cellCore;
+    private CellCore cellCore;
 
     /**
      * The Cell's state is position, orientation and LifeCycle
@@ -78,7 +78,7 @@ public class Cell implements Serializable {
         this.generation = 1L;
     }
 
-    private Cell(int fat, long generation, CellCoreOriginal rna, LatticePoint position, LatticePoint max, Random random) {
+    private Cell(int fat, long generation, CellCore rna, LatticePoint position, LatticePoint max, Random random) {
         this.generation = generation;
         this.lifeCycle = new LifeCycle(fat);
         this.max = new LatticePoint(max);
@@ -125,7 +125,7 @@ public class Cell implements Serializable {
      * @return the other Child
      */
     public Cell performReproductionByCellDivision() {
-        CellCoreOriginal rna = cellCore.performMitosis();
+        CellCore rna = cellCore.performMitosis();
         lifeCycle.haveSex();
         long newGeneration = this.generation + 1L;
         Cell child = new Cell(lifeCycle.getFat(), newGeneration, rna, position, max, random);
