@@ -1,11 +1,10 @@
 package org.woehlke.computer.kurzweil.simulated.evolution.model.neighbourhood;
 
 import lombok.Getter;
-import org.woehlke.computer.kurzweil.simulated.evolution.model.neighbourhood.neighbourhoodposition.Neighbourhoods;
 
 import java.io.Serializable;
 
-import static org.woehlke.computer.kurzweil.simulated.evolution.model.neighbourhood.neighbourhoodposition.Neighbourhoods.NeighbourhoodFactory;
+import static org.woehlke.computer.kurzweil.simulated.evolution.model.neighbourhood.neighbourhoodposition.NeighbourhoodFactory.NeighbourhoodFactory;
 
 /**
  * &copy; 2006 - 2008 Thomas Woehlke.

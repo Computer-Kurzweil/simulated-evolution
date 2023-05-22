@@ -91,9 +91,7 @@ public class Cell implements Serializable {
     private Orientation getRandomOrientation() {
         int dnaLength = Orientation.values().length;
         int dnaBase = random.nextInt(dnaLength);
-        if (dnaBase < 0) {
-            dnaBase *= -1;
-        }
+        dnaBase = Math.abs(dnaBase);
         return Orientation.values()[dnaBase];
     }
 

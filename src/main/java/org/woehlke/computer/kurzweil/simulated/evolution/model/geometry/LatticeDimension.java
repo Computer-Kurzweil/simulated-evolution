@@ -26,15 +26,15 @@ public class LatticeDimension implements Serializable {
      */
     private int height;
 
-    public void absoluteValue() {
-        width *= Integer.signum(width);
-        height *= Integer.signum(height);
+    public void makePositive() {
+        width = Math.abs(width);
+        height = Math.abs(height);
     }
 
-    public void plus(LatticeDimension p) {
-        this.width += p.getWidth();
-        this.height += p.getHeight();
-        absoluteValue();
+    public void plusAndAbsolute(LatticeDimension p) {
+        width = Math.abs(width + p.getWidth());
+        height = Math.abs(height + p.getHeight());
+        makePositive();
     }
 
     public LatticeDimension copy() {
@@ -50,7 +50,7 @@ public class LatticeDimension implements Serializable {
             this.getHeight()
         );
     }
-    
+
     public static LatticeDimension of(LatticePoint p) {
         return new LatticeDimension(p.getX(), p.getY());
     }

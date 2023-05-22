@@ -52,6 +52,7 @@ public class LatticePointNeighbourhood implements Serializable {
      * @return The Set of Points belonging to the Neighbourhood of the position given by this Point Object.
      */
     private LatticePoint[] getNeighbourhoodPoints() {
+
         LatticePointNeighbourhoodPosition[] positions = LatticePointNeighbourhoodPosition.getNeighbourhoodFor(neighbourhoodType);
         this.neighbourhood = new LatticePoint[positions.length];
         for(int i = 0; i < positions.length; i++){
@@ -76,7 +77,7 @@ public class LatticePointNeighbourhood implements Serializable {
     }
 
     public LatticePoint[] getWoehlke(int worldX, int worldY, int mX, int mY) {
-        return getNeighbour(worldX, worldY, mX,mY, WOEHLKE_NEIGHBORHOOD);
+        return getNeighbour(worldX, worldY, mX,mY, USER_DEFINE_NEIGHBORHOOD);
     }
 
     private static LatticePoint[] getNeighbour(int worldX, int worldY, int mX, int mY, LatticePointNeighbourhoodType type){
@@ -84,3 +85,4 @@ public class LatticePointNeighbourhood implements Serializable {
     }
 
 }
+
