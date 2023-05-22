@@ -7,6 +7,7 @@ import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweilProperties;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.cell.Cell;
+import org.woehlke.computer.kurzweil.simulated.evolution.model.cell.CellOriginal;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.census.SimulatedEvolutionPopulationCensus;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.census.SimulatedEvolutionPopulationCensusContainer;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.geometry.LatticePoint;
@@ -117,7 +118,7 @@ public class SimulatedEvolutionModel implements Serializable {
                 y *= -1;
             }
             LatticePoint pos = new LatticePoint(x, y);
-            Cell cell = new Cell(worldDimensions, pos, random);
+            Cell cell = new CellOriginal(worldDimensions, pos, random);
             cells.add(cell);
             populationCensus.countStatusOfOneCell(cell.getLifeCycleStatus(), cell.getGeneration());
         }
