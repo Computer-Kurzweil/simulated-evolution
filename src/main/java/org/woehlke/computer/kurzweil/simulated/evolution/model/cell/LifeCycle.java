@@ -61,7 +61,7 @@ public class LifeCycle implements Serializable {
     /**
      * LifeCycle Threshold Parameter
      */
-    private static int FULL_AGE = geneticInformation.getFULL_AGE();
+    private static int ADULT_AGE = geneticInformation.getADULT_AGE();
 
     /**
      * LifeCycle Threshold Parameter
@@ -132,14 +132,14 @@ public class LifeCycle implements Serializable {
      * @return has enough age and fat for having sex.
      */
     public boolean isYoungAndFat() {
-        return (age < FULL_AGE) && (fat >= FAT_MINIMUM_FOR_SEX);
+        return (age < ADULT_AGE) && (fat >= FAT_MINIMUM_FOR_SEX);
     }
 
     /**
      * @return has enough age and fat for having sex.
      */
     public boolean isPregnant() {
-        return (age >= FULL_AGE) && (fat >= FAT_MINIMUM_FOR_SEX);
+        return (age >= ADULT_AGE) && (fat >= FAT_MINIMUM_FOR_SEX);
     }
 
     /**
@@ -164,26 +164,29 @@ public class LifeCycle implements Serializable {
         return fat;
     }
 
+    public boolean isYoung() {
+        return (age < ADULT_AGE) && (fat < FAT_MINIMUM_FOR_SEX);
+    }
+
+    public boolean isAdult() {
+        return (age >= ADULT_AGE) && (age < OLD_AGE);
+    }
+
+    public boolean isOld() {
+        return (age >= ADULT_AGE) && (age >= OLD_AGE) && (age < MAX_AGE);
+    }
+
+    public boolean isHungry() {
+        return (fat == 0) && (hunger >= 0);
+    }
+ 
+
     public LifeCycleStatus getLifeCycleStatus(){
-        if(fat==0 && hunger>=0){
-            return LifeCycleStatus.HUNGRY;
-        }
-        if(age<FULL_AGE){
-            if(fat< FAT_MINIMUM_FOR_SEX){
-                return LifeCycleStatus.YOUNG;
-            } else {
-                return YOUNG_AND_FAT;
-            }
-        } else {
-            if (age<OLD_AGE) {
-                return LifeCycleStatus.FULL_AGE;
-            } else {
-                if (age < MAX_AGE) {
-                    return LifeCycleStatus.OLD;
-                } else {
-                    return LifeCycleStatus.DEAD;
-                }
-            }
-        }
+        if(isHungry()) return LifeCycleStatus.HUNGRY;
+        if (isYoung()) return LifeCycleStatus.YOUNG;
+        if (isYoungAndFat()) return LifeCycleStatus.YOUNG_AND_FAT;
+        if (isAdult()) return LifeCycleStatus.ADULT_AGE;
+        if (isOld()) return LifeCycleStatus.OLD;
+        else return LifeCycleStatus.DEAD;
     }
 }

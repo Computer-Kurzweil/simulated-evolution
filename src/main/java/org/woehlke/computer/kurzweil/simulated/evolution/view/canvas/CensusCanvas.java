@@ -102,7 +102,7 @@ public class CensusCanvas extends JComponent implements Serializable {
             g.drawLine(xx,youngCells,xx,youngCells);
             g.setColor(YOUNG_AND_FAT.getColor());
             g.drawLine(xx,youngAndFatCells,xx,youngAndFatCells);
-            g.setColor(FULL_AGE.getColor());
+            g.setColor(ADULT_AGE.getColor());
             g.drawLine(xx,fullAgeCells,xx,fullAgeCells);
             g.setColor(OLD.getColor());
             g.drawLine(xx,hungryCells,xx,hungryCells);

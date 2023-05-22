@@ -42,7 +42,7 @@ public class SimulatedEvolutionPopulationCensus implements Serializable {
         switch (status) {
             case YOUNG -> youngCells++;
             case YOUNG_AND_FAT -> youngAndFatCells++;
-            case FULL_AGE -> fullAgeCells++;
+            case ADULT_AGE -> fullAgeCells++;
             case HUNGRY -> hungryCells++;
             case OLD -> oldCells++;
             case DEAD -> deadCells++;
