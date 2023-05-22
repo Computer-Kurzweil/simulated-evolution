@@ -27,44 +27,11 @@ import java.util.Random;
 @Log4j2
 @ToString(exclude = {"random"})
 @EqualsAndHashCode(exclude = {"random"})
-public class Cell implements Serializable {
+public class CellOriginal extends Cell implements Serializable {
 
     static final long serialVersionUID = 242L;
 
-    /**
-     * Contains the DNA for Random based Moving
-     */
-    private CellCore cellCore;
-
-    /**
-     * The Cell's state is position, orientation and LifeCycle
-     */
-    private LatticePoint position;
-
-    /**
-     * The Cell's state is position, orientation and LifeCycle
-     */
-    private Orientation orientation;
-
-    /**
-     * The Cell's state is position, orientation and LifeCycle
-     */
-    private LifeCycle lifeCycle;
-
-    /**
-     * The World Dimensions in which this Cell can move.
-     */
-    private LatticePoint max;
-
-    /**
-     * Random Generator is set from outside by Constructor.
-     */
-    private Random random;
-
-    @Getter
-    private long generation;
-
-    public Cell(LatticePoint max, LatticePoint position, Random random) {
+    public CellOriginal(LatticePoint max, LatticePoint position, Random random) {
         this.max = new LatticePoint(max);
         this.position = new LatticePoint(position);
         this.random = random;
@@ -78,7 +45,7 @@ public class Cell implements Serializable {
         this.generation = 1L;
     }
 
-    private Cell(int fat, long generation, CellCore rna, LatticePoint position, LatticePoint max, Random random) {
+    private CellOriginal(int fat, long generation, CellCore rna, LatticePoint position, LatticePoint max, Random random) {
         this.generation = generation;
         this.lifeCycle = new LifeCycle(fat);
         this.max = new LatticePoint(max);
@@ -108,6 +75,7 @@ public class Cell implements Serializable {
     /**
      * The Cell moves on the Step in a Direction choosen by Random and DNA.
      */
+    @Override
     public void move() {
         if(lifeCycle.move()){
             getNextOrientation();
@@ -124,52 +92,12 @@ public class Cell implements Serializable {
      *
      * @return the other Child
      */
-    public Cell performReproductionByCellDivision() {
+    @Override
+    public CellOriginal performReproductionByCellDivision() {
         CellCore rna = cellCore.performMitosis();
         lifeCycle.haveSex();
         long newGeneration = this.generation + 1L;
-        Cell child = new Cell(lifeCycle.getFat(), newGeneration, rna, position, max, random);
+        CellOriginal child = new CellOriginal(lifeCycle.getFat(), newGeneration, rna, position, max, random);
         return child;
     }
-
-    /**
-     * @return The new Position after the last move.
-     */
-    public LatticePoint getPosition() {
-        return position;
-    }
-
-    /**
-     * @return true, if this Cell is able to perform Reproduction by Cell Division
-     */
-    public boolean isPregnant() {
-        return lifeCycle.isPregnant();
-    }
-
-    public boolean isYoungAndFat() {
-        return lifeCycle.isYoungAndFat();
-    }
-
-    /**
-     * Eat the available Food in this Position
-     * @param food the available Food in this Position
-     */
-    public void eat(int food) {
-        lifeCycle.eat(food);
-    }
-
-    /**
-     * @return true, if this Cell died of hunger
-     */
-    public boolean died() {
-        return lifeCycle.isDead();
-    }
-
-    /**
-     * @return the LifeCycleStatus of this Cell
-     */
-    public LifeCycleStatus getLifeCycleStatus(){
-        return lifeCycle.getLifeCycleStatus();
-    }
-
 }
