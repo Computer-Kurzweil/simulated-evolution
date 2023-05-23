@@ -4,7 +4,7 @@ import org.woehlke.computer.kurzweil.simulated.evolution.model.neighbourhood.Lat
 
 import static org.woehlke.computer.kurzweil.simulated.evolution.model.neighbourhood.LatticePointNeighbourhoodPosition.*;
 
-public class MooreNeighborhood extends Neighbourhoods {
+public class MooreNeighborhood extends NeighbourhoodFactory {
     @Override
     public LatticePointNeighbourhoodPosition[] getNeighbourhoodPositions() {
         LatticePointNeighbourhoodPosition[] result = new LatticePointNeighbourhoodPosition[8];

@@ -45,7 +45,7 @@ public class SimulatedEvolutionWorldLattice implements Serializable {
      * As a Result of Evolution you will find sucessful Bacteria Cells
      * with a different DNA and Motion as outside the Garden of Eden.
      */
-    private final boolean EABLE_GARDEN_OF_EDEN = true;
+    private final boolean ENABLE_GARDEN_OF_EDEN = true;
 
     /**
      * Random Generator used for placing food, coming from another Object.
@@ -69,7 +69,7 @@ public class SimulatedEvolutionWorldLattice implements Serializable {
             food++;
             int x = Math.abs(random.nextInt(limitX));
             int y = Math.abs(random.nextInt(limitY));
-        
+
             worldMapFood[startX*2+x][startY*2+y]++;
         }
     }
@@ -81,7 +81,7 @@ public class SimulatedEvolutionWorldLattice implements Serializable {
         int limitX = this.dimensions.getX();
         int limitY = this.dimensions.getY();
         generateFood(FOOD_PER_DAY, 0, 0, limitX, limitY);
-        if (EABLE_GARDEN_OF_EDEN) {
+        if (ENABLE_GARDEN_OF_EDEN) {
             generateFood(FOOD_PER_DAY*4, limitX / 5, limitY / 5, limitX / 5, limitY / 5);
         }
     }
@@ -100,12 +100,18 @@ public class SimulatedEvolutionWorldLattice implements Serializable {
      * @return the engergy of the food, will be added to cell's fat.
      */
     public int eat(LatticePoint position) {
-        LatticePoint neighbourhood[] = position.getNeighbourhood(this.dimensions);
+        LatticePoint[] neighbourhood = position.getNeighbourhood(this.dimensions);
         int food=0;
         for (LatticePoint neighbourhoodPosition:neighbourhood){
-            food += worldMapFood[neighbourhoodPosition.getX()][neighbourhoodPosition.getY()];
-            worldMapFood[neighbourhoodPosition.getX()][neighbourhoodPosition.getY()]=0;
+            food = swapValues(food, neighbourhoodPosition);
         }
         return food;
     }
+
+    private int swapValues(int food, LatticePoint neighbourhoodPosition) {
+        food += worldMapFood[neighbourhoodPosition.getX()][neighbourhoodPosition.getY()];
+        worldMapFood[neighbourhoodPosition.getX()][neighbourhoodPosition.getY()]=0;
+        return food;
+    }
+
 }
