@@ -34,6 +34,7 @@ public class LatticeDimension implements Serializable {
     public void plusAndAbsolute(LatticeDimension p) {
         width = Math.abs(width + p.getWidth());
         height = Math.abs(height + p.getHeight());
+        makePositive();
     }
 
     public LatticeDimension copy() {
