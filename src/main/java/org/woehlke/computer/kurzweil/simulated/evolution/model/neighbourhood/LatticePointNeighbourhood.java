@@ -75,8 +75,8 @@ public class LatticePointNeighbourhood implements Serializable {
         return getNeighbour(worldX, worldY, mX, mY,VON_NEUMANN_NEIGHBORHOOD);
     }
 
-    public LatticePoint[] getWoehlke(int worldX, int worldY, int mX, int mY) {
-        return getNeighbour(worldX, worldY, mX,mY, WOEHLKE_NEIGHBORHOOD);
+    public LatticePoint[] getUserDefine(int worldX, int worldY, int mX, int mY) {
+        return getNeighbour(worldX, worldY, mX,mY, USER_DEFINE_NEIGHBORHOOD);
     }
 
     private static LatticePoint[] getNeighbour(int worldX, int worldY, int mX, int mY, LatticePointNeighbourhoodType type){

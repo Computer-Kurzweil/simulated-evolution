@@ -11,8 +11,8 @@ public abstract class Neighbourhoods {
         switch (type){
             case VON_NEUMANN_NEIGHBORHOOD -> result = new VonNeumannNeighborhood().getNeighbourhoodPositions();
             case MOORE_NEIGHBORHOOD ->  result = new MooreNeighborhood().getNeighbourhoodPositions();
-            case WOEHLKE_NEIGHBORHOOD -> result = new WoehlkeNeighbourhood().getNeighbourhoodPositions();
-            default -> result =  new Others().getNeighbourhoodPositions();
+            case USER_DEFINE_NEIGHBORHOOD -> result = new UserDefineNeighbourhood().getNeighbourhoodPositions();
+            default -> result =  new OtherNeighbourhood().getNeighbourhoodPositions();
         }
         return result;
     }
