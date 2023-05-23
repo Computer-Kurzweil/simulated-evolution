@@ -18,9 +18,9 @@ abstract public class GeneticInfo {
     /**
      * LifeCycle Threshold Parameter
      */
-    protected static int FULL_AGE;
+    protected static int ADULT_AGE;
 
-    public int getFULL_AGE() { return FULL_AGE; }
+    public int getADULT_AGE() { return ADULT_AGE; }
 
     /**
      * LifeCycle Threshold Parameter

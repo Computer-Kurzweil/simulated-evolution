@@ -4,7 +4,7 @@ public class ConcreteGeneticInfo1 extends GeneticInfo{
     public ConcreteGeneticInfo1 () {
         MAX_FAT = 2000;
         MAX_HUNGER = 1000;
-        FULL_AGE = 200;
+        ADULT_AGE = 200;
         FAT_MINIMUM_FOR_SEX = 800;
         FAT_AT_BIRTH = 500;
         FAT_PER_FOOD = 25;

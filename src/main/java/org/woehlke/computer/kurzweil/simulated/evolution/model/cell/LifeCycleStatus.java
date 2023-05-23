@@ -32,7 +32,7 @@ public enum LifeCycleStatus implements Serializable {
 
     YOUNG(BLUE, WHITE),
     YOUNG_AND_FAT(YELLOW, BLACK),
-    FULL_AGE(RED, WHITE),
+    ADULT_AGE(RED, WHITE),
     HUNGRY(LIGHT_GRAY, BLACK),
     OLD(DARK_GRAY, WHITE),
     DEAD(BLACK, WHITE),

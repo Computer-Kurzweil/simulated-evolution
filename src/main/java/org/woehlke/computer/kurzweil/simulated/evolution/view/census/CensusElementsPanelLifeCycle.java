@@ -36,7 +36,7 @@ public class CensusElementsPanelLifeCycle extends JPanel implements Serializable
 
     private final CensusElement youngCellsElement;
     private final CensusElement youngAndFatCellsElement;
-    private final CensusElement fullAgeCellsElement;
+    private final CensusElement adultAgeCellsElement;
     private final CensusElement hungryCellsElement;
     private final CensusElement oldCellsElement;
     private final CensusElement wholeGeneration;
@@ -59,13 +59,13 @@ public class CensusElementsPanelLifeCycle extends JPanel implements Serializable
         String wholeGenerationLabel = cfg.getPopulationLabel();
         youngCellsElement = new CensusElement(youngCellsLabel,YOUNG);
         youngAndFatCellsElement = new CensusElement(youngAndFatCellsLabel,YOUNG_AND_FAT);
-        fullAgeCellsElement = new CensusElement(fullAgeCellsLabel,FULL_AGE);
+        adultAgeCellsElement = new CensusElement(fullAgeCellsLabel,ADULT_AGE);
         hungryCellsElement = new CensusElement(hungryCellsLabel,HUNGRY);
         oldCellsElement = new CensusElement(oldCellsLabel,OLD);
         wholeGeneration = new CensusElement(wholeGenerationLabel,POPULATION);
         this.add(youngCellsElement);
         this.add(youngAndFatCellsElement);
-        this.add(fullAgeCellsElement);
+        this.add(adultAgeCellsElement);
         this.add(hungryCellsElement);
         this.add(oldCellsElement);
         this.add(wholeGeneration);
@@ -76,7 +76,7 @@ public class CensusElementsPanelLifeCycle extends JPanel implements Serializable
         SimulatedEvolutionPopulationCensus population = this.container.peek();
         youngCellsElement.setText(population.getYoungCells());
         youngAndFatCellsElement.setText(population.getYoungAndFatCells());
-        fullAgeCellsElement.setText(population.getFullAgeCells());
+        adultAgeCellsElement.setText(population.getFullAgeCells());
         hungryCellsElement.setText(population.getHungryCells());
         oldCellsElement.setText(population.getOldCells());
         wholeGeneration.setText(population.getPopulation());
