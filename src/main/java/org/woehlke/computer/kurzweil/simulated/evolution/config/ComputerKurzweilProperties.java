@@ -44,7 +44,7 @@ public class ComputerKurzweilProperties {
     public Cca cca = new Cca();
 
     @Valid
-    public WienerProcess randomWalk = new WienerProcess();
+    public WienerProcess randomwalk = new WienerProcess();
 
     @Valid
     public Dla dla = new Dla();
