@@ -69,46 +69,96 @@ public class CensusCanvas extends JComponent implements Serializable {
      */
     public void paint(Graphics g) {
         super.paintComponent(g);
-        int x = 0;
-        int y = 0;
         int width = this.canvasdDimensions.getWidth();
         int height = this.canvasdDimensions.getHeight();
         g.setColor(Color.LIGHT_GRAY);
-        g.fillRect(x,y,width,height);
-        g.setColor(Color.RED);
+        g.fillRect(0,0,width,height);
+        allPaint(g);
+        youngCellPaint(g);
+        youngAndFatCellsPaint(g);
+        fullAgeCellsPaint(g);
+        hungryCellsPaint(g);
+        oldCellsPaint(g);
+    }
+    public void allPaint(Graphics g){
+        int height = this.canvasdDimensions.getHeight();
+        double zoom = getZoom();
         int xx = 0;
-        int youngCells;
-        int youngAndFatCells;
-        int fullAgeCells;
-        int hungryCells;
-        int oldCells;
-        int all;
+        for(SimulatedEvolutionPopulationCensus o:this.container.getData()){
+            xx++;
+            int all = height - (int)(o.getPopulation() * zoom);
+            g.setColor(POPULATION.getColorForeground());
+            g.drawLine(xx,all,xx,all);
+        }
+    }
+
+    public void youngCellPaint(Graphics g){
+        int height = this.canvasdDimensions.getHeight();
+        double zoom = getZoom();
+        int xx = 0;
+        for(SimulatedEvolutionPopulationCensus o:this.container.getData()){
+            xx++;
+            int youngCells = height - (int)(o.getYoungCells() * zoom);
+            g.setColor(YOUNG.getColor());
+            g.drawLine(xx,youngCells,xx,youngCells);
+        }
+    }
+
+    public void youngAndFatCellsPaint(Graphics g){
+        int height = this.canvasdDimensions.getHeight();
+        double zoom = getZoom();
+        int xx = 0;
+        for(SimulatedEvolutionPopulationCensus o:this.container.getData()){
+            xx++;
+            int youngAndFatCells = height - (int)(o.getYoungAndFatCells() * zoom);
+            g.setColor(YOUNG_AND_FAT.getColor());
+            g.drawLine(xx,youngAndFatCells,xx,youngAndFatCells);
+        }
+    }
+
+    public void fullAgeCellsPaint(Graphics g){
+        int height = this.canvasdDimensions.getHeight();
+        double zoom = getZoom();
+        int xx = 0;
+        for(SimulatedEvolutionPopulationCensus o:this.container.getData()){
+            xx++;
+            int fullAgeCells = height - (int)(o.getFullAgeCells() * zoom);
+            g.setColor(ADULT_AGE.getColor());
+            g.drawLine(xx,fullAgeCells,xx,fullAgeCells);
+        }
+    }
+
+    public void hungryCellsPaint(Graphics g){
+        int height = this.canvasdDimensions.getHeight();
+        double zoom = getZoom();
+        int xx = 0;
+        for(SimulatedEvolutionPopulationCensus o:this.container.getData()){
+            xx++;
+            int hungryCells = height - (int)(o.getHungryCells() * zoom);
+            g.setColor(OLD.getColor());
+            g.drawLine(xx,hungryCells,xx,hungryCells);
+        }
+    }
+
+    public void oldCellsPaint(Graphics g){
+        int height = this.canvasdDimensions.getHeight();
+        double zoom = getZoom();
+        int xx = 0;
+        for(SimulatedEvolutionPopulationCensus o:this.container.getData()){
+            xx++;
+            int oldCells = height - (int)(o.getOldCells() * zoom);
+            g.setColor(OLD.getColor());
+            g.drawLine(xx,oldCells,xx,oldCells);
+        }
+    }
+
+    public double getZoom(){
         int maxPopulation = 0;
         for(SimulatedEvolutionPopulationCensus o:this.container.getData()){
             maxPopulation = Math.max(o.getPopulation(), maxPopulation);
         }
         double zoom = 100.0d / Integer.valueOf(maxPopulation).doubleValue();
-        for(SimulatedEvolutionPopulationCensus o:this.container.getData()){
-            xx++;
-            all = height - (int)(o.getPopulation() * zoom);
-            youngCells = height - (int)(o.getYoungCells() * zoom);
-            youngAndFatCells = height - (int)(o.getYoungAndFatCells() * zoom);
-            fullAgeCells = height - (int)(o.getFullAgeCells() * zoom);
-            hungryCells = height - (int)(o.getHungryCells() * zoom);
-            oldCells = height - (int)(o.getOldCells() * zoom);
-            g.setColor(POPULATION.getColorForeground());
-            g.drawLine(xx,all,xx,all);
-            g.setColor(YOUNG.getColor());
-            g.drawLine(xx,youngCells,xx,youngCells);
-            g.setColor(YOUNG_AND_FAT.getColor());
-            g.drawLine(xx,youngAndFatCells,xx,youngAndFatCells);
-            g.setColor(ADULT_AGE.getColor());
-            g.drawLine(xx,fullAgeCells,xx,fullAgeCells);
-            g.setColor(OLD.getColor());
-            g.drawLine(xx,hungryCells,xx,hungryCells);
-            g.setColor(OLD.getColor());
-            g.drawLine(xx,oldCells,xx,oldCells);
-        }
+        return zoom;
     }
 
     public void update(Graphics g) {
