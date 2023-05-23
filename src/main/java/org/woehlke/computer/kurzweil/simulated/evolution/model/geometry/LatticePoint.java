@@ -30,6 +30,14 @@ import java.io.Serializable;
 @AllArgsConstructor
 @EqualsAndHashCode
 public class LatticePoint implements Serializable {
+    private final static int[][] OFFSETS = {
+        {-1, -1}, {-1, 0}, {-1, 1},
+        {0, -1},  {0, 0},  {0, 1},
+        {1, -1},  {1, 0},  {1, 1}
+    };
+
+    private final static int INDEX_MIN = 0;
+    private final static int INDEX_MAX = 1;
 
     static final long serialVersionUID = 242L;
 
@@ -84,20 +92,17 @@ public class LatticePoint implements Serializable {
      * @param max - limit the dimensions of the world around
      * @return The Set of Points belonging to the Neighbourhood of the position given by this Point Object.
      */
+
     public LatticePoint[] getNeighbourhood(LatticePoint max) {
-        int[][] offsets = {
-            {-1, -1}, {-1, 0}, {-1, 1},
-            {0, -1},  {0, 0},  {0, 1},
-            {1, -1},  {1, 0},  {1, 1}
-        };
+
 
         LatticePoint[] neighbourhood = new LatticePoint[9];
         int maxX = max.getX();
         int maxY = max.getY();
 
         for (int i = 0; i < neighbourhood.length; i++) {
-            int offsetX = offsets[i][0];
-            int offsetY = offsets[i][1];
+            int offsetX = OFFSETS[i][INDEX_MIN];
+            int offsetY = OFFSETS[i][INDEX_MAX];
             int newX = (this.x + maxX + offsetX) % maxX;
             int newY = (this.y + maxY + offsetY) % maxY;
             neighbourhood[i] = new LatticePoint(newX, newY);
