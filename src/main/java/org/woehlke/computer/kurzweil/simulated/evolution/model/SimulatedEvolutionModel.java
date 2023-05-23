@@ -108,9 +108,14 @@ public class SimulatedEvolutionModel implements Serializable {
         );
         cells = new ArrayList<Cell>();
         for (int i = 0; i < initialPopulation; i++) {
-            int x = Math.abs(random.nextInt(worldDimensions.getX()));
-            int y = Math.abs(random.nextInt(worldDimensions.getY()));
-
+            int x = random.nextInt(worldDimensions.getX());
+            int y = random.nextInt(worldDimensions.getY());
+            if (x < 0) {
+                x *= -1;
+            }
+            if (y < 0) {
+                y *= -1;
+            }
             LatticePoint pos = new LatticePoint(x, y);
             Cell cell = new Cell(worldDimensions, pos, random);
             cells.add(cell);

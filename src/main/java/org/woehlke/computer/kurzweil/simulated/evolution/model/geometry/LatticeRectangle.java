@@ -20,12 +20,14 @@ public class LatticeRectangle implements Serializable {
     private LatticeDimension dimension;
 
     public static LatticeRectangle of(LatticePoint start, LatticeDimension dimension){
-        return new LatticeRectangle(start, dimension);
+        LatticeRectangle lb = new LatticeRectangle(start, dimension);
+        return lb;
     }
 
     public static LatticeRectangle of(int startX, int  startY, int width, int height){
         LatticePoint start = new LatticePoint(startX, startY);
         LatticeDimension dimension = new LatticeDimension(width, height);
-        return new LatticeRectangle(start, dimension);
+        LatticeRectangle lb = new LatticeRectangle(start, dimension);
+        return lb;
     }
 }

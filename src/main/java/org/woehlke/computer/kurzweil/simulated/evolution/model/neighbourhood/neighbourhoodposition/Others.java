@@ -4,7 +4,7 @@ import org.woehlke.computer.kurzweil.simulated.evolution.model.neighbourhood.Lat
 
 import static org.woehlke.computer.kurzweil.simulated.evolution.model.neighbourhood.LatticePointNeighbourhoodPosition.CENTER;
 
-public class Others extends NeighbourhoodFactory {
+public class Others extends Neighbourhoods {
     @Override
     public LatticePointNeighbourhoodPosition[] getNeighbourhoodPositions() {
         LatticePointNeighbourhoodPosition[] result = new LatticePointNeighbourhoodPosition[1];

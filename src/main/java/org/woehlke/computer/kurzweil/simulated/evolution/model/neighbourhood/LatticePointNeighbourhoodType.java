@@ -33,5 +33,5 @@ public enum LatticePointNeighbourhoodType {
      * |#|*|#|
      * |#|#|#|
      */
-    USER_DEFINE_NEIGHBORHOOD;
+    WOEHLKE_NEIGHBORHOOD;
 }

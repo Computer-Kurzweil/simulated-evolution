@@ -39,13 +39,13 @@ public class CensusCanvas extends JComponent implements Serializable {
 
     private final Color paper;
 
-    private final LatticeDimension canvasDimensions;
+    private final LatticeDimension canvasdDimensions;
 
     public CensusCanvas(SimulatedEvolutionModel tabModel) {
         int width = tabModel.getWorldDimensions().getX();
         int height = tabModel.getProperties().getSimulatedevolution().getView().getHeightOfStatisticsCanvas();
         this.container = tabModel.getCensusContainer();
-        this.canvasDimensions = LatticeDimension.of(width,height);
+        this.canvasdDimensions = LatticeDimension.of(width,height);
         Dimension preferredSize = new Dimension(width, height);
         this.setSize(preferredSize);
         this.setPreferredSize(preferredSize);
@@ -55,8 +55,8 @@ public class CensusCanvas extends JComponent implements Serializable {
     }
 
     public void showMe(){
-        int width = canvasDimensions.getWidth();
-        int height = canvasDimensions.getHeight();
+        int width = canvasdDimensions.getWidth();
+        int height = canvasdDimensions.getHeight();
         Dimension preferredSize = new Dimension(width, height);
         this.setSize(preferredSize);
         this.setBackground(this.paper);
@@ -71,8 +71,8 @@ public class CensusCanvas extends JComponent implements Serializable {
         super.paintComponent(g);
         int x = 0;
         int y = 0;
-        int width = this.canvasDimensions.getWidth();
-        int height = this.canvasDimensions.getHeight();
+        int width = this.canvasdDimensions.getWidth();
+        int height = this.canvasdDimensions.getHeight();
         g.setColor(Color.LIGHT_GRAY);
         g.fillRect(x,y,width,height);
         g.setColor(Color.RED);
