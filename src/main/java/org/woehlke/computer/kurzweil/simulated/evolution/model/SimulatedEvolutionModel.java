@@ -83,10 +83,10 @@ public class SimulatedEvolutionModel implements Serializable {
 
     public SimulatedEvolutionModel(ComputerKurzweilProperties properties) {
         this.properties = properties;
-        this.initialPopulation =  this.properties.getSimulatedevolution().getPopulation().getInitialPopulation();
-        int scale = this.properties.getSimulatedevolution().getView().getScale();
-        int width = scale * this.properties.getSimulatedevolution().getView().getWidth();
-        int height = scale * this.properties.getSimulatedevolution().getView().getHeight();
+        this.initialPopulation =  this.properties.getInitPopulation();
+        int scale = this.properties.getScale();
+        int width = scale * this.properties.getWidth();
+        int height = scale * this.properties.getHeight();
         this.worldDimensions = new LatticePoint(width,height);
         long seed = new Date().getTime();
         this.random = new Random(seed);
@@ -146,10 +146,11 @@ public class SimulatedEvolutionModel implements Serializable {
                 }
             }
         }
-        return populationCensus(census, children, died);
+        populationCensus(census, children, died);
+        return ! cells.isEmpty();
     }
 
-    private boolean populationCensus(SimulatedEvolutionPopulationCensus census, List<Cell> children, List<Cell> died) {
+    private void populationCensus(SimulatedEvolutionPopulationCensus census, List<Cell> children, List<Cell> died) {
         for(Cell dead: died){
             cells.remove(dead);
         }
@@ -158,7 +159,6 @@ public class SimulatedEvolutionModel implements Serializable {
             census.countStatusOfOneCell(cell.getLifeCycleStatus(), cell.getGeneration());
         }
         this.censusContainer.push(census);
-        return !cells.isEmpty();
     }
 
     public List<Cell> getAllCells(){
