@@ -146,7 +146,11 @@ public class SimulatedEvolutionModel implements Serializable {
                 }
             }
         }
-        for(Cell dead:died){
+        return populationCensus(census, children, died);
+    }
+
+    private boolean populationCensus(SimulatedEvolutionPopulationCensus census, List<Cell> children, List<Cell> died) {
+        for(Cell dead: died){
             cells.remove(dead);
         }
         cells.addAll(children);
@@ -154,7 +158,7 @@ public class SimulatedEvolutionModel implements Serializable {
             census.countStatusOfOneCell(cell.getLifeCycleStatus(), cell.getGeneration());
         }
         this.censusContainer.push(census);
-        return ! cells.isEmpty();
+        return !cells.isEmpty();
     }
 
     public List<Cell> getAllCells(){
