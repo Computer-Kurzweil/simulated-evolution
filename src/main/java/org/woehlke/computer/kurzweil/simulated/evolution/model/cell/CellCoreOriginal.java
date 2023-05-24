@@ -40,7 +40,7 @@ public class CellCoreOriginal extends CellCore implements Serializable{
     public CellCoreOriginal(Random random) {
         dna = new ArrayList<Integer>();
         this.random = random;
-        for (int i = 0; i < Orientation.values().length; i++) {
+        for (int i = 0; i < getDnaLength(); i++) {
             int gen = random.nextInt() % MAX_INITIAL_VALUE;
             dna.add(gen);
         }
@@ -62,65 +62,42 @@ public class CellCoreOriginal extends CellCore implements Serializable{
      */
     @Override
     public CellCoreOriginal performMitosis() {
+        List<Integer> rna = generateRNA();
+        CellCoreOriginal childCore = generateChildCore(rna);
+        positionDNAHeader(childCore);
+        return childCore;
+    }
+
+    private List<Integer> generateRNA() {
         List<Integer> rna = new ArrayList<Integer>();
         for (Integer dnaBase:dna) {
             rna.add(dnaBase);
         }
-        CellCoreOriginal child = new CellCoreOriginal(random, rna);
-        int baseIndex = random.nextInt() % Orientation.values().length;
+        return rna;
+    }
+
+    private CellCoreOriginal generateChildCore(List<Integer> rna) {
+        return new CellCoreOriginal(random, rna);
+    }
+
+    private void positionDNAHeader(CellCoreOriginal childCore) {
+        int baseIndex = getBaseIndexOfDNA();
         if (baseIndex < MIN_VALUE) {
             baseIndex *= -1;
         }
         Orientation base[] = Orientation.values();
         this.decrease(base[baseIndex]);
-        child.increase(base[baseIndex]);
-        return child;
+        childCore.increase(base[baseIndex]);
     }
 
-    /**
-     * @return gives a new Orientation based on the Combinition of Random and DNA.
-     */
-    @Override
-    public Orientation getRandomOrientation() {
-        Orientation orientation = Orientation.FORWARD;
-        int dnaLength = Orientation.values().length;
-        double sumDna = 0.0;
-        for (int i = 0; i < dnaLength; i++) {
-            double val = dna.get(i).longValue() ^ 2;
-            if (val < MIN_VALUE) {
-                val *= -1;
-            }
-            sumDna += val;
-        }
-        double sum = 0.0;
-        double[] rna = new double[dnaLength];
-        for (int i = 0; i < dnaLength; i++) {
-            double val = dna.get(i).longValue() ^ 2;
-            if (val < MIN_VALUE) {
-                val *= -1;
-            }
-            sum += val / sumDna;
-            rna[i] = sum;
-        }
-        if (sumDna != 0) {
-            double val = Double.valueOf(random.nextInt(MAX_VALUE) ^ 2);
-            if (val < MIN_VALUE) {
-                val *= -1;
-            }
-            double sumRandom = val / Double.valueOf(MAX_VALUE ^ 2);
-            if (sumRandom < MIN_VALUE) {
-                sumRandom *= -1;
-            }
-            int newInt = 0;
-            for (int i = 0; i < dnaLength; i++) {
-                if (sumRandom > rna[i]) {
-                    newInt = i;
-                }
-            }
-            orientation = Orientation.values()[newInt];
-        }
-        return orientation;
+    private int getBaseIndexOfDNA() {
+        return random.nextInt() % getDnaLength();
     }
+
+    private int getDnaLength() {
+        return Orientation.values().length;
+    }
+
 
     private void increase(Orientation base) {
         int value = dna.get(base.ordinal());
@@ -148,5 +125,44 @@ public class CellCoreOriginal extends CellCore implements Serializable{
         } else {
             dna.set(base.ordinal(), value-1);
         }
+    }
+
+    /**
+     * @return gives a new Orientation based on the Combinition of Random and DNA.
+     */
+    @Override
+    public Orientation getRandomOrientation() {
+        Orientation orientation = Orientation.FORWARD;
+        int dnaLength = getDnaLength();
+        double massOfDNA = 0.0;
+        double sum = 0.0;
+        double[] rna = new double[dnaLength];
+
+        for (int i = 0; i < dnaLength; i++) {
+            double base = Math.abs(dna.get(i).longValue() ^ 2);
+            massOfDNA += base;
+        }
+        for (int i = 0; i < dnaLength; i++) {
+            double base = Math.abs(dna.get(i).longValue() ^ 2);
+            sum += base / massOfDNA;
+            rna[i] = sum;
+        }
+        return getRandomOrientation(orientation, dnaLength, massOfDNA, rna);
+    }
+
+    private Orientation getRandomOrientation(Orientation orientation, int dnaLength, double massOfDNA, double[] rna) {
+        boolean DNAexist = (massOfDNA != 0);
+        if (DNAexist) {
+            double val = Math.abs(Double.valueOf(random.nextInt(MAX_VALUE) ^ 2));
+            double sumRandom = Math.abs(val / Double.valueOf(MAX_VALUE ^ 2));
+            int nextOrientationIndex = 0;
+            for (int i = 0; i < dnaLength; i++) {
+                if (sumRandom > rna[i]) {
+                    nextOrientationIndex = i;
+                }
+            }
+            orientation = Orientation.values()[nextOrientationIndex];
+        }
+        return orientation;
     }
 }
