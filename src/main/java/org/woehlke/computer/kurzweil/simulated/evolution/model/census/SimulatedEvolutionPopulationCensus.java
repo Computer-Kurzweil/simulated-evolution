@@ -40,6 +40,10 @@ public class SimulatedEvolutionPopulationCensus implements Serializable {
     public void countStatusOfOneCell(LifeCycleStatus status, long generation) {
         population++;
         status.countStatus(this);
+        upgradeGenerationBoundaries(generation);
+    }
+
+    private void upgradeGenerationBoundaries(long generation) {
         if (generation < generationOldest) {
             generationOldest = generation;
         }
