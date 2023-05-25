@@ -915,4 +915,19 @@ public class ComputerKurzweilProperties {
         return properties;
     }
 
+    public int getInitPopulation(){
+        return this.getSimulatedevolution().getPopulation().getInitialPopulation();
+    }
+
+    public int getScale(){
+        return this.getSimulatedevolution().getView().getScale();
+    }
+    public int getWidth(){
+        return this.getSimulatedevolution().getView().getWidth();
+    }
+
+    public int getHeight(){
+        return this.getSimulatedevolution().getView().getHeight();
+    }
+
 }
