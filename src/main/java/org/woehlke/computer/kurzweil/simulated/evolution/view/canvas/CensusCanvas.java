@@ -75,13 +75,13 @@ public class CensusCanvas extends JComponent implements Serializable {
         int height = this.canvasDimensions.getHeight();
         g.setColor(Color.LIGHT_GRAY);
         g.fillRect(0, 0, width, height);
-        paintPopulationCensus(g, LifeCycleStatus.YOUNG.getCellStatus());
-        paintPopulationCensus(g, LifeCycleStatus.YOUNG_AND_FAT.getCellStatus());
-        paintPopulationCensus(g, LifeCycleStatus.ADULT_AGE.getCellStatus());
-        paintPopulationCensus(g, LifeCycleStatus.OLD.getCellStatus());
+        paintPopulationCensus(g, LifeCycleStatus.YOUNG);
+        paintPopulationCensus(g, LifeCycleStatus.YOUNG_AND_FAT);
+        paintPopulationCensus(g, LifeCycleStatus.ADULT_AGE);
+        paintPopulationCensus(g, LifeCycleStatus.OLD);
     }
 
-    private void paintPopulationCensus(Graphics g, CensusCellStatus status) {
+    private void paintPopulationCensus(Graphics g, LifeCycleStatus status) {
         int height = this.canvasDimensions.getHeight();
         double zoom = getZoom();
         int xx = 0;
@@ -95,8 +95,8 @@ public class CensusCanvas extends JComponent implements Serializable {
         }
     }
 
-    private int getValueByStatus(SimulatedEvolutionPopulationCensus census, CensusCellStatus status) {
-        return status.getCellsNumber(census);
+    private int getValueByStatus(SimulatedEvolutionPopulationCensus census, LifeCycleStatus status) {
+        return status.getCellStatus().getCellsNumber(census);
     }
 
     public double getZoom() {
