@@ -5,6 +5,7 @@ import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.SimulatedEvolutionModel;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.census.SimulatedEvolutionPopulationCensus;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.census.SimulatedEvolutionPopulationCensusContainer;
+import org.woehlke.computer.kurzweil.simulated.evolution.model.census.censusstatus.CensusCellStatus;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.geometry.LatticeDimension;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeCycleStatus;
 import javax.swing.*;
@@ -74,13 +75,13 @@ public class CensusCanvas extends JComponent implements Serializable {
         int height = this.canvasDimensions.getHeight();
         g.setColor(Color.LIGHT_GRAY);
         g.fillRect(0, 0, width, height);
-        paintPopulationCensus(g, LifeCycleStatus.YOUNG);
-        paintPopulationCensus(g, LifeCycleStatus.YOUNG_AND_FAT);
-        paintPopulationCensus(g, LifeCycleStatus.ADULT_AGE);
-        paintPopulationCensus(g, LifeCycleStatus.OLD);
+        paintPopulationCensus(g, LifeCycleStatus.YOUNG.getCellStatus());
+        paintPopulationCensus(g, LifeCycleStatus.YOUNG_AND_FAT.getCellStatus());
+        paintPopulationCensus(g, LifeCycleStatus.ADULT_AGE.getCellStatus());
+        paintPopulationCensus(g, LifeCycleStatus.OLD.getCellStatus());
     }
 
-    private void paintPopulationCensus(Graphics g, LifeCycleStatus status) {
+    private void paintPopulationCensus(Graphics g, CensusCellStatus status) {
         int height = this.canvasDimensions.getHeight();
         double zoom = getZoom();
         int xx = 0;
@@ -92,36 +93,10 @@ public class CensusCanvas extends JComponent implements Serializable {
             g.setColor(color);
             g.drawLine(xx, cellHeight, xx, cellHeight);
         }
-    }    
-
-    private int getValueByStatus(SimulatedEvolutionPopulationCensus census, LifeCycleStatus status) {
-        switch (status) {
-            case YOUNG:
-                return census.getYoungCells();
-            case YOUNG_AND_FAT:
-                return census.getYoungAndFatCells();
-            case ADULT_AGE:
-                return census.getFullAgeCells();
-            case OLD:
-                return census.getOldCells();
-            default:
-                return 0;
-        }
     }
 
-    private Color getColorByStatus(LifeCycleStatus status) {
-        switch (status) {
-            case YOUNG:
-                return YOUNG.getColor();
-            case YOUNG_AND_FAT:
-                return YOUNG_AND_FAT.getColor();
-            case ADULT_AGE:
-                return ADULT_AGE.getColor();
-            case OLD:
-                return OLD.getColor();
-            default:
-                return Color.BLACK;
-        }
+    private int getValueByStatus(SimulatedEvolutionPopulationCensus census, CensusCellStatus status) {
+        return status.getCellsNumber(census);
     }
 
     public double getZoom() {

@@ -27,4 +27,9 @@ public class YoungAndFatStatus implements CensusCellStatus{
     public Color getColorBackground() {
         return YELLOW;
     }
+
+    @Override
+    public int getCellsNumber(SimulatedEvolutionPopulationCensus census){
+        return census.getYoungAndFatCells();
+    }
 }

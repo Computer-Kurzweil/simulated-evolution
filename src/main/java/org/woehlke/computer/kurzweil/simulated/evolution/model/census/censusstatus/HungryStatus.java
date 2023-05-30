@@ -27,4 +27,9 @@ public class HungryStatus implements CensusCellStatus{
     public Color getColorBackground() {
         return LIGHT_GRAY;
     }
+
+    @Override
+    public int getCellsNumber(SimulatedEvolutionPopulationCensus census){
+        return census.getHungryCells();
+    }
 }

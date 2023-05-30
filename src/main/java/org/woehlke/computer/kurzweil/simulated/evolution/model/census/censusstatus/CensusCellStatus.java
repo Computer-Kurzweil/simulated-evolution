@@ -9,4 +9,6 @@ public interface CensusCellStatus {
     Color getColor();
     Color getColorForeground();
     Color getColorBackground();
+    int getCellsNumber(SimulatedEvolutionPopulationCensus census);
+
 }

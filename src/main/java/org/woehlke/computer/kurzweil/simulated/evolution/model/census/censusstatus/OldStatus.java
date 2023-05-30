@@ -27,4 +27,9 @@ public class OldStatus implements CensusCellStatus{
     public Color getColorBackground() {
         return DARK_GRAY;
     }
+
+    @Override
+    public int getCellsNumber(SimulatedEvolutionPopulationCensus census){
+        return census.getOldCells();
+    }
 }
