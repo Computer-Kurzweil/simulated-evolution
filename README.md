@@ -23,7 +23,7 @@
   ![3](https://github.com/koust6u/simulated-evolution/assets/111568619/49d96f7a-dc24-4d8b-b30a-5c43632abbc4)
 
 
-  따라서 아래와 기존의 switch문을 통해 cell들의 수를 계산하는 것에서 ocp와 srp원칙을 보완 개선을 할 수 있었다.
+  따라서 아래와 같이 기존의 switch문을 통해 cell들의 수를 계산하는 것에서 ocp와 srp원칙을 보완 개선을 할 수 있었다.
   아래와 같이 기존의 복잡했던 switch문 대신 status.countStatus Method를 통해 인스턴스만 넘겨주면 기존의 
   모든 기능을 대체할 수 있었다. 
   
