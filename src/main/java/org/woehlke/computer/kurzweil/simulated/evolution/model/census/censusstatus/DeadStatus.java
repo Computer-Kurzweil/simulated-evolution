@@ -27,4 +27,9 @@ public class DeadStatus implements CensusCellStatus{
     public Color getColorBackground() {
         return BLACK;
     }
+
+    @Override
+    public int getCellsNumber(SimulatedEvolutionPopulationCensus census){
+        return census.getDeadCells();
+    }
 }
