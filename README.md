@@ -38,7 +38,7 @@
   ## class: LatticeDimension.java
   ### method : getNeighbourFor
 
-  설명: 해당 method cell들이 무작위로 이동함에 있어 화면 밖을 벗어 났을 때 어떻게 대처할 지에 대한 switch문을
+  설명: 해당 method cell들이 무작위로 이동함에 있어 화면 밖을 벗어 났을 때 어떻게 대처할 지에 대한 전략을 switch문을
   통해 결정해주는 기능을 한다.
 
   기존의 코드는 아래와 같이 상당히 복잡하다.
