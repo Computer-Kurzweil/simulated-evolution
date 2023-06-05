@@ -5,7 +5,9 @@ import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.SimulatedEvolutionModel;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.census.SimulatedEvolutionPopulationCensus;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.census.SimulatedEvolutionPopulationCensusContainer;
+import org.woehlke.computer.kurzweil.simulated.evolution.model.census.censusstatus.CensusCellStatus;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.geometry.LatticeDimension;
+import org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeCycleStatus;
 import javax.swing.*;
 import java.awt.*;
 import java.io.Serializable;
@@ -39,13 +41,13 @@ public class CensusCanvas extends JComponent implements Serializable {
 
     private final Color paper;
 
-    private final LatticeDimension canvasdDimensions;
+    private final LatticeDimension canvasDimensions;
 
     public CensusCanvas(SimulatedEvolutionModel tabModel) {
         int width = tabModel.getWorldDimensions().getX();
         int height = tabModel.getProperties().getSimulatedevolution().getView().getHeightOfStatisticsCanvas();
         this.container = tabModel.getCensusContainer();
-        this.canvasdDimensions = LatticeDimension.of(width,height);
+        this.canvasDimensions = LatticeDimension.of(width, height);
         Dimension preferredSize = new Dimension(width, height);
         this.setSize(preferredSize);
         this.setPreferredSize(preferredSize);
@@ -54,9 +56,9 @@ public class CensusCanvas extends JComponent implements Serializable {
         this.setVisible(true);
     }
 
-    public void showMe(){
-        int width = canvasdDimensions.getWidth();
-        int height = canvasdDimensions.getHeight();
+    public void showMe() {
+        int width = canvasDimensions.getWidth();
+        int height = canvasDimensions.getHeight();
         Dimension preferredSize = new Dimension(width, height);
         this.setSize(preferredSize);
         this.setBackground(this.paper);
@@ -69,96 +71,40 @@ public class CensusCanvas extends JComponent implements Serializable {
      */
     public void paint(Graphics g) {
         super.paintComponent(g);
-        int width = this.canvasdDimensions.getWidth();
-        int height = this.canvasdDimensions.getHeight();
+        int width = this.canvasDimensions.getWidth();
+        int height = this.canvasDimensions.getHeight();
         g.setColor(Color.LIGHT_GRAY);
-        g.fillRect(0,0,width,height);
-        allPaint(g);
-        youngCellPaint(g);
-        youngAndFatCellsPaint(g);
-        fullAgeCellsPaint(g);
-        hungryCellsPaint(g);
-        oldCellsPaint(g);
+        g.fillRect(0, 0, width, height);
+        paintPopulationCensus(g, LifeCycleStatus.YOUNG);
+        paintPopulationCensus(g, LifeCycleStatus.YOUNG_AND_FAT);
+        paintPopulationCensus(g, LifeCycleStatus.ADULT_AGE);
+        paintPopulationCensus(g, LifeCycleStatus.OLD);
     }
-    public void allPaint(Graphics g){
-        int height = this.canvasdDimensions.getHeight();
+
+    private void paintPopulationCensus(Graphics g, LifeCycleStatus status) {
+        int height = this.canvasDimensions.getHeight();
         double zoom = getZoom();
         int xx = 0;
-        for(SimulatedEvolutionPopulationCensus o:this.container.getData()){
+        for (SimulatedEvolutionPopulationCensus census : this.container.getData()) {
             xx++;
-            int all = height - (int)(o.getPopulation() * zoom);
-            g.setColor(POPULATION.getColorForeground());
-            g.drawLine(xx,all,xx,all);
+            int value = getValueByStatus(census, status);
+            int cellHeight = height - (int) (value * zoom);
+            Color color = status.getColor();
+            g.setColor(color);
+            g.drawLine(xx, cellHeight, xx, cellHeight);
         }
     }
 
-    public void youngCellPaint(Graphics g){
-        int height = this.canvasdDimensions.getHeight();
-        double zoom = getZoom();
-        int xx = 0;
-        for(SimulatedEvolutionPopulationCensus o:this.container.getData()){
-            xx++;
-            int youngCells = height - (int)(o.getYoungCells() * zoom);
-            g.setColor(YOUNG.getColor());
-            g.drawLine(xx,youngCells,xx,youngCells);
-        }
+    private int getValueByStatus(SimulatedEvolutionPopulationCensus census, LifeCycleStatus status) {
+        return status.getCellStatus().getCellsNumber(census);
     }
 
-    public void youngAndFatCellsPaint(Graphics g){
-        int height = this.canvasdDimensions.getHeight();
-        double zoom = getZoom();
-        int xx = 0;
-        for(SimulatedEvolutionPopulationCensus o:this.container.getData()){
-            xx++;
-            int youngAndFatCells = height - (int)(o.getYoungAndFatCells() * zoom);
-            g.setColor(YOUNG_AND_FAT.getColor());
-            g.drawLine(xx,youngAndFatCells,xx,youngAndFatCells);
-        }
-    }
-
-    public void fullAgeCellsPaint(Graphics g){
-        int height = this.canvasdDimensions.getHeight();
-        double zoom = getZoom();
-        int xx = 0;
-        for(SimulatedEvolutionPopulationCensus o:this.container.getData()){
-            xx++;
-            int fullAgeCells = height - (int)(o.getFullAgeCells() * zoom);
-            g.setColor(ADULT_AGE.getColor());
-            g.drawLine(xx,fullAgeCells,xx,fullAgeCells);
-        }
-    }
-
-    public void hungryCellsPaint(Graphics g){
-        int height = this.canvasdDimensions.getHeight();
-        double zoom = getZoom();
-        int xx = 0;
-        for(SimulatedEvolutionPopulationCensus o:this.container.getData()){
-            xx++;
-            int hungryCells = height - (int)(o.getHungryCells() * zoom);
-            g.setColor(OLD.getColor());
-            g.drawLine(xx,hungryCells,xx,hungryCells);
-        }
-    }
-
-    public void oldCellsPaint(Graphics g){
-        int height = this.canvasdDimensions.getHeight();
-        double zoom = getZoom();
-        int xx = 0;
-        for(SimulatedEvolutionPopulationCensus o:this.container.getData()){
-            xx++;
-            int oldCells = height - (int)(o.getOldCells() * zoom);
-            g.setColor(OLD.getColor());
-            g.drawLine(xx,oldCells,xx,oldCells);
-        }
-    }
-
-    public double getZoom(){
+    public double getZoom() {
         int maxPopulation = 0;
-        for(SimulatedEvolutionPopulationCensus o:this.container.getData()){
-            maxPopulation = Math.max(o.getPopulation(), maxPopulation);
+        for (SimulatedEvolutionPopulationCensus census : this.container.getData()) {
+            maxPopulation = Math.max(census.getPopulation(), maxPopulation);
         }
-        double zoom = 100.0d / Integer.valueOf(maxPopulation).doubleValue();
-        return zoom;
+        return 100.0d / maxPopulation;
     }
 
     public void update(Graphics g) {
