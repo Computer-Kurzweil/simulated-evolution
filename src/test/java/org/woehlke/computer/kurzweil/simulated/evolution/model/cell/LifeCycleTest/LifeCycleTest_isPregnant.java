@@ -1,14 +1,11 @@
-package org.woehlke.computer.kurzweil.simulated.evolution.model.cell;
+package org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeCycleTest;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
+import org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeCycle;
 
-import static org.junit.Assert.*;
-
-public class LifeCycleTest_isYoungAndFat {
-
+public class LifeCycleTest_isPregnant {
     private LifeCycle lc1;
     private LifeCycle lc2;
     private LifeCycle lc3;
@@ -33,11 +30,10 @@ public class LifeCycleTest_isYoungAndFat {
         lc4.setFat(lc4.getFAT_MINIMUM_FOR_SEX() + 1);
     }
     @Test
-    public void isYoungAndFat() {
-        Assertions.assertTrue(!lc1.isYoungAndFat());
-        Assertions.assertTrue(lc2.isYoungAndFat());
-        Assertions.assertTrue(!lc3.isYoungAndFat());
-        Assertions.assertTrue(!lc4.isYoungAndFat());
+    public void isPregnant() {
+        Assertions.assertTrue(!lc1.isPregnant());
+        Assertions.assertTrue(!lc2.isPregnant());
+        Assertions.assertTrue(!lc3.isPregnant());
+        Assertions.assertTrue(lc4.isPregnant());
     }
-
 }

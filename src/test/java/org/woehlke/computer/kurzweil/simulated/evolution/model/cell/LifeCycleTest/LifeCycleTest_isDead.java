@@ -1,8 +1,9 @@
-package org.woehlke.computer.kurzweil.simulated.evolution.model.cell;
+package org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeCycleTest;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
+import org.woehlke.computer.kurzweil.simulated.evolution.model.cell.LifeCycle;
 
 public class LifeCycleTest_isDead {
     private LifeCycle lc1;
