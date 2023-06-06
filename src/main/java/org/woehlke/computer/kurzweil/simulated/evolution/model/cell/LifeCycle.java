@@ -1,6 +1,7 @@
 package org.woehlke.computer.kurzweil.simulated.evolution.model.cell;
 
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 
@@ -36,62 +37,78 @@ public class LifeCycle implements Serializable {
     /**
      * Status of the LifeCycle is fat, age and hunger.
      */
+    @Getter
     private int fat;
 
     /**
      * Status of the LifeCycle is fat, age and hunger.
      */
+    @Getter
     private int age;
 
     /**
      * Status of the LifeCycle is fat, age and hunger.
      */
+    @Getter
     private int hunger;
 
     /**
      * LifeCycle Threshold Parameter
      */
+    @Getter
     private static int MAX_FAT = geneticInformation.getMAX_FAT();
 
     /**
      * LifeCycle Threshold Parameter
      */
+    @Getter
     private static int MAX_HUNGER = geneticInformation.getMAX_HUNGER();
 
     /**
      * LifeCycle Threshold Parameter
      */
+    @Getter
     private static int ADULT_AGE = geneticInformation.getADULT_AGE();
 
     /**
      * LifeCycle Threshold Parameter
      */
+    @Getter
     private static int FAT_MINIMUM_FOR_SEX = geneticInformation.getFAT_MINIMUM_FOR_SEX();
 
     /**
      * LifeCycle Threshold Parameter
      */
+    @Getter
     private static int FAT_AT_BIRTH = geneticInformation.getFAT_AT_BIRTH();
 
     /**
      * LifeCycle Threshold Parameter
      */
+    @Getter
     private static int FAT_PER_FOOD = geneticInformation.getFAT_PER_FOOD();
 
     /**
      * LifeCycle Threshold Parameter
      */
+
+    @Getter
     private static int OLD_AGE = geneticInformation.getOLD_AGE();
 
     /** LifeCycle Threshold Parameter */
+    @Getter
     private static int MAX_AGE = geneticInformation.getMAX_AGE();
 
+    @Getter
     private static int AGE_INC = geneticInformation.getAGE_INC();
 
+    @Getter
     private static int FAT_DEC = geneticInformation.getFAT_DEC();
 
+    @Getter
     private static int HUNGER_INC = geneticInformation.getHUNGER_INC();
 
+    @Getter
     private static int FAT_DIVISION = geneticInformation.getFAT_DIVISION();
     public LifeCycle() {
         hunger = 0;
@@ -179,7 +196,7 @@ public class LifeCycle implements Serializable {
     public boolean isHungry() {
         return (fat == 0) && (hunger >= 0);
     }
- 
+
 
     public LifeCycleStatus getLifeCycleStatus(){
         if(isHungry()) return LifeCycleStatus.HUNGRY;
