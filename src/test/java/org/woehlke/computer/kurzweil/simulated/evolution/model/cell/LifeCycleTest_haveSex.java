@@ -10,12 +10,10 @@ import static org.junit.Assert.*;
 public class LifeCycleTest_haveSex {
 
     private LifeCycle lc;
-    private int ageBeforeTest;
     private int fatBeforeTest;
     @Before
     public void setup() {
         lc = new LifeCycle();
-        ageBeforeTest = lc.getAge();
         fatBeforeTest = lc.getFat();
     }
     @Test

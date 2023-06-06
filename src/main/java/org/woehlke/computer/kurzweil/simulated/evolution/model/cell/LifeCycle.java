@@ -2,6 +2,7 @@ package org.woehlke.computer.kurzweil.simulated.evolution.model.cell;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 
@@ -38,18 +39,21 @@ public class LifeCycle implements Serializable {
      * Status of the LifeCycle is fat, age and hunger.
      */
     @Getter
+    @Setter
     private int fat;
 
     /**
      * Status of the LifeCycle is fat, age and hunger.
      */
     @Getter
+    @Setter
     private int age;
 
     /**
      * Status of the LifeCycle is fat, age and hunger.
      */
     @Getter
+    @Setter
     private int hunger;
 
     /**
