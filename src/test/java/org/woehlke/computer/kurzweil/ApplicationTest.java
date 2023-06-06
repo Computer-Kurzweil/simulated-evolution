@@ -1,4 +1,4 @@
-package org.woehlke.computer.kurzweil.simulation.evolution;
+package org.woehlke.computer.kurzweil;
 
 
 import org.junit.jupiter.api.MethodOrderer;
