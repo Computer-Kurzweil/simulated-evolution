@@ -181,10 +181,6 @@ public class LifeCycle implements Serializable {
         }
     }
 
-    public int getFat() {
-        return fat;
-    }
-
     public boolean isYoung() {
         return (age < ADULT_AGE) && (fat < FAT_MINIMUM_FOR_SEX);
     }
@@ -200,7 +196,6 @@ public class LifeCycle implements Serializable {
     public boolean isHungry() {
         return (fat == 0) && (hunger >= 0);
     }
-
 
     public LifeCycleStatus getLifeCycleStatus(){
         if(isHungry()) return LifeCycleStatus.HUNGRY;
