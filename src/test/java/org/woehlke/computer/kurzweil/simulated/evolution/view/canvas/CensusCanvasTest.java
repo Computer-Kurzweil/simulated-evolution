@@ -29,7 +29,7 @@ public class CensusCanvasTest {
         census = new SimulatedEvolutionPopulationCensus(0);
         census.setYoungCells(YOUNGCELL);
         census.setYoungAndFatCells(YOUNGANDFATCELLS);
-        census.setFullAgeCells(ADULTCELLS);
+        census.setAdultCells(ADULTCELLS);
         census.setHungryCells(HUNGRYCELLS);
         census.setOldCells(OLDCELLS);
         census.setDeadCells(DEADCELLS);
