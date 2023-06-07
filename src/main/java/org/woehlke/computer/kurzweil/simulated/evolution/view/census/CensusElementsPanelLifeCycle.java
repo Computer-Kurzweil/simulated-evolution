@@ -76,7 +76,7 @@ public class CensusElementsPanelLifeCycle extends JPanel implements Serializable
         SimulatedEvolutionPopulationCensus population = this.container.peek();
         youngCellsElement.setText(population.getYoungCells());
         youngAndFatCellsElement.setText(population.getYoungAndFatCells());
-        adultAgeCellsElement.setText(population.getFullAgeCells());
+        adultAgeCellsElement.setText(population.getAdultCells());
         hungryCellsElement.setText(population.getHungryCells());
         oldCellsElement.setText(population.getOldCells());
         wholeGeneration.setText(population.getPopulation());

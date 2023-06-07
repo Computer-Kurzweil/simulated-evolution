@@ -1,6 +1,5 @@
 package org.woehlke.computer.kurzweil.simulated.evolution.model.census.censusstatus;
 
-import jakarta.validation.Valid;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.census.SimulatedEvolutionPopulationCensus;
 
 import java.awt.*;
@@ -31,7 +30,7 @@ public class AdultAgeStatus implements CensusCellStatus{
 
     @Override
     public int getCellsNumber(SimulatedEvolutionPopulationCensus census){
-        return census.getFullAgeCells();
+        return census.getAdultCells();
     }
 
 }

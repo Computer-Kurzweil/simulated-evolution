@@ -27,7 +27,7 @@ public class SimulatedEvolutionPopulationCensus implements Serializable {
 
     private int youngCells;
     private int youngAndFatCells;
-    private int fullAgeCells;
+    private int adultCells;
     private int hungryCells;
     private int oldCells;
     private int deadCells;
@@ -66,7 +66,7 @@ public class SimulatedEvolutionPopulationCensus implements Serializable {
     }
 
     public void incrementFullAgeCells(){
-        fullAgeCells++;
+        adultCells++;
     }
     public void incrementHungryCells(){
         hungryCells++;
