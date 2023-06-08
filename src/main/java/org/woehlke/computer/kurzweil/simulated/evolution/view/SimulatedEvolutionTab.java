@@ -8,6 +8,7 @@ import org.woehlke.computer.kurzweil.simulated.evolution.model.SimulatedEvolutio
 import org.woehlke.computer.kurzweil.simulated.evolution.application.SimulatedEvolutionParameter;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.geometry.LatticePoint;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.geometry.LatticeRectangle;
+import org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.ConcreteSimulatedEvolutionCanvas;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.canvas.SimulatedEvolutionCanvas;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.census.CensusElementsPanelCounted;
 import org.woehlke.computer.kurzweil.simulated.evolution.view.census.CensusElementsPanelLifeCycle;
@@ -114,7 +115,7 @@ public class SimulatedEvolutionTab extends JFrame implements MenuContainer,
         this.model = new SimulatedEvolutionModel(
             properties
         );
-        this.canvas = new SimulatedEvolutionCanvas(this.model);
+        this.canvas = new ConcreteSimulatedEvolutionCanvas(this.model);
         this.controller = new SimulatedEvolutionController(
             this.model,
             this.canvas,

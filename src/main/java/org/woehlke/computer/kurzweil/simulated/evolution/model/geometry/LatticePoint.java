@@ -30,17 +30,19 @@ import java.io.Serializable;
 @AllArgsConstructor
 @EqualsAndHashCode
 public class LatticePoint implements Serializable {
+    private final static int[][] OFFSETS = {
+        {-1, -1}, {-1, 0}, {-1, 1},
+        {0, -1},  {0, 0},  {0, 1},
+        {1, -1},  {1, 0},  {1, 1}
+    };
+
+    private final static int INDEX_MIN = 0;
+    private final static int INDEX_MAX = 1;
 
     static final long serialVersionUID = 242L;
 
-    /**
-     * Horizontal X-Coordinate. Also used as Width;
-     */
-    private int x;
 
-    /**
-     * Vertical Y-Coordinate. Also used as Height;
-     */
+    private int x;
     private int y;
 
     public LatticePoint(LatticePoint other) {
@@ -48,19 +50,15 @@ public class LatticePoint implements Serializable {
         this.y = other.getY();
     }
 
-    public void absoluteValue() {
-        x *= Integer.signum(x);
-        y *= Integer.signum(y);
+    public void makePositive() {
+        x = Math.abs(x);
+        y = Math.abs(y);
     }
 
-    public void killNagative() {
-        absoluteValue();
-    }
 
-    public void plus(LatticePoint p) {
-        this.x += p.getX();
-        this.y += p.getY();
-        absoluteValue();
+    public void addAndAbsolute(LatticePoint p) {
+        this.x = Math.abs(x + p.getX());
+        this.y = Math.abs(y + p.getY());
     }
 
     public void add(LatticePoint p) {
@@ -90,22 +88,26 @@ public class LatticePoint implements Serializable {
 
     /**
      * Get Neighbourhood.
+     *
      * @param max - limit the dimensions of the world around
      * @return The Set of Points belonging to the Neighbourhood of the position given by this Point Object.
      */
-    public LatticePoint[] getNeighbourhood(LatticePoint max){
-        LatticePoint neighbourhood[] = new LatticePoint[9];
+
+    public LatticePoint[] getNeighbourhood(LatticePoint max) {
+
+
+        LatticePoint[] neighbourhood = new LatticePoint[9];
         int maxX = max.getX();
         int maxY = max.getY();
-        neighbourhood[0]= new LatticePoint((this.x+maxX-1) % maxX,(this.y+maxY-1) % maxY);
-        neighbourhood[1]= new LatticePoint((this.x+maxX-1) % maxX,this.y);
-        neighbourhood[2]= new LatticePoint((this.x+maxX-1) % maxX,(this.y+maxY+1) % maxY);
-        neighbourhood[3]= new LatticePoint(this.x,(this.y+maxY-1) % maxY);
-        neighbourhood[4]= new LatticePoint(this.x,this.y);
-        neighbourhood[5]= new LatticePoint(this.x,(this.y+maxY+1) % maxY);
-        neighbourhood[6]= new LatticePoint((this.x+maxX+1) % maxX,(this.y+maxY-1) % maxY);
-        neighbourhood[7]= new LatticePoint((this.x+maxX+1) % maxX,this.y);
-        neighbourhood[8]= new LatticePoint((this.x+maxX+1) % maxX,(this.y+maxY+1) % maxY);
+
+        for (int i = 0; i < neighbourhood.length; i++) {
+            int offsetX = OFFSETS[i][INDEX_MIN];
+            int offsetY = OFFSETS[i][INDEX_MAX];
+            int newX = (this.x + maxX + offsetX) % maxX;
+            int newY = (this.y + maxY + offsetY) % maxY;
+            neighbourhood[i] = new LatticePoint(newX, newY);
+        }
         return neighbourhood;
     }
+
 }

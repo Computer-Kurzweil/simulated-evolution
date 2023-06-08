@@ -27,7 +27,7 @@ public class SimulatedEvolutionPopulationCensus implements Serializable {
 
     private int youngCells;
     private int youngAndFatCells;
-    private int fullAgeCells;
+    private int adultCells;
     private int hungryCells;
     private int oldCells;
     private int deadCells;
@@ -39,14 +39,11 @@ public class SimulatedEvolutionPopulationCensus implements Serializable {
 
     public void countStatusOfOneCell(LifeCycleStatus status, long generation) {
         population++;
-        switch (status) {
-            case YOUNG -> youngCells++;
-            case YOUNG_AND_FAT -> youngAndFatCells++;
-            case FULL_AGE -> fullAgeCells++;
-            case HUNGRY -> hungryCells++;
-            case OLD -> oldCells++;
-            case DEAD -> deadCells++;
-        }
+        status.countStatus(this);
+        upgradeGenerationBoundaries(generation);
+    }
+
+    private void upgradeGenerationBoundaries(long generation) {
         if (generation < generationOldest) {
             generationOldest = generation;
         }
@@ -59,5 +56,29 @@ public class SimulatedEvolutionPopulationCensus implements Serializable {
         this.worldIteration = worldIteration;
         this.generationOldest = worldIteration;
         this.generationYoungest = 0L;
+    }
+
+    public void incrementYoungCells(){
+        youngCells++;
+    }
+    public void incrementYoungAndFatCells(){
+        youngAndFatCells++;
+    }
+
+    public void incrementFullAgeCells(){
+        adultCells++;
+    }
+    public void incrementHungryCells(){
+        hungryCells++;
+    }
+    public void incrementOldCells(){
+        oldCells++;
+    }
+    public void incrementDeadCells(){
+        deadCells++;
+    }
+
+    public void incrementPopulation(){
+        population++;
     }
 }

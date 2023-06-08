@@ -3,11 +3,12 @@ package org.woehlke.computer.kurzweil.simulated.evolution.model.cell;
 import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
+import org.woehlke.computer.kurzweil.simulated.evolution.model.census.SimulatedEvolutionPopulationCensus;
+import org.woehlke.computer.kurzweil.simulated.evolution.model.census.censusstatus.*;
+
 
 import java.awt.*;
 import java.io.Serializable;
-
-import static java.awt.Color.*;
 
 /**
  * The Status of the Cell's LifeCycle.
@@ -30,27 +31,28 @@ import static java.awt.Color.*;
 @ToString
 public enum LifeCycleStatus implements Serializable {
 
-    YOUNG(BLUE, WHITE),
-    YOUNG_AND_FAT(YELLOW, BLACK),
-    FULL_AGE(RED, WHITE),
-    HUNGRY(LIGHT_GRAY, BLACK),
-    OLD(DARK_GRAY, WHITE),
-    DEAD(BLACK, WHITE),
-    POPULATION(WHITE, BLACK);
+    YOUNG(new YoungStatus()),
+    YOUNG_AND_FAT(new YoungAndFatStatus()),
 
-    private final Color colorBackground;
-    private final Color colorFont;
+    ADULT_AGE(new AdultAgeStatus()),
+    HUNGRY(new HungryStatus()),
+    OLD(new OldStatus()),
+    DEAD(new DeadStatus()),
+    POPULATION(new PopulationStatus());
 
-    LifeCycleStatus(final Color colorBackground, final Color colorFont){
-        this.colorBackground=colorBackground;
-        this.colorFont = colorFont;
+    private final CensusCellStatus cellStatus;
+    LifeCycleStatus(CensusCellStatus cellStatus){
+        this.cellStatus = cellStatus;
     }
 
-    public Color getColor() { return colorBackground; }
+    public void countStatus(SimulatedEvolutionPopulationCensus census){
+        cellStatus.countStatus(census);
+    }
+    public Color getColor() { return cellStatus.getColor(); }
     public Color getColorForeground() {
-        return colorFont;
+        return cellStatus.getColorForeground();
     }
     public Color getColorBackground() {
-        return colorBackground;
+        return cellStatus.getColorBackground();
     }
 }

@@ -7,6 +7,7 @@ import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 import org.woehlke.computer.kurzweil.simulated.evolution.config.ComputerKurzweilProperties;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.cell.Cell;
+import org.woehlke.computer.kurzweil.simulated.evolution.model.cell.CellOriginal;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.census.SimulatedEvolutionPopulationCensus;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.census.SimulatedEvolutionPopulationCensusContainer;
 import org.woehlke.computer.kurzweil.simulated.evolution.model.geometry.LatticePoint;
@@ -82,10 +83,10 @@ public class SimulatedEvolutionModel implements Serializable {
 
     public SimulatedEvolutionModel(ComputerKurzweilProperties properties) {
         this.properties = properties;
-        this.initialPopulation =  this.properties.getSimulatedevolution().getPopulation().getInitialPopulation();
-        int scale = this.properties.getSimulatedevolution().getView().getScale();
-        int width = scale * this.properties.getSimulatedevolution().getView().getWidth();
-        int height = scale * this.properties.getSimulatedevolution().getView().getHeight();
+        this.initialPopulation =  this.properties.getInitPopulation();
+        int scale = this.properties.getScale();
+        int width = scale * this.properties.getWidth();
+        int height = scale * this.properties.getHeight();
         this.worldDimensions = new LatticePoint(width,height);
         long seed = new Date().getTime();
         this.random = new Random(seed);
@@ -108,16 +109,11 @@ public class SimulatedEvolutionModel implements Serializable {
         );
         cells = new ArrayList<Cell>();
         for (int i = 0; i < initialPopulation; i++) {
-            int x = random.nextInt(worldDimensions.getX());
-            int y = random.nextInt(worldDimensions.getY());
-            if (x < 0) {
-                x *= -1;
-            }
-            if (y < 0) {
-                y *= -1;
-            }
+            int x = Math.abs(random.nextInt(worldDimensions.getX()));
+            int y = Math.abs(random.nextInt(worldDimensions.getY()));
+
             LatticePoint pos = new LatticePoint(x, y);
-            Cell cell = new Cell(worldDimensions, pos, random);
+            Cell cell = new CellOriginal(worldDimensions, pos, random);
             cells.add(cell);
             populationCensus.countStatusOfOneCell(cell.getLifeCycleStatus(), cell.getGeneration());
         }
@@ -150,7 +146,12 @@ public class SimulatedEvolutionModel implements Serializable {
                 }
             }
         }
-        for(Cell dead:died){
+        populationCensus(census, children, died);
+        return ! cells.isEmpty();
+    }
+
+    private void populationCensus(SimulatedEvolutionPopulationCensus census, List<Cell> children, List<Cell> died) {
+        for(Cell dead: died){
             cells.remove(dead);
         }
         cells.addAll(children);
@@ -158,7 +159,6 @@ public class SimulatedEvolutionModel implements Serializable {
             census.countStatusOfOneCell(cell.getLifeCycleStatus(), cell.getGeneration());
         }
         this.censusContainer.push(census);
-        return ! cells.isEmpty();
     }
 
     public List<Cell> getAllCells(){

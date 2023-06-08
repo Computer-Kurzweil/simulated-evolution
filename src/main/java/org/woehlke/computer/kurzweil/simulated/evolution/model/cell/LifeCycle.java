@@ -1,6 +1,8 @@
 package org.woehlke.computer.kurzweil.simulated.evolution.model.cell;
 
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 import lombok.extern.log4j.Log4j2;
 
@@ -31,60 +33,87 @@ public class LifeCycle implements Serializable {
 
     static final long serialVersionUID = 242L;
 
+    static GeneticInfo geneticInformation = new ConcreteGeneticInfo1();
+
     /**
      * Status of the LifeCycle is fat, age and hunger.
      */
+    @Getter
+    @Setter
     private int fat;
 
     /**
      * Status of the LifeCycle is fat, age and hunger.
      */
+    @Getter
+    @Setter
     private int age;
 
     /**
      * Status of the LifeCycle is fat, age and hunger.
      */
+    @Getter
+    @Setter
     private int hunger;
 
+    /**
+     * LifeCycle Threshold Parameter
+     */
+    @Getter
+    private static int MAX_FAT = geneticInformation.getMAX_FAT();
 
     /**
      * LifeCycle Threshold Parameter
      */
-    private final static int MAX_FAT = 2000;
+    @Getter
+    private static int MAX_HUNGER = geneticInformation.getMAX_HUNGER();
 
     /**
      * LifeCycle Threshold Parameter
      */
-    private final static int MAX_HUNGER = 1000;
+    @Getter
+    private static int ADULT_AGE = geneticInformation.getADULT_AGE();
 
     /**
      * LifeCycle Threshold Parameter
      */
-    private final static int FULL_AGE = 200;
+    @Getter
+    private static int FAT_MINIMUM_FOR_SEX = geneticInformation.getFAT_MINIMUM_FOR_SEX();
 
     /**
      * LifeCycle Threshold Parameter
      */
-    private final static int FAT_MINIMUM_FOR_SEX = 800;
+    @Getter
+    private static int FAT_AT_BIRTH = geneticInformation.getFAT_AT_BIRTH();
 
     /**
      * LifeCycle Threshold Parameter
      */
-    private final static int FAT_AT_BIRTH = 500;
+    @Getter
+    private static int FAT_PER_FOOD = geneticInformation.getFAT_PER_FOOD();
 
     /**
      * LifeCycle Threshold Parameter
      */
-    private final static int FAT_PER_FOOD = 25;
 
-    /**
-     * LifeCycle Threshold Parameter
-     */
-    private final static int OLD_AGE = 800;
+    @Getter
+    private static int OLD_AGE = geneticInformation.getOLD_AGE();
 
     /** LifeCycle Threshold Parameter */
-    private final static int MAX_AGE = 1000;
+    @Getter
+    private static int MAX_AGE = geneticInformation.getMAX_AGE();
 
+    @Getter
+    private static int AGE_INC = geneticInformation.getAGE_INC();
+
+    @Getter
+    private static int FAT_DEC = geneticInformation.getFAT_DEC();
+
+    @Getter
+    private static int HUNGER_INC = geneticInformation.getHUNGER_INC();
+
+    @Getter
+    private static int FAT_DIVISION = geneticInformation.getFAT_DIVISION();
     public LifeCycle() {
         hunger = 0;
         age = 0;
@@ -102,12 +131,12 @@ public class LifeCycle implements Serializable {
      * @return true, if cell has enough energy to move.
      */
     public boolean move() {
-        age++;
+        age += AGE_INC;
         if (fat > 0) {
-            fat--;
+            fat -= FAT_DEC;
             return true;
         } else {
-            hunger++;
+            hunger += HUNGER_INC;
             return false;
         }
     }
@@ -116,7 +145,7 @@ public class LifeCycle implements Serializable {
      * having sex by cell division changes age and fat.
      */
     public void haveSex() {
-        fat /= 2;
+        fat /= FAT_DIVISION;
         age = 0;
     }
 
@@ -124,14 +153,14 @@ public class LifeCycle implements Serializable {
      * @return has enough age and fat for having sex.
      */
     public boolean isYoungAndFat() {
-        return (age < FULL_AGE) && (fat >= FAT_MINIMUM_FOR_SEX);
+        return (age < ADULT_AGE) && (fat >= FAT_MINIMUM_FOR_SEX);
     }
 
     /**
      * @return has enough age and fat for having sex.
      */
     public boolean isPregnant() {
-        return (age >= FULL_AGE) && (fat >= FAT_MINIMUM_FOR_SEX);
+        return (age >= ADULT_AGE) && (fat >= FAT_MINIMUM_FOR_SEX);
     }
 
     /**
@@ -152,30 +181,28 @@ public class LifeCycle implements Serializable {
         }
     }
 
-    public int getFat() {
-        return fat;
+    public boolean isYoung() {
+        return (age < ADULT_AGE) && (fat < FAT_MINIMUM_FOR_SEX);
+    }
+
+    public boolean isAdult() {
+        return (age >= ADULT_AGE) && (age < OLD_AGE);
+    }
+
+    public boolean isOld() {
+        return (age >= ADULT_AGE) && (age >= OLD_AGE) && (age < MAX_AGE);
+    }
+
+    public boolean isHungry() {
+        return (fat == 0) && (hunger >= 0);
     }
 
     public LifeCycleStatus getLifeCycleStatus(){
-        if(fat==0 && hunger>=0){
-            return LifeCycleStatus.HUNGRY;
-        }
-        if(age<FULL_AGE){
-            if(fat< FAT_MINIMUM_FOR_SEX){
-                return LifeCycleStatus.YOUNG;
-            } else {
-                return YOUNG_AND_FAT;
-            }
-        } else {
-            if (age<OLD_AGE) {
-                return LifeCycleStatus.FULL_AGE;
-            } else {
-                if (age < MAX_AGE) {
-                    return LifeCycleStatus.OLD;
-                } else {
-                    return LifeCycleStatus.DEAD;
-                }
-            }
-        }
+        if(isHungry()) return LifeCycleStatus.HUNGRY;
+        if (isYoung()) return LifeCycleStatus.YOUNG;
+        if (isYoungAndFat()) return LifeCycleStatus.YOUNG_AND_FAT;
+        if (isAdult()) return LifeCycleStatus.ADULT_AGE;
+        if (isOld()) return LifeCycleStatus.OLD;
+        else return LifeCycleStatus.DEAD;
     }
 }
