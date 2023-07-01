@@ -9,7 +9,7 @@
     </parent>
 
     <artifactId>simulatedevolution</artifactId>
-    <version>3.0.13-SNAPSHOT</version>
+    <version>3.0.12-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Simulated Evolution</name>
