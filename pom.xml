@@ -9,7 +9,7 @@
     </parent>
 
     <artifactId>simulatedevolution</artifactId>
-    <version>3.0.11</version>
+    <version>3.0.12-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Simulated Evolution</name>
@@ -21,7 +21,7 @@
         <connection>scm:git:git@github.com:Computer-Kurzweil/simulated-evolution.git</connection>
         <developerConnection>scm:git:git@github.com:Computer-Kurzweil/simulated-evolution.git</developerConnection>
         <url>https://github.com/Computer-Kurzweil/simulated-evolution/tree/${project.scm.tag}</url>
-        <tag>simulatedevolution-3.0.11</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <issueManagement>
